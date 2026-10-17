@@ -19,6 +19,15 @@ test('every documented guide has a prerendered page and code is copyable', async
 	const routes = (await readFile('apps/documentation/prerender-routes.txt', 'utf8'))
 		.trim()
 		.split(/\r?\n/);
+	for (const slug of [
+		'deployment',
+		'publishing',
+		'releasing',
+		'maintenance',
+		'contributing',
+		'project-status',
+	])
+		expect(routes).not.toContain(`/guides/${slug}`);
 	for (const route of routes.filter((route) => route.startsWith('/guides/'))) {
 		const response = await request.get(route);
 		expect(response.ok(), route).toBe(true);
@@ -118,8 +127,11 @@ test('task guides explain setup, every feature family, and individual code copyi
 	await expect(page).toHaveURL(/guides\/layout/);
 	await expect(page.locator('.guide-prose')).toContainText('Resize columns');
 	await page.goto('/guides/installation');
-	await expect(page.locator('.guide-prose')).toContainText('npm install ngx-editra@next');
-	await expect(page.locator('.guide-prose')).toContainText('Until publication');
+	await expect(page.locator('.guide-prose')).toContainText('npm install ngx-editra');
+	await expect(page.locator('.guide-prose')).toContainText('>=17.0.0 <23.0.0');
+	await expect(page.locator('.guide-prose')).toContainText(
+		'alpha.0 still uses narrower patch minimums',
+	);
 	const firstCode = page.locator('.guide-code-region').first();
 	await firstCode.getByRole('button', { name: /Copy code example/ }).click();
 	await expect(firstCode.getByRole('status')).toHaveText('Code copied to clipboard.');

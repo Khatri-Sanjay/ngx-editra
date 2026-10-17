@@ -2,6 +2,24 @@
 
 For executable Windows instructions, follow the [step-by-step npm publishing guide](PUBLISHING.md).
 
+The normal release flow is:
+
+```sh
+npm run release
+npm run release:publish
+```
+
+Configure local tool paths once using `release.config.example.json` as a template
+for the ignored `release.local.json`. `npm run release:check` checks the paths and
+toolchain versions without building or publishing. Preparation runs the full matrix
+when evidence is stale and reuses matching evidence when source/archive are unchanged.
+Publishing requires an interactive terminal and an explicit package/version confirmation.
+The lower-level commands below remain available for troubleshooting.
+
+Keep changelog entries focused on library features, fixes, compatibility and breaking
+changes that affect consumers. Document publishing scripts, CI, local setup and
+workspace maintenance in the maintainer guides instead of release notes.
+
 1. Run the validation commands in CONTRIBUTING.md and complete the outstanding acceptance
    criteria in PROGRESS.md. Do not call this alpha a stable release.
 2. Update package version, changelog, consumer tarball paths and any demonstrated peer ranges.
@@ -9,10 +27,10 @@ For executable Windows instructions, follow the [step-by-step npm publishing gui
 4. Install that exact tarball into independent consumers; run the full compatibility matrix.
 5. Confirm README, LICENSE, public declarations, the single root API export and SCSS are in the archive.
 6. Verify package-name ownership and npm account permissions immediately before publication.
-7. After explicit owner authorization, publish the exact tested archive from the workspace root with the prerelease tag:
+7. After explicit owner authorization, publish the exact tested archive from the workspace root with the stable tag:
 
 ```sh
-npm publish ./artifacts/ngx-editra-0.1.0-alpha.0.tgz --access public --tag next
+npm publish ./artifacts/ngx-editra-1.0.0.tgz --access public --tag latest
 ```
 
 No workflow publishes automatically. GitHub Actions prepares validation evidence and archives.
@@ -25,8 +43,8 @@ archive with `--tag latest` and update the source publishing default accordingly
 After publication, verify the published alpha and its consumer instructions:
 
 ```sh
-npm view ngx-editra@next version dist-tags peerDependencies
-npm install ngx-editra@next
+npm view ngx-editra@latest version dist-tags peerDependencies
+npm install ngx-editra
 ```
 
 Run installation in a separate Angular application and follow [installation](INSTALLATION.md)
@@ -37,8 +55,7 @@ for archive publishing and tags.
 
 ## Automated validation and maintenance
 
-The package is unpublished and remains an alpha until the release evidence and manual
-acceptance work are complete. Validation and packing never publish a package.
+The published release is `0.1.0-alpha.0`; the next stable release is `1.0.0`. Validation and packing never publish a package.
 
 ## Local validation
 
@@ -63,13 +80,17 @@ hydration and code copying through the public package entry point.
 Set `EDITRA_NODE20` and `EDITRA_NODE24` to the respective Node executables and, if not
 running through npm, `EDITRA_NPM_CLI` to npm's JavaScript entry point. Then run:
 
+Also set `EDITRA_NPM24_CLI` to npm 11's JavaScript entry point for Angular 21/22
+consumers. The older compilation toolchain continues to use npm 10.
+
 ```sh
 npm run validate -- --compatibility
 npm run verify:evidence
 ```
 
-The compatibility runner installs the newly packed archive in six independent Angular
-17–22 consumers using normal peer resolution. Each consumer must pass production build,
+The compatibility runner installs the newly packed archive in independent Angular
+17–22 consumers at each major's minimum and current fixture, plus Angular 22.1.2,
+using normal peer resolution. Each consumer must pass production build,
 forms, SSR/hydration, security, media, table and saved-content rendering tests. Evidence
 is stored in `artifacts/compatibility-results.json` with the archive SHA-256. Historical
 results do not validate a changed archive. Do not widen peer ranges without passing the

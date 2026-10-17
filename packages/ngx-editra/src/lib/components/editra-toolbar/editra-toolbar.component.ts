@@ -56,7 +56,7 @@ export const defaultToolbar: readonly EditraToolbarItem[] = [
 								[disabled]="disabled || !enabled(item.command)"
 								[attr.aria-label]="item.label"
 								[attr.aria-pressed]="active(item.command)"
-								[title]="item.label"
+								[title]="commandTitle(item)"
 								(pointerdown)="$event.preventDefault()"
 								(click)="execute.emit(item.command)"
 							>
@@ -76,13 +76,16 @@ export const defaultToolbar: readonly EditraToolbarItem[] = [
 		`
 			:host {
 				display: block;
+				container-type: inline-size;
 			}
 			[role='toolbar'] {
+				position: relative;
 				display: flex;
 				flex-wrap: wrap;
-				gap: 5px;
+				gap: 6px;
 				align-items: center;
-				padding: 7px 10px;
+				padding: 8px;
+				font-size: 13px;
 				min-width: 0;
 				background: var(--editra-toolbar, var(--editra-surface, #fff));
 			}
@@ -98,7 +101,7 @@ export const defaultToolbar: readonly EditraToolbarItem[] = [
 				display: none;
 			}
 			.command-bar {
-				gap: 0;
+				gap: 6px;
 			}
 			.command-button {
 				display: inline-flex;
@@ -120,13 +123,14 @@ export const defaultToolbar: readonly EditraToolbarItem[] = [
 			button[aria-pressed='true'] {
 				background: var(--editra-active, #dce9ff);
 				color: var(--editra-focus, #1763d1);
+				border-color: var(--editra-focus, #1763d1);
 			}
 			button[aria-pressed='mixed'] {
 				background: var(--editra-active, #dce9ff);
 				border-style: dashed;
 				border-color: var(--editra-focus, #1763d1);
 			}
-			button:not(:disabled):hover {
+			button:not(:disabled):not([aria-pressed='true']):hover {
 				background: var(--editra-hover, #e9edf3);
 			}
 			button:focus-visible {
@@ -140,10 +144,11 @@ export const defaultToolbar: readonly EditraToolbarItem[] = [
 			.toolbar-group {
 				display: flex;
 				gap: 2px;
-				flex-wrap: wrap;
+				flex-wrap: nowrap;
+				flex-shrink: 0;
 				border-right: 1px solid var(--editra-border, #ccd2dc);
-				padding-right: 7px;
-				margin-right: 7px;
+				padding-right: 6px;
+				margin-right: 0;
 				align-items: center;
 			}
 			.toolbar-group:last-child {
@@ -155,21 +160,30 @@ export const defaultToolbar: readonly EditraToolbarItem[] = [
 				flex-wrap: nowrap;
 				overflow-x: auto;
 				max-width: 100%;
+				scrollbar-width: thin;
+				scroll-padding-inline: 8px;
 			}
 			.scroll .toolbar-group {
 				flex-wrap: nowrap;
 				flex-shrink: 0;
 			}
-			@media (max-width: 600px) {
-				.command-bar {
+			@container (max-width: 640px) {
+				[role='toolbar'] {
 					flex-wrap: nowrap;
 					overflow-x: auto;
 					max-width: 100%;
 					scrollbar-width: thin;
+					scroll-padding-inline: 8px;
 				}
 				.command-bar .toolbar-group {
 					flex-wrap: nowrap;
 					flex-shrink: 0;
+				}
+			}
+			@media (pointer: coarse) {
+				.command-button {
+					width: 44px;
+					min-height: 44px;
 				}
 			}
 		`,
@@ -215,11 +229,23 @@ export class EditraToolbarComponent {
 	iconGlyph(item: EditraToolbarItem): string {
 		return item.icon && !hasEditraIcon(item.icon) ? item.icon : '';
 	}
+	commandTitle(item: EditraToolbarItem): string {
+		const shortcuts: Readonly<Record<string, string>> = {
+			bold: 'Ctrl/⌘+B',
+			italic: 'Ctrl/⌘+I',
+			underline: 'Ctrl/⌘+U',
+			undo: 'Ctrl/⌘+Z',
+			redo: 'Ctrl/⌘+Shift+Z',
+		};
+		const label = item.label.charAt(0).toUpperCase() + item.label.slice(1);
+		return shortcuts[item.command] ? `${label} (${shortcuts[item.command]})` : label;
+	}
 	@Input() disabled = false;
 	@Input() enabled: (id: string) => boolean = () => true;
 	@Input() active: (id: string) => boolean | 'mixed' = () => false;
 	@Output() readonly execute = new EventEmitter<string>();
 	navigate(event: KeyboardEvent): void {
+		if (event.defaultPrevented) return;
 		if (event.target instanceof HTMLInputElement || event.target instanceof HTMLSelectElement)
 			return;
 		if (

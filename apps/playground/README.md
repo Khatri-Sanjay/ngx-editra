@@ -1,5 +1,14 @@
 # Playground application
 
+[![npm version](https://img.shields.io/npm/v/ngx-editra?label=npm)](https://www.npmjs.com/package/ngx-editra)
+[![npm downloads per month](https://img.shields.io/badge/downloads-pending-lightgrey)](https://www.npmjs.com/package/ngx-editra)
+[![License](https://img.shields.io/npm/l/ngx-editra)](https://github.com/Khatri-Sanjay/ngx-editra/blob/main/LICENSE)
+
+[npm](https://www.npmjs.com/package/ngx-editra) | [Documentation](https://ngx-editra-docs.vercel.app) | [Playground](https://ngx-editra-playground.vercel.app) | [Source](https://github.com/Khatri-Sanjay/ngx-editra) | [Issues](https://github.com/Khatri-Sanjay/ngx-editra/issues)
+
+Run `npm run package:sync` after publication to refresh the published version shared
+by both apps. The demo may use a newer development build, labelled separately.
+
 Live site: https://ngx-editra-playground.vercel.app.
 
 The interactive demo imports the compiled public `ngx-editra` package. It is deployed

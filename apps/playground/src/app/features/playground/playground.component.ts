@@ -14,6 +14,7 @@ import { samples } from './data/samples';
 import { DocumentOutputComponent } from '../../shared/components/document-output/document-output.component';
 import type { DocumentFormat } from '../../shared/components/document-output/document-output.component';
 import { EmailExportComponent } from '../../shared/components/email-export/email-export.component';
+import { packageInfo } from '../../shared/data/package-info';
 
 @Component({
 	selector: 'app-playground',
@@ -32,6 +33,7 @@ import { EmailExportComponent } from '../../shared/components/email-export/email
 	styleUrl: './playground.component.scss',
 })
 export class PlaygroundComponent {
+	readonly package = packageInfo;
 	@ViewChild('editor') editor?: NgxEditraComponent;
 	initial = demoContent;
 	readonly samples = samples;
@@ -49,6 +51,7 @@ export class PlaygroundComponent {
 		theme: 'light',
 		placeholder: 'Your story starts here…',
 		minHeight: 320,
+		maxHeight: 560,
 		extensions: [imageExtension(), videoExtension()],
 	};
 	preset(event: Event): void {

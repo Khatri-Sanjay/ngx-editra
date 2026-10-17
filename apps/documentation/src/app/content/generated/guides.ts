@@ -9,7 +9,7 @@ export const guides: readonly Guide[] = [
 		summary:
 			'ngx-editra is a rich-text editor for Angular applications. Writers use a toolbar; your application receives an HTML string through Angular Forms. You can also read the document as JSON, plain text, or Markdown.',
 		readingMinutes: 4,
-		html: '<h1 id="feature-overview">Feature overview</h1>\n<p>ngx-editra is a rich-text editor for Angular applications. Writers use a toolbar; your application receives an HTML string through Angular Forms. You can also read the document as JSON, plain text, or Markdown.</p>\n<h2 id="start-with-these-three-steps">Start with these three steps</h2>\n<ol>\n<li><a href="/guides/installation">Install the library</a>; component styles load automatically.</li>\n<li><a href="/guides/quick-start">Create your first editor</a>.</li>\n<li><a href="/guides/angular-forms">Connect a form and save its value</a>.</li>\n</ol>\n<p>Open the live example in this documentation to try the real component. The library is an alpha; review <a href="/guides/compatibility">compatibility</a> and <a href="/guides/project-status">project status</a> before adopting it.</p>\n<h2 id="what-writers-can-do">What writers can do</h2>\n<table>\n<thead>\n<tr>\n<th>Feature</th>\n<th>What it does</th>\n<th>Learn more</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Text formatting</td>\n<td>Bold, italic, underline, strike, subscript, superscript, and clear formatting</td>\n<td><a href="/guides/formatting">Formatting</a></td>\n</tr>\n<tr>\n<td>Typography</td>\n<td>Headings, fonts, sizes, text colour, highlights, and text-case conversion</td>\n<td><a href="/guides/formatting">Formatting</a></td>\n</tr>\n<tr>\n<td>Paragraph layout</td>\n<td>Alignment, indentation, line spacing, lists, and blockquotes</td>\n<td><a href="/guides/formatting">Formatting</a></td>\n</tr>\n<tr>\n<td>Links</td>\n<td>Insert and edit validated web and email links</td>\n<td><a href="/guides/links">Links</a></td>\n</tr>\n<tr>\n<td>Images</td>\n<td>Insert by URL, add captions, align, resize, and place content beside an image</td>\n<td><a href="/guides/images">Images</a></td>\n</tr>\n<tr>\n<td>Videos</td>\n<td>Embed supported YouTube/Vimeo URLs or play a direct MP4</td>\n<td><a href="/guides/videos">Videos</a></td>\n</tr>\n<tr>\n<td>Tables</td>\n<td>Insert, merge/split cells, add rows/columns, resize, shade, and adjust borders</td>\n<td><a href="/guides/tables">Tables</a></td>\n</tr>\n<tr>\n<td>Columns</td>\n<td>Arrange independent content side by side and resize the divider</td>\n<td><a href="/guides/layout">Columns and lines</a></td>\n</tr>\n<tr>\n<td>Horizontal lines</td>\n<td>Add a divider with a chosen style and weight</td>\n<td><a href="/guides/layout">Columns and lines</a></td>\n</tr>\n<tr>\n<td>Code</td>\n<td>Insert inline code or a code block with a language label and copy control</td>\n<td><a href="/guides/code-blocks">Code blocks</a></td>\n</tr>\n<tr>\n<td>Find and replace</td>\n<td>Find text, move between matches, replace one or all</td>\n<td><a href="/guides/editing-tools">Editing tools</a></td>\n</tr>\n<tr>\n<td>Undo and redo</td>\n<td>Reverse document edits, formatting, and committed resizing operations</td>\n<td><a href="/guides/editing-tools">Editing tools</a></td>\n</tr>\n<tr>\n<td>Workspace tools</td>\n<td>Fullscreen, pinned toolbar, floating selection toolbar, and word/character counts</td>\n<td><a href="/guides/editing-tools">Editing tools</a></td>\n</tr>\n</tbody>\n</table>\n<h2 id="what-application-developers-can-do">What application developers can do</h2>\n<table>\n<thead>\n<tr>\n<th>Requirement</th>\n<th>Integration</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Bind an editor to a form</td>\n<td>Reactive Forms, form groups, or ngModel; values stay HTML</td>\n</tr>\n<tr>\n<td>Validate required content</td>\n<td>Set the editor\'s required input for semantic empty-document validation</td>\n</tr>\n<tr>\n<td>Disable editing</td>\n<td>Use the form\'s disable/enable methods, or the readonly input for viewing</td>\n</tr>\n<tr>\n<td>Set application defaults</td>\n<td>provideEditra(config), with per-editor config input overrides</td>\n</tr>\n<tr>\n<td>Match a design system</td>\n<td>Light, dark, or auto themes and CSS custom properties</td>\n</tr>\n<tr>\n<td>Save and restore content</td>\n<td>Read form HTML or explicit JSON conversion methods; use your own backend</td>\n</tr>\n<tr>\n<td>Render saved documents</td>\n<td>NgxEditraViewerComponent, editraContent directive, or editraHtml pipe with automatic styles</td>\n</tr>\n<tr>\n<td>React to editor activity</td>\n<td>Content, selection, ready, destroy, focus, blur, dirty, error, and transaction events</td>\n</tr>\n<tr>\n<td>Add behavior</td>\n<td>Typed extensions with commands, toolbar items, schema contributions, plugins, and node views</td>\n</tr>\n<tr>\n<td>Server-render an application</td>\n<td>Static validated content on the server; browser editing starts after rendering</td>\n</tr>\n</tbody>\n</table>\n<h2 id="what-is-not-included">What is not included</h2>\n<p>Use <a href="/guides/email">email export</a> for a separate conservative email HTML/text body with\nconversion warnings. Real Gmail, Outlook and Apple Mail rendering still requires inbox tests.</p>\n<p>The library does not provide a backend, file uploads, cloud storage, collaboration, track changes, PDF/Word export, or syntax highlighting. An image/video URL must already be accessible to the viewer. A valid URL does not guarantee that its host allows embedding.</p>\n<p>HTML and JSON preserve supported document features. Markdown is a conversion format and cannot preserve every colour, font, table, or media detail. See <a href="/guides/content">content and saving</a>.</p>\n',
+		html: '<h1 id="feature-overview">Feature overview</h1>\n<p>ngx-editra is a rich-text editor for Angular applications. Writers use a toolbar; your application receives an HTML string through Angular Forms. You can also read the document as JSON, plain text, or Markdown.</p>\n<h2 id="start-with-these-three-steps">Start with these three steps</h2>\n<ol>\n<li><a href="/guides/installation">Install the library</a>; component styles load automatically.</li>\n<li><a href="/guides/quick-start">Create your first editor</a>.</li>\n<li><a href="/guides/angular-forms">Connect a form and save its value</a>.</li>\n</ol>\n<p>Open the live example in this documentation to try the real component. The library is an alpha; review <a href="/guides/compatibility">compatibility</a> and <a href="/guides/security">content security</a> before adopting it.</p>\n<h2 id="what-writers-can-do">What writers can do</h2>\n<table>\n<thead>\n<tr>\n<th>Feature</th>\n<th>What it does</th>\n<th>Learn more</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Text formatting</td>\n<td>Bold, italic, underline, strike, subscript, superscript, and clear formatting</td>\n<td><a href="/guides/formatting">Formatting</a></td>\n</tr>\n<tr>\n<td>Typography</td>\n<td>Headings, fonts, sizes, text colour, highlights, and text-case conversion</td>\n<td><a href="/guides/formatting">Formatting</a></td>\n</tr>\n<tr>\n<td>Paragraph layout</td>\n<td>Alignment, indentation, line spacing, lists, and blockquotes</td>\n<td><a href="/guides/formatting">Formatting</a></td>\n</tr>\n<tr>\n<td>Links</td>\n<td>Insert and edit validated web and email links</td>\n<td><a href="/guides/links">Links</a></td>\n</tr>\n<tr>\n<td>Images</td>\n<td>Insert by URL, add captions, align, resize, and place content beside an image</td>\n<td><a href="/guides/images">Images</a></td>\n</tr>\n<tr>\n<td>Videos</td>\n<td>Embed supported YouTube/Vimeo URLs or play a direct MP4</td>\n<td><a href="/guides/videos">Videos</a></td>\n</tr>\n<tr>\n<td>Tables</td>\n<td>Insert, merge/split cells, add rows/columns, resize, shade, and adjust borders</td>\n<td><a href="/guides/tables">Tables</a></td>\n</tr>\n<tr>\n<td>Columns</td>\n<td>Arrange independent content side by side and resize the divider</td>\n<td><a href="/guides/layout">Columns and lines</a></td>\n</tr>\n<tr>\n<td>Horizontal lines</td>\n<td>Add a divider with a chosen style and weight</td>\n<td><a href="/guides/layout">Columns and lines</a></td>\n</tr>\n<tr>\n<td>Code</td>\n<td>Insert inline code or a code block with a language label and copy control</td>\n<td><a href="/guides/code-blocks">Code blocks</a></td>\n</tr>\n<tr>\n<td>Find and replace</td>\n<td>Find text, move between matches, replace one or all</td>\n<td><a href="/guides/editing-tools">Editing tools</a></td>\n</tr>\n<tr>\n<td>Undo and redo</td>\n<td>Reverse document edits, formatting, and committed resizing operations</td>\n<td><a href="/guides/editing-tools">Editing tools</a></td>\n</tr>\n<tr>\n<td>Workspace tools</td>\n<td>Fullscreen, pinned toolbar, floating selection toolbar, and word/character counts</td>\n<td><a href="/guides/editing-tools">Editing tools</a></td>\n</tr>\n</tbody>\n</table>\n<h2 id="what-application-developers-can-do">What application developers can do</h2>\n<table>\n<thead>\n<tr>\n<th>Requirement</th>\n<th>Integration</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Bind an editor to a form</td>\n<td>Reactive Forms, form groups, or ngModel; values stay HTML</td>\n</tr>\n<tr>\n<td>Validate required content</td>\n<td>Set the editor\'s required input for semantic empty-document validation</td>\n</tr>\n<tr>\n<td>Disable editing</td>\n<td>Use the form\'s disable/enable methods, or the readonly input for viewing</td>\n</tr>\n<tr>\n<td>Set application defaults</td>\n<td>provideEditra(config), with per-editor config input overrides</td>\n</tr>\n<tr>\n<td>Match a design system</td>\n<td>Light, dark, or auto themes and CSS custom properties</td>\n</tr>\n<tr>\n<td>Save and restore content</td>\n<td>Read form HTML or explicit JSON conversion methods; use your own backend</td>\n</tr>\n<tr>\n<td>Render saved documents</td>\n<td>NgxEditraViewerComponent, editraContent directive, or editraHtml pipe with automatic styles</td>\n</tr>\n<tr>\n<td>React to editor activity</td>\n<td>Content, selection, ready, destroy, focus, blur, dirty, error, and transaction events</td>\n</tr>\n<tr>\n<td>Add behavior</td>\n<td>Typed extensions with commands, toolbar items, schema contributions, plugins, and node views</td>\n</tr>\n<tr>\n<td>Server-render an application</td>\n<td>Static validated content on the server; browser editing starts after rendering</td>\n</tr>\n</tbody>\n</table>\n<h2 id="what-is-not-included">What is not included</h2>\n<p>Use <a href="/guides/email">email export</a> for a separate conservative email HTML/text body with\nconversion warnings. Real Gmail, Outlook and Apple Mail rendering still requires inbox tests.</p>\n<p>The library does not provide a backend, file uploads, cloud storage, collaboration, track changes, PDF/Word export, or syntax highlighting. An image/video URL must already be accessible to the viewer. A valid URL does not guarantee that its host allows embedding.</p>\n<p>HTML and JSON preserve supported document features. Markdown is a conversion format and cannot preserve every colour, font, table, or media detail. See <a href="/guides/content">content and saving</a>.</p>\n',
 		headings: [
 			{
 				id: 'start-with-these-three-steps',
@@ -50,7 +50,7 @@ export const guides: readonly Guide[] = [
 				kind: 'content',
 			},
 			{
-				html: '<p>Open the live example in this documentation to try the real component. The library is an alpha; review <a href="/guides/compatibility">compatibility</a> and <a href="/guides/project-status">project status</a> before adopting it.</p>\n',
+				html: '<p>Open the live example in this documentation to try the real component. The library is an alpha; review <a href="/guides/compatibility">compatibility</a> and <a href="/guides/security">content security</a> before adopting it.</p>\n',
 				id: '',
 				kind: 'content',
 			},
@@ -95,33 +95,28 @@ export const guides: readonly Guide[] = [
 				kind: 'content',
 			},
 		],
-		search: " feature overview\n\nngx-editra is a rich-text editor for angular applications. writers use a toolbar; your application receives an html string through angular forms. you can also read the document as json, plain text, or markdown.\n\n start with these three steps\n\n1. [install the library](installation.md); component styles load automatically.\n2. [create your first editor](quick_start.md).\n3. [connect a form and save its value](angular_forms.md).\n\nopen the live example in this documentation to try the real component. the library is an alpha; review [compatibility](compatibility.md) and [project status](../progress.md) before adopting it.\n\n what writers can do\n\n| feature          | what it does                                                                      | learn more                        |\n| ---------------- | --------------------------------------------------------------------------------- | --------------------------------- |\n| text formatting  | bold, italic, underline, strike, subscript, superscript, and clear formatting     | [formatting](formatting.md)       |\n| typography       | headings, fonts, sizes, text colour, highlights, and text-case conversion         | [formatting](formatting.md)       |\n| paragraph layout | alignment, indentation, line spacing, lists, and blockquotes                      | [formatting](formatting.md)       |\n| links            | insert and edit validated web and email links                                     | [links](links.md)                 |\n| images           | insert by url, add captions, align, resize, and place content beside an image     | [images](images.md)               |\n| videos           | embed supported youtube/vimeo urls or play a direct mp4                           | [videos](videos.md)               |\n| tables           | insert, merge/split cells, add rows/columns, resize, shade, and adjust borders    | [tables](tables.md)               |\n| columns          | arrange independent content side by side and resize the divider                   | [columns and lines](layout.md)    |\n| horizontal lines | add a divider with a chosen style and weight                                      | [columns and lines](layout.md)    |\n| code             | insert inline code or a code block with a language label and copy control         | [code blocks](code_blocks.md)     |\n| find and replace | find text, move between matches, replace one or all                               | [editing tools](editing_tools.md) |\n| undo and redo    | reverse document edits, formatting, and committed resizing operations             | [editing tools](editing_tools.md) |\n| workspace tools  | fullscreen, pinned toolbar, floating selection toolbar, and word/character counts | [editing tools](editing_tools.md) |\n\n what application developers can do\n\n| requirement                  | integration                                                                                  |\n| ---------------------------- | -------------------------------------------------------------------------------------------- |\n| bind an editor to a form     | reactive forms, form groups, or ngmodel; values stay html                                    |\n| validate required content    | set the editor's required input for semantic empty-document validation                       |\n| disable editing              | use the form's disable/enable methods, or the readonly input for viewing                     |\n| set application defaults     | provideeditra(config), with per-editor config input overrides                                |\n| match a design system        | light, dark, or auto themes and css custom properties                                        |\n| save and restore content     | read form html or explicit json conversion methods; use your own backend                     |\n| render saved documents       | ngxeditraviewercomponent, editracontent directive, or editrahtml pipe with automatic styles  |\n| react to editor activity     | content, selection, ready, destroy, focus, blur, dirty, error, and transaction events        |\n| add behavior                 | typed extensions with commands, toolbar items, schema contributions, plugins, and node views |\n| server-render an application | static validated content on the server; browser editing starts after rendering               |\n\n what is not included\n\nuse [email export](email.md) for a separate conservative email html/text body with\nconversion warnings. real gmail, outlook and apple mail rendering still requires inbox tests.\n\nthe library does not provide a backend, file uploads, cloud storage, collaboration, track changes, pdf/word export, or syntax highlighting. an image/video url must already be accessible to the viewer. a valid url does not guarantee that its host allows embedding.\n\nhtml and json preserve supported document features. markdown is a conversion format and cannot preserve every colour, font, table, or media detail. see [content and saving](content.md).\n",
+		search: " feature overview\n\nngx-editra is a rich-text editor for angular applications. writers use a toolbar; your application receives an html string through angular forms. you can also read the document as json, plain text, or markdown.\n\n start with these three steps\n\n1. [install the library](installation.md); component styles load automatically.\n2. [create your first editor](quick_start.md).\n3. [connect a form and save its value](angular_forms.md).\n\nopen the live example in this documentation to try the real component. the library is an alpha; review [compatibility](compatibility.md) and [content security](security.md) before adopting it.\n\n what writers can do\n\n| feature          | what it does                                                                      | learn more                        |\n| ---------------- | --------------------------------------------------------------------------------- | --------------------------------- |\n| text formatting  | bold, italic, underline, strike, subscript, superscript, and clear formatting     | [formatting](formatting.md)       |\n| typography       | headings, fonts, sizes, text colour, highlights, and text-case conversion         | [formatting](formatting.md)       |\n| paragraph layout | alignment, indentation, line spacing, lists, and blockquotes                      | [formatting](formatting.md)       |\n| links            | insert and edit validated web and email links                                     | [links](links.md)                 |\n| images           | insert by url, add captions, align, resize, and place content beside an image     | [images](images.md)               |\n| videos           | embed supported youtube/vimeo urls or play a direct mp4                           | [videos](videos.md)               |\n| tables           | insert, merge/split cells, add rows/columns, resize, shade, and adjust borders    | [tables](tables.md)               |\n| columns          | arrange independent content side by side and resize the divider                   | [columns and lines](layout.md)    |\n| horizontal lines | add a divider with a chosen style and weight                                      | [columns and lines](layout.md)    |\n| code             | insert inline code or a code block with a language label and copy control         | [code blocks](code_blocks.md)     |\n| find and replace | find text, move between matches, replace one or all                               | [editing tools](editing_tools.md) |\n| undo and redo    | reverse document edits, formatting, and committed resizing operations             | [editing tools](editing_tools.md) |\n| workspace tools  | fullscreen, pinned toolbar, floating selection toolbar, and word/character counts | [editing tools](editing_tools.md) |\n\n what application developers can do\n\n| requirement                  | integration                                                                                  |\n| ---------------------------- | -------------------------------------------------------------------------------------------- |\n| bind an editor to a form     | reactive forms, form groups, or ngmodel; values stay html                                    |\n| validate required content    | set the editor's required input for semantic empty-document validation                       |\n| disable editing              | use the form's disable/enable methods, or the readonly input for viewing                     |\n| set application defaults     | provideeditra(config), with per-editor config input overrides                                |\n| match a design system        | light, dark, or auto themes and css custom properties                                        |\n| save and restore content     | read form html or explicit json conversion methods; use your own backend                     |\n| render saved documents       | ngxeditraviewercomponent, editracontent directive, or editrahtml pipe with automatic styles  |\n| react to editor activity     | content, selection, ready, destroy, focus, blur, dirty, error, and transaction events        |\n| add behavior                 | typed extensions with commands, toolbar items, schema contributions, plugins, and node views |\n| server-render an application | static validated content on the server; browser editing starts after rendering               |\n\n what is not included\n\nuse [email export](email.md) for a separate conservative email html/text body with\nconversion warnings. real gmail, outlook and apple mail rendering still requires inbox tests.\n\nthe library does not provide a backend, file uploads, cloud storage, collaboration, track changes, pdf/word export, or syntax highlighting. an image/video url must already be accessible to the viewer. a valid url does not guarantee that its host allows embedding.\n\nhtml and json preserve supported document features. markdown is a conversion format and cannot preserve every colour, font, table, or media detail. see [content and saving](content.md).\n",
 	},
 	{
 		slug: 'installation',
 		title: 'Installation',
 		group: 'Start here',
 		source: 'docs/INSTALLATION.md',
-		summary:
-			'Install ngx-editra into an existing Angular application, then import its standalone components. Their styles load automatically. The npm commands below describe consumption after publication. Until publication, use the local archive option at the end of this guide.',
-		readingMinutes: 3,
-		html: '<h1 id="installation">Installation</h1>\n<p>Install <code>ngx-editra</code> into an existing Angular application, then import its standalone components. Their styles load automatically. The npm commands below describe consumption after publication. Until publication, use the local archive option at the end of this guide.</p>\n<h2 id="1-check-the-two-environments">1. Check the two environments</h2>\n<p>Your consuming application needs Angular common, core, forms, and platform-browser packages that satisfy the library\'s peer ranges. See <a href="/guides/compatibility">compatibility</a>. Use the Node/TypeScript versions required by that application\'s Angular version.</p>\n<p>Building this repository itself uses Node 20.20.2, npm 10.8.2, Angular 17.3, and TypeScript 5.4. These are the package compilation tools; they do not require every consumer to use Angular 17. Node 20/Angular 17 are legacy tooling and compatibility is not a maintenance guarantee.</p>\n<h2 id="2-install-from-npm-after-publication">2. Install from npm after publication</h2>\n<pre><code class="language-sh">npm install ngx-editra\n</code></pre>\n<p>This installs the release tagged <code>latest</code>. If the first alpha is published under the <code>next</code> tag, use:</p>\n<pre><code class="language-sh">npm install ngx-editra@next\n</code></pre>\n<p>For a reproducible installation of the initial alpha after it is published:</p>\n<pre><code class="language-sh">npm install ngx-editra@0.1.0-alpha.0\n</code></pre>\n<p>Run these commands in your application\'s root. Consumers do not clone this repository, build the library, configure TypeScript path aliases, or install ProseMirror packages separately.</p>\n<h2 id="3-add-the-component">3. Add the component</h2>\n<p>Both components include their default styles. You do not need to edit <code>styles.scss</code>,\nregister a stylesheet in <code>angular.json</code>, or install Sass. The content directive and HTML\npipe also load their styles automatically. Optional Sass exports are available for\nmanually rendered content; see <a href="/guides/theming">theming</a>. Importing the same styles globally\nas well can duplicate CSS.</p>\n<p>Continue to <a href="/guides/quick-start">Quick start</a> for a complete standalone component. Import from ngx-editra; there are no separate core/extensions package imports. No Angular Material/CDK or external icon-font setup is required.</p>\n<p>The editor is <code>NgxEditraComponent</code> with selector <code>&lt;ngx-editra&gt;</code>. The read-only renderer is <code>NgxEditraViewerComponent</code> with selector <code>&lt;ngx-editra-viewer [html]=&quot;savedHtml&quot; /&gt;</code>. Both are exported from <code>ngx-editra</code>; the viewer input is <code>html</code>.</p>\n<h2 id="local-archive-option-before-publication">Local archive option before publication</h2>\n<p>For library development or testing an unpublished version, run these commands from this repository\'s root:</p>\n<pre><code class="language-sh">npm ci\nnpm run pack\n</code></pre>\n<p>Then, from a separate consuming application\'s root, install the generated archive:</p>\n<pre><code class="language-sh">npm install /absolute/path/to/artifacts/ngx-editra-0.1.0-alpha.0.tgz\n</code></pre>\n<p>Use the actual archive path and version. Quote paths containing spaces on Windows. Automatic styles work identically for archive and npm installations.</p>\n<h2 id="dependency-notes">Dependency notes</h2>\n<p>Angular is a peer dependency rather than a bundled runtime. ProseMirror modules and parse5 are runtime dependencies. Do not force incompatible\nProseMirror versions through package overrides. No Angular Material/CDK dependency is required.</p>\n<p>To work on the library, use <code>npm start</code> for the playground or <code>npm run start:docs</code> for\ndocumentation. Use <code>npm run start:all</code> for both at http://localhost:4200 and\nhttp://localhost:4300. Set <code>PLAYGROUND_PORT</code> or <code>DOCS_PORT</code> to override those ports.\nPress Ctrl+C to stop both. Run <code>npm run watch</code> in another terminal to rebuild library changes.</p>\n',
+		summary: 'npm package and versions ·Release channels and download statistics',
+		readingMinutes: 2,
+		html: '<h1 id="installation">Installation</h1>\n<p><a href="https://www.npmjs.com/package/ngx-editra">npm package and versions</a> ·\n<a href="/guides/package">Release channels and download statistics</a></p>\n<p>Install <code>ngx-editra</code> into an existing Angular application, then import its standalone components. Their styles load automatically.</p>\n<h2 id="1-check-angular-compatibility">1. Check Angular compatibility</h2>\n<p>Your consuming application needs Angular common, core, forms, and platform-browser packages that satisfy the library\'s peer ranges. See <a href="/guides/compatibility">compatibility</a>. Use the Node/TypeScript versions required by that application\'s Angular version.</p>\n<p>Version <code>1.0.0</code> uses the Angular peer range <code>&gt;=17.0.0 &lt;23.0.0</code>, covering stable Angular 17–22 versions,\nincluding 22.1.2. Keep the application\'s Angular packages aligned. Angular prereleases\nand other majors are excluded; use current patched framework releases when possible.\nThe published alpha.0 still uses narrower patch minimums. Check npm for release availability before choosing a version.</p>\n<h2 id="2-install-from-npm">2. Install from npm</h2>\n<pre><code class="language-sh">npm install ngx-editra\n</code></pre>\n<p>This installs the release tagged <code>latest</code>. Stable 1.0.0 is available through this command after publication. Check registry tags before installing.</p>\n<p>For a reproducible installation of the published initial alpha:</p>\n<pre><code class="language-sh">npm install ngx-editra@0.1.0-alpha.0\n</code></pre>\n<p>Run these commands in your application\'s root. Consumers do not clone this repository, build the library, configure TypeScript path aliases, or install ProseMirror packages separately.</p>\n<h2 id="3-add-the-component">3. Add the component</h2>\n<p>Both components include their default styles. You do not need to edit <code>styles.scss</code>,\nregister a stylesheet in <code>angular.json</code>, or install Sass. The content directive and HTML\npipe also load their styles automatically. Optional Sass exports are available for\nmanually rendered content; see <a href="/guides/theming">theming</a>. Importing the same styles globally\nas well can duplicate CSS.</p>\n<p>Continue to <a href="/guides/quick-start">Quick start</a> for a complete standalone component. Import from ngx-editra; there are no separate core/extensions package imports. No Angular Material/CDK or external icon-font setup is required.</p>\n<p>The editor is <code>NgxEditraComponent</code> with selector <code>&lt;ngx-editra&gt;</code>. The read-only renderer is <code>NgxEditraViewerComponent</code> with selector <code>&lt;ngx-editra-viewer [html]=&quot;savedHtml&quot; /&gt;</code>. Both are exported from <code>ngx-editra</code>; the viewer input is <code>html</code>.</p>\n<h2 id="dependency-notes">Dependency notes</h2>\n<p>Angular is a peer dependency rather than a bundled runtime. ProseMirror modules and parse5 are runtime dependencies. Do not force incompatible\nProseMirror versions through package overrides. No Angular Material/CDK dependency is required.</p>\n',
 		headings: [
 			{
-				id: '1-check-the-two-environments',
-				label: '1. Check the two environments',
+				id: '1-check-angular-compatibility',
+				label: '1. Check Angular compatibility',
 			},
 			{
-				id: '2-install-from-npm-after-publication',
-				label: '2. Install from npm after publication',
+				id: '2-install-from-npm',
+				label: '2. Install from npm',
 			},
 			{
 				id: '3-add-the-component',
 				label: '3. Add the component',
-			},
-			{
-				id: 'local-archive-option-before-publication',
-				label: 'Local archive option before publication',
 			},
 			{
 				id: 'dependency-notes',
@@ -135,13 +130,18 @@ export const guides: readonly Guide[] = [
 				kind: 'content',
 			},
 			{
-				html: '<p>Install <code>ngx-editra</code> into an existing Angular application, then import its standalone components. Their styles load automatically. The npm commands below describe consumption after publication. Until publication, use the local archive option at the end of this guide.</p>\n',
+				html: '<p><a href="https://www.npmjs.com/package/ngx-editra">npm package and versions</a> ·\n<a href="/guides/package">Release channels and download statistics</a></p>\n',
 				id: '',
 				kind: 'content',
 			},
 			{
-				html: '<h2 id="1-check-the-two-environments">1. Check the two environments</h2>\n',
-				id: '1-check-the-two-environments',
+				html: '<p>Install <code>ngx-editra</code> into an existing Angular application, then import its standalone components. Their styles load automatically.</p>\n',
+				id: '',
+				kind: 'content',
+			},
+			{
+				html: '<h2 id="1-check-angular-compatibility">1. Check Angular compatibility</h2>\n',
+				id: '1-check-angular-compatibility',
 				kind: 'content',
 			},
 			{
@@ -150,13 +150,13 @@ export const guides: readonly Guide[] = [
 				kind: 'content',
 			},
 			{
-				html: '<p>Building this repository itself uses Node 20.20.2, npm 10.8.2, Angular 17.3, and TypeScript 5.4. These are the package compilation tools; they do not require every consumer to use Angular 17. Node 20/Angular 17 are legacy tooling and compatibility is not a maintenance guarantee.</p>\n',
+				html: "<p>Version <code>1.0.0</code> uses the Angular peer range <code>&gt;=17.0.0 &lt;23.0.0</code>, covering stable Angular 17–22 versions,\nincluding 22.1.2. Keep the application's Angular packages aligned. Angular prereleases\nand other majors are excluded; use current patched framework releases when possible.\nThe published alpha.0 still uses narrower patch minimums. Check npm for release availability before choosing a version.</p>\n",
 				id: '',
 				kind: 'content',
 			},
 			{
-				html: '<h2 id="2-install-from-npm-after-publication">2. Install from npm after publication</h2>\n',
-				id: '2-install-from-npm-after-publication',
+				html: '<h2 id="2-install-from-npm">2. Install from npm</h2>\n',
+				id: '2-install-from-npm',
 				kind: 'content',
 			},
 			{
@@ -167,19 +167,12 @@ export const guides: readonly Guide[] = [
 				kind: 'code',
 			},
 			{
-				html: '<p>This installs the release tagged <code>latest</code>. If the first alpha is published under the <code>next</code> tag, use:</p>\n',
+				html: '<p>This installs the release tagged <code>latest</code>. Stable 1.0.0 is available through this command after publication. Check registry tags before installing.</p>\n',
 				id: '',
 				kind: 'content',
 			},
 			{
-				code: 'npm install ngx-editra@next\n',
-				language: 'sh',
-				html: '<pre><code class="language-sh">npm install ngx-editra@next\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: '<p>For a reproducible installation of the initial alpha after it is published:</p>\n',
+				html: '<p>For a reproducible installation of the published initial alpha:</p>\n',
 				id: '',
 				kind: 'content',
 			},
@@ -216,40 +209,6 @@ export const guides: readonly Guide[] = [
 				kind: 'content',
 			},
 			{
-				html: '<h2 id="local-archive-option-before-publication">Local archive option before publication</h2>\n',
-				id: 'local-archive-option-before-publication',
-				kind: 'content',
-			},
-			{
-				html: "<p>For library development or testing an unpublished version, run these commands from this repository's root:</p>\n",
-				id: '',
-				kind: 'content',
-			},
-			{
-				code: 'npm ci\nnpm run pack\n',
-				language: 'sh',
-				html: '<pre><code class="language-sh">npm ci\nnpm run pack\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: "<p>Then, from a separate consuming application's root, install the generated archive:</p>\n",
-				id: '',
-				kind: 'content',
-			},
-			{
-				code: 'npm install /absolute/path/to/artifacts/ngx-editra-0.1.0-alpha.0.tgz\n',
-				language: 'sh',
-				html: '<pre><code class="language-sh">npm install /absolute/path/to/artifacts/ngx-editra-0.1.0-alpha.0.tgz\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: '<p>Use the actual archive path and version. Quote paths containing spaces on Windows. Automatic styles work identically for archive and npm installations.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
 				html: '<h2 id="dependency-notes">Dependency notes</h2>\n',
 				id: 'dependency-notes',
 				kind: 'content',
@@ -259,13 +218,89 @@ export const guides: readonly Guide[] = [
 				id: '',
 				kind: 'content',
 			},
+		],
+		search: " installation\n\n[npm package and versions](https://www.npmjs.com/package/ngx-editra) ·\n[release channels and download statistics](package.md)\n\ninstall ngx-editra into an existing angular application, then import its standalone components. their styles load automatically.\n\n 1. check angular compatibility\n\nyour consuming application needs angular common, core, forms, and platform-browser packages that satisfy the library's peer ranges. see [compatibility](compatibility.md). use the node/typescript versions required by that application's angular version.\n\nversion 1.0.0 uses the angular peer range >=17.0.0 <23.0.0, covering stable angular 17–22 versions,\nincluding 22.1.2. keep the application's angular packages aligned. angular prereleases\nand other majors are excluded; use current patched framework releases when possible.\nthe published alpha.0 still uses narrower patch minimums. check npm for release availability before choosing a version.\n\n 2. install from npm\n\nsh\nnpm install ngx-editra\n\n\nthis installs the release tagged latest. stable 1.0.0 is available through this command after publication. check registry tags before installing.\n\nfor a reproducible installation of the published initial alpha:\n\nsh\nnpm install ngx-editra@0.1.0-alpha.0\n\n\nrun these commands in your application's root. consumers do not clone this repository, build the library, configure typescript path aliases, or install prosemirror packages separately.\n\n 3. add the component\n\nboth components include their default styles. you do not need to edit styles.scss,\nregister a stylesheet in angular.json, or install sass. the content directive and html\npipe also load their styles automatically. optional sass exports are available for\nmanually rendered content; see [theming](theming.md). importing the same styles globally\nas well can duplicate css.\n\ncontinue to [quick start](quick_start.md) for a complete standalone component. import from ngx-editra; there are no separate core/extensions package imports. no angular material/cdk or external icon-font setup is required.\n\nthe editor is ngxeditracomponent with selector <ngx-editra>. the read-only renderer is ngxeditraviewercomponent with selector <ngx-editra-viewer [html]=\"savedhtml\" />. both are exported from ngx-editra; the viewer input is html.\n\n dependency notes\n\nangular is a peer dependency rather than a bundled runtime. prosemirror modules and parse5 are runtime dependencies. do not force incompatible\nprosemirror versions through package overrides. no angular material/cdk dependency is required.\n",
+	},
+	{
+		slug: 'package',
+		title: 'npm package',
+		group: 'Start here',
+		source: 'docs/PACKAGE.md',
+		summary: 'npm versionnpm downloads per monthLicense',
+		readingMinutes: 1,
+		html: '<h1 id="npm-package">npm package</h1>\n<p><a href="https://www.npmjs.com/package/ngx-editra"><img src="https://img.shields.io/npm/v/ngx-editra?label=npm" alt="npm version"></a>\n<a href="https://www.npmjs.com/package/ngx-editra"><img src="https://img.shields.io/badge/downloads-pending-lightgrey" alt="npm downloads per month"></a>\n<a href="https://github.com/Khatri-Sanjay/ngx-editra/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/ngx-editra" alt="License"></a></p>\n<p>Install the published package from <a href="https://www.npmjs.com/package/ngx-editra">npm</a>:</p>\n<pre><code class="language-sh">npm install ngx-editra\n</code></pre>\n<p>The version badge follows npm\'s <code>next</code> tag, not the development manifest. Monthly\ndownloads come from Shields.io using npm statistics. A new package can show\npending data while npm reports catch up. The download badge shows pending until npm statistics are available.\nCounts cover the whole package,\nnot unique users or downloads of a specific version.</p>\n<h2 id="versions-and-channels">Versions and channels</h2>\n<p><code>next</code> is the prerelease channel. <code>latest</code> is a registry tag; it does not guarantee\na stable release. Check the registry before choosing a version:</p>\n<pre><code class="language-sh">npm view ngx-editra dist-tags\nnpm view ngx-editra@latest version peerDependencies\nnpm view ngx-editra versions --json\n</code></pre>\n<p>Use an exact published version for reproducible installs. Check that version\'s\nAngular peer dependencies: the development branch may support a wider range than\nan older npm release. See <a href="/guides/compatibility">compatibility</a>,\n<a href="/guides/installation">installation</a>, and the <a href="/guides/changelog">changelog</a>.</p>\n<h2 id="project-links">Project links</h2>\n<ul>\n<li><a href="https://www.npmjs.com/package/ngx-editra">npm package, versions and download chart</a></li>\n<li><a href="https://ngx-editra-docs.vercel.app">Documentation</a></li>\n<li><a href="https://ngx-editra-playground.vercel.app">Playground</a></li>\n<li><a href="https://github.com/Khatri-Sanjay/ngx-editra">Source</a></li>\n<li><a href="https://github.com/Khatri-Sanjay/ngx-editra/issues">Issues</a></li>\n<li><a href="https://github.com/Khatri-Sanjay/ngx-editra/blob/main/LICENSE">MIT license</a></li>\n</ul>\n',
+		headings: [
 			{
-				html: '<p>To work on the library, use <code>npm start</code> for the playground or <code>npm run start:docs</code> for\ndocumentation. Use <code>npm run start:all</code> for both at http://localhost:4200 and\nhttp://localhost:4300. Set <code>PLAYGROUND_PORT</code> or <code>DOCS_PORT</code> to override those ports.\nPress Ctrl+C to stop both. Run <code>npm run watch</code> in another terminal to rebuild library changes.</p>\n',
+				id: 'versions-and-channels',
+				label: 'Versions and channels',
+			},
+			{
+				id: 'project-links',
+				label: 'Project links',
+			},
+		],
+		blocks: [
+			{
+				html: '<h1 id="npm-package">npm package</h1>\n',
+				id: 'npm-package',
+				kind: 'content',
+			},
+			{
+				html: '<p><a href="https://www.npmjs.com/package/ngx-editra"><img src="https://img.shields.io/npm/v/ngx-editra?label=npm" alt="npm version"></a>\n<a href="https://www.npmjs.com/package/ngx-editra"><img src="https://img.shields.io/badge/downloads-pending-lightgrey" alt="npm downloads per month"></a>\n<a href="https://github.com/Khatri-Sanjay/ngx-editra/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/ngx-editra" alt="License"></a></p>\n',
+				id: '',
+				kind: 'content',
+			},
+			{
+				html: '<p>Install the published package from <a href="https://www.npmjs.com/package/ngx-editra">npm</a>:</p>\n',
+				id: '',
+				kind: 'content',
+			},
+			{
+				code: 'npm install ngx-editra\n',
+				language: 'sh',
+				html: '<pre><code class="language-sh">npm install ngx-editra\n</code></pre>\n',
+				id: '',
+				kind: 'code',
+			},
+			{
+				html: "<p>The version badge follows npm's <code>next</code> tag, not the development manifest. Monthly\ndownloads come from Shields.io using npm statistics. A new package can show\npending data while npm reports catch up. The download badge shows pending until npm statistics are available.\nCounts cover the whole package,\nnot unique users or downloads of a specific version.</p>\n",
+				id: '',
+				kind: 'content',
+			},
+			{
+				html: '<h2 id="versions-and-channels">Versions and channels</h2>\n',
+				id: 'versions-and-channels',
+				kind: 'content',
+			},
+			{
+				html: '<p><code>next</code> is the prerelease channel. <code>latest</code> is a registry tag; it does not guarantee\na stable release. Check the registry before choosing a version:</p>\n',
+				id: '',
+				kind: 'content',
+			},
+			{
+				code: 'npm view ngx-editra dist-tags\nnpm view ngx-editra@latest version peerDependencies\nnpm view ngx-editra versions --json\n',
+				language: 'sh',
+				html: '<pre><code class="language-sh">npm view ngx-editra dist-tags\nnpm view ngx-editra@latest version peerDependencies\nnpm view ngx-editra versions --json\n</code></pre>\n',
+				id: '',
+				kind: 'code',
+			},
+			{
+				html: '<p>Use an exact published version for reproducible installs. Check that version\'s\nAngular peer dependencies: the development branch may support a wider range than\nan older npm release. See <a href="/guides/compatibility">compatibility</a>,\n<a href="/guides/installation">installation</a>, and the <a href="/guides/changelog">changelog</a>.</p>\n',
+				id: '',
+				kind: 'content',
+			},
+			{
+				html: '<h2 id="project-links">Project links</h2>\n',
+				id: 'project-links',
+				kind: 'content',
+			},
+			{
+				html: '<ul>\n<li><a href="https://www.npmjs.com/package/ngx-editra">npm package, versions and download chart</a></li>\n<li><a href="https://ngx-editra-docs.vercel.app">Documentation</a></li>\n<li><a href="https://ngx-editra-playground.vercel.app">Playground</a></li>\n<li><a href="https://github.com/Khatri-Sanjay/ngx-editra">Source</a></li>\n<li><a href="https://github.com/Khatri-Sanjay/ngx-editra/issues">Issues</a></li>\n<li><a href="https://github.com/Khatri-Sanjay/ngx-editra/blob/main/LICENSE">MIT license</a></li>\n</ul>\n',
 				id: '',
 				kind: 'content',
 			},
 		],
-		search: " installation\n\ninstall ngx-editra into an existing angular application, then import its standalone components. their styles load automatically. the npm commands below describe consumption after publication. until publication, use the local archive option at the end of this guide.\n\n 1. check the two environments\n\nyour consuming application needs angular common, core, forms, and platform-browser packages that satisfy the library's peer ranges. see [compatibility](compatibility.md). use the node/typescript versions required by that application's angular version.\n\nbuilding this repository itself uses node 20.20.2, npm 10.8.2, angular 17.3, and typescript 5.4. these are the package compilation tools; they do not require every consumer to use angular 17. node 20/angular 17 are legacy tooling and compatibility is not a maintenance guarantee.\n\n 2. install from npm after publication\n\nsh\nnpm install ngx-editra\n\n\nthis installs the release tagged latest. if the first alpha is published under the next tag, use:\n\nsh\nnpm install ngx-editra@next\n\n\nfor a reproducible installation of the initial alpha after it is published:\n\nsh\nnpm install ngx-editra@0.1.0-alpha.0\n\n\nrun these commands in your application's root. consumers do not clone this repository, build the library, configure typescript path aliases, or install prosemirror packages separately.\n\n 3. add the component\n\nboth components include their default styles. you do not need to edit styles.scss,\nregister a stylesheet in angular.json, or install sass. the content directive and html\npipe also load their styles automatically. optional sass exports are available for\nmanually rendered content; see [theming](theming.md). importing the same styles globally\nas well can duplicate css.\n\ncontinue to [quick start](quick_start.md) for a complete standalone component. import from ngx-editra; there are no separate core/extensions package imports. no angular material/cdk or external icon-font setup is required.\n\nthe editor is ngxeditracomponent with selector <ngx-editra>. the read-only renderer is ngxeditraviewercomponent with selector <ngx-editra-viewer [html]=\"savedhtml\" />. both are exported from ngx-editra; the viewer input is html.\n\n local archive option before publication\n\nfor library development or testing an unpublished version, run these commands from this repository's root:\n\nsh\nnpm ci\nnpm run pack\n\n\nthen, from a separate consuming application's root, install the generated archive:\n\nsh\nnpm install /absolute/path/to/artifacts/ngx-editra-0.1.0-alpha.0.tgz\n\n\nuse the actual archive path and version. quote paths containing spaces on windows. automatic styles work identically for archive and npm installations.\n\n dependency notes\n\nangular is a peer dependency rather than a bundled runtime. prosemirror modules and parse5 are runtime dependencies. do not force incompatible\nprosemirror versions through package overrides. no angular material/cdk dependency is required.\n\nto work on the library, use npm start for the playground or npm run start:docs for\ndocumentation. use npm run start:all for both at http://localhost:4200 and\nhttp://localhost:4300. set playground_port or docs_port to override those ports.\npress ctrl+c to stop both. run npm run watch in another terminal to rebuild library changes.\n",
+		search: " npm package\n\n[![npm version](https://img.shields.io/npm/v/ngx-editra?label=npm)](https://www.npmjs.com/package/ngx-editra)\n[![npm downloads per month](https://img.shields.io/badge/downloads-pending-lightgrey)](https://www.npmjs.com/package/ngx-editra)\n[![license](https://img.shields.io/npm/l/ngx-editra)](https://github.com/khatri-sanjay/ngx-editra/blob/main/license)\n\ninstall the published package from [npm](https://www.npmjs.com/package/ngx-editra):\n\nsh\nnpm install ngx-editra\n\n\nthe version badge follows npm's next tag, not the development manifest. monthly\ndownloads come from shields.io using npm statistics. a new package can show\npending data while npm reports catch up. the download badge shows pending until npm statistics are available.\ncounts cover the whole package,\nnot unique users or downloads of a specific version.\n\n versions and channels\n\nnext is the prerelease channel. latest is a registry tag; it does not guarantee\na stable release. check the registry before choosing a version:\n\nsh\nnpm view ngx-editra dist-tags\nnpm view ngx-editra@latest version peerdependencies\nnpm view ngx-editra versions --json\n\n\nuse an exact published version for reproducible installs. check that version's\nangular peer dependencies: the development branch may support a wider range than\nan older npm release. see [compatibility](compatibility.md),\n[installation](installation.md), and the [changelog](../changelog.md).\n\n project links\n\n-   [npm package, versions and download chart](https://www.npmjs.com/package/ngx-editra)\n-   [documentation](https://ngx-editra-docs.vercel.app)\n-   [playground](https://ngx-editra-playground.vercel.app)\n-   [source](https://github.com/khatri-sanjay/ngx-editra)\n-   [issues](https://github.com/khatri-sanjay/ngx-editra/issues)\n-   [mit license](https://github.com/khatri-sanjay/ngx-editra/blob/main/license)\n",
 	},
 	{
 		slug: 'quick-start',
@@ -1149,7 +1184,7 @@ export const guides: readonly Guide[] = [
 		summary:
 			'The toolbar includes text marks, history, block styles, fonts, sizes, colours, alignment,lists, indentation, media/link dialogs, tables, find/replace and fullscreen.',
 		readingMinutes: 3,
-		html: "<h1 id=\"toolbar\">Toolbar</h1>\n<p>The toolbar includes text marks, history, block styles, fonts, sizes, colours, alignment,\nlists, indentation, media/link dialogs, tables, find/replace and fullscreen.</p>\n<h2 id=\"colour-and-highlight-palettes\">Colour and highlight palettes</h2>\n<p>Font colour and text highlight use Word-style split buttons: the main icon applies the\ncurrent/last-used colour, and the arrow opens an anchored palette. With no font colour selected,\nthe main action is theme-aware Automatic. Font/cell palettes include\ntheme shades and standard colours. Highlight offers familiar highlighter colours.\nRecent colours, custom hex values and a native More colours picker are available.\nAutomatic removes the text-colour mark; No colour removes highlighting; No fill clears cell shading.\nChoosing a colour replaces that mark's value and preserves other formatting and the document selection.\nApplying the same colour does not toggle it off. Caret-only changes affect subsequent typing.</p>\n<p>Palette swatches support arrow/Home/End navigation, Enter activation and Escape closure.\nOutside clicks or moving focus out close the palette. Controls follow disabled/read-only states.\nThe public EditraColourPickerComponent exposes label, kind, value and disabled inputs;\ncolourChange emits a validated colour or null, and opened/closed events let adapters preserve selection.</p>\n<h2 id=\"layout-and-customisation\">Layout and customisation</h2>\n<p><code>config.toolbar.hidden</code> hides the complete toolbar. <code>config.toolbar.items</code> replaces the\ncommand-button list. Each item has <code>id</code>, <code>label</code>, <code>command</code> and an optional <code>icon</code>.\nBuilt-in actions use local SVG icons rather than text buttons. Buttons retain accessible labels,\ntooltips, selection preservation and disabled/active/mixed states. The default layout separates\nnative formatting selectors and insertion tools from grouped editing commands.</p>\n<p><code>icon</code> accepts a built-in icon name such as <code>bold</code>, <code>link</code>, <code>image</code> or <code>find</code>; omitted icons\nare inferred from the command. Existing plain-text custom glyphs such as <code>★</code> remain supported.\nUnknown custom commands use an extension icon. SVG strings are never interpreted as markup.\n<code>editraIconNames</code> and the <code>EditraIconName</code> type are exported from <code>ngx-editra</code> for discovery;\n<code>EditraIconComponent</code> is available for custom Angular UI. Icons inherit currentColor and work\nwithout fonts, external requests or a third-party icon dependency.\nExtension toolbar contributions are appended. <code>groups</code> supplies labeled command groups,\n<code>overflow: 'scroll'</code> is the default and keeps commands in a compact horizontal scrolling row.\nChoose <code>overflow: 'wrap'</code> for wrapped command groups on larger screens. <code>floating: true</code> enables\na selection toolbar. <code>hiddenItems</code> hides command IDs or formatting input labels. Table\noperations are contextual to a table selection. Native selectors show current/default/mixed values.\nOn small screens the editing-command row scrolls horizontally to keep the toolbar compact;\nkeyboard focus automatically brings off-screen buttons into view.</p>\n<pre><code class=\"language-typescript\">import type { EditraConfig } from 'ngx-editra';\nexport const config: EditraConfig = {\n\ttoolbar: {\n\t\titems: [\n\t\t\t{ id: 'bold', label: 'Bold', command: 'bold', icon: 'bold' },\n\t\t\t{ id: 'undo', label: 'Undo', command: 'undo' },\n\t\t],\n\t},\n};\n</code></pre>\n<p>Toolbar buttons preserve the document selection on pointer interaction. Arrow/Home/End\nkeys move focus between enabled buttons. Mark buttons expose true/false/mixed pressed state.\nShortcuts use ProseMirror's Mod key: bold, italic, underline, undo/redo, indent/outdent.\nShift+Enter inserts a hard break. Native dialogs provide focus containment and Escape closure.</p>\n<p>Override dialog presentation with <code>provideEditraDialogs({ open, close })</code> from <code>ngx-editra</code>.\nThe default presenter uses showModal/close. Custom presenters must preserve focus containment,\nEscape behavior and focus return. Dialog contents and editor commands remain owned by the library.</p>\n",
+		html: "<h1 id=\"toolbar\">Toolbar</h1>\n<p>The toolbar includes text marks, history, block styles, fonts, sizes, colours, alignment,\nlists, indentation, media/link dialogs, tables, find/replace and fullscreen.</p>\n<h2 id=\"colour-and-highlight-palettes\">Colour and highlight palettes</h2>\n<p>Font colour and text highlight use Word-style split buttons: the main icon applies the\ncurrent/last-used colour, and the arrow opens an anchored palette. With no font colour selected,\nthe main action is theme-aware Automatic. Font/cell palettes include\ntheme shades and standard colours. Highlight offers familiar highlighter colours.\nRecent colours, custom hex values and a native More colours picker are available.\nAutomatic removes the text-colour mark; No colour removes highlighting; No fill clears cell shading.\nChoosing a colour replaces that mark's value and preserves other formatting and the document selection.\nApplying the same colour does not toggle it off. Caret-only changes affect subsequent typing.</p>\n<p>Palette swatches support arrow/Home/End navigation, Enter activation and Escape closure.\nOutside clicks or moving focus out close the palette. Controls follow disabled/read-only states.\nThe public EditraColourPickerComponent exposes label, kind, value and disabled inputs;\ncolourChange emits a validated colour or null, and opened/closed events let adapters preserve selection.</p>\n<h2 id=\"layout-and-customisation\">Layout and customisation</h2>\n<p><code>config.toolbar.hidden</code> hides the complete toolbar. <code>config.toolbar.items</code> replaces the\ncommand-button list. Each item has <code>id</code>, <code>label</code>, <code>command</code> and an optional <code>icon</code>.\nBuilt-in actions use local SVG icons rather than text buttons. Buttons retain accessible labels,\ntooltips, selection preservation and disabled/active/mixed states. The default layout separates\nnative formatting selectors and insertion tools from grouped editing commands.</p>\n<p><code>icon</code> accepts a built-in icon name such as <code>bold</code>, <code>link</code>, <code>image</code> or <code>find</code>; omitted icons\nare inferred from the command. Existing plain-text custom glyphs such as <code>★</code> remain supported.\nUnknown custom commands use an extension icon. SVG strings are never interpreted as markup.\n<code>editraIconNames</code> and the <code>EditraIconName</code> type are exported from <code>ngx-editra</code> for discovery;\n<code>EditraIconComponent</code> is available for custom Angular UI. Icons inherit currentColor and work\nwithout fonts, external requests or a third-party icon dependency.\nExtension toolbar contributions are appended. <code>groups</code> supplies labeled command groups,\n<code>overflow: 'scroll'</code> is the default and keeps commands in a compact horizontal scrolling row.\nChoose <code>overflow: 'wrap'</code> for wrapped command groups on larger screens. <code>floating: true</code> enables\na selection toolbar. <code>hiddenItems</code> hides command IDs or formatting input labels. Table\noperations are contextual to a table selection. Native selectors show current/default/mixed values.\nIn editors up to 640px wide, both toolbar rows scroll horizontally instead of stacking\ninto a tall panel. This follows the editor's width, including narrow panels on desktop.\nCommand groups stay together, and keyboard focus brings off-screen buttons into view.\nTouch devices get 44px command targets. Active buttons retain their selected state on\nhover, and common command tooltips include their keyboard shortcuts.</p>\n<pre><code class=\"language-typescript\">import type { EditraConfig } from 'ngx-editra';\nexport const config: EditraConfig = {\n\ttoolbar: {\n\t\titems: [\n\t\t\t{ id: 'bold', label: 'Bold', command: 'bold', icon: 'bold' },\n\t\t\t{ id: 'undo', label: 'Undo', command: 'undo' },\n\t\t],\n\t},\n};\n</code></pre>\n<p>Toolbar buttons preserve the document selection on pointer interaction. Arrow/Home/End\nkeys move focus between enabled buttons. Mark buttons expose true/false/mixed pressed state.\nShortcuts use ProseMirror's Mod key: bold, italic, underline, undo/redo, indent/outdent.\nShift+Enter inserts a hard break. Native dialogs provide focus containment and Escape closure.</p>\n<p>Override dialog presentation with <code>provideEditraDialogs({ open, close })</code> from <code>ngx-editra</code>.\nThe default presenter uses showModal/close. Custom presenters must preserve focus containment,\nEscape behavior and focus return. Dialog contents and editor commands remain owned by the library.</p>\n",
 		headings: [
 			{
 				id: 'colour-and-highlight-palettes',
@@ -1197,7 +1232,7 @@ export const guides: readonly Guide[] = [
 				kind: 'content',
 			},
 			{
-				html: "<p><code>icon</code> accepts a built-in icon name such as <code>bold</code>, <code>link</code>, <code>image</code> or <code>find</code>; omitted icons\nare inferred from the command. Existing plain-text custom glyphs such as <code>★</code> remain supported.\nUnknown custom commands use an extension icon. SVG strings are never interpreted as markup.\n<code>editraIconNames</code> and the <code>EditraIconName</code> type are exported from <code>ngx-editra</code> for discovery;\n<code>EditraIconComponent</code> is available for custom Angular UI. Icons inherit currentColor and work\nwithout fonts, external requests or a third-party icon dependency.\nExtension toolbar contributions are appended. <code>groups</code> supplies labeled command groups,\n<code>overflow: 'scroll'</code> is the default and keeps commands in a compact horizontal scrolling row.\nChoose <code>overflow: 'wrap'</code> for wrapped command groups on larger screens. <code>floating: true</code> enables\na selection toolbar. <code>hiddenItems</code> hides command IDs or formatting input labels. Table\noperations are contextual to a table selection. Native selectors show current/default/mixed values.\nOn small screens the editing-command row scrolls horizontally to keep the toolbar compact;\nkeyboard focus automatically brings off-screen buttons into view.</p>\n",
+				html: "<p><code>icon</code> accepts a built-in icon name such as <code>bold</code>, <code>link</code>, <code>image</code> or <code>find</code>; omitted icons\nare inferred from the command. Existing plain-text custom glyphs such as <code>★</code> remain supported.\nUnknown custom commands use an extension icon. SVG strings are never interpreted as markup.\n<code>editraIconNames</code> and the <code>EditraIconName</code> type are exported from <code>ngx-editra</code> for discovery;\n<code>EditraIconComponent</code> is available for custom Angular UI. Icons inherit currentColor and work\nwithout fonts, external requests or a third-party icon dependency.\nExtension toolbar contributions are appended. <code>groups</code> supplies labeled command groups,\n<code>overflow: 'scroll'</code> is the default and keeps commands in a compact horizontal scrolling row.\nChoose <code>overflow: 'wrap'</code> for wrapped command groups on larger screens. <code>floating: true</code> enables\na selection toolbar. <code>hiddenItems</code> hides command IDs or formatting input labels. Table\noperations are contextual to a table selection. Native selectors show current/default/mixed values.\nIn editors up to 640px wide, both toolbar rows scroll horizontally instead of stacking\ninto a tall panel. This follows the editor's width, including narrow panels on desktop.\nCommand groups stay together, and keyboard focus brings off-screen buttons into view.\nTouch devices get 44px command targets. Active buttons retain their selected state on\nhover, and common command tooltips include their keyboard shortcuts.</p>\n",
 				id: '',
 				kind: 'content',
 			},
@@ -1219,7 +1254,7 @@ export const guides: readonly Guide[] = [
 				kind: 'content',
 			},
 		],
-		search: " toolbar\n\nthe toolbar includes text marks, history, block styles, fonts, sizes, colours, alignment,\nlists, indentation, media/link dialogs, tables, find/replace and fullscreen.\n\n colour and highlight palettes\n\nfont colour and text highlight use word-style split buttons: the main icon applies the\ncurrent/last-used colour, and the arrow opens an anchored palette. with no font colour selected,\nthe main action is theme-aware automatic. font/cell palettes include\ntheme shades and standard colours. highlight offers familiar highlighter colours.\nrecent colours, custom hex values and a native more colours picker are available.\nautomatic removes the text-colour mark; no colour removes highlighting; no fill clears cell shading.\nchoosing a colour replaces that mark's value and preserves other formatting and the document selection.\napplying the same colour does not toggle it off. caret-only changes affect subsequent typing.\n\npalette swatches support arrow/home/end navigation, enter activation and escape closure.\noutside clicks or moving focus out close the palette. controls follow disabled/read-only states.\nthe public editracolourpickercomponent exposes label, kind, value and disabled inputs;\ncolourchange emits a validated colour or null, and opened/closed events let adapters preserve selection.\n\n layout and customisation\n\nconfig.toolbar.hidden hides the complete toolbar. config.toolbar.items replaces the\ncommand-button list. each item has id, label, command and an optional icon.\nbuilt-in actions use local svg icons rather than text buttons. buttons retain accessible labels,\ntooltips, selection preservation and disabled/active/mixed states. the default layout separates\nnative formatting selectors and insertion tools from grouped editing commands.\n\nicon accepts a built-in icon name such as bold, link, image or find; omitted icons\nare inferred from the command. existing plain-text custom glyphs such as ★ remain supported.\nunknown custom commands use an extension icon. svg strings are never interpreted as markup.\neditraiconnames and the editraiconname type are exported from ngx-editra for discovery;\neditraiconcomponent is available for custom angular ui. icons inherit currentcolor and work\nwithout fonts, external requests or a third-party icon dependency.\nextension toolbar contributions are appended. groups supplies labeled command groups,\noverflow: 'scroll' is the default and keeps commands in a compact horizontal scrolling row.\nchoose overflow: 'wrap' for wrapped command groups on larger screens. floating: true enables\na selection toolbar. hiddenitems hides command ids or formatting input labels. table\noperations are contextual to a table selection. native selectors show current/default/mixed values.\non small screens the editing-command row scrolls horizontally to keep the toolbar compact;\nkeyboard focus automatically brings off-screen buttons into view.\n\ntypescript\nimport type { editraconfig } from 'ngx-editra';\nexport const config: editraconfig = {\n\ttoolbar: {\n\t\titems: [\n\t\t\t{ id: 'bold', label: 'bold', command: 'bold', icon: 'bold' },\n\t\t\t{ id: 'undo', label: 'undo', command: 'undo' },\n\t\t],\n\t},\n};\n\n\ntoolbar buttons preserve the document selection on pointer interaction. arrow/home/end\nkeys move focus between enabled buttons. mark buttons expose true/false/mixed pressed state.\nshortcuts use prosemirror's mod key: bold, italic, underline, undo/redo, indent/outdent.\nshift+enter inserts a hard break. native dialogs provide focus containment and escape closure.\n\noverride dialog presentation with provideeditradialogs({ open, close }) from ngx-editra.\nthe default presenter uses showmodal/close. custom presenters must preserve focus containment,\nescape behavior and focus return. dialog contents and editor commands remain owned by the library.\n",
+		search: " toolbar\n\nthe toolbar includes text marks, history, block styles, fonts, sizes, colours, alignment,\nlists, indentation, media/link dialogs, tables, find/replace and fullscreen.\n\n colour and highlight palettes\n\nfont colour and text highlight use word-style split buttons: the main icon applies the\ncurrent/last-used colour, and the arrow opens an anchored palette. with no font colour selected,\nthe main action is theme-aware automatic. font/cell palettes include\ntheme shades and standard colours. highlight offers familiar highlighter colours.\nrecent colours, custom hex values and a native more colours picker are available.\nautomatic removes the text-colour mark; no colour removes highlighting; no fill clears cell shading.\nchoosing a colour replaces that mark's value and preserves other formatting and the document selection.\napplying the same colour does not toggle it off. caret-only changes affect subsequent typing.\n\npalette swatches support arrow/home/end navigation, enter activation and escape closure.\noutside clicks or moving focus out close the palette. controls follow disabled/read-only states.\nthe public editracolourpickercomponent exposes label, kind, value and disabled inputs;\ncolourchange emits a validated colour or null, and opened/closed events let adapters preserve selection.\n\n layout and customisation\n\nconfig.toolbar.hidden hides the complete toolbar. config.toolbar.items replaces the\ncommand-button list. each item has id, label, command and an optional icon.\nbuilt-in actions use local svg icons rather than text buttons. buttons retain accessible labels,\ntooltips, selection preservation and disabled/active/mixed states. the default layout separates\nnative formatting selectors and insertion tools from grouped editing commands.\n\nicon accepts a built-in icon name such as bold, link, image or find; omitted icons\nare inferred from the command. existing plain-text custom glyphs such as ★ remain supported.\nunknown custom commands use an extension icon. svg strings are never interpreted as markup.\neditraiconnames and the editraiconname type are exported from ngx-editra for discovery;\neditraiconcomponent is available for custom angular ui. icons inherit currentcolor and work\nwithout fonts, external requests or a third-party icon dependency.\nextension toolbar contributions are appended. groups supplies labeled command groups,\noverflow: 'scroll' is the default and keeps commands in a compact horizontal scrolling row.\nchoose overflow: 'wrap' for wrapped command groups on larger screens. floating: true enables\na selection toolbar. hiddenitems hides command ids or formatting input labels. table\noperations are contextual to a table selection. native selectors show current/default/mixed values.\nin editors up to 640px wide, both toolbar rows scroll horizontally instead of stacking\ninto a tall panel. this follows the editor's width, including narrow panels on desktop.\ncommand groups stay together, and keyboard focus brings off-screen buttons into view.\ntouch devices get 44px command targets. active buttons retain their selected state on\nhover, and common command tooltips include their keyboard shortcuts.\n\ntypescript\nimport type { editraconfig } from 'ngx-editra';\nexport const config: editraconfig = {\n\ttoolbar: {\n\t\titems: [\n\t\t\t{ id: 'bold', label: 'bold', command: 'bold', icon: 'bold' },\n\t\t\t{ id: 'undo', label: 'undo', command: 'undo' },\n\t\t],\n\t},\n};\n\n\ntoolbar buttons preserve the document selection on pointer interaction. arrow/home/end\nkeys move focus between enabled buttons. mark buttons expose true/false/mixed pressed state.\nshortcuts use prosemirror's mod key: bold, italic, underline, undo/redo, indent/outdent.\nshift+enter inserts a hard break. native dialogs provide focus containment and escape closure.\n\noverride dialog presentation with provideeditradialogs({ open, close }) from ngx-editra.\nthe default presenter uses showmodal/close. custom presenters must preserve focus containment,\nescape behavior and focus return. dialog contents and editor commands remain owned by the library.\n",
 	},
 	{
 		slug: 'theming',
@@ -2237,7 +2272,7 @@ export const guides: readonly Guide[] = [
 		summary:
 			'Start with the symptom below. The live example can help separate application integration issues from editor behavior.',
 		readingMinutes: 3,
-		html: '<h1 id="troubleshooting">Troubleshooting</h1>\n<p>Start with the symptom below. The live example can help separate application integration issues from editor behavior.</p>\n<h2 id="installation-cannot-find-ngx-editra">Installation cannot find ngx-editra</h2>\n<p>After publication, install the alpha with <code>npm install ngx-editra@next</code>, or a stable release with <code>npm install ngx-editra</code>. A missing <code>latest</code> tag can mean only a prerelease has been published. Until publication, build with <code>npm run pack</code> and install the generated archive. Check the package name, version and tag before changing your registry configuration. See <a href="/guides/installation">installation</a>.</p>\n<h2 id="the-editor-is-not-recognized">The editor is not recognized</h2>\n<p>Import NgxEditraComponent into the standalone component or NgModule that owns the template. Import ReactiveFormsModule for formControl/formControlName, or FormsModule for ngModel. Import all public symbols from ngx-editra, without /core or /extensions suffixes.</p>\n<h2 id="the-editor-looks-unstyled">The editor looks unstyled</h2>\n<p>Editor and viewer components include their default styles automatically. Confirm you are using the updated package and restart the application build after upgrading. Check for application CSS overriding <code>ngx-editra</code>, <code>.ProseMirror</code>, or generic buttons. If Content Security Policy blocks Angular\'s style elements, configure Angular\'s style nonce for your application\'s CSP. A custom container using only the HTML pipe still needs the optional content stylesheet; see <a href="/guides/theming">theming</a>.</p>\n<h2 id="required-validation-accepts-an-empty-editor">Required validation accepts an empty editor</h2>\n<p>The HTML string <code>&lt;p&gt;&lt;/p&gt;</code> is not an empty string. Set <code>[required]=&quot;true&quot;</code> on the editor to enable semantic empty-document validation. Show the form error after touch or submit. See <a href="/guides/angular-forms">Forms</a>.</p>\n<h2 id="an-image-or-video-will-not-load">An image or video will not load</h2>\n<p>Use an absolute public HTTPS URL. Files, base64 data, authenticated local paths, and arbitrary iframe markup are unsupported. Check the browser network panel, application CSP, and the media host\'s embedding policy. Syntax validation cannot guarantee that a provider allows playback. There is no file upload adapter in the library.</p>\n<h2 id="media-stops-resizing-after-adding-an-extension">Media stops resizing after adding an extension</h2>\n<p>An explicit config.extensions list replaces the default extension list. Include imageExtension() and videoExtension() alongside custom extensions when you want their interactive media node views. See <a href="/guides/plugins">extensions</a>.</p>\n<h2 id="saved-content-loses-styles-or-embeds">Saved content loses styles or embeds</h2>\n<p>Use NgxEditraViewerComponent or the validated HTML pipe with the same configuration as the editor. Plain Angular innerHTML may strip presentation or players. A change to enabled schema features or URL policy can also remove content on normalization. Do not bypass security validation on raw HTML.</p>\n<h2 id="changing-configuration-has-no-effect">Changing configuration has no effect</h2>\n<p>Replace the configuration object rather than mutating nested properties. For example, assign <code>{ ...config, theme: \'dark\' }</code>. The config input replaces application defaults; it is not a deep merge of your previous config. Schema-related changes revalidate content and reset history.</p>\n<h2 id="a-code-copy-button-fails">A code copy button fails</h2>\n<p>Use HTTPS or localhost and allow clipboard access. Browsers can deny permission; select and copy the text manually when unavailable. Copy controls are not stored inside the saved HTML.</p>\n<h2 id="server-rendering-reports-document-window-errors">Server rendering reports document/window errors</h2>\n<p>Check custom plugins, serializers, and application code for browser-global access during import or server execution. Initialize browser-only behavior after rendering and clean it up on teardown. See <a href="/guides/ssr">SSR</a>.</p>\n<h2 id="the-playground-cannot-resolve-the-library">The playground cannot resolve the library</h2>\n<p>Run npm ci with the repository\'s Node/npm versions, then npm start. The start script builds the package first. Use npm run watch in a second terminal for ongoing library edits. npm run build assembles documentation and release assets; bare ng build and watch compile library code/local styles only.</p>\n',
+		html: '<h1 id="troubleshooting">Troubleshooting</h1>\n<p>Start with the symptom below. The live example can help separate application integration issues from editor behavior.</p>\n<h2 id="installation-cannot-find-ngx-editra">Installation cannot find ngx-editra</h2>\n<p>Install the default release with <code>npm install ngx-editra</code>. Check registry tags before\nassuming <code>npm install ngx-editra</code> selects a stable release: <code>latest</code> can also point\nto an alpha. Check the package name, version and tag before changing your\nregistry configuration. See <a href="/guides/installation">installation</a>.</p>\n<h2 id="the-editor-is-not-recognized">The editor is not recognized</h2>\n<p>Import NgxEditraComponent into the standalone component or NgModule that owns the template. Import ReactiveFormsModule for formControl/formControlName, or FormsModule for ngModel. Import all public symbols from ngx-editra, without /core or /extensions suffixes.</p>\n<h2 id="the-editor-looks-unstyled">The editor looks unstyled</h2>\n<p>Editor and viewer components include their default styles automatically. Confirm you are using the updated package and restart the application build after upgrading. Check for application CSS overriding <code>ngx-editra</code>, <code>.ProseMirror</code>, or generic buttons. If Content Security Policy blocks Angular\'s style elements, configure Angular\'s style nonce for your application\'s CSP. The viewer, content directive and HTML pipe load their styles automatically; see <a href="/guides/theming">theming</a>.</p>\n<h2 id="required-validation-accepts-an-empty-editor">Required validation accepts an empty editor</h2>\n<p>The HTML string <code>&lt;p&gt;&lt;/p&gt;</code> is not an empty string. Set <code>[required]=&quot;true&quot;</code> on the editor to enable semantic empty-document validation. Show the form error after touch or submit. See <a href="/guides/angular-forms">Forms</a>.</p>\n<h2 id="an-image-or-video-will-not-load">An image or video will not load</h2>\n<p>Use an absolute public HTTPS URL. Files, base64 data, authenticated local paths, and arbitrary iframe markup are unsupported. Check the browser network panel, application CSP, and the media host\'s embedding policy. Syntax validation cannot guarantee that a provider allows playback. There is no file upload adapter in the library.</p>\n<h2 id="media-stops-resizing-after-adding-an-extension">Media stops resizing after adding an extension</h2>\n<p>An explicit config.extensions list replaces the default extension list. Include imageExtension() and videoExtension() alongside custom extensions when you want their interactive media node views. See <a href="/guides/plugins">extensions</a>.</p>\n<h2 id="saved-content-loses-styles-or-embeds">Saved content loses styles or embeds</h2>\n<p>Use NgxEditraViewerComponent or the validated HTML pipe with the same configuration as the editor. Plain Angular innerHTML may strip presentation or players. A change to enabled schema features or URL policy can also remove content on normalization. Do not bypass security validation on raw HTML.</p>\n<h2 id="changing-configuration-has-no-effect">Changing configuration has no effect</h2>\n<p>Replace the configuration object rather than mutating nested properties. For example, assign <code>{ ...config, theme: \'dark\' }</code>. The config input replaces application defaults; it is not a deep merge of your previous config. Schema-related changes revalidate content and reset history.</p>\n<h2 id="a-code-copy-button-fails">A code copy button fails</h2>\n<p>Use HTTPS or localhost and allow clipboard access. Browsers can deny permission; select and copy the text manually when unavailable. Copy controls are not stored inside the saved HTML.</p>\n<h2 id="server-rendering-reports-document-window-errors">Server rendering reports document/window errors</h2>\n<p>Check custom plugins, serializers, and application code for browser-global access during import or server execution. Initialize browser-only behavior after rendering and clean it up on teardown. See <a href="/guides/ssr">SSR</a>.</p>\n',
 		headings: [
 			{
 				id: 'installation-cannot-find-ngx-editra',
@@ -2279,10 +2314,6 @@ export const guides: readonly Guide[] = [
 				id: 'server-rendering-reports-document-window-errors',
 				label: 'Server rendering reports document/window errors',
 			},
-			{
-				id: 'the-playground-cannot-resolve-the-library',
-				label: 'The playground cannot resolve the library',
-			},
 		],
 		blocks: [
 			{
@@ -2301,7 +2332,7 @@ export const guides: readonly Guide[] = [
 				kind: 'content',
 			},
 			{
-				html: '<p>After publication, install the alpha with <code>npm install ngx-editra@next</code>, or a stable release with <code>npm install ngx-editra</code>. A missing <code>latest</code> tag can mean only a prerelease has been published. Until publication, build with <code>npm run pack</code> and install the generated archive. Check the package name, version and tag before changing your registry configuration. See <a href="/guides/installation">installation</a>.</p>\n',
+				html: '<p>Install the default release with <code>npm install ngx-editra</code>. Check registry tags before\nassuming <code>npm install ngx-editra</code> selects a stable release: <code>latest</code> can also point\nto an alpha. Check the package name, version and tag before changing your\nregistry configuration. See <a href="/guides/installation">installation</a>.</p>\n',
 				id: '',
 				kind: 'content',
 			},
@@ -2321,7 +2352,7 @@ export const guides: readonly Guide[] = [
 				kind: 'content',
 			},
 			{
-				html: "<p>Editor and viewer components include their default styles automatically. Confirm you are using the updated package and restart the application build after upgrading. Check for application CSS overriding <code>ngx-editra</code>, <code>.ProseMirror</code>, or generic buttons. If Content Security Policy blocks Angular's style elements, configure Angular's style nonce for your application's CSP. A custom container using only the HTML pipe still needs the optional content stylesheet; see <a href=\"/guides/theming\">theming</a>.</p>\n",
+				html: "<p>Editor and viewer components include their default styles automatically. Confirm you are using the updated package and restart the application build after upgrading. Check for application CSS overriding <code>ngx-editra</code>, <code>.ProseMirror</code>, or generic buttons. If Content Security Policy blocks Angular's style elements, configure Angular's style nonce for your application's CSP. The viewer, content directive and HTML pipe load their styles automatically; see <a href=\"/guides/theming\">theming</a>.</p>\n",
 				id: '',
 				kind: 'content',
 			},
@@ -2395,18 +2426,8 @@ export const guides: readonly Guide[] = [
 				id: '',
 				kind: 'content',
 			},
-			{
-				html: '<h2 id="the-playground-cannot-resolve-the-library">The playground cannot resolve the library</h2>\n',
-				id: 'the-playground-cannot-resolve-the-library',
-				kind: 'content',
-			},
-			{
-				html: "<p>Run npm ci with the repository's Node/npm versions, then npm start. The start script builds the package first. Use npm run watch in a second terminal for ongoing library edits. npm run build assembles documentation and release assets; bare ng build and watch compile library code/local styles only.</p>\n",
-				id: '',
-				kind: 'content',
-			},
 		],
-		search: " troubleshooting\n\nstart with the symptom below. the live example can help separate application integration issues from editor behavior.\n\n installation cannot find ngx-editra\n\nafter publication, install the alpha with npm install ngx-editra@next, or a stable release with npm install ngx-editra. a missing latest tag can mean only a prerelease has been published. until publication, build with npm run pack and install the generated archive. check the package name, version and tag before changing your registry configuration. see [installation](installation.md).\n\n the editor is not recognized\n\nimport ngxeditracomponent into the standalone component or ngmodule that owns the template. import reactiveformsmodule for formcontrol/formcontrolname, or formsmodule for ngmodel. import all public symbols from ngx-editra, without /core or /extensions suffixes.\n\n the editor looks unstyled\n\neditor and viewer components include their default styles automatically. confirm you are using the updated package and restart the application build after upgrading. check for application css overriding ngx-editra, .prosemirror, or generic buttons. if content security policy blocks angular's style elements, configure angular's style nonce for your application's csp. a custom container using only the html pipe still needs the optional content stylesheet; see [theming](theming.md).\n\n required validation accepts an empty editor\n\nthe html string <p></p> is not an empty string. set [required]=\"true\" on the editor to enable semantic empty-document validation. show the form error after touch or submit. see [forms](angular_forms.md).\n\n an image or video will not load\n\nuse an absolute public https url. files, base64 data, authenticated local paths, and arbitrary iframe markup are unsupported. check the browser network panel, application csp, and the media host's embedding policy. syntax validation cannot guarantee that a provider allows playback. there is no file upload adapter in the library.\n\n media stops resizing after adding an extension\n\nan explicit config.extensions list replaces the default extension list. include imageextension() and videoextension() alongside custom extensions when you want their interactive media node views. see [extensions](plugins.md).\n\n saved content loses styles or embeds\n\nuse ngxeditraviewercomponent or the validated html pipe with the same configuration as the editor. plain angular innerhtml may strip presentation or players. a change to enabled schema features or url policy can also remove content on normalization. do not bypass security validation on raw html.\n\n changing configuration has no effect\n\nreplace the configuration object rather than mutating nested properties. for example, assign { ...config, theme: 'dark' }. the config input replaces application defaults; it is not a deep merge of your previous config. schema-related changes revalidate content and reset history.\n\n a code copy button fails\n\nuse https or localhost and allow clipboard access. browsers can deny permission; select and copy the text manually when unavailable. copy controls are not stored inside the saved html.\n\n server rendering reports document/window errors\n\ncheck custom plugins, serializers, and application code for browser-global access during import or server execution. initialize browser-only behavior after rendering and clean it up on teardown. see [ssr](ssr.md).\n\n the playground cannot resolve the library\n\nrun npm ci with the repository's node/npm versions, then npm start. the start script builds the package first. use npm run watch in a second terminal for ongoing library edits. npm run build assembles documentation and release assets; bare ng build and watch compile library code/local styles only.\n",
+		search: " troubleshooting\n\nstart with the symptom below. the live example can help separate application integration issues from editor behavior.\n\n installation cannot find ngx-editra\n\ninstall the default release with npm install ngx-editra. check registry tags before\nassuming npm install ngx-editra selects a stable release: latest can also point\nto an alpha. check the package name, version and tag before changing your\nregistry configuration. see [installation](installation.md).\n\n the editor is not recognized\n\nimport ngxeditracomponent into the standalone component or ngmodule that owns the template. import reactiveformsmodule for formcontrol/formcontrolname, or formsmodule for ngmodel. import all public symbols from ngx-editra, without /core or /extensions suffixes.\n\n the editor looks unstyled\n\neditor and viewer components include their default styles automatically. confirm you are using the updated package and restart the application build after upgrading. check for application css overriding ngx-editra, .prosemirror, or generic buttons. if content security policy blocks angular's style elements, configure angular's style nonce for your application's csp. the viewer, content directive and html pipe load their styles automatically; see [theming](theming.md).\n\n required validation accepts an empty editor\n\nthe html string <p></p> is not an empty string. set [required]=\"true\" on the editor to enable semantic empty-document validation. show the form error after touch or submit. see [forms](angular_forms.md).\n\n an image or video will not load\n\nuse an absolute public https url. files, base64 data, authenticated local paths, and arbitrary iframe markup are unsupported. check the browser network panel, application csp, and the media host's embedding policy. syntax validation cannot guarantee that a provider allows playback. there is no file upload adapter in the library.\n\n media stops resizing after adding an extension\n\nan explicit config.extensions list replaces the default extension list. include imageextension() and videoextension() alongside custom extensions when you want their interactive media node views. see [extensions](plugins.md).\n\n saved content loses styles or embeds\n\nuse ngxeditraviewercomponent or the validated html pipe with the same configuration as the editor. plain angular innerhtml may strip presentation or players. a change to enabled schema features or url policy can also remove content on normalization. do not bypass security validation on raw html.\n\n changing configuration has no effect\n\nreplace the configuration object rather than mutating nested properties. for example, assign { ...config, theme: 'dark' }. the config input replaces application defaults; it is not a deep merge of your previous config. schema-related changes revalidate content and reset history.\n\n a code copy button fails\n\nuse https or localhost and allow clipboard access. browsers can deny permission; select and copy the text manually when unavailable. copy controls are not stored inside the saved html.\n\n server rendering reports document/window errors\n\ncheck custom plugins, serializers, and application code for browser-global access during import or server execution. initialize browser-only behavior after rendering and clean it up on teardown. see [ssr](ssr.md).\n",
 	},
 	{
 		slug: 'plugins',
@@ -2840,1000 +2861,110 @@ export const guides: readonly Guide[] = [
 		group: 'Reference',
 		source: 'docs/COMPATIBILITY.md',
 		summary:
-			'The package is compiled with Angular 17 APIs and partial-Ivy. Consumer compatibility isvalidated against the exact packed archive rather than an import from library source.Historical results do not validate a changed source tree or archive.',
-		readingMinutes: 3,
-		html: '<h1 id="compatibility-evidence">Compatibility evidence</h1>\n<p>The package is compiled with Angular 17 APIs and partial-Ivy. Consumer compatibility is\nvalidated against the exact packed archive rather than an import from library source.\nHistorical results do not validate a changed source tree or archive.</p>\n<h2 id="declared-consumer-matrix">Declared consumer matrix</h2>\n<table>\n<thead>\n<tr>\n<th>Angular line</th>\n<th>Peer range starts at</th>\n<th>Consumer runtime</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>17</td>\n<td>17.3.12</td>\n<td>EDITRA_NODE20</td>\n</tr>\n<tr>\n<td>18</td>\n<td>18.2.14</td>\n<td>EDITRA_NODE20</td>\n</tr>\n<tr>\n<td>19</td>\n<td>19.2.25</td>\n<td>EDITRA_NODE20</td>\n</tr>\n<tr>\n<td>20</td>\n<td>20.3.33</td>\n<td>EDITRA_NODE20</td>\n</tr>\n<tr>\n<td>21</td>\n<td>21.2.25</td>\n<td>EDITRA_NODE24</td>\n</tr>\n<tr>\n<td>22</td>\n<td>22.2.2</td>\n<td>EDITRA_NODE24</td>\n</tr>\n</tbody>\n</table>\n<p>These ranges describe integration compatibility, not upstream security maintenance.\nThe runtime/compiler combination for each fixture is declared in its package manifest.\nTypeScript changes require review against that Angular line\'s supported toolchain.\nFuture Angular majors are not claimed as verified.</p>\n<h2 id="current-results">Current results</h2>\n<p>Run <code>npm run validate -- --compatibility</code>, followed by <code>npm run verify:evidence</code>.\nUse <code>artifacts/release-validation.json</code> and <code>artifacts/compatibility-results.json</code> for\ncurrent results. Each consumer records Angular/Node versions, lockfile hash, browser\nresults, source fingerprint and archive SHA-256. The verifier rejects mismatched evidence.\nNo fixed test totals are copied into this guide. The Angular 22 consumer also performs\na production dependency audit and saves its report under artifacts/.</p>\n<p>The runner installs the archive with normal npm peer resolution in independent Angular\napplications. Coverage includes production build, forms, reset, disabled/read-only modes,\nrepeated mounting, selection formatting, HTML security rejection, media, tables, themes,\nmobile layouts, automated accessibility, SSR and hydration. It also exercises the content\ndirective, HTML pipe and viewer through the public package entry point, including shared\nstyles and browser code-copy controls.</p>\n<p>The editor host deliberately uses ngSkipHydration. The surrounding application hydrates;\nProseMirror-managed DOM activates after rendering. Media requests are mocked for deterministic\ntests; valid canonical URLs do not establish external provider availability.</p>\n<h2 id="reproduce">Reproduce</h2>\n<p>Set EDITRA_NODE20 and EDITRA_NODE24 to suitable executables, EDITRA_NPM_CLI to npm\'s\nJavaScript CLI when not running through npm, and optionally EDITRA_BROWSER to a compatible\ninstalled Chromium browser. Run the full validation command above, or <code>npm run pack</code>\nfollowed by <code>npm run test:compatibility</code> for consumer-only verification of a fresh archive.\nThe runner rejects a package manifest that does not match the current source/archive.</p>\n<p>Consumer manifests and independent lockfiles are maintained without generated archive\nreferences. The runner temporarily installs a candidate, records the installed lockfile\nhash, and restores both files after testing, including on failure.\nCandidate peer bypass is an explicit development option and does not\nestablish release compatibility. Release verification requires the normal-peer matrix.</p>\n<p>See <a href="/guides/maintenance">maintenance policy</a> for legacy tooling and migration requirements and\n<a href="https://angular.dev/reference/versions">the official Angular compatibility table</a> when\nreviewing a toolchain update. Remote CI and repository protections must be verified on\nthe actual release revision; local reports do not prove those settings are enabled.</p>\n',
+			'Use matching versions of Angular core, common, forms and platform-browser in your application.Check the peer dependencies of the package version you install:',
+		readingMinutes: 2,
+		html: '<h1 id="angular-compatibility">Angular compatibility</h1>\n<p>Use matching versions of Angular core, common, forms and platform-browser in your application.\nCheck the peer dependencies of the package version you install:</p>\n<pre><code class="language-sh">npm view ngx-editra@latest version peerDependencies\n</code></pre>\n<h2 id="supported-angular-versions">Supported Angular versions</h2>\n<p>Version <code>1.0.0</code> supports stable Angular 17-22 with the peer range\n<code>&gt;=17.0.0 &lt;23.0.0</code>, including Angular 22.1.2. Angular prereleases, Angular 16\nand Angular 23 are outside this range. Earlier <code>0.1.0-alpha.0</code> releases use\nnarrower minimum patch versions:</p>\n<table>\n<thead>\n<tr>\n<th>Angular</th>\n<th>Minimum for 1.0.0</th>\n<th>Minimum for alpha.0</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>17</td>\n<td>17.0.0</td>\n<td>17.3.12</td>\n</tr>\n<tr>\n<td>18</td>\n<td>18.0.0</td>\n<td>18.2.14</td>\n</tr>\n<tr>\n<td>19</td>\n<td>19.0.0</td>\n<td>19.2.25</td>\n</tr>\n<tr>\n<td>20</td>\n<td>20.0.0</td>\n<td>20.3.33</td>\n</tr>\n<tr>\n<td>21</td>\n<td>21.0.0</td>\n<td>21.2.25</td>\n</tr>\n<tr>\n<td>22</td>\n<td>22.0.0</td>\n<td>22.2.2</td>\n</tr>\n</tbody>\n</table>\n<p>Check <a href="https://www.npmjs.com/package/ngx-editra?activeTab=versions">npm versions</a>\nfor availability before choosing a release. An older published version does not\nacquire a newer version\'s expanded peer range. Avoid <code>--force</code> and\n<code>--legacy-peer-deps</code> to bypass an incompatible Angular version.</p>\n<h2 id="application-requirements">Application requirements</h2>\n<p>Use the Node.js, TypeScript and RxJS versions supported by your Angular version.\nSee <a href="https://angular.dev/reference/versions">Angular version compatibility</a>.\nAngular is a peer dependency and is not bundled as a separate framework runtime.</p>\n<p>Compatibility testing covers minimum and later versions in each supported major,\nplus Angular 22.1.2. This does not mean every patch was individually tested or that\nolder Angular releases receive upstream security maintenance. Prefer current patched\nframework releases when possible.</p>\n<h2 id="forms-and-server-rendering">Forms and server rendering</h2>\n<p>Reactive Forms and template-driven forms use Angular\'s ControlValueAccessor.\nAngular 22 Signal Forms can use its CVA compatibility integration; dedicated Signal\nForms tests remain outstanding. See <a href="/guides/angular-forms">forms integration</a>.</p>\n<p>The editor uses an explicit hydration boundary for ProseMirror-managed DOM.\nThe surrounding application can hydrate normally. See <a href="/guides/ssr">SSR and hydration</a>\nfor application setup and <a href="/guides/troubleshooting">troubleshooting</a> for integration issues.</p>\n',
 		headings: [
 			{
-				id: 'declared-consumer-matrix',
-				label: 'Declared consumer matrix',
+				id: 'supported-angular-versions',
+				label: 'Supported Angular versions',
 			},
 			{
-				id: 'current-results',
-				label: 'Current results',
+				id: 'application-requirements',
+				label: 'Application requirements',
 			},
 			{
-				id: 'reproduce',
-				label: 'Reproduce',
+				id: 'forms-and-server-rendering',
+				label: 'Forms and server rendering',
 			},
 		],
 		blocks: [
 			{
-				html: '<h1 id="compatibility-evidence">Compatibility evidence</h1>\n',
-				id: 'compatibility-evidence',
+				html: '<h1 id="angular-compatibility">Angular compatibility</h1>\n',
+				id: 'angular-compatibility',
 				kind: 'content',
 			},
 			{
-				html: '<p>The package is compiled with Angular 17 APIs and partial-Ivy. Consumer compatibility is\nvalidated against the exact packed archive rather than an import from library source.\nHistorical results do not validate a changed source tree or archive.</p>\n',
+				html: '<p>Use matching versions of Angular core, common, forms and platform-browser in your application.\nCheck the peer dependencies of the package version you install:</p>\n',
 				id: '',
 				kind: 'content',
 			},
 			{
-				html: '<h2 id="declared-consumer-matrix">Declared consumer matrix</h2>\n',
-				id: 'declared-consumer-matrix',
+				code: 'npm view ngx-editra@latest version peerDependencies\n',
+				language: 'sh',
+				html: '<pre><code class="language-sh">npm view ngx-editra@latest version peerDependencies\n</code></pre>\n',
+				id: '',
+				kind: 'code',
+			},
+			{
+				html: '<h2 id="supported-angular-versions">Supported Angular versions</h2>\n',
+				id: 'supported-angular-versions',
 				kind: 'content',
 			},
 			{
-				html: '<table>\n<thead>\n<tr>\n<th>Angular line</th>\n<th>Peer range starts at</th>\n<th>Consumer runtime</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>17</td>\n<td>17.3.12</td>\n<td>EDITRA_NODE20</td>\n</tr>\n<tr>\n<td>18</td>\n<td>18.2.14</td>\n<td>EDITRA_NODE20</td>\n</tr>\n<tr>\n<td>19</td>\n<td>19.2.25</td>\n<td>EDITRA_NODE20</td>\n</tr>\n<tr>\n<td>20</td>\n<td>20.3.33</td>\n<td>EDITRA_NODE20</td>\n</tr>\n<tr>\n<td>21</td>\n<td>21.2.25</td>\n<td>EDITRA_NODE24</td>\n</tr>\n<tr>\n<td>22</td>\n<td>22.2.2</td>\n<td>EDITRA_NODE24</td>\n</tr>\n</tbody>\n</table>\n',
+				html: '<p>Version <code>1.0.0</code> supports stable Angular 17-22 with the peer range\n<code>&gt;=17.0.0 &lt;23.0.0</code>, including Angular 22.1.2. Angular prereleases, Angular 16\nand Angular 23 are outside this range. Earlier <code>0.1.0-alpha.0</code> releases use\nnarrower minimum patch versions:</p>\n',
+				id: '',
+				kind: 'content',
+			},
+			{
+				html: '<table>\n<thead>\n<tr>\n<th>Angular</th>\n<th>Minimum for 1.0.0</th>\n<th>Minimum for alpha.0</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>17</td>\n<td>17.0.0</td>\n<td>17.3.12</td>\n</tr>\n<tr>\n<td>18</td>\n<td>18.0.0</td>\n<td>18.2.14</td>\n</tr>\n<tr>\n<td>19</td>\n<td>19.0.0</td>\n<td>19.2.25</td>\n</tr>\n<tr>\n<td>20</td>\n<td>20.0.0</td>\n<td>20.3.33</td>\n</tr>\n<tr>\n<td>21</td>\n<td>21.0.0</td>\n<td>21.2.25</td>\n</tr>\n<tr>\n<td>22</td>\n<td>22.0.0</td>\n<td>22.2.2</td>\n</tr>\n</tbody>\n</table>\n',
 				id: '',
 				kind: 'table',
 			},
 			{
-				html: "<p>These ranges describe integration compatibility, not upstream security maintenance.\nThe runtime/compiler combination for each fixture is declared in its package manifest.\nTypeScript changes require review against that Angular line's supported toolchain.\nFuture Angular majors are not claimed as verified.</p>\n",
+				html: '<p>Check <a href="https://www.npmjs.com/package/ngx-editra?activeTab=versions">npm versions</a>\nfor availability before choosing a release. An older published version does not\nacquire a newer version\'s expanded peer range. Avoid <code>--force</code> and\n<code>--legacy-peer-deps</code> to bypass an incompatible Angular version.</p>\n',
 				id: '',
 				kind: 'content',
 			},
 			{
-				html: '<h2 id="current-results">Current results</h2>\n',
-				id: 'current-results',
+				html: '<h2 id="application-requirements">Application requirements</h2>\n',
+				id: 'application-requirements',
 				kind: 'content',
 			},
 			{
-				html: '<p>Run <code>npm run validate -- --compatibility</code>, followed by <code>npm run verify:evidence</code>.\nUse <code>artifacts/release-validation.json</code> and <code>artifacts/compatibility-results.json</code> for\ncurrent results. Each consumer records Angular/Node versions, lockfile hash, browser\nresults, source fingerprint and archive SHA-256. The verifier rejects mismatched evidence.\nNo fixed test totals are copied into this guide. The Angular 22 consumer also performs\na production dependency audit and saves its report under artifacts/.</p>\n',
+				html: '<p>Use the Node.js, TypeScript and RxJS versions supported by your Angular version.\nSee <a href="https://angular.dev/reference/versions">Angular version compatibility</a>.\nAngular is a peer dependency and is not bundled as a separate framework runtime.</p>\n',
 				id: '',
 				kind: 'content',
 			},
 			{
-				html: '<p>The runner installs the archive with normal npm peer resolution in independent Angular\napplications. Coverage includes production build, forms, reset, disabled/read-only modes,\nrepeated mounting, selection formatting, HTML security rejection, media, tables, themes,\nmobile layouts, automated accessibility, SSR and hydration. It also exercises the content\ndirective, HTML pipe and viewer through the public package entry point, including shared\nstyles and browser code-copy controls.</p>\n',
+				html: '<p>Compatibility testing covers minimum and later versions in each supported major,\nplus Angular 22.1.2. This does not mean every patch was individually tested or that\nolder Angular releases receive upstream security maintenance. Prefer current patched\nframework releases when possible.</p>\n',
 				id: '',
 				kind: 'content',
 			},
 			{
-				html: '<p>The editor host deliberately uses ngSkipHydration. The surrounding application hydrates;\nProseMirror-managed DOM activates after rendering. Media requests are mocked for deterministic\ntests; valid canonical URLs do not establish external provider availability.</p>\n',
+				html: '<h2 id="forms-and-server-rendering">Forms and server rendering</h2>\n',
+				id: 'forms-and-server-rendering',
+				kind: 'content',
+			},
+			{
+				html: '<p>Reactive Forms and template-driven forms use Angular\'s ControlValueAccessor.\nAngular 22 Signal Forms can use its CVA compatibility integration; dedicated Signal\nForms tests remain outstanding. See <a href="/guides/angular-forms">forms integration</a>.</p>\n',
 				id: '',
 				kind: 'content',
 			},
 			{
-				html: '<h2 id="reproduce">Reproduce</h2>\n',
-				id: 'reproduce',
-				kind: 'content',
-			},
-			{
-				html: "<p>Set EDITRA_NODE20 and EDITRA_NODE24 to suitable executables, EDITRA_NPM_CLI to npm's\nJavaScript CLI when not running through npm, and optionally EDITRA_BROWSER to a compatible\ninstalled Chromium browser. Run the full validation command above, or <code>npm run pack</code>\nfollowed by <code>npm run test:compatibility</code> for consumer-only verification of a fresh archive.\nThe runner rejects a package manifest that does not match the current source/archive.</p>\n",
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>Consumer manifests and independent lockfiles are maintained without generated archive\nreferences. The runner temporarily installs a candidate, records the installed lockfile\nhash, and restores both files after testing, including on failure.\nCandidate peer bypass is an explicit development option and does not\nestablish release compatibility. Release verification requires the normal-peer matrix.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>See <a href="/guides/maintenance">maintenance policy</a> for legacy tooling and migration requirements and\n<a href="https://angular.dev/reference/versions">the official Angular compatibility table</a> when\nreviewing a toolchain update. Remote CI and repository protections must be verified on\nthe actual release revision; local reports do not prove those settings are enabled.</p>\n',
+				html: '<p>The editor uses an explicit hydration boundary for ProseMirror-managed DOM.\nThe surrounding application can hydrate normally. See <a href="/guides/ssr">SSR and hydration</a>\nfor application setup and <a href="/guides/troubleshooting">troubleshooting</a> for integration issues.</p>\n',
 				id: '',
 				kind: 'content',
 			},
 		],
-		search: " compatibility evidence\n\nthe package is compiled with angular 17 apis and partial-ivy. consumer compatibility is\nvalidated against the exact packed archive rather than an import from library source.\nhistorical results do not validate a changed source tree or archive.\n\n declared consumer matrix\n\n| angular line | peer range starts at | consumer runtime |\n| ------------ | -------------------- | ---------------- |\n| 17           | 17.3.12              | editra_node20    |\n| 18           | 18.2.14              | editra_node20    |\n| 19           | 19.2.25              | editra_node20    |\n| 20           | 20.3.33              | editra_node20    |\n| 21           | 21.2.25              | editra_node24    |\n| 22           | 22.2.2               | editra_node24    |\n\nthese ranges describe integration compatibility, not upstream security maintenance.\nthe runtime/compiler combination for each fixture is declared in its package manifest.\ntypescript changes require review against that angular line's supported toolchain.\nfuture angular majors are not claimed as verified.\n\n current results\n\nrun npm run validate -- --compatibility, followed by npm run verify:evidence.\nuse artifacts/release-validation.json and artifacts/compatibility-results.json for\ncurrent results. each consumer records angular/node versions, lockfile hash, browser\nresults, source fingerprint and archive sha-256. the verifier rejects mismatched evidence.\nno fixed test totals are copied into this guide. the angular 22 consumer also performs\na production dependency audit and saves its report under artifacts/.\n\nthe runner installs the archive with normal npm peer resolution in independent angular\napplications. coverage includes production build, forms, reset, disabled/read-only modes,\nrepeated mounting, selection formatting, html security rejection, media, tables, themes,\nmobile layouts, automated accessibility, ssr and hydration. it also exercises the content\ndirective, html pipe and viewer through the public package entry point, including shared\nstyles and browser code-copy controls.\n\nthe editor host deliberately uses ngskiphydration. the surrounding application hydrates;\nprosemirror-managed dom activates after rendering. media requests are mocked for deterministic\ntests; valid canonical urls do not establish external provider availability.\n\n reproduce\n\nset editra_node20 and editra_node24 to suitable executables, editra_npm_cli to npm's\njavascript cli when not running through npm, and optionally editra_browser to a compatible\ninstalled chromium browser. run the full validation command above, or npm run pack\nfollowed by npm run test:compatibility for consumer-only verification of a fresh archive.\nthe runner rejects a package manifest that does not match the current source/archive.\n\nconsumer manifests and independent lockfiles are maintained without generated archive\nreferences. the runner temporarily installs a candidate, records the installed lockfile\nhash, and restores both files after testing, including on failure.\ncandidate peer bypass is an explicit development option and does not\nestablish release compatibility. release verification requires the normal-peer matrix.\n\nsee [maintenance policy](maintenance.md) for legacy tooling and migration requirements and\n[the official angular compatibility table](https://angular.dev/reference/versions) when\nreviewing a toolchain update. remote ci and repository protections must be verified on\nthe actual release revision; local reports do not prove those settings are enabled.\n",
-	},
-	{
-		slug: 'releasing',
-		title: 'Release process',
-		group: 'Project',
-		source: 'docs/RELEASING.md',
-		summary:
-			'For executable Windows instructions, follow the step-by-step npm publishing guide.',
-		readingMinutes: 5,
-		html: '<h1 id="release-preparation">Release preparation</h1>\n<p>For executable Windows instructions, follow the <a href="/guides/publishing">step-by-step npm publishing guide</a>.</p>\n<ol>\n<li>Run the validation commands in CONTRIBUTING.md and complete the outstanding acceptance\ncriteria in PROGRESS.md. Do not call this alpha a stable release.</li>\n<li>Update package version, changelog, consumer tarball paths and any demonstrated peer ranges.</li>\n<li>Run npm run pack (production build, dry-run package validation and actual tarball).</li>\n<li>Install that exact tarball into independent consumers; run the full compatibility matrix.</li>\n<li>Confirm README, LICENSE, public declarations, the single root API export and SCSS are in the archive.</li>\n<li>Verify package-name ownership and npm account permissions immediately before publication.</li>\n<li>After explicit owner authorization, publish the exact tested archive from the workspace root with the prerelease tag:</li>\n</ol>\n<pre><code class="language-sh">npm publish ./artifacts/ngx-editra-0.1.0-alpha.0.tgz --access public --tag next\n</code></pre>\n<p>No workflow publishes automatically. GitHub Actions prepares validation evidence and archives.\nThe package is named <code>ngx-editra</code>; source metadata defaults publishing to public access and the\n<code>next</code> tag. The workspace root is private. Do not publish <code>packages/ngx-editra</code> directly:\nng-packagr\'s compiled distribution is the package consumers need. Update the archive filename\nwhen the version changes. After a stable release is approved, explicitly publish that stable\narchive with <code>--tag latest</code> and update the source publishing default accordingly.</p>\n<p>After publication, verify the published alpha and its consumer instructions:</p>\n<pre><code class="language-sh">npm view ngx-editra@next version dist-tags peerDependencies\nnpm install ngx-editra@next\n</code></pre>\n<p>Run installation in a separate Angular application and follow <a href="/guides/installation">installation</a>\nand <a href="/guides/quick-start">quick start</a>. Verify both components work without any application Sass import.\nPackage-name ownership and availability must be checked at release time; no name is reserved.\nSee the <a href="https://docs.npmjs.com/cli/v10/commands/npm-publish/">official npm publish reference</a>\nfor archive publishing and tags.</p>\n<h2 id="automated-validation-and-maintenance">Automated validation and maintenance</h2>\n<p>The package is unpublished and remains an alpha until the release evidence and manual\nacceptance work are complete. Validation and packing never publish a package.</p>\n<h2 id="local-validation">Local validation</h2>\n<p>Use the repository\'s Node 20.20.2/npm 10.8.2 compilation baseline, install dependencies\nwith <code>npm ci</code>, and provide Chrome/Chromium for browser tests. On Windows, use <code>npm.cmd</code>\nif PowerShell blocks npm.ps1. Set <code>CHROME_BIN</code> for Karma and <code>EDITRA_BROWSER</code> for\nPlaywright when using an installed Chromium browser, including Microsoft Edge.</p>\n<pre><code class="language-sh">npm run validate\n</code></pre>\n<p>The command stops on the first failure. It checks generated documentation, formatting,\nlint, architectural boundaries, builds, types, all unit tests, packaged server rendering,\narchive contents, production playground/docs browser tests and performance observations.\nServer rendering checks exercise the pipe, directive and viewer, including shared styles,\nvalidated media, CSP nonces and isolated requests. Browser rendering checks exercise\nhydration and code copying through the public package entry point.</p>\n<h2 id="consumer-compatibility">Consumer compatibility</h2>\n<p>Set <code>EDITRA_NODE20</code> and <code>EDITRA_NODE24</code> to the respective Node executables and, if not\nrunning through npm, <code>EDITRA_NPM_CLI</code> to npm\'s JavaScript entry point. Then run:</p>\n<pre><code class="language-sh">npm run validate -- --compatibility\nnpm run verify:evidence\n</code></pre>\n<p>The compatibility runner installs the newly packed archive in six independent Angular\n17–22 consumers using normal peer resolution. Each consumer must pass production build,\nforms, SSR/hydration, security, media, table and saved-content rendering tests. Evidence\nis stored in <code>artifacts/compatibility-results.json</code> with the archive SHA-256. Historical\nresults do not validate a changed archive. Do not widen peer ranges without passing the\ncorresponding consumer checks.</p>\n<p>The oldest supported Angular runtime determines the current compilation baseline.\nUpgrading the compilation Angular major requires reviewing the lower peer ranges and\nretesting consumers; it is not a dependency-only change. Legacy compatibility does not\nestablish ongoing security support for an application\'s Angular or Node version.</p>\n<h2 id="ongoing-maintenance">Ongoing maintenance</h2>\n<p>GitHub Actions runs the same complete validation and evidence verification command for\npushes, pull requests, manual requests and weekly, with separate Node runtimes for consumers.\nDependabot checks workspace, consumer and action dependencies weekly; review updates\nthrough the same checks. CI configuration is not evidence of a successful remote run.\nConsumer Angular majors remain distinct, and TypeScript minor changes need manual review.\nSee <a href="/guides/maintenance">maintenance policy</a> for migration and repository-setting requirements.</p>\n<p>Validation generates <code>artifacts/release-validation.json</code> directly from executed checks.\nIt records failures as well as successes, the source fingerprint, archive hash and fresh\nconsumer reports. <code>verify:evidence</code> rejects missing checks, source/archive changes, missing\nconsumer majors or a failed maintained-consumer production audit. After changing source,\nrevalidate before publishing. The source fingerprint normalizes consumer tarball paths;\ntheir installed lockfile hashes are recorded per consumer.</p>\n<p>For each release, update <code>CHANGELOG.md</code>, usage/API documentation, <code>PROGRESS.md</code> and\nthe compatibility evidence. Review the consuming application\'s production dependency\naudit separately from legacy build-tool dependencies. Address or explicitly document\nfindings before release. Never infer a current audit result from an earlier report.</p>\n<h2 id="stable-release-acceptance">Stable-release acceptance</h2>\n<ul>\n<li>All automated checks pass for the exact archive intended for release.</li>\n<li>Remote CI completes successfully on the release revision.</li>\n<li>Keyboard, screen-reader, high-contrast and mobile behavior is reviewed manually.</li>\n<li>HTML policies, extension trust boundaries and dependency findings receive review.</li>\n<li>Clipboard failures, repeated mounting and memory behavior are tested in supported browsers.</li>\n<li>Bundle-size and performance costs are documented for the supported use cases.</li>\n<li>Package ownership, metadata and release notes are checked before an explicit publish action.</li>\n</ul>\n<p>Remaining manual and external checks are tracked in <code>PROGRESS.md</code>; they must not be\nmarked complete based only on automated tests.</p>\n',
-		headings: [
-			{
-				id: 'automated-validation-and-maintenance',
-				label: 'Automated validation and maintenance',
-			},
-			{
-				id: 'local-validation',
-				label: 'Local validation',
-			},
-			{
-				id: 'consumer-compatibility',
-				label: 'Consumer compatibility',
-			},
-			{
-				id: 'ongoing-maintenance',
-				label: 'Ongoing maintenance',
-			},
-			{
-				id: 'stable-release-acceptance',
-				label: 'Stable-release acceptance',
-			},
-		],
-		blocks: [
-			{
-				html: '<h1 id="release-preparation">Release preparation</h1>\n',
-				id: 'release-preparation',
-				kind: 'content',
-			},
-			{
-				html: '<p>For executable Windows instructions, follow the <a href="/guides/publishing">step-by-step npm publishing guide</a>.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<ol>\n<li>Run the validation commands in CONTRIBUTING.md and complete the outstanding acceptance\ncriteria in PROGRESS.md. Do not call this alpha a stable release.</li>\n<li>Update package version, changelog, consumer tarball paths and any demonstrated peer ranges.</li>\n<li>Run npm run pack (production build, dry-run package validation and actual tarball).</li>\n<li>Install that exact tarball into independent consumers; run the full compatibility matrix.</li>\n<li>Confirm README, LICENSE, public declarations, the single root API export and SCSS are in the archive.</li>\n<li>Verify package-name ownership and npm account permissions immediately before publication.</li>\n<li>After explicit owner authorization, publish the exact tested archive from the workspace root with the prerelease tag:</li>\n</ol>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				code: 'npm publish ./artifacts/ngx-editra-0.1.0-alpha.0.tgz --access public --tag next\n',
-				language: 'sh',
-				html: '<pre><code class="language-sh">npm publish ./artifacts/ngx-editra-0.1.0-alpha.0.tgz --access public --tag next\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: "<p>No workflow publishes automatically. GitHub Actions prepares validation evidence and archives.\nThe package is named <code>ngx-editra</code>; source metadata defaults publishing to public access and the\n<code>next</code> tag. The workspace root is private. Do not publish <code>packages/ngx-editra</code> directly:\nng-packagr's compiled distribution is the package consumers need. Update the archive filename\nwhen the version changes. After a stable release is approved, explicitly publish that stable\narchive with <code>--tag latest</code> and update the source publishing default accordingly.</p>\n",
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>After publication, verify the published alpha and its consumer instructions:</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				code: 'npm view ngx-editra@next version dist-tags peerDependencies\nnpm install ngx-editra@next\n',
-				language: 'sh',
-				html: '<pre><code class="language-sh">npm view ngx-editra@next version dist-tags peerDependencies\nnpm install ngx-editra@next\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: '<p>Run installation in a separate Angular application and follow <a href="/guides/installation">installation</a>\nand <a href="/guides/quick-start">quick start</a>. Verify both components work without any application Sass import.\nPackage-name ownership and availability must be checked at release time; no name is reserved.\nSee the <a href="https://docs.npmjs.com/cli/v10/commands/npm-publish/">official npm publish reference</a>\nfor archive publishing and tags.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="automated-validation-and-maintenance">Automated validation and maintenance</h2>\n',
-				id: 'automated-validation-and-maintenance',
-				kind: 'content',
-			},
-			{
-				html: '<p>The package is unpublished and remains an alpha until the release evidence and manual\nacceptance work are complete. Validation and packing never publish a package.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="local-validation">Local validation</h2>\n',
-				id: 'local-validation',
-				kind: 'content',
-			},
-			{
-				html: "<p>Use the repository's Node 20.20.2/npm 10.8.2 compilation baseline, install dependencies\nwith <code>npm ci</code>, and provide Chrome/Chromium for browser tests. On Windows, use <code>npm.cmd</code>\nif PowerShell blocks npm.ps1. Set <code>CHROME_BIN</code> for Karma and <code>EDITRA_BROWSER</code> for\nPlaywright when using an installed Chromium browser, including Microsoft Edge.</p>\n",
-				id: '',
-				kind: 'content',
-			},
-			{
-				code: 'npm run validate\n',
-				language: 'sh',
-				html: '<pre><code class="language-sh">npm run validate\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: '<p>The command stops on the first failure. It checks generated documentation, formatting,\nlint, architectural boundaries, builds, types, all unit tests, packaged server rendering,\narchive contents, production playground/docs browser tests and performance observations.\nServer rendering checks exercise the pipe, directive and viewer, including shared styles,\nvalidated media, CSP nonces and isolated requests. Browser rendering checks exercise\nhydration and code copying through the public package entry point.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="consumer-compatibility">Consumer compatibility</h2>\n',
-				id: 'consumer-compatibility',
-				kind: 'content',
-			},
-			{
-				html: "<p>Set <code>EDITRA_NODE20</code> and <code>EDITRA_NODE24</code> to the respective Node executables and, if not\nrunning through npm, <code>EDITRA_NPM_CLI</code> to npm's JavaScript entry point. Then run:</p>\n",
-				id: '',
-				kind: 'content',
-			},
-			{
-				code: 'npm run validate -- --compatibility\nnpm run verify:evidence\n',
-				language: 'sh',
-				html: '<pre><code class="language-sh">npm run validate -- --compatibility\nnpm run verify:evidence\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: '<p>The compatibility runner installs the newly packed archive in six independent Angular\n17–22 consumers using normal peer resolution. Each consumer must pass production build,\nforms, SSR/hydration, security, media, table and saved-content rendering tests. Evidence\nis stored in <code>artifacts/compatibility-results.json</code> with the archive SHA-256. Historical\nresults do not validate a changed archive. Do not widen peer ranges without passing the\ncorresponding consumer checks.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: "<p>The oldest supported Angular runtime determines the current compilation baseline.\nUpgrading the compilation Angular major requires reviewing the lower peer ranges and\nretesting consumers; it is not a dependency-only change. Legacy compatibility does not\nestablish ongoing security support for an application's Angular or Node version.</p>\n",
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="ongoing-maintenance">Ongoing maintenance</h2>\n',
-				id: 'ongoing-maintenance',
-				kind: 'content',
-			},
-			{
-				html: '<p>GitHub Actions runs the same complete validation and evidence verification command for\npushes, pull requests, manual requests and weekly, with separate Node runtimes for consumers.\nDependabot checks workspace, consumer and action dependencies weekly; review updates\nthrough the same checks. CI configuration is not evidence of a successful remote run.\nConsumer Angular majors remain distinct, and TypeScript minor changes need manual review.\nSee <a href="/guides/maintenance">maintenance policy</a> for migration and repository-setting requirements.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>Validation generates <code>artifacts/release-validation.json</code> directly from executed checks.\nIt records failures as well as successes, the source fingerprint, archive hash and fresh\nconsumer reports. <code>verify:evidence</code> rejects missing checks, source/archive changes, missing\nconsumer majors or a failed maintained-consumer production audit. After changing source,\nrevalidate before publishing. The source fingerprint normalizes consumer tarball paths;\ntheir installed lockfile hashes are recorded per consumer.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: "<p>For each release, update <code>CHANGELOG.md</code>, usage/API documentation, <code>PROGRESS.md</code> and\nthe compatibility evidence. Review the consuming application's production dependency\naudit separately from legacy build-tool dependencies. Address or explicitly document\nfindings before release. Never infer a current audit result from an earlier report.</p>\n",
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="stable-release-acceptance">Stable-release acceptance</h2>\n',
-				id: 'stable-release-acceptance',
-				kind: 'content',
-			},
-			{
-				html: '<ul>\n<li>All automated checks pass for the exact archive intended for release.</li>\n<li>Remote CI completes successfully on the release revision.</li>\n<li>Keyboard, screen-reader, high-contrast and mobile behavior is reviewed manually.</li>\n<li>HTML policies, extension trust boundaries and dependency findings receive review.</li>\n<li>Clipboard failures, repeated mounting and memory behavior are tested in supported browsers.</li>\n<li>Bundle-size and performance costs are documented for the supported use cases.</li>\n<li>Package ownership, metadata and release notes are checked before an explicit publish action.</li>\n</ul>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>Remaining manual and external checks are tracked in <code>PROGRESS.md</code>; they must not be\nmarked complete based only on automated tests.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-		],
-		search: " release preparation\n\nfor executable windows instructions, follow the [step-by-step npm publishing guide](publishing.md).\n\n1. run the validation commands in contributing.md and complete the outstanding acceptance\n   criteria in progress.md. do not call this alpha a stable release.\n2. update package version, changelog, consumer tarball paths and any demonstrated peer ranges.\n3. run npm run pack (production build, dry-run package validation and actual tarball).\n4. install that exact tarball into independent consumers; run the full compatibility matrix.\n5. confirm readme, license, public declarations, the single root api export and scss are in the archive.\n6. verify package-name ownership and npm account permissions immediately before publication.\n7. after explicit owner authorization, publish the exact tested archive from the workspace root with the prerelease tag:\n\nsh\nnpm publish ./artifacts/ngx-editra-0.1.0-alpha.0.tgz --access public --tag next\n\n\nno workflow publishes automatically. github actions prepares validation evidence and archives.\nthe package is named ngx-editra; source metadata defaults publishing to public access and the\nnext tag. the workspace root is private. do not publish packages/ngx-editra directly:\nng-packagr's compiled distribution is the package consumers need. update the archive filename\nwhen the version changes. after a stable release is approved, explicitly publish that stable\narchive with --tag latest and update the source publishing default accordingly.\n\nafter publication, verify the published alpha and its consumer instructions:\n\nsh\nnpm view ngx-editra@next version dist-tags peerdependencies\nnpm install ngx-editra@next\n\n\nrun installation in a separate angular application and follow [installation](installation.md)\nand [quick start](quick_start.md). verify both components work without any application sass import.\npackage-name ownership and availability must be checked at release time; no name is reserved.\nsee the [official npm publish reference](https://docs.npmjs.com/cli/v10/commands/npm-publish/)\nfor archive publishing and tags.\n\n automated validation and maintenance\n\nthe package is unpublished and remains an alpha until the release evidence and manual\nacceptance work are complete. validation and packing never publish a package.\n\n local validation\n\nuse the repository's node 20.20.2/npm 10.8.2 compilation baseline, install dependencies\nwith npm ci, and provide chrome/chromium for browser tests. on windows, use npm.cmd\nif powershell blocks npm.ps1. set chrome_bin for karma and editra_browser for\nplaywright when using an installed chromium browser, including microsoft edge.\n\nsh\nnpm run validate\n\n\nthe command stops on the first failure. it checks generated documentation, formatting,\nlint, architectural boundaries, builds, types, all unit tests, packaged server rendering,\narchive contents, production playground/docs browser tests and performance observations.\nserver rendering checks exercise the pipe, directive and viewer, including shared styles,\nvalidated media, csp nonces and isolated requests. browser rendering checks exercise\nhydration and code copying through the public package entry point.\n\n consumer compatibility\n\nset editra_node20 and editra_node24 to the respective node executables and, if not\nrunning through npm, editra_npm_cli to npm's javascript entry point. then run:\n\nsh\nnpm run validate -- --compatibility\nnpm run verify:evidence\n\n\nthe compatibility runner installs the newly packed archive in six independent angular\n17–22 consumers using normal peer resolution. each consumer must pass production build,\nforms, ssr/hydration, security, media, table and saved-content rendering tests. evidence\nis stored in artifacts/compatibility-results.json with the archive sha-256. historical\nresults do not validate a changed archive. do not widen peer ranges without passing the\ncorresponding consumer checks.\n\nthe oldest supported angular runtime determines the current compilation baseline.\nupgrading the compilation angular major requires reviewing the lower peer ranges and\nretesting consumers; it is not a dependency-only change. legacy compatibility does not\nestablish ongoing security support for an application's angular or node version.\n\n ongoing maintenance\n\ngithub actions runs the same complete validation and evidence verification command for\npushes, pull requests, manual requests and weekly, with separate node runtimes for consumers.\ndependabot checks workspace, consumer and action dependencies weekly; review updates\nthrough the same checks. ci configuration is not evidence of a successful remote run.\nconsumer angular majors remain distinct, and typescript minor changes need manual review.\nsee [maintenance policy](maintenance.md) for migration and repository-setting requirements.\n\nvalidation generates artifacts/release-validation.json directly from executed checks.\nit records failures as well as successes, the source fingerprint, archive hash and fresh\nconsumer reports. verify:evidence rejects missing checks, source/archive changes, missing\nconsumer majors or a failed maintained-consumer production audit. after changing source,\nrevalidate before publishing. the source fingerprint normalizes consumer tarball paths;\ntheir installed lockfile hashes are recorded per consumer.\n\nfor each release, update changelog.md, usage/api documentation, progress.md and\nthe compatibility evidence. review the consuming application's production dependency\naudit separately from legacy build-tool dependencies. address or explicitly document\nfindings before release. never infer a current audit result from an earlier report.\n\n stable-release acceptance\n\n-   all automated checks pass for the exact archive intended for release.\n-   remote ci completes successfully on the release revision.\n-   keyboard, screen-reader, high-contrast and mobile behavior is reviewed manually.\n-   html policies, extension trust boundaries and dependency findings receive review.\n-   clipboard failures, repeated mounting and memory behavior are tested in supported browsers.\n-   bundle-size and performance costs are documented for the supported use cases.\n-   package ownership, metadata and release notes are checked before an explicit publish action.\n\nremaining manual and external checks are tracked in progress.md; they must not be\nmarked complete based only on automated tests.\n",
-	},
-	{
-		slug: 'publishing',
-		title: 'Publish to npm',
-		group: 'Project',
-		source: 'docs/PUBLISHING.md',
-		summary:
-			'This guide publishes the initial ngx-editra@0.1.0-alpha.0 prerelease with thenext tag. Run commands from the workspace root in PowerShell, one at a time.Stop whenever a command fails. Validation and dry runs do not publish anything;step 7 makes the package public.',
-		readingMinutes: 5,
-		html: '<h1 id="publish-ngx-editra-to-npm">Publish ngx-editra to npm</h1>\n<p>This guide publishes the initial <code>ngx-editra@0.1.0-alpha.0</code> prerelease with the\n<code>next</code> tag. Run commands from the workspace root in PowerShell, one at a time.\nStop whenever a command fails. Validation and dry runs do not publish anything;\nstep 7 makes the package public.</p>\n<h2 id="1-prepare-your-npm-account">1. Prepare your npm account</h2>\n<p>Create an account at <a href="https://www.npmjs.com/signup">npm</a>, verify your email address,\nand enable two-factor authentication in account settings. Complete authentication\nprompts in your own browser or terminal; never commit or share tokens or OTP codes.\nSee <a href="https://docs.npmjs.com/requiring-2fa-for-package-publishing-and-settings-modification/">npm publishing authentication</a>.</p>\n<h2 id="2-configure-the-windows-toolchain">2. Configure the Windows toolchain</h2>\n<p>The compilation baseline is Node 20.20.2/npm 10.8.2. Compatibility tests also need\nNode 24 and a Chromium browser. Adjust these executable paths for your machine.\nThis example uses the existing local installations and Microsoft Edge:</p>\n<pre><code class="language-powershell">cd F:\\POJECTS\\editra-workspace\n\n$env:EDITRA_NODE20 = \'C:\\Program Files\\nodejs\\node.exe\'\n$env:EDITRA_NODE24 = \'C:\\Users\\Sanjay Khatri\\AppData\\Local\\JetBrains\\IntelliJIdea2026.2\\acp-agents\\.runtimes\\node\\24.19.0\\node.exe\'\n$env:EDITRA_NPM_CLI = \'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js\'\n$env:PATH = \'C:\\Program Files\\nodejs;\' + $env:PATH\n$env:CHROME_BIN = \'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\'\n$env:EDITRA_BROWSER = $env:CHROME_BIN\n\nfunction editraNpm { &amp; $env:EDITRA_NODE20 $env:EDITRA_NPM_CLI @args }\n\n&amp; $env:EDITRA_NODE20 --version\n&amp; $env:EDITRA_NODE24 --version\neditraNpm --version\n</code></pre>\n<p>Expect Node 20, Node 24 and npm 10 respectively. The <code>editraNpm</code> helper explicitly\nselects npm 10; changing PATH alone can still select another npm installation.\nKeep this terminal open for the remaining steps. These environment variables and\nthe helper apply only to this terminal session.</p>\n<h2 id="3-sign-in-and-check-the-package-name">3. Sign in and check the package name</h2>\n<pre><code class="language-powershell">editraNpm login --registry=https://registry.npmjs.org/\neditraNpm whoami --registry=https://registry.npmjs.org/\neditraNpm view ngx-editra name versions --registry=https://registry.npmjs.org/\n</code></pre>\n<p>Complete the browser login and confirm <code>whoami</code> prints your intended account.\nAn E404 from <code>view</code> means no existing package was found; it does not reserve the\nname or guarantee npm will allow publication. If a package exists, confirm you\nhave publishing access and the intended version has never been published.</p>\n<p>The version comes from <code>packages/ngx-editra/package.json</code>, not the private root\npackage. If you change the version, update release notes and tarball references\nbefore validation. See the <a href="/guides/releasing">release process</a>.</p>\n<h2 id="4-stop-dev-servers-and-install-dependencies">4. Stop dev servers and install dependencies</h2>\n<p>Press Ctrl+C in terminals running <code>start:all</code>, <code>ng serve</code>, or build watchers.\nStop corresponding IDE run configurations too. Running servers can lock esbuild\nand Rollup files on Windows.</p>\n<pre><code class="language-powershell">editraNpm ci\n</code></pre>\n<p>Wait for successful completion before continuing. Review current dependency\nfindings with <code>editraNpm audit</code> and, separately, <code>editraNpm audit --omit=dev</code>.\nAudit can exit nonzero when it finds vulnerabilities. Resolve or document findings\nunder the <a href="/guides/maintenance">maintenance policy</a>; the workspace audit includes app\nand legacy toolchain dependencies, so assess the library and supported consumers\nas well. Do not blindly run <code>npm audit fix --force</code> before a release.</p>\n<h2 id="5-validate-the-exact-release">5. Validate the exact release</h2>\n<pre><code class="language-powershell">editraNpm run validate -- --compatibility\neditraNpm run verify:evidence\n</code></pre>\n<p>Both commands must succeed. Validation builds and packs the library, exercises\nthe apps, and installs the generated archive in independent Angular 17–22 consumers.\nThe archive for this version is:</p>\n<pre><code class="language-text">artifacts/ngx-editra-0.1.0-alpha.0.tgz\n</code></pre>\n<p>Review <code>artifacts/release-validation.json</code> and <code>artifacts/compatibility-results.json</code>,\ncomplete applicable manual release checks, and confirm remote CI passes for the\nrelease revision. Remaining acceptance work is tracked in <a href="/guides/project-status">project status</a>.\nDo not represent this alpha as stable.</p>\n<p>Source, documentation, or archive changes invalidate release evidence. Make all\nedits before validation; if anything changes afterward, repeat this step. Do not\nrebuild or repack after verification and then publish the replacement archive.</p>\n<h2 id="6-preview-package-publication">6. Preview package publication</h2>\n<pre><code class="language-powershell">editraNpm publish ./artifacts/ngx-editra-0.1.0-alpha.0.tgz --access public --tag next --registry=https://registry.npmjs.org/ --dry-run\n</code></pre>\n<p>Review the package name, version, tag and file list. Confirm the archive contains\ncompiled library files, public declarations, README, LICENSE and distributed\nstyles. A successful dry run checks packaging; it does not prove publishing\npermissions or reserve the name/version.</p>\n<h2 id="7-publish-the-tested-archive">7. Publish the tested archive</h2>\n<p>When you intend to make this release public, run:</p>\n<pre><code class="language-powershell">editraNpm run verify:evidence\neditraNpm publish ./artifacts/ngx-editra-0.1.0-alpha.0.tgz --access public --tag next --registry=https://registry.npmjs.org/\n</code></pre>\n<p>Run the second command only if evidence verification succeeds. Complete npm\'s\nauthentication prompt. Publish the tested tarball, not the private workspace root\nor <code>packages/ngx-editra</code> source directory. No repository workflow publishes npm\npackages automatically.</p>\n<p>The <code>next</code> tag identifies the prerelease. A published name/version combination\ncannot be reused, even after unpublishing. See the <a href="https://docs.npmjs.com/cli/commands/npm-publish/">npm publish reference</a>.</p>\n<h2 id="8-verify-the-public-package">8. Verify the public package</h2>\n<pre><code class="language-powershell">editraNpm view ngx-editra@0.1.0-alpha.0 version dist.integrity --registry=https://registry.npmjs.org/\neditraNpm view ngx-editra dist-tags --registry=https://registry.npmjs.org/\n</code></pre>\n<p>Confirm <code>next</code> points to <code>0.1.0-alpha.0</code> and open the\n<a href="https://www.npmjs.com/package/ngx-editra">package page</a>. In a separate supported\nAngular application, install the release:</p>\n<pre><code class="language-powershell">npm.cmd install ngx-editra@next\n</code></pre>\n<p>Follow <a href="/guides/quick-start">quick start</a> and verify editing, forms, saved-content\nrendering and code copying without an application Sass import. Update repository\nrelease status and installation instructions to reflect the actual publication,\nthen regenerate the documentation. Never mark publication complete before npm\nconfirms it.</p>\n<h2 id="troubleshooting">Troubleshooting</h2>\n<h3 id="eperm-unlink-esbuild-exe-or-rollup">EPERM unlink: esbuild.exe or Rollup</h3>\n<p>A running dev server, watcher or other process may hold the file open. Stop this\nworkspace\'s servers and watchers, then retry <code>editraNpm ci</code>. If the lock remains,\nclose the relevant IDE run configuration or restart Windows and retry before\nstarting the apps. Do not kill every Node process or disable antivirus globally.</p>\n<h3 id="cannot-find-markdown-it-after-npm-ci-failed">Cannot find markdown-it after npm ci failed</h3>\n<p>The dependency installation is incomplete. Fix the install error and rerun\n<code>editraNpm ci</code> successfully before validation. Do not install a single missing\npackage to conceal the interrupted clean install.</p>\n<h3 id="validation-is-incomplete-or-failed">Validation is incomplete or failed</h3>\n<p>Fix the first failed validation step, rerun the complete compatibility validation,\nthen verify evidence again. Never edit evidence reports to mark checks as passed.</p>\n<h3 id="e401-e403-or-version-already-exists">E401, E403 or version already exists</h3>\n<p>For authentication errors, repeat login and confirm <code>whoami</code>. For E403, read npm\'s\nmessage and check account permissions, 2FA requirements and package-name policy.\nIf the version exists, inspect the registry first: a previous attempt may have\nsucceeded. A genuinely new release needs a new version and fresh validation.</p>\n<h2 id="subsequent-releases">Subsequent releases</h2>\n<p>Use a new version such as <code>0.1.0-alpha.1</code>, update the changelog and tarball\nreferences, then repeat validation and publication using <code>next</code>. Release <code>1.0.0</code>\nor another stable version with <code>latest</code> only after stable acceptance criteria are\nmet; review the package\'s default publishing tag at that time.</p>\n',
-		headings: [
-			{
-				id: '1-prepare-your-npm-account',
-				label: '1. Prepare your npm account',
-			},
-			{
-				id: '2-configure-the-windows-toolchain',
-				label: '2. Configure the Windows toolchain',
-			},
-			{
-				id: '3-sign-in-and-check-the-package-name',
-				label: '3. Sign in and check the package name',
-			},
-			{
-				id: '4-stop-dev-servers-and-install-dependencies',
-				label: '4. Stop dev servers and install dependencies',
-			},
-			{
-				id: '5-validate-the-exact-release',
-				label: '5. Validate the exact release',
-			},
-			{
-				id: '6-preview-package-publication',
-				label: '6. Preview package publication',
-			},
-			{
-				id: '7-publish-the-tested-archive',
-				label: '7. Publish the tested archive',
-			},
-			{
-				id: '8-verify-the-public-package',
-				label: '8. Verify the public package',
-			},
-			{
-				id: 'troubleshooting',
-				label: 'Troubleshooting',
-			},
-			{
-				id: 'eperm-unlink-esbuild-exe-or-rollup',
-				label: 'EPERM unlink: esbuild.exe or Rollup',
-			},
-			{
-				id: 'cannot-find-markdown-it-after-npm-ci-failed',
-				label: 'Cannot find markdown-it after npm ci failed',
-			},
-			{
-				id: 'validation-is-incomplete-or-failed',
-				label: 'Validation is incomplete or failed',
-			},
-			{
-				id: 'e401-e403-or-version-already-exists',
-				label: 'E401, E403 or version already exists',
-			},
-			{
-				id: 'subsequent-releases',
-				label: 'Subsequent releases',
-			},
-		],
-		blocks: [
-			{
-				html: '<h1 id="publish-ngx-editra-to-npm">Publish ngx-editra to npm</h1>\n',
-				id: 'publish-ngx-editra-to-npm',
-				kind: 'content',
-			},
-			{
-				html: '<p>This guide publishes the initial <code>ngx-editra@0.1.0-alpha.0</code> prerelease with the\n<code>next</code> tag. Run commands from the workspace root in PowerShell, one at a time.\nStop whenever a command fails. Validation and dry runs do not publish anything;\nstep 7 makes the package public.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="1-prepare-your-npm-account">1. Prepare your npm account</h2>\n',
-				id: '1-prepare-your-npm-account',
-				kind: 'content',
-			},
-			{
-				html: '<p>Create an account at <a href="https://www.npmjs.com/signup">npm</a>, verify your email address,\nand enable two-factor authentication in account settings. Complete authentication\nprompts in your own browser or terminal; never commit or share tokens or OTP codes.\nSee <a href="https://docs.npmjs.com/requiring-2fa-for-package-publishing-and-settings-modification/">npm publishing authentication</a>.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="2-configure-the-windows-toolchain">2. Configure the Windows toolchain</h2>\n',
-				id: '2-configure-the-windows-toolchain',
-				kind: 'content',
-			},
-			{
-				html: '<p>The compilation baseline is Node 20.20.2/npm 10.8.2. Compatibility tests also need\nNode 24 and a Chromium browser. Adjust these executable paths for your machine.\nThis example uses the existing local installations and Microsoft Edge:</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				code: "cd F:\\POJECTS\\editra-workspace\n\n$env:EDITRA_NODE20 = 'C:\\Program Files\\nodejs\\node.exe'\n$env:EDITRA_NODE24 = 'C:\\Users\\Sanjay Khatri\\AppData\\Local\\JetBrains\\IntelliJIdea2026.2\\acp-agents\\.runtimes\\node\\24.19.0\\node.exe'\n$env:EDITRA_NPM_CLI = 'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js'\n$env:PATH = 'C:\\Program Files\\nodejs;' + $env:PATH\n$env:CHROME_BIN = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'\n$env:EDITRA_BROWSER = $env:CHROME_BIN\n\nfunction editraNpm { & $env:EDITRA_NODE20 $env:EDITRA_NPM_CLI @args }\n\n& $env:EDITRA_NODE20 --version\n& $env:EDITRA_NODE24 --version\neditraNpm --version\n",
-				language: 'powershell',
-				html: "<pre><code class=\"language-powershell\">cd F:\\POJECTS\\editra-workspace\n\n$env:EDITRA_NODE20 = 'C:\\Program Files\\nodejs\\node.exe'\n$env:EDITRA_NODE24 = 'C:\\Users\\Sanjay Khatri\\AppData\\Local\\JetBrains\\IntelliJIdea2026.2\\acp-agents\\.runtimes\\node\\24.19.0\\node.exe'\n$env:EDITRA_NPM_CLI = 'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js'\n$env:PATH = 'C:\\Program Files\\nodejs;' + $env:PATH\n$env:CHROME_BIN = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe'\n$env:EDITRA_BROWSER = $env:CHROME_BIN\n\nfunction editraNpm { &amp; $env:EDITRA_NODE20 $env:EDITRA_NPM_CLI @args }\n\n&amp; $env:EDITRA_NODE20 --version\n&amp; $env:EDITRA_NODE24 --version\neditraNpm --version\n</code></pre>\n",
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: '<p>Expect Node 20, Node 24 and npm 10 respectively. The <code>editraNpm</code> helper explicitly\nselects npm 10; changing PATH alone can still select another npm installation.\nKeep this terminal open for the remaining steps. These environment variables and\nthe helper apply only to this terminal session.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="3-sign-in-and-check-the-package-name">3. Sign in and check the package name</h2>\n',
-				id: '3-sign-in-and-check-the-package-name',
-				kind: 'content',
-			},
-			{
-				code: 'editraNpm login --registry=https://registry.npmjs.org/\neditraNpm whoami --registry=https://registry.npmjs.org/\neditraNpm view ngx-editra name versions --registry=https://registry.npmjs.org/\n',
-				language: 'powershell',
-				html: '<pre><code class="language-powershell">editraNpm login --registry=https://registry.npmjs.org/\neditraNpm whoami --registry=https://registry.npmjs.org/\neditraNpm view ngx-editra name versions --registry=https://registry.npmjs.org/\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: '<p>Complete the browser login and confirm <code>whoami</code> prints your intended account.\nAn E404 from <code>view</code> means no existing package was found; it does not reserve the\nname or guarantee npm will allow publication. If a package exists, confirm you\nhave publishing access and the intended version has never been published.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>The version comes from <code>packages/ngx-editra/package.json</code>, not the private root\npackage. If you change the version, update release notes and tarball references\nbefore validation. See the <a href="/guides/releasing">release process</a>.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="4-stop-dev-servers-and-install-dependencies">4. Stop dev servers and install dependencies</h2>\n',
-				id: '4-stop-dev-servers-and-install-dependencies',
-				kind: 'content',
-			},
-			{
-				html: '<p>Press Ctrl+C in terminals running <code>start:all</code>, <code>ng serve</code>, or build watchers.\nStop corresponding IDE run configurations too. Running servers can lock esbuild\nand Rollup files on Windows.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				code: 'editraNpm ci\n',
-				language: 'powershell',
-				html: '<pre><code class="language-powershell">editraNpm ci\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: '<p>Wait for successful completion before continuing. Review current dependency\nfindings with <code>editraNpm audit</code> and, separately, <code>editraNpm audit --omit=dev</code>.\nAudit can exit nonzero when it finds vulnerabilities. Resolve or document findings\nunder the <a href="/guides/maintenance">maintenance policy</a>; the workspace audit includes app\nand legacy toolchain dependencies, so assess the library and supported consumers\nas well. Do not blindly run <code>npm audit fix --force</code> before a release.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="5-validate-the-exact-release">5. Validate the exact release</h2>\n',
-				id: '5-validate-the-exact-release',
-				kind: 'content',
-			},
-			{
-				code: 'editraNpm run validate -- --compatibility\neditraNpm run verify:evidence\n',
-				language: 'powershell',
-				html: '<pre><code class="language-powershell">editraNpm run validate -- --compatibility\neditraNpm run verify:evidence\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: '<p>Both commands must succeed. Validation builds and packs the library, exercises\nthe apps, and installs the generated archive in independent Angular 17–22 consumers.\nThe archive for this version is:</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				code: 'artifacts/ngx-editra-0.1.0-alpha.0.tgz\n',
-				language: 'text',
-				html: '<pre><code class="language-text">artifacts/ngx-editra-0.1.0-alpha.0.tgz\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: '<p>Review <code>artifacts/release-validation.json</code> and <code>artifacts/compatibility-results.json</code>,\ncomplete applicable manual release checks, and confirm remote CI passes for the\nrelease revision. Remaining acceptance work is tracked in <a href="/guides/project-status">project status</a>.\nDo not represent this alpha as stable.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>Source, documentation, or archive changes invalidate release evidence. Make all\nedits before validation; if anything changes afterward, repeat this step. Do not\nrebuild or repack after verification and then publish the replacement archive.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="6-preview-package-publication">6. Preview package publication</h2>\n',
-				id: '6-preview-package-publication',
-				kind: 'content',
-			},
-			{
-				code: 'editraNpm publish ./artifacts/ngx-editra-0.1.0-alpha.0.tgz --access public --tag next --registry=https://registry.npmjs.org/ --dry-run\n',
-				language: 'powershell',
-				html: '<pre><code class="language-powershell">editraNpm publish ./artifacts/ngx-editra-0.1.0-alpha.0.tgz --access public --tag next --registry=https://registry.npmjs.org/ --dry-run\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: '<p>Review the package name, version, tag and file list. Confirm the archive contains\ncompiled library files, public declarations, README, LICENSE and distributed\nstyles. A successful dry run checks packaging; it does not prove publishing\npermissions or reserve the name/version.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="7-publish-the-tested-archive">7. Publish the tested archive</h2>\n',
-				id: '7-publish-the-tested-archive',
-				kind: 'content',
-			},
-			{
-				html: '<p>When you intend to make this release public, run:</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				code: 'editraNpm run verify:evidence\neditraNpm publish ./artifacts/ngx-editra-0.1.0-alpha.0.tgz --access public --tag next --registry=https://registry.npmjs.org/\n',
-				language: 'powershell',
-				html: '<pre><code class="language-powershell">editraNpm run verify:evidence\neditraNpm publish ./artifacts/ngx-editra-0.1.0-alpha.0.tgz --access public --tag next --registry=https://registry.npmjs.org/\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: "<p>Run the second command only if evidence verification succeeds. Complete npm's\nauthentication prompt. Publish the tested tarball, not the private workspace root\nor <code>packages/ngx-editra</code> source directory. No repository workflow publishes npm\npackages automatically.</p>\n",
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>The <code>next</code> tag identifies the prerelease. A published name/version combination\ncannot be reused, even after unpublishing. See the <a href="https://docs.npmjs.com/cli/commands/npm-publish/">npm publish reference</a>.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="8-verify-the-public-package">8. Verify the public package</h2>\n',
-				id: '8-verify-the-public-package',
-				kind: 'content',
-			},
-			{
-				code: 'editraNpm view ngx-editra@0.1.0-alpha.0 version dist.integrity --registry=https://registry.npmjs.org/\neditraNpm view ngx-editra dist-tags --registry=https://registry.npmjs.org/\n',
-				language: 'powershell',
-				html: '<pre><code class="language-powershell">editraNpm view ngx-editra@0.1.0-alpha.0 version dist.integrity --registry=https://registry.npmjs.org/\neditraNpm view ngx-editra dist-tags --registry=https://registry.npmjs.org/\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: '<p>Confirm <code>next</code> points to <code>0.1.0-alpha.0</code> and open the\n<a href="https://www.npmjs.com/package/ngx-editra">package page</a>. In a separate supported\nAngular application, install the release:</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				code: 'npm.cmd install ngx-editra@next\n',
-				language: 'powershell',
-				html: '<pre><code class="language-powershell">npm.cmd install ngx-editra@next\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: '<p>Follow <a href="/guides/quick-start">quick start</a> and verify editing, forms, saved-content\nrendering and code copying without an application Sass import. Update repository\nrelease status and installation instructions to reflect the actual publication,\nthen regenerate the documentation. Never mark publication complete before npm\nconfirms it.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="troubleshooting">Troubleshooting</h2>\n',
-				id: 'troubleshooting',
-				kind: 'content',
-			},
-			{
-				html: '<h3 id="eperm-unlink-esbuild-exe-or-rollup">EPERM unlink: esbuild.exe or Rollup</h3>\n',
-				id: 'eperm-unlink-esbuild-exe-or-rollup',
-				kind: 'content',
-			},
-			{
-				html: "<p>A running dev server, watcher or other process may hold the file open. Stop this\nworkspace's servers and watchers, then retry <code>editraNpm ci</code>. If the lock remains,\nclose the relevant IDE run configuration or restart Windows and retry before\nstarting the apps. Do not kill every Node process or disable antivirus globally.</p>\n",
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h3 id="cannot-find-markdown-it-after-npm-ci-failed">Cannot find markdown-it after npm ci failed</h3>\n',
-				id: 'cannot-find-markdown-it-after-npm-ci-failed',
-				kind: 'content',
-			},
-			{
-				html: '<p>The dependency installation is incomplete. Fix the install error and rerun\n<code>editraNpm ci</code> successfully before validation. Do not install a single missing\npackage to conceal the interrupted clean install.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h3 id="validation-is-incomplete-or-failed">Validation is incomplete or failed</h3>\n',
-				id: 'validation-is-incomplete-or-failed',
-				kind: 'content',
-			},
-			{
-				html: '<p>Fix the first failed validation step, rerun the complete compatibility validation,\nthen verify evidence again. Never edit evidence reports to mark checks as passed.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h3 id="e401-e403-or-version-already-exists">E401, E403 or version already exists</h3>\n',
-				id: 'e401-e403-or-version-already-exists',
-				kind: 'content',
-			},
-			{
-				html: "<p>For authentication errors, repeat login and confirm <code>whoami</code>. For E403, read npm's\nmessage and check account permissions, 2FA requirements and package-name policy.\nIf the version exists, inspect the registry first: a previous attempt may have\nsucceeded. A genuinely new release needs a new version and fresh validation.</p>\n",
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="subsequent-releases">Subsequent releases</h2>\n',
-				id: 'subsequent-releases',
-				kind: 'content',
-			},
-			{
-				html: "<p>Use a new version such as <code>0.1.0-alpha.1</code>, update the changelog and tarball\nreferences, then repeat validation and publication using <code>next</code>. Release <code>1.0.0</code>\nor another stable version with <code>latest</code> only after stable acceptance criteria are\nmet; review the package's default publishing tag at that time.</p>\n",
-				id: '',
-				kind: 'content',
-			},
-		],
-		search: " publish ngx-editra to npm\n\nthis guide publishes the initial ngx-editra@0.1.0-alpha.0 prerelease with the\nnext tag. run commands from the workspace root in powershell, one at a time.\nstop whenever a command fails. validation and dry runs do not publish anything;\nstep 7 makes the package public.\n\n 1. prepare your npm account\n\ncreate an account at [npm](https://www.npmjs.com/signup), verify your email address,\nand enable two-factor authentication in account settings. complete authentication\nprompts in your own browser or terminal; never commit or share tokens or otp codes.\nsee [npm publishing authentication](https://docs.npmjs.com/requiring-2fa-for-package-publishing-and-settings-modification/).\n\n 2. configure the windows toolchain\n\nthe compilation baseline is node 20.20.2/npm 10.8.2. compatibility tests also need\nnode 24 and a chromium browser. adjust these executable paths for your machine.\nthis example uses the existing local installations and microsoft edge:\n\npowershell\ncd f:\\pojects\\editra-workspace\n\n$env:editra_node20 = 'c:\\program files\\nodejs\\node.exe'\n$env:editra_node24 = 'c:\\users\\sanjay khatri\\appdata\\local\\jetbrains\\intellijidea2026.2\\acp-agents\\.runtimes\\node\\24.19.0\\node.exe'\n$env:editra_npm_cli = 'c:\\program files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js'\n$env:path = 'c:\\program files\\nodejs;' + $env:path\n$env:chrome_bin = 'c:\\program files (x86)\\microsoft\\edge\\application\\msedge.exe'\n$env:editra_browser = $env:chrome_bin\n\nfunction editranpm { & $env:editra_node20 $env:editra_npm_cli @args }\n\n& $env:editra_node20 --version\n& $env:editra_node24 --version\neditranpm --version\n\n\nexpect node 20, node 24 and npm 10 respectively. the editranpm helper explicitly\nselects npm 10; changing path alone can still select another npm installation.\nkeep this terminal open for the remaining steps. these environment variables and\nthe helper apply only to this terminal session.\n\n 3. sign in and check the package name\n\npowershell\neditranpm login --registry=https://registry.npmjs.org/\neditranpm whoami --registry=https://registry.npmjs.org/\neditranpm view ngx-editra name versions --registry=https://registry.npmjs.org/\n\n\ncomplete the browser login and confirm whoami prints your intended account.\nan e404 from view means no existing package was found; it does not reserve the\nname or guarantee npm will allow publication. if a package exists, confirm you\nhave publishing access and the intended version has never been published.\n\nthe version comes from packages/ngx-editra/package.json, not the private root\npackage. if you change the version, update release notes and tarball references\nbefore validation. see the [release process](releasing.md).\n\n 4. stop dev servers and install dependencies\n\npress ctrl+c in terminals running start:all, ng serve, or build watchers.\nstop corresponding ide run configurations too. running servers can lock esbuild\nand rollup files on windows.\n\npowershell\neditranpm ci\n\n\nwait for successful completion before continuing. review current dependency\nfindings with editranpm audit and, separately, editranpm audit --omit=dev.\naudit can exit nonzero when it finds vulnerabilities. resolve or document findings\nunder the [maintenance policy](maintenance.md); the workspace audit includes app\nand legacy toolchain dependencies, so assess the library and supported consumers\nas well. do not blindly run npm audit fix --force before a release.\n\n 5. validate the exact release\n\npowershell\neditranpm run validate -- --compatibility\neditranpm run verify:evidence\n\n\nboth commands must succeed. validation builds and packs the library, exercises\nthe apps, and installs the generated archive in independent angular 17–22 consumers.\nthe archive for this version is:\n\ntext\nartifacts/ngx-editra-0.1.0-alpha.0.tgz\n\n\nreview artifacts/release-validation.json and artifacts/compatibility-results.json,\ncomplete applicable manual release checks, and confirm remote ci passes for the\nrelease revision. remaining acceptance work is tracked in [project status](../progress.md).\ndo not represent this alpha as stable.\n\nsource, documentation, or archive changes invalidate release evidence. make all\nedits before validation; if anything changes afterward, repeat this step. do not\nrebuild or repack after verification and then publish the replacement archive.\n\n 6. preview package publication\n\npowershell\neditranpm publish ./artifacts/ngx-editra-0.1.0-alpha.0.tgz --access public --tag next --registry=https://registry.npmjs.org/ --dry-run\n\n\nreview the package name, version, tag and file list. confirm the archive contains\ncompiled library files, public declarations, readme, license and distributed\nstyles. a successful dry run checks packaging; it does not prove publishing\npermissions or reserve the name/version.\n\n 7. publish the tested archive\n\nwhen you intend to make this release public, run:\n\npowershell\neditranpm run verify:evidence\neditranpm publish ./artifacts/ngx-editra-0.1.0-alpha.0.tgz --access public --tag next --registry=https://registry.npmjs.org/\n\n\nrun the second command only if evidence verification succeeds. complete npm's\nauthentication prompt. publish the tested tarball, not the private workspace root\nor packages/ngx-editra source directory. no repository workflow publishes npm\npackages automatically.\n\nthe next tag identifies the prerelease. a published name/version combination\ncannot be reused, even after unpublishing. see the [npm publish reference](https://docs.npmjs.com/cli/commands/npm-publish/).\n\n 8. verify the public package\n\npowershell\neditranpm view ngx-editra@0.1.0-alpha.0 version dist.integrity --registry=https://registry.npmjs.org/\neditranpm view ngx-editra dist-tags --registry=https://registry.npmjs.org/\n\n\nconfirm next points to 0.1.0-alpha.0 and open the\n[package page](https://www.npmjs.com/package/ngx-editra). in a separate supported\nangular application, install the release:\n\npowershell\nnpm.cmd install ngx-editra@next\n\n\nfollow [quick start](quick_start.md) and verify editing, forms, saved-content\nrendering and code copying without an application sass import. update repository\nrelease status and installation instructions to reflect the actual publication,\nthen regenerate the documentation. never mark publication complete before npm\nconfirms it.\n\n troubleshooting\n\n eperm unlink: esbuild.exe or rollup\n\na running dev server, watcher or other process may hold the file open. stop this\nworkspace's servers and watchers, then retry editranpm ci. if the lock remains,\nclose the relevant ide run configuration or restart windows and retry before\nstarting the apps. do not kill every node process or disable antivirus globally.\n\n cannot find markdown-it after npm ci failed\n\nthe dependency installation is incomplete. fix the install error and rerun\neditranpm ci successfully before validation. do not install a single missing\npackage to conceal the interrupted clean install.\n\n validation is incomplete or failed\n\nfix the first failed validation step, rerun the complete compatibility validation,\nthen verify evidence again. never edit evidence reports to mark checks as passed.\n\n e401, e403 or version already exists\n\nfor authentication errors, repeat login and confirm whoami. for e403, read npm's\nmessage and check account permissions, 2fa requirements and package-name policy.\nif the version exists, inspect the registry first: a previous attempt may have\nsucceeded. a genuinely new release needs a new version and fresh validation.\n\n subsequent releases\n\nuse a new version such as 0.1.0-alpha.1, update the changelog and tarball\nreferences, then repeat validation and publication using next. release 1.0.0\nor another stable version with latest only after stable acceptance criteria are\nmet; review the package's default publishing tag at that time.\n",
-	},
-	{
-		slug: 'deployment',
-		title: 'Deploy the websites',
-		group: 'Project',
-		source: 'docs/DEPLOYMENT.md',
-		summary:
-			"The library's distribution target is npm; the initial alpha is not yet published.The documentation and playground are two independentstatic websites hosted on Vercel from GitHub. Site deployment does not publish the library.The initial deployments use documentation andplayground production URLs. No custom domainsare configured. Vercel assigns a new project's first deployment to production evenwithout --prod; later deployments default to preview unless production is requested.",
-		readingMinutes: 4,
-		html: '<h1 id="deploy-the-websites">Deploy the websites</h1>\n<p>The library\'s distribution target is npm; the initial alpha is not yet published.\nThe documentation and playground are two independent\nstatic websites hosted on Vercel from GitHub. Site deployment does not publish the library.\nThe initial deployments use <a href="https://ngx-editra-docs.vercel.app">documentation</a> and\n<a href="https://ngx-editra-playground.vercel.app">playground</a> production URLs. No custom domains\nare configured. Vercel assigns a new project\'s first deployment to production even\nwithout <code>--prod</code>; later deployments default to preview unless production is requested.</p>\n<h2 id="build-model">Build model</h2>\n<p>The Angular 17 compilation baseline uses Node 20.20.2/npm 10. Vercel disabled Node 20\nfor new builds on October 1, 2026. Build in GitHub Actions with Node 20, then deploy\nprepared static output with Node 24 and the pinned Vercel CLI. Do not configure Vercel\nto rebuild this workspace directly with the retired Node runtime.</p>\n<p>Only <code>dist/&lt;app&gt;/browser</code> is included. Documentation routes are prerendered; editor,\nsearch and theme interactions run in the browser. No Express SSR server, Node dependency\ntree or function is deployed. Legacy build-tool audit findings still require maintenance.</p>\n<h2 id="owner-setup">Owner setup</h2>\n<ol>\n<li>Push the repository to GitHub and verify validation on the intended revision.</li>\n<li>Create separate documentation and playground projects in Vercel. Choose Other as the\nframework, Node 24 in project settings, and the repository root if requested.</li>\n<li>Disable automatic Git deployments for these projects; the GitHub workflow deploys\nprepared output and avoids a second Vercel source build using the legacy toolchain.</li>\n<li>Add GitHub Actions secrets at repository level or in both deployment environments:</li>\n</ol>\n<table>\n<thead>\n<tr>\n<th>Secret</th>\n<th>Value</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>VERCEL_TOKEN</td>\n<td>Token authorized to deploy both projects</td>\n</tr>\n<tr>\n<td>VERCEL_ORG_ID</td>\n<td>Vercel team/account ID owning the projects</td>\n</tr>\n<tr>\n<td>VERCEL_DOCS_PROJECT_ID</td>\n<td>Documentation project ID</td>\n</tr>\n<tr>\n<td>VERCEL_PLAYGROUND_PROJECT_ID</td>\n<td>Playground project ID</td>\n</tr>\n</tbody>\n</table>\n<ol start="5">\n<li>Configure GitHub environments <code>preview</code> and <code>production</code>. Add a production approval\nrule if desired and require validation on the release branch.</li>\n<li>Add domains to the matching Vercel projects and verify them before adding public links.\nNever commit tokens, <code>.vercel/project.json</code> or local credentials.</li>\n</ol>\n<h2 id="github-deployment">GitHub deployment</h2>\n<p>Open Actions → Deploy static site to Vercel → Run workflow. Select the branch and app.\nLeave production unchecked for a preview. Enable it to update the production domain.\nRun once for each app. The workflow is manual; pushes and pull requests do not deploy.</p>\n<p>Confirm the validation workflow passed on the same revision before production deployment.\nThe deployment workflow builds the selected app but does not replace release validation.\nNo npm publish command is run. Account settings and secrets require owner configuration.</p>\n<h2 id="local-preparation">Local preparation</h2>\n<p>From the repository root with Node 20/npm 10:</p>\n<pre><code class="language-sh">npm ci\nnpm run build:site -- documentation\nnpm run build:site -- playground\n</code></pre>\n<p>Each command replaces only its generated staging directory under\n<code>artifacts/sites/documentation</code> or <code>artifacts/sites/playground</code>. The result contains\n<code>.vercel/output/config.json</code> (Build Output API v3), static browser files, explicit\nprerendered-page routing and an index.html fallback for client routes.</p>\n<p>For an optional manual deploy, switch to Node 24, enter the selected staging directory,\nset VERCEL_ORG_ID and VERCEL_PROJECT_ID for that project, and authenticate with Vercel:</p>\n<pre><code class="language-sh">npm exec --yes --package=vercel@64.4.0 -- vercel deploy --prebuilt\n</code></pre>\n<p>This creates a preview. Add <code>--prod</code> only for an authorized production deployment.\nThe staging directory declares Node 24 independently of the legacy workspace engine.\nDo not use <code>vercel build</code> to rebuild the workspace on Vercel.</p>\n<h2 id="verify-the-result">Verify the result</h2>\n<p>Open the documentation homepage, /examples and a direct /guides/angular-forms URL.\nRefresh a deep URL and check assets, search and copying. In both apps, check typing,\npopups, fullscreen and mobile layout. Confirm the expected project/domain was updated\nand no server functions were deployed.</p>\n<p>Official references: <a href="https://vercel.com/docs/build-output-api">Build Output API</a>,\n<a href="https://vercel.com/docs/build-output-api/configuration">routing configuration</a>, and\n<a href="https://vercel.com/changelog/node-js-20-is-being-deprecated">Node 20 retirement</a>.</p>\n',
-		headings: [
-			{
-				id: 'build-model',
-				label: 'Build model',
-			},
-			{
-				id: 'owner-setup',
-				label: 'Owner setup',
-			},
-			{
-				id: 'github-deployment',
-				label: 'GitHub deployment',
-			},
-			{
-				id: 'local-preparation',
-				label: 'Local preparation',
-			},
-			{
-				id: 'verify-the-result',
-				label: 'Verify the result',
-			},
-		],
-		blocks: [
-			{
-				html: '<h1 id="deploy-the-websites">Deploy the websites</h1>\n',
-				id: 'deploy-the-websites',
-				kind: 'content',
-			},
-			{
-				html: '<p>The library\'s distribution target is npm; the initial alpha is not yet published.\nThe documentation and playground are two independent\nstatic websites hosted on Vercel from GitHub. Site deployment does not publish the library.\nThe initial deployments use <a href="https://ngx-editra-docs.vercel.app">documentation</a> and\n<a href="https://ngx-editra-playground.vercel.app">playground</a> production URLs. No custom domains\nare configured. Vercel assigns a new project\'s first deployment to production even\nwithout <code>--prod</code>; later deployments default to preview unless production is requested.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="build-model">Build model</h2>\n',
-				id: 'build-model',
-				kind: 'content',
-			},
-			{
-				html: '<p>The Angular 17 compilation baseline uses Node 20.20.2/npm 10. Vercel disabled Node 20\nfor new builds on October 1, 2026. Build in GitHub Actions with Node 20, then deploy\nprepared static output with Node 24 and the pinned Vercel CLI. Do not configure Vercel\nto rebuild this workspace directly with the retired Node runtime.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>Only <code>dist/&lt;app&gt;/browser</code> is included. Documentation routes are prerendered; editor,\nsearch and theme interactions run in the browser. No Express SSR server, Node dependency\ntree or function is deployed. Legacy build-tool audit findings still require maintenance.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="owner-setup">Owner setup</h2>\n',
-				id: 'owner-setup',
-				kind: 'content',
-			},
-			{
-				html: '<ol>\n<li>Push the repository to GitHub and verify validation on the intended revision.</li>\n<li>Create separate documentation and playground projects in Vercel. Choose Other as the\nframework, Node 24 in project settings, and the repository root if requested.</li>\n<li>Disable automatic Git deployments for these projects; the GitHub workflow deploys\nprepared output and avoids a second Vercel source build using the legacy toolchain.</li>\n<li>Add GitHub Actions secrets at repository level or in both deployment environments:</li>\n</ol>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<table>\n<thead>\n<tr>\n<th>Secret</th>\n<th>Value</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>VERCEL_TOKEN</td>\n<td>Token authorized to deploy both projects</td>\n</tr>\n<tr>\n<td>VERCEL_ORG_ID</td>\n<td>Vercel team/account ID owning the projects</td>\n</tr>\n<tr>\n<td>VERCEL_DOCS_PROJECT_ID</td>\n<td>Documentation project ID</td>\n</tr>\n<tr>\n<td>VERCEL_PLAYGROUND_PROJECT_ID</td>\n<td>Playground project ID</td>\n</tr>\n</tbody>\n</table>\n',
-				id: '',
-				kind: 'table',
-			},
-			{
-				html: '<ol start="5">\n<li>Configure GitHub environments <code>preview</code> and <code>production</code>. Add a production approval\nrule if desired and require validation on the release branch.</li>\n<li>Add domains to the matching Vercel projects and verify them before adding public links.\nNever commit tokens, <code>.vercel/project.json</code> or local credentials.</li>\n</ol>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="github-deployment">GitHub deployment</h2>\n',
-				id: 'github-deployment',
-				kind: 'content',
-			},
-			{
-				html: '<p>Open Actions → Deploy static site to Vercel → Run workflow. Select the branch and app.\nLeave production unchecked for a preview. Enable it to update the production domain.\nRun once for each app. The workflow is manual; pushes and pull requests do not deploy.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>Confirm the validation workflow passed on the same revision before production deployment.\nThe deployment workflow builds the selected app but does not replace release validation.\nNo npm publish command is run. Account settings and secrets require owner configuration.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="local-preparation">Local preparation</h2>\n',
-				id: 'local-preparation',
-				kind: 'content',
-			},
-			{
-				html: '<p>From the repository root with Node 20/npm 10:</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				code: 'npm ci\nnpm run build:site -- documentation\nnpm run build:site -- playground\n',
-				language: 'sh',
-				html: '<pre><code class="language-sh">npm ci\nnpm run build:site -- documentation\nnpm run build:site -- playground\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: '<p>Each command replaces only its generated staging directory under\n<code>artifacts/sites/documentation</code> or <code>artifacts/sites/playground</code>. The result contains\n<code>.vercel/output/config.json</code> (Build Output API v3), static browser files, explicit\nprerendered-page routing and an index.html fallback for client routes.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>For an optional manual deploy, switch to Node 24, enter the selected staging directory,\nset VERCEL_ORG_ID and VERCEL_PROJECT_ID for that project, and authenticate with Vercel:</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				code: 'npm exec --yes --package=vercel@64.4.0 -- vercel deploy --prebuilt\n',
-				language: 'sh',
-				html: '<pre><code class="language-sh">npm exec --yes --package=vercel@64.4.0 -- vercel deploy --prebuilt\n</code></pre>\n',
-				id: '',
-				kind: 'code',
-			},
-			{
-				html: '<p>This creates a preview. Add <code>--prod</code> only for an authorized production deployment.\nThe staging directory declares Node 24 independently of the legacy workspace engine.\nDo not use <code>vercel build</code> to rebuild the workspace on Vercel.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="verify-the-result">Verify the result</h2>\n',
-				id: 'verify-the-result',
-				kind: 'content',
-			},
-			{
-				html: '<p>Open the documentation homepage, /examples and a direct /guides/angular-forms URL.\nRefresh a deep URL and check assets, search and copying. In both apps, check typing,\npopups, fullscreen and mobile layout. Confirm the expected project/domain was updated\nand no server functions were deployed.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>Official references: <a href="https://vercel.com/docs/build-output-api">Build Output API</a>,\n<a href="https://vercel.com/docs/build-output-api/configuration">routing configuration</a>, and\n<a href="https://vercel.com/changelog/node-js-20-is-being-deprecated">Node 20 retirement</a>.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-		],
-		search: " deploy the websites\n\nthe library's distribution target is npm; the initial alpha is not yet published.\nthe documentation and playground are two independent\nstatic websites hosted on vercel from github. site deployment does not publish the library.\nthe initial deployments use [documentation](https://ngx-editra-docs.vercel.app) and\n[playground](https://ngx-editra-playground.vercel.app) production urls. no custom domains\nare configured. vercel assigns a new project's first deployment to production even\nwithout --prod; later deployments default to preview unless production is requested.\n\n build model\n\nthe angular 17 compilation baseline uses node 20.20.2/npm 10. vercel disabled node 20\nfor new builds on october 1, 2026. build in github actions with node 20, then deploy\nprepared static output with node 24 and the pinned vercel cli. do not configure vercel\nto rebuild this workspace directly with the retired node runtime.\n\nonly dist/<app>/browser is included. documentation routes are prerendered; editor,\nsearch and theme interactions run in the browser. no express ssr server, node dependency\ntree or function is deployed. legacy build-tool audit findings still require maintenance.\n\n owner setup\n\n1. push the repository to github and verify validation on the intended revision.\n2. create separate documentation and playground projects in vercel. choose other as the\n   framework, node 24 in project settings, and the repository root if requested.\n3. disable automatic git deployments for these projects; the github workflow deploys\n   prepared output and avoids a second vercel source build using the legacy toolchain.\n4. add github actions secrets at repository level or in both deployment environments:\n\n| secret                       | value                                      |\n| ---------------------------- | ------------------------------------------ |\n| vercel_token                 | token authorized to deploy both projects   |\n| vercel_org_id                | vercel team/account id owning the projects |\n| vercel_docs_project_id       | documentation project id                   |\n| vercel_playground_project_id | playground project id                      |\n\n5. configure github environments preview and production. add a production approval\n   rule if desired and require validation on the release branch.\n6. add domains to the matching vercel projects and verify them before adding public links.\n   never commit tokens, .vercel/project.json or local credentials.\n\n github deployment\n\nopen actions → deploy static site to vercel → run workflow. select the branch and app.\nleave production unchecked for a preview. enable it to update the production domain.\nrun once for each app. the workflow is manual; pushes and pull requests do not deploy.\n\nconfirm the validation workflow passed on the same revision before production deployment.\nthe deployment workflow builds the selected app but does not replace release validation.\nno npm publish command is run. account settings and secrets require owner configuration.\n\n local preparation\n\nfrom the repository root with node 20/npm 10:\n\nsh\nnpm ci\nnpm run build:site -- documentation\nnpm run build:site -- playground\n\n\neach command replaces only its generated staging directory under\nartifacts/sites/documentation or artifacts/sites/playground. the result contains\n.vercel/output/config.json (build output api v3), static browser files, explicit\nprerendered-page routing and an index.html fallback for client routes.\n\nfor an optional manual deploy, switch to node 24, enter the selected staging directory,\nset vercel_org_id and vercel_project_id for that project, and authenticate with vercel:\n\nsh\nnpm exec --yes --package=vercel@64.4.0 -- vercel deploy --prebuilt\n\n\nthis creates a preview. add --prod only for an authorized production deployment.\nthe staging directory declares node 24 independently of the legacy workspace engine.\ndo not use vercel build to rebuild the workspace on vercel.\n\n verify the result\n\nopen the documentation homepage, /examples and a direct /guides/angular-forms url.\nrefresh a deep url and check assets, search and copying. in both apps, check typing,\npopups, fullscreen and mobile layout. confirm the expected project/domain was updated\nand no server functions were deployed.\n\nofficial references: [build output api](https://vercel.com/docs/build-output-api),\n[routing configuration](https://vercel.com/docs/build-output-api/configuration), and\n[node 20 retirement](https://vercel.com/changelog/node-js-20-is-being-deprecated).\n",
-	},
-	{
-		slug: 'maintenance',
-		title: 'Maintenance policy',
-		group: 'Project',
-		source: 'docs/MAINTENANCE.md',
-		summary:
-			'This is an unpublished alpha. The current alpha receives fixes; older source snapshotsdo not have separate maintenance branches or an LTS promise. Breaking changes may stilloccur before a stable release and must be recorded in CHANGELOG.md with migration notes.',
-		readingMinutes: 3,
-		html: '<h1 id="maintenance-policy">Maintenance policy</h1>\n<p>This is an unpublished alpha. The current alpha receives fixes; older source snapshots\ndo not have separate maintenance branches or an LTS promise. Breaking changes may still\noccur before a stable release and must be recorded in CHANGELOG.md with migration notes.</p>\n<h2 id="ownership-and-reporting">Ownership and reporting</h2>\n<p>The repository owner is <a href="https://github.com/Khatri-Sanjay">Khatri-Sanjay</a>.\nUse <a href="https://github.com/Khatri-Sanjay/editra-workspace/issues">issues</a> for reproducible bugs\nand feature requests. Follow <a href="/guides/security-reporting">security reporting</a> for vulnerabilities.\nNo support-response SLA is promised. Maintainers should triage new reports weekly,\nprioritize security/data-loss issues, and record deferred issues and their impact.</p>\n<h2 id="dependency-and-support-boundaries">Dependency and support boundaries</h2>\n<p>Dependabot checks the workspace, GitHub Actions and all six independent consumer projects\nweekly. Consumer Angular majors stay fixed so the matrix keeps testing distinct versions.\nTypeScript minor updates need manual review against each Angular compiler\'s supported range.\nThe local ngx-editra tarball is updated by the compatibility runner, not Dependabot.\nTracked consumer manifests do not depend on generated archives. The runner temporarily\ninstalls a candidate, validates its real dependency graph, records the installed lockfile\nhash, and restores the original manifest and lockfile even on failure. Dependency bots\ncan therefore resolve the consumer dependencies before ngx-editra is published.\nReview update PRs through the complete release validation; never auto-merge major upgrades.</p>\n<p>Angular 17 is the current oldest compiler/runtime baseline. Node 20/npm 10, TypeScript 5.4\nand ESLint 8 remain the documented legacy compilation toolchain. This is a compatibility\nconstraint, not a claim that the tooling is maintained upstream. Do not use this baseline\nto choose a production application\'s runtime; use its Angular version\'s supported tooling.</p>\n<p>Before a stable release, decide whether to retain Angular 17-19 compatibility or raise the\nminimum peer major. Raising it requires a documented breaking change, migrating the root\nAngular/CLI/ng-packagr/TypeScript/lint toolchain together, updating runtime requirements,\nand validating the new supported matrix. Retaining it requires tracking build-only audit\nfindings and keeping legacy compilation isolated from production consumers. Do not upgrade\nthe compiler alone while continuing to advertise untested older peers.</p>\n<h2 id="evidence-and-release-controls">Evidence and release controls</h2>\n<p>Run <code>npm run validate -- --compatibility</code> before a release. Validation writes a fresh\n<code>artifacts/release-validation.json</code> automatically, including failures, runtime versions,\nsource fingerprint and archive SHA-256. <code>npm run verify:evidence</code> rejects incomplete or\nstale evidence. Source changes after validation require a new validation run.</p>\n<p>Static documentation describes test coverage rather than copying changing test totals.\nUse the generated reports for current counts and the exact package tested. Compatibility\nconsumer tarball references are normalized in the source fingerprint. Tracked consumer\nsource, dependency declarations and lockfiles are included; installed candidate lockfile\nhashes are also recorded separately in each result.</p>\n<p>GitHub Actions must pass on the release revision. In repository settings, require the\n<code>Validate and prepare package / package</code> check before merging, require review and resolved\nconversations, restrict direct release-branch pushes, and enable private vulnerability\nreporting. Repository settings cannot be established by committing YAML alone; verify\nthem using an authenticated owner account. Publishing remains an explicit owner action.</p>\n',
-		headings: [
-			{
-				id: 'ownership-and-reporting',
-				label: 'Ownership and reporting',
-			},
-			{
-				id: 'dependency-and-support-boundaries',
-				label: 'Dependency and support boundaries',
-			},
-			{
-				id: 'evidence-and-release-controls',
-				label: 'Evidence and release controls',
-			},
-		],
-		blocks: [
-			{
-				html: '<h1 id="maintenance-policy">Maintenance policy</h1>\n',
-				id: 'maintenance-policy',
-				kind: 'content',
-			},
-			{
-				html: '<p>This is an unpublished alpha. The current alpha receives fixes; older source snapshots\ndo not have separate maintenance branches or an LTS promise. Breaking changes may still\noccur before a stable release and must be recorded in CHANGELOG.md with migration notes.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="ownership-and-reporting">Ownership and reporting</h2>\n',
-				id: 'ownership-and-reporting',
-				kind: 'content',
-			},
-			{
-				html: '<p>The repository owner is <a href="https://github.com/Khatri-Sanjay">Khatri-Sanjay</a>.\nUse <a href="https://github.com/Khatri-Sanjay/editra-workspace/issues">issues</a> for reproducible bugs\nand feature requests. Follow <a href="/guides/security-reporting">security reporting</a> for vulnerabilities.\nNo support-response SLA is promised. Maintainers should triage new reports weekly,\nprioritize security/data-loss issues, and record deferred issues and their impact.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="dependency-and-support-boundaries">Dependency and support boundaries</h2>\n',
-				id: 'dependency-and-support-boundaries',
-				kind: 'content',
-			},
-			{
-				html: "<p>Dependabot checks the workspace, GitHub Actions and all six independent consumer projects\nweekly. Consumer Angular majors stay fixed so the matrix keeps testing distinct versions.\nTypeScript minor updates need manual review against each Angular compiler's supported range.\nThe local ngx-editra tarball is updated by the compatibility runner, not Dependabot.\nTracked consumer manifests do not depend on generated archives. The runner temporarily\ninstalls a candidate, validates its real dependency graph, records the installed lockfile\nhash, and restores the original manifest and lockfile even on failure. Dependency bots\ncan therefore resolve the consumer dependencies before ngx-editra is published.\nReview update PRs through the complete release validation; never auto-merge major upgrades.</p>\n",
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: "<p>Angular 17 is the current oldest compiler/runtime baseline. Node 20/npm 10, TypeScript 5.4\nand ESLint 8 remain the documented legacy compilation toolchain. This is a compatibility\nconstraint, not a claim that the tooling is maintained upstream. Do not use this baseline\nto choose a production application's runtime; use its Angular version's supported tooling.</p>\n",
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>Before a stable release, decide whether to retain Angular 17-19 compatibility or raise the\nminimum peer major. Raising it requires a documented breaking change, migrating the root\nAngular/CLI/ng-packagr/TypeScript/lint toolchain together, updating runtime requirements,\nand validating the new supported matrix. Retaining it requires tracking build-only audit\nfindings and keeping legacy compilation isolated from production consumers. Do not upgrade\nthe compiler alone while continuing to advertise untested older peers.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="evidence-and-release-controls">Evidence and release controls</h2>\n',
-				id: 'evidence-and-release-controls',
-				kind: 'content',
-			},
-			{
-				html: '<p>Run <code>npm run validate -- --compatibility</code> before a release. Validation writes a fresh\n<code>artifacts/release-validation.json</code> automatically, including failures, runtime versions,\nsource fingerprint and archive SHA-256. <code>npm run verify:evidence</code> rejects incomplete or\nstale evidence. Source changes after validation require a new validation run.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>Static documentation describes test coverage rather than copying changing test totals.\nUse the generated reports for current counts and the exact package tested. Compatibility\nconsumer tarball references are normalized in the source fingerprint. Tracked consumer\nsource, dependency declarations and lockfiles are included; installed candidate lockfile\nhashes are also recorded separately in each result.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>GitHub Actions must pass on the release revision. In repository settings, require the\n<code>Validate and prepare package / package</code> check before merging, require review and resolved\nconversations, restrict direct release-branch pushes, and enable private vulnerability\nreporting. Repository settings cannot be established by committing YAML alone; verify\nthem using an authenticated owner account. Publishing remains an explicit owner action.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-		],
-		search: " maintenance policy\n\nthis is an unpublished alpha. the current alpha receives fixes; older source snapshots\ndo not have separate maintenance branches or an lts promise. breaking changes may still\noccur before a stable release and must be recorded in changelog.md with migration notes.\n\n ownership and reporting\n\nthe repository owner is [khatri-sanjay](https://github.com/khatri-sanjay).\nuse [issues](https://github.com/khatri-sanjay/editra-workspace/issues) for reproducible bugs\nand feature requests. follow [security reporting](../security.md) for vulnerabilities.\nno support-response sla is promised. maintainers should triage new reports weekly,\nprioritize security/data-loss issues, and record deferred issues and their impact.\n\n dependency and support boundaries\n\ndependabot checks the workspace, github actions and all six independent consumer projects\nweekly. consumer angular majors stay fixed so the matrix keeps testing distinct versions.\ntypescript minor updates need manual review against each angular compiler's supported range.\nthe local ngx-editra tarball is updated by the compatibility runner, not dependabot.\ntracked consumer manifests do not depend on generated archives. the runner temporarily\ninstalls a candidate, validates its real dependency graph, records the installed lockfile\nhash, and restores the original manifest and lockfile even on failure. dependency bots\ncan therefore resolve the consumer dependencies before ngx-editra is published.\nreview update prs through the complete release validation; never auto-merge major upgrades.\n\nangular 17 is the current oldest compiler/runtime baseline. node 20/npm 10, typescript 5.4\nand eslint 8 remain the documented legacy compilation toolchain. this is a compatibility\nconstraint, not a claim that the tooling is maintained upstream. do not use this baseline\nto choose a production application's runtime; use its angular version's supported tooling.\n\nbefore a stable release, decide whether to retain angular 17-19 compatibility or raise the\nminimum peer major. raising it requires a documented breaking change, migrating the root\nangular/cli/ng-packagr/typescript/lint toolchain together, updating runtime requirements,\nand validating the new supported matrix. retaining it requires tracking build-only audit\nfindings and keeping legacy compilation isolated from production consumers. do not upgrade\nthe compiler alone while continuing to advertise untested older peers.\n\n evidence and release controls\n\nrun npm run validate -- --compatibility before a release. validation writes a fresh\nartifacts/release-validation.json automatically, including failures, runtime versions,\nsource fingerprint and archive sha-256. npm run verify:evidence rejects incomplete or\nstale evidence. source changes after validation require a new validation run.\n\nstatic documentation describes test coverage rather than copying changing test totals.\nuse the generated reports for current counts and the exact package tested. compatibility\nconsumer tarball references are normalized in the source fingerprint. tracked consumer\nsource, dependency declarations and lockfiles are included; installed candidate lockfile\nhashes are also recorded separately in each result.\n\ngithub actions must pass on the release revision. in repository settings, require the\nvalidate and prepare package / package check before merging, require review and resolved\nconversations, restrict direct release-branch pushes, and enable private vulnerability\nreporting. repository settings cannot be established by committing yaml alone; verify\nthem using an authenticated owner account. publishing remains an explicit owner action.\n",
-	},
-	{
-		slug: 'project-status',
-		title: 'Project status',
-		group: 'Project',
-		source: 'PROGRESS.md',
-		summary:
-			'ngx-editra is an unpublished alpha. The current development line receives fixes; no stablerelease, historical maintenance branch or LTS promise is established. The remaining manualand repository-setting checks below must be completed before a stable-release claim.',
-		readingMinutes: 4,
-		html: '<h1 id="progress">Progress</h1>\n<h2 id="release-status">Release status</h2>\n<p>ngx-editra is an unpublished alpha. The current development line receives fixes; no stable\nrelease, historical maintenance branch or LTS promise is established. The remaining manual\nand repository-setting checks below must be completed before a stable-release claim.</p>\n<h2 id="implemented-and-covered">Implemented and covered</h2>\n<ul>\n<li>Standalone Angular editor with HTML-valued forms, disabled/read-only states, validation,\nreset, typed outputs, commands and document conversion.</li>\n<li>ProseMirror document engine with schema-based HTML/JSON validation, bounded input,\nescaped serialization, ordered extensions and URL/media policies.</li>\n<li>Text formatting, lists, code blocks, code copying, tables and resizing, media layout,\ncolumns, themes, keyboard controls, find/replace and Markdown conversion.</li>\n<li>Saved content through the viewer, content directive and HTML pipe with automatic styles.</li>\n<li>SSR/static rendering, an explicit editor hydration boundary, CSP nonce checks and\nisolated-request rendering tests.</li>\n<li>Regression coverage for identical-value history resets, CSS divider imports, nested\ncode/caption limits and rejected-configuration extension lifecycle.</li>\n<li>Public-package playground and documentation app, including production browser tests.</li>\n<li>Release metadata, vulnerability-reporting policy, workspace/consumer dependency checks,\nscheduled CI and reproducible validation with source/archive fingerprints.</li>\n</ul>\n<h2 id="current-validation-evidence">Current validation evidence</h2>\n<p>Run <code>npm run validate -- --compatibility</code> and then <code>npm run verify:evidence</code>.\nThe validator writes a new report for every run, including failures. Do not infer current\nresults from this document, earlier messages or a previous archive.</p>\n<table>\n<thead>\n<tr>\n<th>Report</th>\n<th>Evidence</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>artifacts/release-validation.json</td>\n<td>Per-check status, actual library test count, production browser results, source fingerprint and archive SHA-256</td>\n</tr>\n<tr>\n<td>artifacts/package-manifest.json</td>\n<td>Packed archive hash and source fingerprint</td>\n</tr>\n<tr>\n<td>artifacts/compatibility-results.json</td>\n<td>Per-consumer Angular/Node versions, lockfile hash, fresh browser results and exact archive identity</td>\n</tr>\n<tr>\n<td>artifacts/angular-22-current-audit.json</td>\n<td>Current maintained-consumer production dependency audit</td>\n</tr>\n<tr>\n<td>artifacts/performance.json</td>\n<td>Core performance observations for the tested build</td>\n</tr>\n</tbody>\n</table>\n<p>The supported consumer matrix is Angular 17-22. A changed source tree or archive invalidates\nrelease evidence. Installed candidate lockfiles are recorded separately; tracked consumer\nsource, declared tooling requirements and lockfiles remain part of the source fingerprint.\nRemote CI success must be verified on the actual release revision.</p>\n<h2 id="remaining-acceptance-work">Remaining acceptance work</h2>\n<ul>\n<li>Test email exports in real Gmail, Outlook variants and Apple Mail inboxes; browser\npreview and serializer tests do not establish verified email-client rendering.</li>\n<li>Add dedicated Signal Forms integration coverage before advertising fully verified\nsupport; current Reactive Forms and template-driven bindings are tested.</li>\n<li>Verify remote CI, required checks/reviews and private vulnerability reporting in GitHub settings.</li>\n<li>Complete manual screen-reader, high-contrast and independent application/security reviews.</li>\n<li>Extend native clipboard and browser memory stress coverage where automated mocks are insufficient.</li>\n<li>Review the full lazy editor download cost and compatibility-consumer bundle warnings;\nthe smaller initial playground shell does not establish a lightweight editor bundle.</li>\n<li>Decide the minimum Angular support policy before migrating the legacy compilation toolchain.\nSee docs/MAINTENANCE.md for the migration requirements and dependency review policy.</li>\n<li>Verify npm ownership and release notes before explicitly publishing the exact validated archive.</li>\n</ul>\n<h2 id="documented-limitations">Documented limitations</h2>\n<p>CommonMark cannot retain every visual formatting attribute. Row heights are minimums;\ncontent can require greater height. External media availability and embeddability require\nreal provider checks; deterministic tests mock network resources. Compatibility with a\nlegacy Angular version does not establish upstream security support for its runtime.</p>\n<h2 id="ownership-and-architecture">Ownership and architecture</h2>\n<p>Root policies and docs/ are canonical and are assembled into the distribution at build\ntime. The npm consumer README is maintained in packages/ngx-editra/README.md; the root\nREADME covers workspace development and deployment. Applications import the public ngx-editra entry point. Core, extensions and Angular\nadapters remain separated by enforced import boundaries. The engine owns document state;\nbrowser views apply transactions. Extension serializers and providers are trusted code.\nSee ARCHITECTURE.md, docs/MAINTENANCE.md and docs/RELEASING.md for the maintained policies.</p>\n',
-		headings: [
-			{
-				id: 'release-status',
-				label: 'Release status',
-			},
-			{
-				id: 'implemented-and-covered',
-				label: 'Implemented and covered',
-			},
-			{
-				id: 'current-validation-evidence',
-				label: 'Current validation evidence',
-			},
-			{
-				id: 'remaining-acceptance-work',
-				label: 'Remaining acceptance work',
-			},
-			{
-				id: 'documented-limitations',
-				label: 'Documented limitations',
-			},
-			{
-				id: 'ownership-and-architecture',
-				label: 'Ownership and architecture',
-			},
-		],
-		blocks: [
-			{
-				html: '<h1 id="progress">Progress</h1>\n',
-				id: 'progress',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="release-status">Release status</h2>\n',
-				id: 'release-status',
-				kind: 'content',
-			},
-			{
-				html: '<p>ngx-editra is an unpublished alpha. The current development line receives fixes; no stable\nrelease, historical maintenance branch or LTS promise is established. The remaining manual\nand repository-setting checks below must be completed before a stable-release claim.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="implemented-and-covered">Implemented and covered</h2>\n',
-				id: 'implemented-and-covered',
-				kind: 'content',
-			},
-			{
-				html: '<ul>\n<li>Standalone Angular editor with HTML-valued forms, disabled/read-only states, validation,\nreset, typed outputs, commands and document conversion.</li>\n<li>ProseMirror document engine with schema-based HTML/JSON validation, bounded input,\nescaped serialization, ordered extensions and URL/media policies.</li>\n<li>Text formatting, lists, code blocks, code copying, tables and resizing, media layout,\ncolumns, themes, keyboard controls, find/replace and Markdown conversion.</li>\n<li>Saved content through the viewer, content directive and HTML pipe with automatic styles.</li>\n<li>SSR/static rendering, an explicit editor hydration boundary, CSP nonce checks and\nisolated-request rendering tests.</li>\n<li>Regression coverage for identical-value history resets, CSS divider imports, nested\ncode/caption limits and rejected-configuration extension lifecycle.</li>\n<li>Public-package playground and documentation app, including production browser tests.</li>\n<li>Release metadata, vulnerability-reporting policy, workspace/consumer dependency checks,\nscheduled CI and reproducible validation with source/archive fingerprints.</li>\n</ul>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="current-validation-evidence">Current validation evidence</h2>\n',
-				id: 'current-validation-evidence',
-				kind: 'content',
-			},
-			{
-				html: '<p>Run <code>npm run validate -- --compatibility</code> and then <code>npm run verify:evidence</code>.\nThe validator writes a new report for every run, including failures. Do not infer current\nresults from this document, earlier messages or a previous archive.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<table>\n<thead>\n<tr>\n<th>Report</th>\n<th>Evidence</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>artifacts/release-validation.json</td>\n<td>Per-check status, actual library test count, production browser results, source fingerprint and archive SHA-256</td>\n</tr>\n<tr>\n<td>artifacts/package-manifest.json</td>\n<td>Packed archive hash and source fingerprint</td>\n</tr>\n<tr>\n<td>artifacts/compatibility-results.json</td>\n<td>Per-consumer Angular/Node versions, lockfile hash, fresh browser results and exact archive identity</td>\n</tr>\n<tr>\n<td>artifacts/angular-22-current-audit.json</td>\n<td>Current maintained-consumer production dependency audit</td>\n</tr>\n<tr>\n<td>artifacts/performance.json</td>\n<td>Core performance observations for the tested build</td>\n</tr>\n</tbody>\n</table>\n',
-				id: '',
-				kind: 'table',
-			},
-			{
-				html: '<p>The supported consumer matrix is Angular 17-22. A changed source tree or archive invalidates\nrelease evidence. Installed candidate lockfiles are recorded separately; tracked consumer\nsource, declared tooling requirements and lockfiles remain part of the source fingerprint.\nRemote CI success must be verified on the actual release revision.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="remaining-acceptance-work">Remaining acceptance work</h2>\n',
-				id: 'remaining-acceptance-work',
-				kind: 'content',
-			},
-			{
-				html: '<ul>\n<li>Test email exports in real Gmail, Outlook variants and Apple Mail inboxes; browser\npreview and serializer tests do not establish verified email-client rendering.</li>\n<li>Add dedicated Signal Forms integration coverage before advertising fully verified\nsupport; current Reactive Forms and template-driven bindings are tested.</li>\n<li>Verify remote CI, required checks/reviews and private vulnerability reporting in GitHub settings.</li>\n<li>Complete manual screen-reader, high-contrast and independent application/security reviews.</li>\n<li>Extend native clipboard and browser memory stress coverage where automated mocks are insufficient.</li>\n<li>Review the full lazy editor download cost and compatibility-consumer bundle warnings;\nthe smaller initial playground shell does not establish a lightweight editor bundle.</li>\n<li>Decide the minimum Angular support policy before migrating the legacy compilation toolchain.\nSee docs/MAINTENANCE.md for the migration requirements and dependency review policy.</li>\n<li>Verify npm ownership and release notes before explicitly publishing the exact validated archive.</li>\n</ul>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="documented-limitations">Documented limitations</h2>\n',
-				id: 'documented-limitations',
-				kind: 'content',
-			},
-			{
-				html: '<p>CommonMark cannot retain every visual formatting attribute. Row heights are minimums;\ncontent can require greater height. External media availability and embeddability require\nreal provider checks; deterministic tests mock network resources. Compatibility with a\nlegacy Angular version does not establish upstream security support for its runtime.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<h2 id="ownership-and-architecture">Ownership and architecture</h2>\n',
-				id: 'ownership-and-architecture',
-				kind: 'content',
-			},
-			{
-				html: '<p>Root policies and docs/ are canonical and are assembled into the distribution at build\ntime. The npm consumer README is maintained in packages/ngx-editra/README.md; the root\nREADME covers workspace development and deployment. Applications import the public ngx-editra entry point. Core, extensions and Angular\nadapters remain separated by enforced import boundaries. The engine owns document state;\nbrowser views apply transactions. Extension serializers and providers are trusted code.\nSee ARCHITECTURE.md, docs/MAINTENANCE.md and docs/RELEASING.md for the maintained policies.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-		],
-		search: ' progress\n\n release status\n\nngx-editra is an unpublished alpha. the current development line receives fixes; no stable\nrelease, historical maintenance branch or lts promise is established. the remaining manual\nand repository-setting checks below must be completed before a stable-release claim.\n\n implemented and covered\n\n-   standalone angular editor with html-valued forms, disabled/read-only states, validation,\n    reset, typed outputs, commands and document conversion.\n-   prosemirror document engine with schema-based html/json validation, bounded input,\n    escaped serialization, ordered extensions and url/media policies.\n-   text formatting, lists, code blocks, code copying, tables and resizing, media layout,\n    columns, themes, keyboard controls, find/replace and markdown conversion.\n-   saved content through the viewer, content directive and html pipe with automatic styles.\n-   ssr/static rendering, an explicit editor hydration boundary, csp nonce checks and\n    isolated-request rendering tests.\n-   regression coverage for identical-value history resets, css divider imports, nested\n    code/caption limits and rejected-configuration extension lifecycle.\n-   public-package playground and documentation app, including production browser tests.\n-   release metadata, vulnerability-reporting policy, workspace/consumer dependency checks,\n    scheduled ci and reproducible validation with source/archive fingerprints.\n\n current validation evidence\n\nrun npm run validate -- --compatibility and then npm run verify:evidence.\nthe validator writes a new report for every run, including failures. do not infer current\nresults from this document, earlier messages or a previous archive.\n\n| report                                  | evidence                                                                                                        |\n| --------------------------------------- | --------------------------------------------------------------------------------------------------------------- |\n| artifacts/release-validation.json       | per-check status, actual library test count, production browser results, source fingerprint and archive sha-256 |\n| artifacts/package-manifest.json         | packed archive hash and source fingerprint                                                                      |\n| artifacts/compatibility-results.json    | per-consumer angular/node versions, lockfile hash, fresh browser results and exact archive identity             |\n| artifacts/angular-22-current-audit.json | current maintained-consumer production dependency audit                                                         |\n| artifacts/performance.json              | core performance observations for the tested build                                                              |\n\nthe supported consumer matrix is angular 17-22. a changed source tree or archive invalidates\nrelease evidence. installed candidate lockfiles are recorded separately; tracked consumer\nsource, declared tooling requirements and lockfiles remain part of the source fingerprint.\nremote ci success must be verified on the actual release revision.\n\n remaining acceptance work\n\n-   test email exports in real gmail, outlook variants and apple mail inboxes; browser\n    preview and serializer tests do not establish verified email-client rendering.\n-   add dedicated signal forms integration coverage before advertising fully verified\n    support; current reactive forms and template-driven bindings are tested.\n-   verify remote ci, required checks/reviews and private vulnerability reporting in github settings.\n-   complete manual screen-reader, high-contrast and independent application/security reviews.\n-   extend native clipboard and browser memory stress coverage where automated mocks are insufficient.\n-   review the full lazy editor download cost and compatibility-consumer bundle warnings;\n    the smaller initial playground shell does not establish a lightweight editor bundle.\n-   decide the minimum angular support policy before migrating the legacy compilation toolchain.\n    see docs/maintenance.md for the migration requirements and dependency review policy.\n-   verify npm ownership and release notes before explicitly publishing the exact validated archive.\n\n documented limitations\n\ncommonmark cannot retain every visual formatting attribute. row heights are minimums;\ncontent can require greater height. external media availability and embeddability require\nreal provider checks; deterministic tests mock network resources. compatibility with a\nlegacy angular version does not establish upstream security support for its runtime.\n\n ownership and architecture\n\nroot policies and docs/ are canonical and are assembled into the distribution at build\ntime. the npm consumer readme is maintained in packages/ngx-editra/readme.md; the root\nreadme covers workspace development and deployment. applications import the public ngx-editra entry point. core, extensions and angular\nadapters remain separated by enforced import boundaries. the engine owns document state;\nbrowser views apply transactions. extension serializers and providers are trusted code.\nsee architecture.md, docs/maintenance.md and docs/releasing.md for the maintained policies.\n',
-	},
-	{
-		slug: 'contributing',
-		title: 'Contributing',
-		group: 'Project',
-		source: 'CONTRIBUTING.md',
-		summary:
-			'Use Node 20.20.2/npm 10.8.2 for package compilation. Run npm ci, npm run format:check,npm run build, npm run lint, npm run typecheck, npm run test:ci and npm run build:playground.Build before typed application lint so the public package declarations exist on a clean checkout.Browser tests use npm run test:e2e; install Chromium with npx playwright install chromiumor set EDITRA_BROWSER to an installed compatible browser executable.',
-		readingMinutes: 3,
-		html: '<h1 id="contributing">Contributing</h1>\n<p>Use Node 20.20.2/npm 10.8.2 for package compilation. Run npm ci, npm run format:check,\nnpm run build, npm run lint, npm run typecheck, npm run test:ci and npm run build:playground.\nBuild before typed application lint so the public package declarations exist on a clean checkout.\nBrowser tests use npm run test:e2e; install Chromium with npx playwright install chromium\nor set EDITRA_BROWSER to an installed compatible browser executable.</p>\n<p>Core must have no Angular runtime dependency or browser-global evaluation. Keep changes transaction-based,\nstrictly typed and covered by meaningful tests. Do not use any or ts-ignore. The only permitted Angular\nHTML trust boundary is EditraHtmlPipe: it must reconstruct input through staticPreview\'s schema-based\nparser and serializer before calling bypassSecurityTrustHtml. Never trust raw input or bypass this\nvalidation path. Custom schema serializers are trusted application code and require independent review.\nThe playground email iframe is a separate, sandboxed preview sink: assign only the\nschema-rebuilt <code>exportEmail</code> result to srcdoc, never raw editor input. Keep its sandbox\nand restrictive preview CSP. The exporter must never invoke custom serializers.\nNew features need security, serialization, undo/redo and accessibility consideration.\nRun npm run pack and test the tarball in independent consumers before widening peer ranges.\nCompatibility scripts require EDITRA_NPM_CLI, EDITRA_NODE20 and EDITRA_NODE24 as documented\nin scripts/run-compatibility.mjs. Consumer lockfiles keep each tooling graph separate.</p>\n<p>Update PROGRESS.md, docs and CHANGELOG.md. Never publish automatically or claim unexecuted checks passed.</p>\n<p>After editing Markdown, run <code>npm run docs:generate</code>. Validation uses <code>npm run docs:check</code>\nto reject stale generated pages without rewriting them. Test counts and archive identity\nbelong in the generated validation reports; do not copy changing totals into status docs.\nSee <a href="/guides/maintenance">maintenance policy</a> for dependency/support boundaries.</p>\n<p>Run <code>npm run validate</code> for the complete local release checks. Add <code>-- --compatibility</code>\nfor the exact-archive consumer matrix. See <a href="/guides/releasing">release checks</a> for browser\nand runtime setup. The standalone rendering APIs share the pipe\'s validation boundary;\nthe directive composes copy behavior and the viewer delegates to the directive.</p>\n<p><code>npm start</code> and <code>npm run build:playground</code> build the library first. During library development,\nrun <code>npm run watch</code> in a second terminal to refresh the distribution consumed by the apps.\nRun <code>npm run test:architecture</code> when changing import-boundary rules. Browser unit tests use\nCHROME_BIN; Playwright uses EDITRA_BROWSER when a system Chromium browser is selected.</p>\n<p>Root documents and <code>docs/</code> are canonical. Do not copy them into package source.\n<code>npm run build</code> compiles the library and assembles documents directly in <code>dist/ngx-editra</code>;\nbare <code>ng build ngx-editra</code> and <code>npm run watch</code> compile code and local styles only.\nThe package source contains implementation and configuration; generated output belongs\nin <code>dist/</code>, reports and archives in <code>artifacts/</code>. See ARCHITECTURE.md for ownership.</p>\n',
-		headings: [],
-		blocks: [
-			{
-				html: '<h1 id="contributing">Contributing</h1>\n',
-				id: 'contributing',
-				kind: 'content',
-			},
-			{
-				html: '<p>Use Node 20.20.2/npm 10.8.2 for package compilation. Run npm ci, npm run format:check,\nnpm run build, npm run lint, npm run typecheck, npm run test:ci and npm run build:playground.\nBuild before typed application lint so the public package declarations exist on a clean checkout.\nBrowser tests use npm run test:e2e; install Chromium with npx playwright install chromium\nor set EDITRA_BROWSER to an installed compatible browser executable.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: "<p>Core must have no Angular runtime dependency or browser-global evaluation. Keep changes transaction-based,\nstrictly typed and covered by meaningful tests. Do not use any or ts-ignore. The only permitted Angular\nHTML trust boundary is EditraHtmlPipe: it must reconstruct input through staticPreview's schema-based\nparser and serializer before calling bypassSecurityTrustHtml. Never trust raw input or bypass this\nvalidation path. Custom schema serializers are trusted application code and require independent review.\nThe playground email iframe is a separate, sandboxed preview sink: assign only the\nschema-rebuilt <code>exportEmail</code> result to srcdoc, never raw editor input. Keep its sandbox\nand restrictive preview CSP. The exporter must never invoke custom serializers.\nNew features need security, serialization, undo/redo and accessibility consideration.\nRun npm run pack and test the tarball in independent consumers before widening peer ranges.\nCompatibility scripts require EDITRA_NPM_CLI, EDITRA_NODE20 and EDITRA_NODE24 as documented\nin scripts/run-compatibility.mjs. Consumer lockfiles keep each tooling graph separate.</p>\n",
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>Update PROGRESS.md, docs and CHANGELOG.md. Never publish automatically or claim unexecuted checks passed.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>After editing Markdown, run <code>npm run docs:generate</code>. Validation uses <code>npm run docs:check</code>\nto reject stale generated pages without rewriting them. Test counts and archive identity\nbelong in the generated validation reports; do not copy changing totals into status docs.\nSee <a href="/guides/maintenance">maintenance policy</a> for dependency/support boundaries.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>Run <code>npm run validate</code> for the complete local release checks. Add <code>-- --compatibility</code>\nfor the exact-archive consumer matrix. See <a href="/guides/releasing">release checks</a> for browser\nand runtime setup. The standalone rendering APIs share the pipe\'s validation boundary;\nthe directive composes copy behavior and the viewer delegates to the directive.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p><code>npm start</code> and <code>npm run build:playground</code> build the library first. During library development,\nrun <code>npm run watch</code> in a second terminal to refresh the distribution consumed by the apps.\nRun <code>npm run test:architecture</code> when changing import-boundary rules. Browser unit tests use\nCHROME_BIN; Playwright uses EDITRA_BROWSER when a system Chromium browser is selected.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-			{
-				html: '<p>Root documents and <code>docs/</code> are canonical. Do not copy them into package source.\n<code>npm run build</code> compiles the library and assembles documents directly in <code>dist/ngx-editra</code>;\nbare <code>ng build ngx-editra</code> and <code>npm run watch</code> compile code and local styles only.\nThe package source contains implementation and configuration; generated output belongs\nin <code>dist/</code>, reports and archives in <code>artifacts/</code>. See ARCHITECTURE.md for ownership.</p>\n',
-				id: '',
-				kind: 'content',
-			},
-		],
-		search: " contributing\n\nuse node 20.20.2/npm 10.8.2 for package compilation. run npm ci, npm run format:check,\nnpm run build, npm run lint, npm run typecheck, npm run test:ci and npm run build:playground.\nbuild before typed application lint so the public package declarations exist on a clean checkout.\nbrowser tests use npm run test:e2e; install chromium with npx playwright install chromium\nor set editra_browser to an installed compatible browser executable.\n\ncore must have no angular runtime dependency or browser-global evaluation. keep changes transaction-based,\nstrictly typed and covered by meaningful tests. do not use any or ts-ignore. the only permitted angular\nhtml trust boundary is editrahtmlpipe: it must reconstruct input through staticpreview's schema-based\nparser and serializer before calling bypasssecuritytrusthtml. never trust raw input or bypass this\nvalidation path. custom schema serializers are trusted application code and require independent review.\nthe playground email iframe is a separate, sandboxed preview sink: assign only the\nschema-rebuilt exportemail result to srcdoc, never raw editor input. keep its sandbox\nand restrictive preview csp. the exporter must never invoke custom serializers.\nnew features need security, serialization, undo/redo and accessibility consideration.\nrun npm run pack and test the tarball in independent consumers before widening peer ranges.\ncompatibility scripts require editra_npm_cli, editra_node20 and editra_node24 as documented\nin scripts/run-compatibility.mjs. consumer lockfiles keep each tooling graph separate.\n\nupdate progress.md, docs and changelog.md. never publish automatically or claim unexecuted checks passed.\n\nafter editing markdown, run npm run docs:generate. validation uses npm run docs:check\nto reject stale generated pages without rewriting them. test counts and archive identity\nbelong in the generated validation reports; do not copy changing totals into status docs.\nsee [maintenance policy](docs/maintenance.md) for dependency/support boundaries.\n\nrun npm run validate for the complete local release checks. add -- --compatibility\nfor the exact-archive consumer matrix. see [release checks](docs/releasing.md) for browser\nand runtime setup. the standalone rendering apis share the pipe's validation boundary;\nthe directive composes copy behavior and the viewer delegates to the directive.\n\nnpm start and npm run build:playground build the library first. during library development,\nrun npm run watch in a second terminal to refresh the distribution consumed by the apps.\nrun npm run test:architecture when changing import-boundary rules. browser unit tests use\nchrome_bin; playwright uses editra_browser when a system chromium browser is selected.\n\nroot documents and docs/ are canonical. do not copy them into package source.\nnpm run build compiles the library and assembles documents directly in dist/ngx-editra;\nbare ng build ngx-editra and npm run watch compile code and local styles only.\nthe package source contains implementation and configuration; generated output belongs\nin dist/, reports and archives in artifacts/. see architecture.md for ownership.\n",
+		search: " angular compatibility\n\nuse matching versions of angular core, common, forms and platform-browser in your application.\ncheck the peer dependencies of the package version you install:\n\nsh\nnpm view ngx-editra@latest version peerdependencies\n\n\n supported angular versions\n\nversion 1.0.0 supports stable angular 17-22 with the peer range\n>=17.0.0 <23.0.0, including angular 22.1.2. angular prereleases, angular 16\nand angular 23 are outside this range. earlier 0.1.0-alpha.0 releases use\nnarrower minimum patch versions:\n\n| angular | minimum for 1.0.0 | minimum for alpha.0 |\n| ------- | ----------------- | ------------------- |\n| 17      | 17.0.0            | 17.3.12             |\n| 18      | 18.0.0            | 18.2.14             |\n| 19      | 19.0.0            | 19.2.25             |\n| 20      | 20.0.0            | 20.3.33             |\n| 21      | 21.0.0            | 21.2.25             |\n| 22      | 22.0.0            | 22.2.2              |\n\ncheck [npm versions](https://www.npmjs.com/package/ngx-editra?activetab=versions)\nfor availability before choosing a release. an older published version does not\nacquire a newer version's expanded peer range. avoid --force and\n--legacy-peer-deps to bypass an incompatible angular version.\n\n application requirements\n\nuse the node.js, typescript and rxjs versions supported by your angular version.\nsee [angular version compatibility](https://angular.dev/reference/versions).\nangular is a peer dependency and is not bundled as a separate framework runtime.\n\ncompatibility testing covers minimum and later versions in each supported major,\nplus angular 22.1.2. this does not mean every patch was individually tested or that\nolder angular releases receive upstream security maintenance. prefer current patched\nframework releases when possible.\n\n forms and server rendering\n\nreactive forms and template-driven forms use angular's controlvalueaccessor.\nangular 22 signal forms can use its cva compatibility integration; dedicated signal\nforms tests remain outstanding. see [forms integration](angular_forms.md).\n\nthe editor uses an explicit hydration boundary for prosemirror-managed dom.\nthe surrounding application can hydrate normally. see [ssr and hydration](ssr.md)\nfor application setup and [troubleshooting](troubleshooting.md) for integration issues.\n",
 	},
 	{
 		slug: 'changelog',
 		title: 'Changelog',
-		group: 'Project',
+		group: 'Reference',
 		source: 'CHANGELOG.md',
 		summary: '﻿# Changelog',
 		readingMinutes: 2,
-		html: '<p>﻿# Changelog</p>\n<h2 id="0-1-0-alpha-0-planned-initial-release">0.1.0-alpha.0 - planned initial release</h2>\n<p>This version has not been published. These entries describe the current initial alpha,\nrather than migrations from an earlier npm release. Release acceptance and validation\nevidence are tracked in <a href="/guides/project-status">project status</a> and the <a href="/guides/releasing">release process</a>.</p>\n<h3 id="editor-and-forms">Editor and forms</h3>\n<ul>\n<li>Standalone <code>NgxEditraComponent</code> (<code>&lt;ngx-editra&gt;</code>) with HTML-valued Reactive Forms and\ntemplate-driven forms, semantic required validation, disabled/read-only states, typed\nevents and an explicit hydration boundary.</li>\n<li>ProseMirror engine with schema-based HTML/JSON validation, bounded parsing,\ndeterministic serialization and configurable URL/media policies.</li>\n<li>Formatting, headings, lists, alignment, history, find/replace, counts, font/highlight\npalettes, code blocks, tables, media, columns and horizontal lines.</li>\n<li>Model-backed media/table/column resizing with keyboard controls, cancellation and undo.</li>\n<li>Responsive toolbar controls, optional pinned/floating toolbars, viewport-contained\ndialogs and palettes, compact colour swatches and fullscreen editing.</li>\n<li>Programmatic writes reset history; rejected configuration preserves the active editor.\nImport validation includes nested code/captions and divider formatting.</li>\n</ul>\n<h3 id="saved-content-and-customization">Saved content and customization</h3>\n<ul>\n<li><code>exportEmail</code> generates separate inline-styled email HTML, plain text and conversion\nwarnings, with an Outlook width fallback and stacked column/video-link fallbacks.\nA sandboxed playground preview and client-testing guide accompany the API; real\nGmail/Outlook/Apple Mail verification remains outstanding.</li>\n<li><code>NgxEditraViewerComponent</code> (<code>&lt;ngx-editra-viewer [html]=&quot;savedHtml&quot;&gt;</code>) and <code>[editraContent]</code>\nfor validated, styled saved HTML with code-copy controls.</li>\n<li><code>editraHtml</code> pipe for validated <code>[innerHTML]</code> rendering with automatic styles;\noptional <code>editraCodeCopy</code> supplies interactive copy controls for this binding.</li>\n<li>Included editor/content styles, light/dark/automatic themes, CSS custom properties and\noptional Sass exports. Public renderers do not require manual style imports.</li>\n<li>Public APIs exported from <code>ngx-editra</code>, including the document engine, typed\nconfiguration, deterministic extensions and CommonMark conversion utilities.</li>\n</ul>\n<h3 id="workspace-and-release-checks">Workspace and release checks</h3>\n<ul>\n<li>Playground and searchable documentation apps with examples, code copying and guides\ngenerated from the canonical repository Markdown.</li>\n<li><code>npm run start:all</code> starts both development apps after preparing the library and guides.</li>\n<li>Unit, browser, SSR/CSP, security-policy, architecture and performance checks;\nindependent Angular 17-22 consumers validate the exact compiled archive.</li>\n<li>Package metadata, MIT licence, maintenance/security policies, scheduled CI and dependency\nchecks, source/archive fingerprints and stale-evidence rejection.</li>\n</ul>\n<p>Signal Forms can use Angular\'s ControlValueAccessor compatibility integration, but dedicated\nSignal Forms integration tests are outstanding. This alpha does not establish stable-release\nacceptance or upstream security support for legacy runtimes.</p>\n',
+		html: '<p>﻿# Changelog</p>\n<h2 id="1-0-0-in-preparation">1.0.0 - in preparation</h2>\n<ul>\n<li>Expand Angular peers to <code>&gt;=17.0.0 &lt;23.0.0</code>, including Angular 22.1.2.</li>\n<li>Keep narrow toolbars compact with two scrollable rows, grouped commands,\nlarger touch targets, clearer active states and shortcut hints.</li>\n<li>Prepare the first stable release, installed with <code>npm install ngx-editra</code>.</li>\n</ul>\n<h2 id="0-1-0-alpha-0-initial-published-release">0.1.0-alpha.0 - initial published release</h2>\n<h3 id="editor-and-forms">Editor and forms</h3>\n<ul>\n<li>Standalone <code>NgxEditraComponent</code> (<code>&lt;ngx-editra&gt;</code>) with HTML-valued Reactive Forms and\ntemplate-driven forms, semantic required validation, disabled/read-only states, typed\nevents and an explicit hydration boundary.</li>\n<li>ProseMirror engine with schema-based HTML/JSON validation, bounded parsing,\ndeterministic serialization and configurable URL/media policies.</li>\n<li>Formatting, headings, lists, alignment, history, find/replace, counts, font/highlight\npalettes, code blocks, tables, media, columns and horizontal lines.</li>\n<li>Model-backed media/table/column resizing with keyboard controls, cancellation and undo.</li>\n<li>Responsive toolbar controls, optional pinned/floating toolbars, viewport-contained\ndialogs and palettes, compact colour swatches and fullscreen editing.</li>\n<li>Programmatic writes reset history; rejected configuration preserves the active editor.\nImport validation includes nested code/captions and divider formatting.</li>\n</ul>\n<h3 id="saved-content-and-customization">Saved content and customization</h3>\n<ul>\n<li><code>exportEmail</code> generates separate inline-styled email HTML, plain text and conversion\nwarnings, with an Outlook width fallback and stacked column/video-link fallbacks.\nA sandboxed playground preview and client-testing guide accompany the API; real\nGmail/Outlook/Apple Mail verification remains outstanding.</li>\n<li><code>NgxEditraViewerComponent</code> (<code>&lt;ngx-editra-viewer [html]=&quot;savedHtml&quot;&gt;</code>) and <code>[editraContent]</code>\nfor validated, styled saved HTML with code-copy controls.</li>\n<li><code>editraHtml</code> pipe for validated <code>[innerHTML]</code> rendering with automatic styles;\noptional <code>editraCodeCopy</code> supplies interactive copy controls for this binding.</li>\n<li>Included editor/content styles, light/dark/automatic themes, CSS custom properties and\noptional Sass exports. Public renderers do not require manual style imports.</li>\n<li>Public APIs exported from <code>ngx-editra</code>, including the document engine, typed\nconfiguration, deterministic extensions and CommonMark conversion utilities.</li>\n</ul>\n<h3 id="documentation-and-examples">Documentation and examples</h3>\n<ul>\n<li>Playground and searchable documentation apps with examples, code copying and guides\ngenerated from the canonical repository Markdown.</li>\n</ul>\n<p>Signal Forms can use Angular\'s ControlValueAccessor compatibility integration, but dedicated\nSignal Forms integration tests are outstanding. This alpha does not establish stable-release\nacceptance or upstream security support for legacy runtimes.</p>\n',
 		headings: [
 			{
-				id: '0-1-0-alpha-0-planned-initial-release',
-				label: '0.1.0-alpha.0 - planned initial release',
+				id: '1-0-0-in-preparation',
+				label: '1.0.0 - in preparation',
+			},
+			{
+				id: '0-1-0-alpha-0-initial-published-release',
+				label: '0.1.0-alpha.0 - initial published release',
 			},
 			{
 				id: 'editor-and-forms',
@@ -3844,8 +2975,8 @@ export const guides: readonly Guide[] = [
 				label: 'Saved content and customization',
 			},
 			{
-				id: 'workspace-and-release-checks',
-				label: 'Workspace and release checks',
+				id: 'documentation-and-examples',
+				label: 'Documentation and examples',
 			},
 		],
 		blocks: [
@@ -3855,13 +2986,18 @@ export const guides: readonly Guide[] = [
 				kind: 'content',
 			},
 			{
-				html: '<h2 id="0-1-0-alpha-0-planned-initial-release">0.1.0-alpha.0 - planned initial release</h2>\n',
-				id: '0-1-0-alpha-0-planned-initial-release',
+				html: '<h2 id="1-0-0-in-preparation">1.0.0 - in preparation</h2>\n',
+				id: '1-0-0-in-preparation',
 				kind: 'content',
 			},
 			{
-				html: '<p>This version has not been published. These entries describe the current initial alpha,\nrather than migrations from an earlier npm release. Release acceptance and validation\nevidence are tracked in <a href="/guides/project-status">project status</a> and the <a href="/guides/releasing">release process</a>.</p>\n',
+				html: '<ul>\n<li>Expand Angular peers to <code>&gt;=17.0.0 &lt;23.0.0</code>, including Angular 22.1.2.</li>\n<li>Keep narrow toolbars compact with two scrollable rows, grouped commands,\nlarger touch targets, clearer active states and shortcut hints.</li>\n<li>Prepare the first stable release, installed with <code>npm install ngx-editra</code>.</li>\n</ul>\n',
 				id: '',
+				kind: 'content',
+			},
+			{
+				html: '<h2 id="0-1-0-alpha-0-initial-published-release">0.1.0-alpha.0 - initial published release</h2>\n',
+				id: '0-1-0-alpha-0-initial-published-release',
 				kind: 'content',
 			},
 			{
@@ -3885,12 +3021,12 @@ export const guides: readonly Guide[] = [
 				kind: 'content',
 			},
 			{
-				html: '<h3 id="workspace-and-release-checks">Workspace and release checks</h3>\n',
-				id: 'workspace-and-release-checks',
+				html: '<h3 id="documentation-and-examples">Documentation and examples</h3>\n',
+				id: 'documentation-and-examples',
 				kind: 'content',
 			},
 			{
-				html: '<ul>\n<li>Playground and searchable documentation apps with examples, code copying and guides\ngenerated from the canonical repository Markdown.</li>\n<li><code>npm run start:all</code> starts both development apps after preparing the library and guides.</li>\n<li>Unit, browser, SSR/CSP, security-policy, architecture and performance checks;\nindependent Angular 17-22 consumers validate the exact compiled archive.</li>\n<li>Package metadata, MIT licence, maintenance/security policies, scheduled CI and dependency\nchecks, source/archive fingerprints and stale-evidence rejection.</li>\n</ul>\n',
+				html: '<ul>\n<li>Playground and searchable documentation apps with examples, code copying and guides\ngenerated from the canonical repository Markdown.</li>\n</ul>\n',
 				id: '',
 				kind: 'content',
 			},
@@ -3900,17 +3036,17 @@ export const guides: readonly Guide[] = [
 				kind: 'content',
 			},
 		],
-		search: '﻿ changelog\n\n 0.1.0-alpha.0 - planned initial release\n\nthis version has not been published. these entries describe the current initial alpha,\nrather than migrations from an earlier npm release. release acceptance and validation\nevidence are tracked in [project status](progress.md) and the [release process](docs/releasing.md).\n\n editor and forms\n\n-   standalone ngxeditracomponent (<ngx-editra>) with html-valued reactive forms and\n    template-driven forms, semantic required validation, disabled/read-only states, typed\n    events and an explicit hydration boundary.\n-   prosemirror engine with schema-based html/json validation, bounded parsing,\n    deterministic serialization and configurable url/media policies.\n-   formatting, headings, lists, alignment, history, find/replace, counts, font/highlight\n    palettes, code blocks, tables, media, columns and horizontal lines.\n-   model-backed media/table/column resizing with keyboard controls, cancellation and undo.\n-   responsive toolbar controls, optional pinned/floating toolbars, viewport-contained\n    dialogs and palettes, compact colour swatches and fullscreen editing.\n-   programmatic writes reset history; rejected configuration preserves the active editor.\n    import validation includes nested code/captions and divider formatting.\n\n saved content and customization\n\n-   exportemail generates separate inline-styled email html, plain text and conversion\n    warnings, with an outlook width fallback and stacked column/video-link fallbacks.\n    a sandboxed playground preview and client-testing guide accompany the api; real\n    gmail/outlook/apple mail verification remains outstanding.\n-   ngxeditraviewercomponent (<ngx-editra-viewer [html]="savedhtml">) and [editracontent]\n    for validated, styled saved html with code-copy controls.\n-   editrahtml pipe for validated [innerhtml] rendering with automatic styles;\n    optional editracodecopy supplies interactive copy controls for this binding.\n-   included editor/content styles, light/dark/automatic themes, css custom properties and\n    optional sass exports. public renderers do not require manual style imports.\n-   public apis exported from ngx-editra, including the document engine, typed\n    configuration, deterministic extensions and commonmark conversion utilities.\n\n workspace and release checks\n\n-   playground and searchable documentation apps with examples, code copying and guides\n    generated from the canonical repository markdown.\n-   npm run start:all starts both development apps after preparing the library and guides.\n-   unit, browser, ssr/csp, security-policy, architecture and performance checks;\n    independent angular 17-22 consumers validate the exact compiled archive.\n-   package metadata, mit licence, maintenance/security policies, scheduled ci and dependency\n    checks, source/archive fingerprints and stale-evidence rejection.\n\nsignal forms can use angular\'s controlvalueaccessor compatibility integration, but dedicated\nsignal forms integration tests are outstanding. this alpha does not establish stable-release\nacceptance or upstream security support for legacy runtimes.\n',
+		search: '﻿ changelog\n\n 1.0.0 - in preparation\n\n-   expand angular peers to >=17.0.0 <23.0.0, including angular 22.1.2.\n-   keep narrow toolbars compact with two scrollable rows, grouped commands,\n    larger touch targets, clearer active states and shortcut hints.\n-   prepare the first stable release, installed with npm install ngx-editra.\n\n 0.1.0-alpha.0 - initial published release\n\n editor and forms\n\n-   standalone ngxeditracomponent (<ngx-editra>) with html-valued reactive forms and\n    template-driven forms, semantic required validation, disabled/read-only states, typed\n    events and an explicit hydration boundary.\n-   prosemirror engine with schema-based html/json validation, bounded parsing,\n    deterministic serialization and configurable url/media policies.\n-   formatting, headings, lists, alignment, history, find/replace, counts, font/highlight\n    palettes, code blocks, tables, media, columns and horizontal lines.\n-   model-backed media/table/column resizing with keyboard controls, cancellation and undo.\n-   responsive toolbar controls, optional pinned/floating toolbars, viewport-contained\n    dialogs and palettes, compact colour swatches and fullscreen editing.\n-   programmatic writes reset history; rejected configuration preserves the active editor.\n    import validation includes nested code/captions and divider formatting.\n\n saved content and customization\n\n-   exportemail generates separate inline-styled email html, plain text and conversion\n    warnings, with an outlook width fallback and stacked column/video-link fallbacks.\n    a sandboxed playground preview and client-testing guide accompany the api; real\n    gmail/outlook/apple mail verification remains outstanding.\n-   ngxeditraviewercomponent (<ngx-editra-viewer [html]="savedhtml">) and [editracontent]\n    for validated, styled saved html with code-copy controls.\n-   editrahtml pipe for validated [innerhtml] rendering with automatic styles;\n    optional editracodecopy supplies interactive copy controls for this binding.\n-   included editor/content styles, light/dark/automatic themes, css custom properties and\n    optional sass exports. public renderers do not require manual style imports.\n-   public apis exported from ngx-editra, including the document engine, typed\n    configuration, deterministic extensions and commonmark conversion utilities.\n\n documentation and examples\n\n-   playground and searchable documentation apps with examples, code copying and guides\n    generated from the canonical repository markdown.\n\nsignal forms can use angular\'s controlvalueaccessor compatibility integration, but dedicated\nsignal forms integration tests are outstanding. this alpha does not establish stable-release\nacceptance or upstream security support for legacy runtimes.\n',
 	},
 	{
 		slug: 'security-reporting',
 		title: 'Report a vulnerability',
-		group: 'Project',
+		group: 'Reference',
 		source: 'SECURITY.md',
 		summary:
-			'Do not post exploit details, credentials or private documents in public issues.Use GitHub private vulnerability reportingwhen the repository offers that option. If private reporting is unavailable, open aminimal issue requesting a private contact channel; do not include vulnerability details.The maintainer must enable private reporting in the repository security settings beforeadvertising it as an active reporting channel. No response-time guarantee is establishedfor this unpublished alpha.',
+			'Do not post exploit details, credentials or private documents in public issues.Use GitHub private vulnerability reportingwhen the repository offers that option. If private reporting is unavailable, open aminimal issue requesting a private contact channel; do not include vulnerability details.The maintainer must enable private reporting in the repository security settings beforeadvertising it as an active reporting channel. No response-time guarantee is establishedfor this library.',
 		readingMinutes: 1,
-		html: '<h1 id="reporting-security-vulnerabilities">Reporting security vulnerabilities</h1>\n<p>Do not post exploit details, credentials or private documents in public issues.\nUse <a href="https://github.com/Khatri-Sanjay/editra-workspace/security/advisories/new">GitHub private vulnerability reporting</a>\nwhen the repository offers that option. If private reporting is unavailable, open a\nminimal issue requesting a private contact channel; do not include vulnerability details.\nThe maintainer must enable private reporting in the repository security settings before\nadvertising it as an active reporting channel. No response-time guarantee is established\nfor this unpublished alpha.</p>\n<p>Include the affected version or source revision, Angular/browser versions, a minimal\nreproduction with synthetic content, impact, and any suggested mitigation through the\nprivate channel. Keep reports private while fixes and disclosure are coordinated.</p>\n<p>Only the current unreleased alpha receives fixes in this repository. There are no\npublished stable versions or supported historical release lines. Angular compatibility\nranges describe integration testing, not security support for legacy Angular or Node.</p>\n<p>See <a href="/guides/security">content security policy</a> for HTML validation, URL restrictions,\ntrusted extensions and server-side responsibilities.</p>\n',
+		html: '<h1 id="reporting-security-vulnerabilities">Reporting security vulnerabilities</h1>\n<p>Do not post exploit details, credentials or private documents in public issues.\nUse <a href="https://github.com/Khatri-Sanjay/ngx-editra/security/advisories/new">GitHub private vulnerability reporting</a>\nwhen the repository offers that option. If private reporting is unavailable, open a\nminimal issue requesting a private contact channel; do not include vulnerability details.\nThe maintainer must enable private reporting in the repository security settings before\nadvertising it as an active reporting channel. No response-time guarantee is established\nfor this library.</p>\n<p>Include the affected version or source revision, Angular/browser versions, a minimal\nreproduction with synthetic content, impact, and any suggested mitigation through the\nprivate channel. Keep reports private while fixes and disclosure are coordinated.</p>\n<p>The current development line receives fixes in this repository. Version 1.0.0 is\nbeing prepared as the first stable release; no historical release lines or LTS\ncommitments are maintained. Angular compatibility\nranges describe integration testing, not security support for legacy Angular or Node.</p>\n<p>See <a href="/guides/security">content security policy</a> for HTML validation, URL restrictions,\ntrusted extensions and server-side responsibilities.</p>\n',
 		headings: [],
 		blocks: [
 			{
@@ -3919,7 +3055,7 @@ export const guides: readonly Guide[] = [
 				kind: 'content',
 			},
 			{
-				html: '<p>Do not post exploit details, credentials or private documents in public issues.\nUse <a href="https://github.com/Khatri-Sanjay/editra-workspace/security/advisories/new">GitHub private vulnerability reporting</a>\nwhen the repository offers that option. If private reporting is unavailable, open a\nminimal issue requesting a private contact channel; do not include vulnerability details.\nThe maintainer must enable private reporting in the repository security settings before\nadvertising it as an active reporting channel. No response-time guarantee is established\nfor this unpublished alpha.</p>\n',
+				html: '<p>Do not post exploit details, credentials or private documents in public issues.\nUse <a href="https://github.com/Khatri-Sanjay/ngx-editra/security/advisories/new">GitHub private vulnerability reporting</a>\nwhen the repository offers that option. If private reporting is unavailable, open a\nminimal issue requesting a private contact channel; do not include vulnerability details.\nThe maintainer must enable private reporting in the repository security settings before\nadvertising it as an active reporting channel. No response-time guarantee is established\nfor this library.</p>\n',
 				id: '',
 				kind: 'content',
 			},
@@ -3929,7 +3065,7 @@ export const guides: readonly Guide[] = [
 				kind: 'content',
 			},
 			{
-				html: '<p>Only the current unreleased alpha receives fixes in this repository. There are no\npublished stable versions or supported historical release lines. Angular compatibility\nranges describe integration testing, not security support for legacy Angular or Node.</p>\n',
+				html: '<p>The current development line receives fixes in this repository. Version 1.0.0 is\nbeing prepared as the first stable release; no historical release lines or LTS\ncommitments are maintained. Angular compatibility\nranges describe integration testing, not security support for legacy Angular or Node.</p>\n',
 				id: '',
 				kind: 'content',
 			},
@@ -3939,6 +3075,6 @@ export const guides: readonly Guide[] = [
 				kind: 'content',
 			},
 		],
-		search: ' reporting security vulnerabilities\n\ndo not post exploit details, credentials or private documents in public issues.\nuse [github private vulnerability reporting](https://github.com/khatri-sanjay/editra-workspace/security/advisories/new)\nwhen the repository offers that option. if private reporting is unavailable, open a\nminimal issue requesting a private contact channel; do not include vulnerability details.\nthe maintainer must enable private reporting in the repository security settings before\nadvertising it as an active reporting channel. no response-time guarantee is established\nfor this unpublished alpha.\n\ninclude the affected version or source revision, angular/browser versions, a minimal\nreproduction with synthetic content, impact, and any suggested mitigation through the\nprivate channel. keep reports private while fixes and disclosure are coordinated.\n\nonly the current unreleased alpha receives fixes in this repository. there are no\npublished stable versions or supported historical release lines. angular compatibility\nranges describe integration testing, not security support for legacy angular or node.\n\nsee [content security policy](docs/security.md) for html validation, url restrictions,\ntrusted extensions and server-side responsibilities.\n',
+		search: ' reporting security vulnerabilities\n\ndo not post exploit details, credentials or private documents in public issues.\nuse [github private vulnerability reporting](https://github.com/khatri-sanjay/ngx-editra/security/advisories/new)\nwhen the repository offers that option. if private reporting is unavailable, open a\nminimal issue requesting a private contact channel; do not include vulnerability details.\nthe maintainer must enable private reporting in the repository security settings before\nadvertising it as an active reporting channel. no response-time guarantee is established\nfor this library.\n\ninclude the affected version or source revision, angular/browser versions, a minimal\nreproduction with synthetic content, impact, and any suggested mitigation through the\nprivate channel. keep reports private while fixes and disclosure are coordinated.\n\nthe current development line receives fixes in this repository. version 1.0.0 is\nbeing prepared as the first stable release; no historical release lines or lts\ncommitments are maintained. angular compatibility\nranges describe integration testing, not security support for legacy angular or node.\n\nsee [content security policy](docs/security.md) for html validation, url restrictions,\ntrusted extensions and server-side responsibilities.\n',
 	},
 ];

@@ -7,7 +7,7 @@ Angular, TypeScript and runtime versions independently.
 ## Repository ownership
 
 ```text
-editra-workspace/
+ngx-editra/
   apps/
     playground/             Interactive editor demo and SSR application
     documentation/          Documentation website and live examples
@@ -82,8 +82,11 @@ their tooling and dependency resolution remain isolated.
 ## Build and packaging
 
 npm run build invokes scripts/build-library.mjs. It runs the configured ng-packagr
-builder, then copies the package README, canonical root policies and docs/ directly into
-dist/ngx-editra. LICENSE is maintained at the root and copied unchanged into the package.
+builder, then copies only the consumer documents selected in scripts/library-docs.mjs
+into dist/ngx-editra. The same manifest selects public documentation routes. Deployment,
+publishing, contribution and workspace architecture guides stay in the repository.
+LICENSE is maintained at the root and copied unchanged into the package. Packaging
+rejects unexpected Markdown files and broken relative Markdown links.
 No generated documents are written back into package source.
 The wrapper is needed because ng-packagr rejects assets outside the library root.
 Use npm run build for the complete distribution; bare ng build only compiles the

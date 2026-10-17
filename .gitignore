@@ -35,6 +35,7 @@ yarn-error.log
 /connect.lock
 /coverage
 /artifacts
+/release.local.json
 /.vercel
 /test-results
 /playwright-report

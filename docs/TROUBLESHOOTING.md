@@ -4,7 +4,10 @@ Start with the symptom below. The live example can help separate application int
 
 ## Installation cannot find ngx-editra
 
-After publication, install the alpha with `npm install ngx-editra@next`, or a stable release with `npm install ngx-editra`. A missing `latest` tag can mean only a prerelease has been published. Until publication, build with `npm run pack` and install the generated archive. Check the package name, version and tag before changing your registry configuration. See [installation](INSTALLATION.md).
+Install the default release with `npm install ngx-editra`. Check registry tags before
+assuming `npm install ngx-editra` selects a stable release: `latest` can also point
+to an alpha. Check the package name, version and tag before changing your
+registry configuration. See [installation](INSTALLATION.md).
 
 ## The editor is not recognized
 
@@ -12,7 +15,7 @@ Import NgxEditraComponent into the standalone component or NgModule that owns th
 
 ## The editor looks unstyled
 
-Editor and viewer components include their default styles automatically. Confirm you are using the updated package and restart the application build after upgrading. Check for application CSS overriding `ngx-editra`, `.ProseMirror`, or generic buttons. If Content Security Policy blocks Angular's style elements, configure Angular's style nonce for your application's CSP. A custom container using only the HTML pipe still needs the optional content stylesheet; see [theming](THEMING.md).
+Editor and viewer components include their default styles automatically. Confirm you are using the updated package and restart the application build after upgrading. Check for application CSS overriding `ngx-editra`, `.ProseMirror`, or generic buttons. If Content Security Policy blocks Angular's style elements, configure Angular's style nonce for your application's CSP. The viewer, content directive and HTML pipe load their styles automatically; see [theming](THEMING.md).
 
 ## Required validation accepts an empty editor
 
@@ -41,7 +44,3 @@ Use HTTPS or localhost and allow clipboard access. Browsers can deny permission;
 ## Server rendering reports document/window errors
 
 Check custom plugins, serializers, and application code for browser-global access during import or server execution. Initialize browser-only behavior after rendering and clean it up on teardown. See [SSR](SSR.md).
-
-## The playground cannot resolve the library
-
-Run npm ci with the repository's Node/npm versions, then npm start. The start script builds the package first. Use npm run watch in a second terminal for ongoing library edits. npm run build assembles documentation and release assets; bare ng build and watch compile library code/local styles only.

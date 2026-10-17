@@ -1,11 +1,11 @@
 {
 	"name": "ngx-editra",
-	"version": "0.1.0-alpha.0",
+	"version": "1.0.0",
 	"peerDependencies": {
-		"@angular/common": "^17.3.12 || ^18.2.14 || ^19.2.25 || ^20.3.33 || ^21.2.25 || ^22.2.2",
-		"@angular/core": "^17.3.12 || ^18.2.14 || ^19.2.25 || ^20.3.33 || ^21.2.25 || ^22.2.2",
-		"@angular/forms": "^17.3.12 || ^18.2.14 || ^19.2.25 || ^20.3.33 || ^21.2.25 || ^22.2.2",
-		"@angular/platform-browser": "^17.3.12 || ^18.2.14 || ^19.2.25 || ^20.3.33 || ^21.2.25 || ^22.2.2"
+		"@angular/common": ">=17.0.0 <23.0.0",
+		"@angular/core": ">=17.0.0 <23.0.0",
+		"@angular/forms": ">=17.0.0 <23.0.0",
+		"@angular/platform-browser": ">=17.0.0 <23.0.0"
 	},
 	"dependencies": {
 		"tslib": "^2.3.0",
@@ -24,12 +24,12 @@
 	"description": "Modular ProseMirror rich-text editor for Angular",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Khatri-Sanjay/editra-workspace.git",
+		"url": "git+https://github.com/Khatri-Sanjay/ngx-editra.git",
 		"directory": "packages/ngx-editra"
 	},
-	"homepage": "https://github.com/Khatri-Sanjay/editra-workspace#readme",
+	"homepage": "https://ngx-editra-docs.vercel.app",
 	"bugs": {
-		"url": "https://github.com/Khatri-Sanjay/editra-workspace/issues"
+		"url": "https://github.com/Khatri-Sanjay/ngx-editra/issues"
 	},
 	"license": "MIT",
 	"keywords": [
@@ -50,6 +50,6 @@
 	},
 	"publishConfig": {
 		"access": "public",
-		"tag": "next"
+		"tag": "latest"
 	}
 }

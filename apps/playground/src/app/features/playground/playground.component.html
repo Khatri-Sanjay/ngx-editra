@@ -1,8 +1,33 @@
 <main>
+	<a class="skip-link" href="#editor-workspace">Skip to editor</a>
 	<header>
-		<span class="eyebrow">OPEN SOURCE · ANGULAR + PROSEMIRROR</span>
+		<div class="brand">
+			<a href="#">ngx-editra<span>Playground</span></a
+			><span class="version">Angular 17–22</span>
+		</div>
+		<span class="eyebrow">YOUR NEXT DRAFT STARTS HERE</span>
 		<h1>Make room for your ideas.</h1>
-		<p>A secure, modular editing workspace. Try the live editor and inspect its document.</p>
+		<p>
+			Write, format and explore. Try the editor, preview your content and find the output you
+			need.
+		</p>
+		<nav class="package-links" aria-label="Package information">
+			<a [href]="package.packageUrl">npm v{{ package.publishedVersion }}</a>
+			<a [href]="package.documentationUrl">Documentation</a>
+			<a [href]="package.repositoryUrl">GitHub</a>
+			<a [href]="package.repositoryUrl + '/issues'">Issues</a>
+			<a [href]="package.packageUrl"
+				><img
+					[src]="package.downloadsBadgeUrl"
+					alt="npm downloads per month"
+					width="150"
+					height="20"
+					loading="lazy"
+			/></a>
+		</nav>
+		<p class="package-install">
+			<code>{{ package.installCommand }}</code> · Demo build {{ package.developmentVersion }}
+		</p>
 	</header>
 	<nav class="section-links" aria-label="Playground sections">
 		<a href="#editor-workspace">Editor</a>
@@ -11,6 +36,10 @@
 		<a href="#form-examples">Form examples</a>
 	</nav>
 	<section class="settings" aria-label="Editor settings">
+		<div class="settings-heading">
+			<h2>Make it yours</h2>
+			<p>Choose a sample and tune your editor.</p>
+		</div>
 		<label
 			>Sample document
 			<select aria-label="Sample document" (change)="loadSample($event)">
@@ -73,11 +102,30 @@
 		}
 	</section>
 	<section id="rendered-document" class="workspace" aria-label="Rendered document">
-		<h2>Rendered document</h2>
-		<div [editraContent]="form.controls.body.value" [editraContentConfig]="config"></div>
+		<div class="section-heading">
+			<div>
+				<span class="eyebrow">READER PREVIEW</span>
+				<h2>Rendered document</h2>
+			</div>
+			<p>See how your saved content looks.</p>
+		</div>
+		<div
+			class="reader-content"
+			tabindex="0"
+			role="region"
+			aria-label="Reader preview content"
+			[editraContent]="form.controls.body.value"
+			[editraContentConfig]="config"
+		></div>
 	</section>
 	<section id="document-output" class="output" aria-label="Document output">
-		<h2>Under the surface</h2>
+		<div class="section-heading">
+			<div>
+				<span class="eyebrow">DOCUMENT OUTPUT</span>
+				<h2>Under the surface</h2>
+			</div>
+			<p>Inspect, copy or import your content.</p>
+		</div>
 		<app-document-output
 			[value]="output()"
 			[format]="selected"
@@ -114,7 +162,7 @@
 		}
 	</details>
 	<footer>
-		URL-only media. No uploads. HTML-valued forms. SSR static rendering with an explicit editor
-		hydration boundary.
+		<span>Built with ngx-editra. Your edits stay in this browser session.</span>
+		<a [href]="package.documentationUrl">Explore the documentation &rarr;</a>
 	</footer>
 </main>

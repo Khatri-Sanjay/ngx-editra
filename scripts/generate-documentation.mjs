@@ -1,5 +1,6 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import MarkdownIt from 'markdown-it';
+import { libraryGuides } from './library-docs.mjs';
 import { format, resolveConfig } from 'prettier';
 import { posix } from 'node:path';
 
@@ -12,55 +13,42 @@ async function output(path, contents) {
 	} else await writeFile(path, contents);
 }
 
+// Registry metadata is refreshed explicitly; builds never depend on a live npm request.
+const packageInfo = JSON.parse(await readFile('npm-package.json', 'utf8'));
+const libraryPackage = JSON.parse(await readFile('packages/ngx-editra/package.json', 'utf8'));
+packageInfo.developmentVersion = libraryPackage.version;
+packageInfo.installCommand = `npm install ${packageInfo.name}${packageInfo.channel === 'latest' ? '' : `@${packageInfo.channel}`}`;
+packageInfo.downloadsBadgeUrl = packageInfo.downloadsAvailable
+	? `https://img.shields.io/npm/dm/${packageInfo.name}`
+	: 'https://img.shields.io/badge/downloads-pending-lightgrey';
+for (const path of [
+	'apps/documentation/src/app/content/generated/package-info.ts',
+	'apps/playground/src/app/shared/data/package-info.ts',
+]) {
+	await mkdir(posix.dirname(path), { recursive: true });
+	await output(
+		path,
+		await format(
+			`// Generated from npm-package.json and the library manifest. Run npm run package:sync after publication.\nexport const packageInfo = ${JSON.stringify(packageInfo)} as const;\n`,
+			{ ...(await resolveConfig(path, { editorconfig: true })), parser: 'typescript' },
+		),
+	);
+}
+
 // Only repository-authored Markdown is compiled; raw HTML stays disabled.
 const markdown = new MarkdownIt({ html: false });
-const pages = [
-	['features', 'Feature overview', 'Start here', 'FEATURES'],
-	['installation', 'Installation', 'Start here', 'INSTALLATION'],
-	['quick-start', 'Quick start', 'Start here', 'QUICK_START'],
-	['configuration', 'Configuration', 'Build with Editra', 'CONFIGURATION'],
-	['angular-forms', 'Angular Forms', 'Build with Editra', 'ANGULAR_FORMS'],
-	['content', 'Load and save content', 'Build with Editra', 'CONTENT'],
-	['viewer', 'Display saved content', 'Build with Editra', 'VIEWER'],
-	['email', 'Export for email', 'Build with Editra', 'EMAIL'],
-	['events', 'Events and lifecycle', 'Build with Editra', 'EVENTS'],
-	['toolbar', 'Toolbar', 'Build with Editra', 'TOOLBAR'],
-	['theming', 'Theming', 'Build with Editra', 'THEMING'],
-	['formatting', 'Text formatting', 'Editor features', 'FORMATTING'],
-	['links', 'Links', 'Editor features', 'LINKS'],
-	['images', 'Images', 'Editor features', 'IMAGES'],
-	['videos', 'Videos', 'Editor features', 'VIDEOS'],
-	['tables', 'Tables', 'Editor features', 'TABLES'],
-	['layout', 'Columns and lines', 'Editor features', 'LAYOUT'],
-	['code-blocks', 'Code blocks', 'Editor features', 'CODE_BLOCKS'],
-	['editing-tools', 'Editing tools', 'Editor features', 'EDITING_TOOLS'],
-	['markdown', 'Markdown conversion', 'Editor features', 'MARKDOWN'],
-	['accessibility', 'Keyboard and accessibility', 'Reference', 'ACCESSIBILITY'],
-	['troubleshooting', 'Troubleshooting', 'Reference', 'TROUBLESHOOTING'],
-	['plugins', 'Extensions', 'Reference', 'PLUGINS'],
-	['api', 'Public API', 'Reference', 'API'],
-	['ssr', 'SSR & hydration', 'Reference', 'SSR'],
-	['security', 'Security', 'Reference', 'SECURITY'],
-	['compatibility', 'Compatibility', 'Reference', 'COMPATIBILITY'],
-	['releasing', 'Release process', 'Project', 'RELEASING'],
-	['publishing', 'Publish to npm', 'Project', 'PUBLISHING'],
-	['deployment', 'Deploy the websites', 'Project', 'DEPLOYMENT'],
-	['maintenance', 'Maintenance policy', 'Project', 'MAINTENANCE'],
-];
 const sources = [
-	...pages.map(([slug, title, group, file]) => ({
+	...libraryGuides.map(([slug, title, group, file]) => ({
 		slug,
 		title,
 		group,
 		source: `docs/${file}.md`,
 	})),
-	{ slug: 'project-status', title: 'Project status', group: 'Project', source: 'PROGRESS.md' },
-	{ slug: 'contributing', title: 'Contributing', group: 'Project', source: 'CONTRIBUTING.md' },
-	{ slug: 'changelog', title: 'Changelog', group: 'Project', source: 'CHANGELOG.md' },
+	{ slug: 'changelog', title: 'Changelog', group: 'Reference', source: 'CHANGELOG.md' },
 	{
 		slug: 'security-reporting',
 		title: 'Report a vulnerability',
-		group: 'Project',
+		group: 'Reference',
 		source: 'SECURITY.md',
 	},
 ];

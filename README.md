@@ -1,10 +1,17 @@
-﻿# editra workspace
+# ngx-editra workspace
+
+[![npm version](https://img.shields.io/npm/v/ngx-editra?label=npm)](https://www.npmjs.com/package/ngx-editra)
+[![npm downloads per month](https://img.shields.io/badge/downloads-pending-lightgrey)](https://www.npmjs.com/package/ngx-editra)
+[![License](https://img.shields.io/npm/l/ngx-editra)](https://github.com/Khatri-Sanjay/ngx-editra/blob/main/LICENSE)
+
+[npm](https://www.npmjs.com/package/ngx-editra) | [Documentation](https://ngx-editra-docs.vercel.app) | [Playground](https://ngx-editra-playground.vercel.app) | [Source](https://github.com/Khatri-Sanjay/ngx-editra) | [Issues](https://github.com/Khatri-Sanjay/ngx-editra/issues)
 
 Source repository for **ngx-editra**, a standalone Angular rich-text editor, its
-playground, and its documentation website. The initial `0.1.0-alpha.0` npm release
-is in preparation; no package has been published.
+playground, and its documentation website. `0.1.0-alpha.0` is published on npm;
+the first stable release, `1.0.0`, is in preparation.
 
-[Documentation](https://ngx-editra-docs.vercel.app) · [Playground](https://ngx-editra-playground.vercel.app)
+Install from the default npm channel with `npm install ngx-editra`. See
+[package information](docs/PACKAGE.md) for release channels and download statistics.
 
 ## Use the library
 
@@ -51,17 +58,25 @@ npm run docs:check
 Do not edit generated guide files. See the [documentation app README](apps/documentation/README.md)
 and [playground README](apps/playground/README.md).
 
+The public docs and npm package contain library usage guides selected in
+`scripts/library-docs.mjs`. Maintainer guides remain in the repository; see
+[Contributing](CONTRIBUTING.md) for publishing, deployment and compatibility testing.
+
 ## Validate and publish the npm library
 
+These instructions are for workspace maintainers only. See the
+[release process](docs/RELEASING.md) and [publish to npm guide](docs/PUBLISHING.md).
+They are excluded from the library package and public documentation.
+
 ```sh
-npm run validate -- --compatibility
-npm run verify:evidence
+npm run release
+npm run release:publish
 ```
 
-The checks build and pack the library and install that exact archive into independent
-Angular 17-22 consumers. Configure Node/browser prerequisites using the
-[release guide](docs/RELEASING.md). Publishing is an explicit owner action using the
-validated tarball and `next` tag. Do not publish the private workspace or source folder.
+`release` prepares and validates the archive, including Angular 17-22 consumers;
+it never publishes. `release:publish` verifies that exact archive, shows a dry run,
+and asks you to type the package/version before publishing. Configure tool paths
+once using the [publishing guide](docs/PUBLISHING.md).
 Follow the [step-by-step npm publishing guide](docs/PUBLISHING.md) for Windows setup,
 authentication, validation, publication and troubleshooting.
 

@@ -1,5 +1,10 @@
 # Contributing
 
+Maintainer guides for [publishing](docs/PUBLISHING.md), [site deployment](docs/DEPLOYMENT.md),
+[compatibility testing](docs/COMPATIBILITY_TESTING.md) and [maintenance](docs/MAINTENANCE.md)
+stay in this repository. The public documentation and npm package include only library
+usage guides selected in `scripts/library-docs.mjs`.
+
 Use Node 20.20.2/npm 10.8.2 for package compilation. Run npm ci, npm run format:check,
 npm run build, npm run lint, npm run typecheck, npm run test:ci and npm run build:playground.
 Build before typed application lint so the public package declarations exist on a clean checkout.

@@ -1,20 +1,23 @@
-﻿# ngx-editra
+# ngx-editra
 
-A standalone Angular rich-text editor built on ProseMirror. The initial
-`0.1.0-alpha.0` release is in preparation and has not been published.
+[![npm version](https://img.shields.io/npm/v/ngx-editra?label=npm)](https://www.npmjs.com/package/ngx-editra)
+[![npm downloads per month](https://img.shields.io/badge/downloads-pending-lightgrey)](https://www.npmjs.com/package/ngx-editra)
+[![License](https://img.shields.io/npm/l/ngx-editra)](https://github.com/Khatri-Sanjay/ngx-editra/blob/main/LICENSE)
+
+[npm](https://www.npmjs.com/package/ngx-editra) | [Documentation](https://ngx-editra-docs.vercel.app) | [Playground](https://ngx-editra-playground.vercel.app) | [Source](https://github.com/Khatri-Sanjay/ngx-editra) | [Issues](https://github.com/Khatri-Sanjay/ngx-editra/issues)
+
+A standalone Angular rich-text editor built on ProseMirror. Edit rich content,
+connect Angular forms, and display saved HTML with included styles.
 
 ## Installation
 
-After the alpha is published under the `next` tag:
-
 ```sh
-npm install ngx-editra@next
+npm install ngx-editra
 ```
 
-Use an Angular application that satisfies the package's peer dependencies. The
-compatibility matrix covers Angular 17-22; legacy compatibility does not mean those
-framework versions receive upstream security support. Before publication, use the
-[local archive instructions](https://github.com/Khatri-Sanjay/editra-workspace/blob/main/docs/INSTALLATION.md#local-archive-option-before-publication).
+The 1.0.0 Angular peer range is `>=17.0.0 <23.0.0`, including Angular 22.1.2.
+Check the installed version's [Angular requirements](https://ngx-editra-docs.vercel.app/guides/compatibility);
+earlier alpha releases use narrower patch minimums.
 
 ## Quick start
 
@@ -62,7 +65,7 @@ Configuration is optional. Import all public symbols from `ngx-editra`.
 ## Features and limits
 
 For email bodies, use `exportEmail(savedHtml)` to produce inline-styled email HTML,
-plain text and conversion warnings. See [email export](https://github.com/Khatri-Sanjay/editra-workspace/blob/main/docs/EMAIL.md).
+plain text and conversion warnings. See [email export](https://github.com/Khatri-Sanjay/ngx-editra/blob/main/docs/EMAIL.md).
 The output targets a conservative Gmail/Outlook/Apple Mail baseline; actual inbox
 rendering needs client testing. Normal viewer HTML is not an email template.
 
@@ -73,25 +76,22 @@ toolbars, fullscreen editing, extensions and CommonMark conversion are included.
 The library does not provide a backend, uploads, real-time collaboration, PDF/Word
 export or syntax highlighting. Markdown cannot retain every HTML formatting detail.
 Custom extensions/serializers are trusted application code. Review the
-[security policy](https://github.com/Khatri-Sanjay/editra-workspace/blob/main/docs/SECURITY.md)
+[security policy](https://github.com/Khatri-Sanjay/ngx-editra/blob/main/docs/SECURITY.md)
 before accepting untrusted content or configuring external media.
 
 ## Documentation and support
 
 -   [Documentation website](https://ngx-editra-docs.vercel.app)
 -   [Interactive playground](https://ngx-editra-playground.vercel.app)
--   [Installation and guides](https://github.com/Khatri-Sanjay/editra-workspace/blob/main/docs/INSTALLATION.md)
--   [Forms](https://github.com/Khatri-Sanjay/editra-workspace/blob/main/docs/ANGULAR_FORMS.md)
--   [Public API](https://github.com/Khatri-Sanjay/editra-workspace/blob/main/docs/API.md)
--   [Compatibility](https://github.com/Khatri-Sanjay/editra-workspace/blob/main/docs/COMPATIBILITY.md)
--   [Issues](https://github.com/Khatri-Sanjay/editra-workspace/issues)
--   [Report a vulnerability](https://github.com/Khatri-Sanjay/editra-workspace/blob/main/SECURITY.md)
--   [Changelog](https://github.com/Khatri-Sanjay/editra-workspace/blob/main/CHANGELOG.md)
+-   [Installation and guides](https://github.com/Khatri-Sanjay/ngx-editra/blob/main/docs/INSTALLATION.md)
+-   [Forms](https://github.com/Khatri-Sanjay/ngx-editra/blob/main/docs/ANGULAR_FORMS.md)
+-   [Public API](https://github.com/Khatri-Sanjay/ngx-editra/blob/main/docs/API.md)
+-   [Compatibility](https://github.com/Khatri-Sanjay/ngx-editra/blob/main/docs/COMPATIBILITY.md)
+-   [Issues](https://github.com/Khatri-Sanjay/ngx-editra/issues)
+-   [Report a vulnerability](https://github.com/Khatri-Sanjay/ngx-editra/blob/main/SECURITY.md)
+-   [Changelog](https://github.com/Khatri-Sanjay/ngx-editra/blob/main/CHANGELOG.md)
 
-This is an alpha with remaining manual acceptance work, not a stable release or an
-LTS promise. See the repository's project status for current limits. The documentation
-and playground sites are deployed separately from this npm package; hosting them does
-not publish the library.
+Stable releases use semantic versioning. Check the changelog before upgrading.
 
 ## Licence
 

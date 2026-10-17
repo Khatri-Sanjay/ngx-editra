@@ -1,13 +1,13 @@
 # Maintenance policy
 
-This is an unpublished alpha. The current alpha receives fixes; older source snapshots
+This is an alpha library. The current development line receives fixes; older source snapshots
 do not have separate maintenance branches or an LTS promise. Breaking changes may still
 occur before a stable release and must be recorded in CHANGELOG.md with migration notes.
 
 ## Ownership and reporting
 
 The repository owner is [Khatri-Sanjay](https://github.com/Khatri-Sanjay).
-Use [issues](https://github.com/Khatri-Sanjay/editra-workspace/issues) for reproducible bugs
+Use [issues](https://github.com/Khatri-Sanjay/ngx-editra/issues) for reproducible bugs
 and feature requests. Follow [security reporting](../SECURITY.md) for vulnerabilities.
 No support-response SLA is promised. Maintainers should triage new reports weekly,
 prioritize security/data-loss issues, and record deferred issues and their impact.

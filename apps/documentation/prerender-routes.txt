@@ -2,6 +2,7 @@
 /examples
 /guides/features
 /guides/installation
+/guides/package
 /guides/quick-start
 /guides/configuration
 /guides/angular-forms
@@ -27,11 +28,5 @@
 /guides/ssr
 /guides/security
 /guides/compatibility
-/guides/releasing
-/guides/publishing
-/guides/deployment
-/guides/maintenance
-/guides/project-status
-/guides/contributing
 /guides/changelog
 /guides/security-reporting

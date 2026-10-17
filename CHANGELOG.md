@@ -1,10 +1,13 @@
 ﻿# Changelog
 
-## 0.1.0-alpha.0 - planned initial release
+## 1.0.0 - in preparation
 
-This version has not been published. These entries describe the current initial alpha,
-rather than migrations from an earlier npm release. Release acceptance and validation
-evidence are tracked in [project status](PROGRESS.md) and the [release process](docs/RELEASING.md).
+-   Expand Angular peers to `>=17.0.0 <23.0.0`, including Angular 22.1.2.
+-   Keep narrow toolbars compact with two scrollable rows, grouped commands,
+    larger touch targets, clearer active states and shortcut hints.
+-   Prepare the first stable release, installed with `npm install ngx-editra`.
+
+## 0.1.0-alpha.0 - initial published release
 
 ### Editor and forms
 
@@ -36,15 +39,10 @@ evidence are tracked in [project status](PROGRESS.md) and the [release process](
 -   Public APIs exported from `ngx-editra`, including the document engine, typed
     configuration, deterministic extensions and CommonMark conversion utilities.
 
-### Workspace and release checks
+### Documentation and examples
 
 -   Playground and searchable documentation apps with examples, code copying and guides
     generated from the canonical repository Markdown.
--   `npm run start:all` starts both development apps after preparing the library and guides.
--   Unit, browser, SSR/CSP, security-policy, architecture and performance checks;
-    independent Angular 17-22 consumers validate the exact compiled archive.
--   Package metadata, MIT licence, maintenance/security policies, scheduled CI and dependency
-    checks, source/archive fingerprints and stale-evidence rejection.
 
 Signal Forms can use Angular's ControlValueAccessor compatibility integration, but dedicated
 Signal Forms integration tests are outstanding. This alpha does not establish stable-release

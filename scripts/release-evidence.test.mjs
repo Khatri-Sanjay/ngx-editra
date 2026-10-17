@@ -1,21 +1,32 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import { assertReleaseEvidence, requiredChecks } from './release-evidence.mjs';
+import { angularPeerRange, compatibilityMatrix } from './compatibility-matrix.mjs';
 
 const manifest = { sourceSha256: 'source', archiveSha256: 'archive' };
 const report = () => ({
 	status: 'passed',
 	...manifest,
 	steps: [...requiredChecks, 'test:compatibility'].map((name) => ({ name, exitCode: 0 })),
-	compatibility: [17, 18, 19, 20, 21, 22].map((angular) => ({
+	compatibility: compatibilityMatrix.map(({ angular, profile, version }) => ({
 		angular,
+		profile,
+		angularVersion: version ?? `${angular}.9.0`,
 		...manifest,
 		install: true,
 		build: true,
 		browserFormsSsrHydration: true,
-		productionAudit: angular === 22 ? true : null,
+		productionAudit: angular === 22 && profile === 'current' ? true : null,
 		peerBypass: false,
 	})),
+});
+
+test('published Angular peers match the bounded compatibility policy', async () => {
+	const pkg = JSON.parse(
+		await readFile(new URL('../packages/ngx-editra/package.json', import.meta.url), 'utf8'),
+	);
+	for (const range of Object.values(pkg.peerDependencies)) assert.equal(range, angularPeerRange);
 });
 
 test('accepts matching complete release evidence', () => {
@@ -35,12 +46,15 @@ test('rejects failed, incomplete or mismatched consumer evidence', () => {
 	for (const candidate of cases)
 		assert.throws(() => assertReleaseEvidence(candidate, manifest, 'source', 'archive'));
 	const candidate = report();
-	candidate.compatibility[5].productionAudit = false;
+	const maintained = candidate.compatibility.find(
+		(row) => row.angular === 22 && row.profile === 'current',
+	);
+	maintained.productionAudit = false;
 	assert.throws(
 		() => assertReleaseEvidence(candidate, manifest, 'source', 'archive'),
 		/Angular 22/,
 	);
-	candidate.compatibility[5].productionAudit = true;
+	maintained.productionAudit = true;
 	candidate.compatibility[0].peerBypass = true;
 	assert.throws(
 		() => assertReleaseEvidence(candidate, manifest, 'source', 'archive'),
@@ -51,5 +65,17 @@ test('rejects failed, incomplete or mismatched consumer evidence', () => {
 	assert.throws(
 		() => assertReleaseEvidence(candidate, manifest, 'source', 'archive'),
 		/Angular 17/,
+	);
+});
+
+test('requires every boundary profile and its exact Angular version', () => {
+	const candidate = report();
+	candidate.compatibility = candidate.compatibility.filter((row) => row.profile !== 'minimum');
+	assert.throws(() => assertReleaseEvidence(candidate, manifest, 'source', 'archive'), /minimum/);
+	const wrongVersion = report();
+	wrongVersion.compatibility.find((row) => row.profile === '22.1.2').angularVersion = '22.2.2';
+	assert.throws(
+		() => assertReleaseEvidence(wrongVersion, manifest, 'source', 'archive'),
+		/22.1.2/,
 	);
 });

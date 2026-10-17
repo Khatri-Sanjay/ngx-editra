@@ -1,182 +1,122 @@
 # Publish ngx-editra to npm
 
-This guide publishes the initial `ngx-editra@0.1.0-alpha.0` prerelease with the
-`next` tag. Run commands from the workspace root in PowerShell, one at a time.
-Stop whenever a command fails. Validation and dry runs do not publish anything;
-step 7 makes the package public.
+The release commands use the version in `packages/ngx-editra/package.json` and the
+configured publication tag. You do not need to type a tarball filename or forward
+compatibility flags through PowerShell.
 
-## 1. Prepare your npm account
+## Publish a stable version
 
-Create an account at [npm](https://www.npmjs.com/signup), verify your email address,
-and enable two-factor authentication in account settings. Complete authentication
-prompts in your own browser or terminal; never commit or share tokens or OTP codes.
-See [npm publishing authentication](https://docs.npmjs.com/requiring-2fa-for-package-publishing-and-settings-modification/).
+For a first stable release, set these fields in `packages/ngx-editra/package.json`:
 
-## 2. Configure the Windows toolchain
+```json
+{
+	"version": "1.0.0",
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://registry.npmjs.org/",
+		"tag": "latest"
+	}
+}
+```
 
-The compilation baseline is Node 20.20.2/npm 10.8.2. Compatibility tests also need
-Node 24 and a Chromium browser. Adjust these executable paths for your machine.
-This example uses the existing local installations and Microsoft Edge:
+Retain the other package fields. A stable version has no `-alpha`, `-beta` or
+`-rc` suffix. Use `latest` for stable releases and `next` for prereleases.
+Update the changelog for the chosen version, then run the preparation and
+publication steps below. The existing release command reads `publishConfig.tag`.
+
+After successful stable publication, change `channel` to `latest` in
+`npm-package.json`, run `npm.cmd run package:sync`, and update consumer install
+examples to `npm install ngx-editra`. Regenerate and redeploy the websites.
+Do not mark the stable version as published before npm confirms publication.
+
+Verify the result:
 
 ```powershell
-cd F:\POJECTS\editra-workspace
-
-$env:EDITRA_NODE20 = 'C:\Program Files\nodejs\node.exe'
-$env:EDITRA_NODE24 = 'C:\Users\Sanjay Khatri\AppData\Local\JetBrains\IntelliJIdea2026.2\acp-agents\.runtimes\node\24.19.0\node.exe'
-$env:EDITRA_NPM_CLI = 'C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js'
-$env:PATH = 'C:\Program Files\nodejs;' + $env:PATH
-$env:CHROME_BIN = 'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
-$env:EDITRA_BROWSER = $env:CHROME_BIN
-
-function editraNpm { & $env:EDITRA_NODE20 $env:EDITRA_NPM_CLI @args }
-
-& $env:EDITRA_NODE20 --version
-& $env:EDITRA_NODE24 --version
-editraNpm --version
+npm.cmd view ngx-editra@latest version
+npm.cmd view ngx-editra dist-tags
 ```
 
-Expect Node 20, Node 24 and npm 10 respectively. The `editraNpm` helper explicitly
-selects npm 10; changing PATH alone can still select another npm installation.
-Keep this terminal open for the remaining steps. These environment variables and
-the helper apply only to this terminal session.
+Consumers can then install with:
 
-## 3. Sign in and check the package name
+```sh
+npm install ngx-editra
+```
+
+This resolves npm's `latest` tag. Changing the tag on an existing alpha alone
+does not make its version stable; publish the new version and tested archive.
+
+## 1. Configure tool paths once
+
+This checkout already has a local configuration. On another machine, copy
+`release.config.example.json` to `release.local.json` and edit its three paths:
+Node 20, Node 24 and Chrome/Edge. The local configuration is ignored by Git.
+The compilation baseline uses npm 10 beside Node 20; preparation installs pinned
+npm 11.6.2 under ignored artifacts for Angular 21/22 consumers when necessary.
+
+Open a terminal in the workspace root and check the configuration:
 
 ```powershell
-editraNpm login --registry=https://registry.npmjs.org/
-editraNpm whoami --registry=https://registry.npmjs.org/
-editraNpm view ngx-editra name versions --registry=https://registry.npmjs.org/
+npm.cmd run release:check
 ```
 
-Complete the browser login and confirm `whoami` prints your intended account.
-An E404 from `view` means no existing package was found; it does not reserve the
-name or guarantee npm will allow publication. If a package exists, confirm you
-have publishing access and the intended version has never been published.
+On macOS/Linux, use `npm` in place of `npm.cmd`. Existing EDITRA_NODE20,
+EDITRA_NODE24, EDITRA_NPM_CLI and browser environment settings are also supported.
 
-The version comes from `packages/ngx-editra/package.json`, not the private root
-package. If you change the version, update release notes and tarball references
-before validation. See the [release process](RELEASING.md).
+## 2. Sign in to npm
 
-## 4. Stop dev servers and install dependencies
-
-Press Ctrl+C in terminals running `start:all`, `ng serve`, or build watchers.
-Stop corresponding IDE run configurations too. Running servers can lock esbuild
-and Rollup files on Windows.
+Create an npm account, verify your email and enable two-factor authentication.
+Then sign in from your terminal:
 
 ```powershell
-editraNpm ci
+npm.cmd login --registry=https://registry.npmjs.org/
 ```
 
-Wait for successful completion before continuing. Review current dependency
-findings with `editraNpm audit` and, separately, `editraNpm audit --omit=dev`.
-Audit can exit nonzero when it finds vulnerabilities. Resolve or document findings
-under the [maintenance policy](MAINTENANCE.md); the workspace audit includes app
-and legacy toolchain dependencies, so assess the library and supported consumers
-as well. Do not blindly run `npm audit fix --force` before a release.
+Follow [npm's publishing authentication requirements](https://docs.npmjs.com/requiring-2fa-for-package-publishing-and-settings-modification/).
+Never commit tokens or authentication codes.
 
-## 5. Validate the exact release
+## 3. Prepare the release
+
+Update the library version and release notes first. Each published version is
+immutable. Stop dev servers/watchers before running `npm.cmd ci` if dependencies
+need installation; Windows can otherwise lock esbuild or Rollup files.
 
 ```powershell
-editraNpm run validate -- --compatibility
-editraNpm run verify:evidence
+npm.cmd run release
 ```
 
-Both commands must succeed. Validation builds and packs the library, exercises
-the apps, and installs the generated archive in independent Angular 17–22 consumers.
-The archive for this version is:
+This command generates documentation, runs full release validation and Angular
+17-22 compatibility checks, verifies evidence, and previews npm publication.
+Matching evidence is reused when the source and archive have not changed.
+It selects the configured Node/npm/browser tools automatically. It never publishes.
+If a check fails, resolve the first failure and run it again. Complete applicable
+manual checks and confirm remote CI for the release revision; see the
+[release policy](RELEASING.md).
 
-```text
-artifacts/ngx-editra-0.1.0-alpha.0.tgz
-```
-
-Review `artifacts/release-validation.json` and `artifacts/compatibility-results.json`,
-complete applicable manual release checks, and confirm remote CI passes for the
-release revision. Remaining acceptance work is tracked in [project status](../PROGRESS.md).
-Do not represent this alpha as stable.
-
-Source, documentation, or archive changes invalidate release evidence. Make all
-edits before validation; if anything changes afterward, repeat this step. Do not
-rebuild or repack after verification and then publish the replacement archive.
-
-## 6. Preview package publication
+## 4. Publish the prepared archive
 
 ```powershell
-editraNpm publish ./artifacts/ngx-editra-0.1.0-alpha.0.tgz --access public --tag next --registry=https://registry.npmjs.org/ --dry-run
+npm.cmd run release:publish
 ```
 
-Review the package name, version, tag and file list. Confirm the archive contains
-compiled library files, public declarations, README, LICENSE and distributed
-styles. A successful dry run checks packaging; it does not prove publishing
-permissions or reserve the name/version.
+The command checks evidence, npm login and version availability, then displays
+an npm dry run, account, package version, tag, archive and SHA-256. To publish,
+type the exact confirmation shown, for example `publish ngx-editra@1.0.0`.
+Any other response cancels. Complete npm's authentication prompt when requested.
+The command verifies evidence again before sending the tested archive to npm.
+It refuses noninteractive publication and has no automatic confirmation flag.
 
-## 7. Publish the tested archive
+If source or archive changed, rerun `npm.cmd run release` first. Do not publish
+the private workspace or library source directory directly.
 
-When you intend to make this release public, run:
+## 5. Verify and refresh the websites
 
 ```powershell
-editraNpm run verify:evidence
-editraNpm publish ./artifacts/ngx-editra-0.1.0-alpha.0.tgz --access public --tag next --registry=https://registry.npmjs.org/
+npm.cmd view ngx-editra@latest version dist-tags peerDependencies
+npm.cmd run package:sync
 ```
 
-Run the second command only if evidence verification succeeds. Complete npm's
-authentication prompt. Publish the tested tarball, not the private workspace root
-or `packages/ngx-editra` source directory. No repository workflow publishes npm
-packages automatically.
-
-The `next` tag identifies the prerelease. A published name/version combination
-cannot be reused, even after unpublishing. See the [npm publish reference](https://docs.npmjs.com/cli/commands/npm-publish/).
-
-## 8. Verify the public package
-
-```powershell
-editraNpm view ngx-editra@0.1.0-alpha.0 version dist.integrity --registry=https://registry.npmjs.org/
-editraNpm view ngx-editra dist-tags --registry=https://registry.npmjs.org/
-```
-
-Confirm `next` points to `0.1.0-alpha.0` and open the
-[package page](https://www.npmjs.com/package/ngx-editra). In a separate supported
-Angular application, install the release:
-
-```powershell
-npm.cmd install ngx-editra@next
-```
-
-Follow [quick start](QUICK_START.md) and verify editing, forms, saved-content
-rendering and code copying without an application Sass import. Update repository
-release status and installation instructions to reflect the actual publication,
-then regenerate the documentation. Never mark publication complete before npm
-confirms it.
-
-## Troubleshooting
-
-### EPERM unlink: esbuild.exe or Rollup
-
-A running dev server, watcher or other process may hold the file open. Stop this
-workspace's servers and watchers, then retry `editraNpm ci`. If the lock remains,
-close the relevant IDE run configuration or restart Windows and retry before
-starting the apps. Do not kill every Node process or disable antivirus globally.
-
-### Cannot find markdown-it after npm ci failed
-
-The dependency installation is incomplete. Fix the install error and rerun
-`editraNpm ci` successfully before validation. Do not install a single missing
-package to conceal the interrupted clean install.
-
-### Validation is incomplete or failed
-
-Fix the first failed validation step, rerun the complete compatibility validation,
-then verify evidence again. Never edit evidence reports to mark checks as passed.
-
-### E401, E403 or version already exists
-
-For authentication errors, repeat login and confirm `whoami`. For E403, read npm's
-message and check account permissions, 2FA requirements and package-name policy.
-If the version exists, inspect the registry first: a previous attempt may have
-succeeded. A genuinely new release needs a new version and fresh validation.
-
-## Subsequent releases
-
-Use a new version such as `0.1.0-alpha.1`, update the changelog and tarball
-references, then repeat validation and publication using `next`. Release `1.0.0`
-or another stable version with `latest` only after stable acceptance criteria are
-met; review the package's default publishing tag at that time.
+In a separate supported Angular app, install `ngx-editra` and follow
+[quick start](QUICK_START.md). Commit refreshed metadata and deploy the sites using
+[the deployment guide](DEPLOYMENT.md). Updating repository Markdown does not replace
+the README attached to an already published version; it ships with the next release.
+See [package information](PACKAGE.md) for badges, download statistics and channels.

@@ -7,8 +7,9 @@
 			<span class="brand-subtitle">Docs</span></span
 		></a
 	>
-	<span class="version">v0.1.0 <span>alpha</span></span>
+	<a class="version" [href]="package.packageUrl">npm v{{ package.publishedVersion }}</a>
 	<div class="header-actions">
+		<a class="header-demo" [href]="package.repositoryUrl">GitHub</a>
 		<a routerLink="/examples" class="header-demo"
 			>Try the editor <span aria-hidden="true">↗</span></a
 		><button
@@ -89,8 +90,12 @@
 			</nav>
 		}
 		<div class="sidebar-note">
-			<span class="status-dot"></span> Built on ProseMirror
-			<p>Angular integration. Your document model.</p>
+			<a class="sidebar-package" [href]="package.packageUrl">
+				<span>ngx-editra on npm</span><span aria-hidden="true">&nearr;</span>
+			</a>
+			<span class="sidebar-version">v{{ package.publishedVersion }}</span>
+			<p class="sidebar-credit">Built on ProseMirror</p>
+			<p>Angular integration.<br />Your document model.</p>
 		</div>
 	</aside>
 	<main id="main-content" tabindex="-1"><router-outlet /></main>

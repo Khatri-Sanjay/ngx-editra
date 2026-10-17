@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { readdir, readFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { compatibilityMatrix } from './compatibility-matrix.mjs';
 
 const roots = [
 	'packages/ngx-editra',
@@ -13,6 +14,8 @@ const roots = [
 	'apps/compatibility',
 ];
 const rootFiles = [
+	'release.config.example.json',
+	'npm-package.json',
 	'package.json',
 	'package-lock.json',
 	'angular.json',
@@ -111,19 +114,23 @@ export function assertReleaseEvidence(
 	if (manifest.archiveSha256 !== currentArchive || report.archiveSha256 !== currentArchive)
 		throw new Error('Release evidence is stale: archive changed');
 	if (compatibility) {
-		for (const angular of [17, 18, 19, 20, 21, 22]) {
-			const row = report.compatibility?.find((item) => item.angular === angular);
+		for (const { angular, profile, version } of compatibilityMatrix) {
+			const row = report.compatibility?.find(
+				(item) => item.angular === angular && item.profile === profile,
+			);
 			if (
 				!row ||
+				Number(row.angularVersion?.split('.')[0]) !== angular ||
+				(version && row.angularVersion !== version) ||
 				row.archiveSha256 !== currentArchive ||
 				row.sourceSha256 !== currentSource ||
 				!row.install ||
 				!row.build ||
 				!row.browserFormsSsrHydration ||
 				row.peerBypass !== false ||
-				(angular === 22 && row.productionAudit !== true)
+				(angular === 22 && profile === 'current' && row.productionAudit !== true)
 			)
-				throw new Error(`Missing matching passing Angular ${angular} evidence`);
+				throw new Error(`Missing matching passing Angular ${angular} ${profile} evidence`);
 		}
 	}
 }

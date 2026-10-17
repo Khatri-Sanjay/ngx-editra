@@ -13,14 +13,17 @@ permissions:
 jobs:
     package:
         runs-on: ubuntu-latest
-        timeout-minutes: 45
+        timeout-minutes: 90
         steps:
             - uses: actions/checkout@v7
             - uses: actions/setup-node@v7
               with:
                   node-version: 24.21.0
                   package-manager-cache: false
-            - run: echo "EDITRA_NODE24=$(command -v node)" >> "$GITHUB_ENV"
+            - run: |
+                  echo "EDITRA_NODE24=$(command -v node)" >> "$GITHUB_ENV"
+                  npm install --prefix "$RUNNER_TEMP/editra-npm24" npm@11.6.2 --ignore-scripts --no-audit --no-fund
+                  echo "EDITRA_NPM24_CLI=$RUNNER_TEMP/editra-npm24/node_modules/npm/bin/npm-cli.js" >> "$GITHUB_ENV"
             - uses: actions/setup-node@v7
               with:
                   node-version: 20.20.2
@@ -38,4 +41,7 @@ jobs:
               if: always()
               with:
                   name: package-and-evidence
-                  path: artifacts/
+                  path: |
+                      artifacts/
+                      !artifacts/consumers/**
+                      !artifacts/toolchains/**

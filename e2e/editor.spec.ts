@@ -27,7 +27,11 @@ test('SSR, hydration, forms, reset and repeated mount/unmount', async ({ page, r
 	await expect(page.locator('.editra-static')).toHaveCount(0);
 	await expect(page.locator('.ProseMirror')).toHaveCount(2);
 	await replaceDocument(page, 'Browser form value');
-	await expect(page.locator('.section-heading')).toContainText('Modified');
+	await expect(
+		page
+			.getByRole('region', { name: 'Reactive Forms example', exact: true })
+			.locator('.section-heading'),
+	).toContainText('Modified');
 	await page.getByRole('button', { name: 'Reset form', exact: true }).click();
 	await expect(page.locator('.ProseMirror').first()).toContainText('A calmer place to write');
 	for (let i = 0; i < 3; i++) {

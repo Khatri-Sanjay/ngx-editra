@@ -1,6 +1,11 @@
 # Deploy the websites
 
-The library's distribution target is npm; the initial alpha is not yet published.
+The library is distributed through npm; `0.1.0-alpha.0` is published.
+
+After a new npm release, run `npm run package:sync`, review the generated package
+metadata, and commit it before rebuilding the sites. This keeps npm links and
+published-version labels consistent while the demo build can use a newer workspace
+version. See [npm package and releases](PACKAGE.md).
 The documentation and playground are two independent
 static websites hosted on Vercel from GitHub. Site deployment does not publish the library.
 The initial deployments use [documentation](https://ngx-editra-docs.vercel.app) and

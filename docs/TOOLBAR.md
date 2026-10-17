@@ -38,8 +38,11 @@ Extension toolbar contributions are appended. `groups` supplies labeled command 
 Choose `overflow: 'wrap'` for wrapped command groups on larger screens. `floating: true` enables
 a selection toolbar. `hiddenItems` hides command IDs or formatting input labels. Table
 operations are contextual to a table selection. Native selectors show current/default/mixed values.
-On small screens the editing-command row scrolls horizontally to keep the toolbar compact;
-keyboard focus automatically brings off-screen buttons into view.
+In editors up to 640px wide, both toolbar rows scroll horizontally instead of stacking
+into a tall panel. This follows the editor's width, including narrow panels on desktop.
+Command groups stay together, and keyboard focus brings off-screen buttons into view.
+Touch devices get 44px command targets. Active buttons retain their selected state on
+hover, and common command tooltips include their keyboard shortcuts.
 
 ```typescript
 import type { EditraConfig } from 'ngx-editra';

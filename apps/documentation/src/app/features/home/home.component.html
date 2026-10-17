@@ -6,11 +6,24 @@
 		ProseMirror. Designed around your application.
 	</p>
 	<p>
-		The initial alpha is not yet published. Start with the
-		<a routerLink="/guides/installation" fragment="local-archive-option-before-publication"
-			>local archive installation</a
-		>.
+		Available on <a [href]="package.packageUrl">npm: v{{ package.publishedVersion }}</a
+		>. Install with <code>{{ package.installCommand }}</code
+		>. This site previews development version {{ package.developmentVersion }};
+		<a routerLink="/guides/compatibility">check compatibility for your installed release</a>.
 	</p>
+	<div class="package-badges" aria-label="Package information">
+		<a [href]="package.packageUrl"
+			><img
+				[src]="package.downloadsBadgeUrl"
+				alt="npm downloads per month"
+				width="150"
+				height="20"
+				loading="lazy"
+		/></a>
+		<a [href]="package.repositoryUrl + '/blob/main/LICENSE'">MIT license</a>
+		<a [href]="package.repositoryUrl + '/issues'">Report an issue</a>
+		<a [href]="package.playgroundUrl">Playground</a>
+	</div>
 	<div class="hero-actions">
 		<a class="primary-link" routerLink="/guides/quick-start"
 			>Start building <span aria-hidden="true">→</span></a
@@ -27,7 +40,7 @@
 		<ol>
 			<li>
 				<a routerLink="/guides/installation"
-					>Install the local alpha archive. Styles are included.</a
+					>Install ngx-editra from npm. Styles are included.</a
 				>
 			</li>
 			<li>
@@ -107,11 +120,11 @@
 		</div>
 	</section>
 	<div class="release-notice">
-		<strong>An open-source editor, in alpha.</strong>
+		<strong>An open-source editor for Angular.</strong>
 		<p>
-			The package has automated Angular 17–22 compatibility coverage. Manual accessibility and
-			security reviews remain pending.
-			<a routerLink="/guides/project-status">Read the project status →</a>
+			Check the supported Angular versions and integration requirements before adding the
+			editor to your application.
+			<a routerLink="/guides/compatibility">Compatibility and limitations →</a>
 		</p>
 	</div>
 	<footer class="page-footer">

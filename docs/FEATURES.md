@@ -8,7 +8,7 @@ ngx-editra is a rich-text editor for Angular applications. Writers use a toolbar
 2. [Create your first editor](QUICK_START.md).
 3. [Connect a form and save its value](ANGULAR_FORMS.md).
 
-Open the live example in this documentation to try the real component. The library is an alpha; review [compatibility](COMPATIBILITY.md) and [project status](../PROGRESS.md) before adopting it.
+Open the live example in this documentation to try the real component. The library is an alpha; review [compatibility](COMPATIBILITY.md) and [content security](SECURITY.md) before adopting it.
 
 ## What writers can do
 

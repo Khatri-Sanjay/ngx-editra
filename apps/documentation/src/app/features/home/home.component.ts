@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CodeExampleComponent } from '../../shared/components/code-example/code-example.component';
+import { packageInfo } from '../../content/generated/package-info';
 @Component({
 	selector: 'app-docs-home',
 	standalone: true,
@@ -9,6 +10,7 @@ import { CodeExampleComponent } from '../../shared/components/code-example/code-
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
+	readonly package = packageInfo;
 	readonly tasks = [
 		{
 			slug: 'features',

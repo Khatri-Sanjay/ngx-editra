@@ -253,7 +253,8 @@ ngx-editra {
 		clip-path: inset(50%);
 	}
 	.toolbar-field {
-		font-size: 12px;
+		font-size: 13px;
+		flex-shrink: 0;
 		gap: 6px;
 		min-height: 36px;
 		border: 1px solid var(--editra-border);
@@ -348,6 +349,7 @@ ngx-editra {
 		border-radius: 1px;
 	}
 	.toolbar-separator {
+		flex-shrink: 0;
 		height: 23px;
 		width: 1px;
 		background: var(--editra-border);
@@ -545,7 +547,27 @@ ngx-editra {
 
 	.toolbar-insert-pair {
 		display: inline-flex;
+		flex-shrink: 0;
 		align-items: center;
+	}
+	editra-toolbar .options-bar > editra-colour-picker {
+		flex-shrink: 0;
+	}
+	.editor-tools {
+		flex-wrap: nowrap;
+		flex-shrink: 0;
+		margin-left: auto;
+		padding-left: 8px;
+		border-left: 1px solid var(--editra-border);
+	}
+	@media (pointer: coarse) {
+		editra-toolbar .editra-tool-button {
+			width: 44px;
+			height: 44px;
+		}
+		editra-toolbar .toolbar-field {
+			min-height: 44px;
+		}
 	}
 	.table-insert-pair {
 		border: 1px solid transparent;

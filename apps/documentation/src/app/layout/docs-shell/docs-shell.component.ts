@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { guideNavigation } from '../../content/generated/navigation';
 import { DocsTheme } from '../../core/services/docs-theme.service';
+import { packageInfo } from '../../content/generated/package-info';
 
 @Component({
 	selector: 'app-docs-shell',
@@ -12,6 +13,7 @@ import { DocsTheme } from '../../core/services/docs-theme.service';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DocsShellComponent {
+	readonly package = packageInfo;
 	private readonly theme = inject(DocsTheme);
 	readonly guides = guideNavigation;
 	readonly groups = [...new Set(guideNavigation.map((guide) => guide.group))];
