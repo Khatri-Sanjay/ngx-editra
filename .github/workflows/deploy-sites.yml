@@ -1,5 +1,9 @@
 name: Deploy static site to Vercel
 on:
+    workflow_run:
+        workflows: [Validate and prepare package]
+        types: [completed]
+        branches: [main]
     workflow_dispatch:
         inputs:
             site:
@@ -13,16 +17,28 @@ on:
                 default: false
 permissions:
     contents: read
-concurrency:
-    group: deploy-${{ inputs.site }}-${{ inputs.production }}
-    cancel-in-progress: false
 jobs:
     deploy:
+        if: >-
+            github.event_name == 'workflow_dispatch' ||
+            (github.event.workflow_run.conclusion == 'success' &&
+            github.event.workflow_run.event == 'push' &&
+            github.event.workflow_run.head_branch == 'main' &&
+            github.event.workflow_run.head_repository.full_name == github.repository)
+        strategy:
+            fail-fast: false
+            matrix:
+                site: ${{ fromJSON(github.event_name == 'workflow_dispatch' && format('["{0}"]', inputs.site) || '["documentation","playground"]') }}
+        concurrency:
+            group: deploy-${{ matrix.site }}-${{ (github.event_name == 'workflow_run' || inputs.production) && 'production' || 'preview' }}
+            cancel-in-progress: false
         runs-on: ubuntu-latest
         timeout-minutes: 20
-        environment: ${{ inputs.production && 'production' || 'preview' }}
+        environment: ${{ (github.event_name == 'workflow_run' || inputs.production) && 'production' || 'preview' }}
         steps:
             - uses: actions/checkout@v7
+              with:
+                  ref: ${{ github.event.workflow_run.head_sha || github.sha }}
             - uses: actions/setup-node@v7
               with:
                   node-version: 24.21.0
@@ -38,20 +54,20 @@ jobs:
             - run: npm ci
             - run: npm run build:site -- "$SITE"
               env:
-                  SITE: ${{ inputs.site }}
+                  SITE: ${{ matrix.site }}
             - uses: actions/setup-node@v7
               with:
                   node-version: 24.21.0
                   package-manager-cache: false
             - name: Deploy prepared static output
-              working-directory: artifacts/sites/${{ inputs.site }}
+              working-directory: artifacts/sites/${{ matrix.site }}
               env:
                   VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
                   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
                   DOCS_PROJECT_ID: ${{ secrets.VERCEL_DOCS_PROJECT_ID }}
                   PLAYGROUND_PROJECT_ID: ${{ secrets.VERCEL_PLAYGROUND_PROJECT_ID }}
-                  SITE: ${{ inputs.site }}
-                  PRODUCTION: ${{ inputs.production }}
+                  SITE: ${{ matrix.site }}
+                  PRODUCTION: ${{ github.event_name == 'workflow_run' || inputs.production }}
               run: |
                   set -euo pipefail
                   if [ "$SITE" = documentation ]; then

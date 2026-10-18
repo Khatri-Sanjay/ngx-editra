@@ -34,7 +34,8 @@ and an index.html fallback for unknown client-side routes. The SSR server defaul
 set PORT to override it.
 
 For GitHub-to-Vercel deployment, use `npm run build:site -- documentation` and the
-manual deployment workflow. The static browser output is hosted in its own project;
+deployment workflow. Successful validation after a merge or push to `main` deploys
+both websites automatically; manual runs remain available. The static browser output is hosted in its own project;
 the local SSR harness is not deployed. Follow [deployment setup](../../docs/DEPLOYMENT.md)
 for the separate library/compiler and modern app/deployment toolchains and project secrets.
 The workspace's MIT [LICENSE](../../LICENSE) applies to this application.

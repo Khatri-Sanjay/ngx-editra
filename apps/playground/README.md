@@ -68,7 +68,9 @@ For the static deployment artifact:
 npm run build:site -- playground
 ```
 
-Use the manual GitHub deployment workflow and a separate Vercel project. See
+Successful validation after a merge or push to `main` automatically deploys this app
+and the documentation to their separate Vercel projects. Manual GitHub deployments
+remain available. See
 [deployment setup](../../docs/DEPLOYMENT.md) for secrets, Node runtime separation
 and preview/production steps. No local SSR harness is deployed. The editor feature is
 lazy-loaded; its route still carries the full demo's editor and rendering dependencies.

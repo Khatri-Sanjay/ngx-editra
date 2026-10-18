@@ -47,9 +47,17 @@ tree or function is deployed. Legacy build-tool audit findings still require mai
 
 Open Actions → Deploy static site to Vercel → Run workflow. Select the branch and app.
 Leave production unchecked for a preview. Enable it to update the production domain.
-Run once for each app. The workflow is manual; pushes and pull requests do not deploy.
+Manual runs deploy the selected app only. After a merge or push to `main`, the
+**Validate and prepare package** workflow runs first. On success, the deployment
+workflow automatically builds and deploys both websites to production, checking out
+the exact validated commit. Failed or cancelled validation, pull-request validation,
+scheduled checks and other branches do not trigger automatic deployment.
 
-Confirm the validation workflow passed on the same revision before production deployment.
+The workflow file must be merged into the default branch for `workflow_run` triggers
+to take effect. Existing production-environment approval rules still apply. Direct
+Vercel Git builds remain disabled; all deployments use the prebuilt workflow.
+
+For manual production runs, confirm validation passed on the selected revision.
 The deployment workflow builds the selected app but does not replace release validation.
 No npm publish command is run. Account settings and secrets require owner configuration.
 

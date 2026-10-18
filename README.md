@@ -107,9 +107,10 @@ npm run build:site -- documentation
 npm run build:site -- playground
 ```
 
-Use the manual **Deploy static site to Vercel** GitHub workflow for preview or production.
+After merges or pushes to `main` pass validation, **Deploy static site to Vercel**
+automatically deploys both websites to production. Manual preview or production runs remain available.
 Configure the two Vercel projects and GitHub secrets first. Follow the complete
-[deployment guide](docs/DEPLOYMENT.md); no deployment runs automatically on push.
+[deployment guide](docs/DEPLOYMENT.md).
 The live documentation and playground links above have been verified on Vercel.
 
 ## Project policies
