@@ -74,3 +74,5 @@ or CI on an uncommitted revision. Real inbox, assistive-technology and independe
 evidence is maintained separately in [manual acceptance](acceptance/README.md).
 
 The Angular 22 compatibility fixture intentionally loads the complete editor for integration tests. Its initial bundle warns at 500 kB and fails at 1.1 MB, allowing the measured Angular 22.0.0 framework output (about 1.054 MB) while retaining a fixed upper bound. This fixture budget is separate from the public apps and is not a library download-size claim.
+
+`npm run lint` prepares the compiled library and both independent website dependencies before type-aware ESLint runs. This is required on a fresh checkout: root `npm ci` installs only the Angular 17 library workspace. Website preparation selects Node 24/npm 11 and reuses matching installs; keep those toolchains configured for local lint and CI. Do not run the ESLint binary directly against unprepared apps or disable unsafe-type rules to hide missing imports.

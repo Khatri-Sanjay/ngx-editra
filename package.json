@@ -44,7 +44,8 @@
 		"audit:dependencies": "node scripts/audit-dependencies.mjs",
 		"repo:check": "node scripts/check-repository.mjs",
 		"acceptance:check": "node scripts/check-acceptance.mjs",
-		"dev:clean": "ng cache clean && node scripts/run-app.mjs clean-cache playground && node scripts/run-app.mjs clean-cache documentation"
+		"dev:clean": "ng cache clean && node scripts/run-app.mjs clean-cache playground && node scripts/run-app.mjs clean-cache documentation",
+		"prelint": "node scripts/prepare-apps.mjs"
 	},
 	"private": true,
 	"devDependencies": {
