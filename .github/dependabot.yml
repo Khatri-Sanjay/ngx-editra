@@ -1,6 +1,16 @@
 version: 2
 updates:
     - package-ecosystem: npm
+      directories: [/apps/playground, /apps/documentation]
+      schedule:
+          interval: weekly
+      ignore:
+          - dependency-name: ngx-editra
+          - dependency-name: '@angular/*'
+            update-types: ['version-update:semver-major']
+          - dependency-name: typescript
+            update-types: ['version-update:semver-major', 'version-update:semver-minor']
+    - package-ecosystem: npm
       directory: /
       schedule:
           interval: weekly

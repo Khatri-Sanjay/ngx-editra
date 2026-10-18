@@ -19,27 +19,31 @@ button {
 	border-radius: 6px;
 	color: #17263f;
 	font: inherit;
-	min-height: 40px;
+	min-height: 44px;
+	font-size: 12px;
 	cursor: pointer;
 }
 button[aria-pressed='true'] {
-	background: #dce9ff;
-	border-color: #1763d1;
+	background: #eaf4ee;
+	border-color: #17634f;
+	color: #14503f;
 }
 pre {
 	white-space: pre-wrap;
 	overflow-wrap: anywhere;
-	background: #142138;
+	background: #172b33;
 	color: #dee8ff;
-	padding: 24px;
+	padding: 20px;
 	border-radius: 10px;
-	max-height: 320px;
+	max-height: 360px;
 	overflow: auto;
 	font-size: 13px;
 }
 [role='status'] {
-	min-height: 24px;
 	margin: 8px 0;
+	&:empty {
+		margin: 0;
+	}
 	font-size: 13px;
 }
 :focus-visible {

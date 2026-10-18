@@ -61,6 +61,9 @@ ngx-editra {
 		width: 100%;
 		table-layout: fixed;
 	}
+	.ProseMirror[contenteditable='true'] table {
+		cursor: text;
+	}
 	.ProseMirror tbody,
 	.ProseMirror tr {
 		border: inherit;
@@ -158,17 +161,6 @@ ngx-editra {
 		inset: 0;
 		background: #589bff44;
 		pointer-events: none;
-	}
-	.ProseMirror .column-resize-handle {
-		position: absolute;
-		right: -2px;
-		top: 0;
-		bottom: 0;
-		width: 4px;
-		background: #1763d1;
-	}
-	.ProseMirror.resize-cursor {
-		cursor: col-resize;
 	}
 	.ProseMirror-selectednode {
 		outline: 3px solid var(--editra-focus, #1763d1);

@@ -167,7 +167,7 @@ export function cellBackground(value: string): Command {
 }
 export function tableAttribute(
 	nodeType: 'table' | 'table_row',
-	key: 'width' | 'border' | 'height' | 'borderWidth',
+	key: 'width' | 'border' | 'height' | 'borderWidth' | 'borderColor',
 	value: string | number,
 ): Command {
 	return (state, dispatch) => {
@@ -178,7 +178,7 @@ export function tableAttribute(
 					dispatch(
 						state.tr.setNodeMarkup(position.before(depth), undefined, {
 							...attributes(position.node(depth)),
-							[key]: value,
+							[key]: key === 'borderColor' ? (safeColor(value) ?? '#000000') : value,
 						}),
 					);
 				return true;

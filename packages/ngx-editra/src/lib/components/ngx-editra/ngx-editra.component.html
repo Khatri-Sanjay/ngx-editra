@@ -92,7 +92,7 @@
 			</select></label
 		>
 		<label
-			class="toolbar-field"
+			class="toolbar-field field-case"
 			title="Change selected text case"
 			[hidden]="!showControl('Text case')"
 			><editra-icon name="text_case" /><select
@@ -185,51 +185,108 @@
 									<editra-icon name="close" />
 								</button>
 							</div>
-							@for (group of tableActionGroups; track group.label) {
-								<div
-									class="table-control-group"
-									role="group"
-									[attr.aria-label]="group.label"
+							<div
+								class="table-panel-switch"
+								role="group"
+								aria-label="Table settings view"
+							>
+								<button
+									type="button"
+									[attr.aria-pressed]="tablePanel === 'structure'"
+									(click)="tablePanel = 'structure'"
 								>
-									<span class="table-group-label">{{ group.label }}</span>
-									<div class="table-group-actions">
-										@for (action of group.actions; track action.id) {
-											<button
-												class="table-action-button"
-												type="button"
-												[attr.aria-label]="action.label"
-												[title]="action.label"
-												[disabled]="!enabled(action.command)"
-												[hidden]="!showControl(action.command)"
-												(pointerdown)="$event.preventDefault()"
-												(click)="execute(action.command)"
-											>
-												<editra-icon [name]="action.command" /><span
-													class="table-action-caption"
-													>{{ action.label }}</span
+									Structure
+								</button>
+								<button
+									type="button"
+									[attr.aria-pressed]="tablePanel === 'appearance'"
+									(click)="tablePanel = 'appearance'"
+								>
+									Appearance
+								</button>
+								<button
+									type="button"
+									[attr.aria-pressed]="tablePanel === 'dimensions'"
+									(click)="tablePanel = 'dimensions'"
+								>
+									Dimensions
+								</button>
+							</div>
+							<section
+								class="table-structure-panel"
+								aria-label="Table structure settings"
+								[hidden]="tablePanel !== 'structure'"
+							>
+								@for (group of tableActionGroups; track group.label) {
+									<div
+										class="table-control-group"
+										role="group"
+										[attr.aria-label]="group.label"
+									>
+										<span class="table-group-label">{{ group.label }}</span>
+										<div class="table-group-actions">
+											@for (action of group.actions; track action.id) {
+												<button
+													class="table-action-button"
+													type="button"
+													[attr.aria-label]="action.label"
+													[title]="action.label"
+													[disabled]="!enabled(action.command)"
+													[hidden]="!showControl(action.command)"
+													(pointerdown)="$event.preventDefault()"
+													(click)="execute(action.command)"
 												>
-											</button>
-										}
+													<editra-icon [name]="action.command" /><span
+														class="table-action-caption"
+														>{{ action.label }}</span
+													>
+												</button>
+											}
+										</div>
 									</div>
-								</div>
-							}
+								}
+							</section>
 							<div
 								class="table-control-group table-appearance"
+								[hidden]="tablePanel !== 'appearance'"
 								role="group"
 								aria-label="Table appearance"
 							>
-								<span class="table-group-label">Appearance</span>
+								<p class="table-panel-help">
+									Style the selected cells and table borders.
+								</p>
 								<div class="table-group-actions">
-									<editra-colour-picker
-										label="Cell background colour"
-										kind="background"
-										[value]="currentCellBackground"
-										[disabled]="locked"
+									<div
+										class="table-cell-fill"
 										[hidden]="!showControl('Cell background colour')"
-										(opened)="rememberColourSelection('background')"
-										(closed)="clearColourSelection('background')"
-										(colourChange)="applyColour('background', $event)"
-									/>
+									>
+										<span>Cell fill</span>
+										<editra-colour-picker
+											label="Cell background colour"
+											kind="background"
+											[value]="currentCellBackground"
+											[disabled]="locked"
+											[hidden]="!showControl('Cell background colour')"
+											(opened)="rememberColourSelection('background')"
+											(closed)="clearColourSelection('background')"
+											(colourChange)="applyColour('background', $event)"
+										/>
+									</div>
+									<div
+										class="table-cell-fill"
+										[hidden]="!showControl('Table border colour')"
+									>
+										<span>Border colour</span>
+										<editra-colour-picker
+											label="Table border colour"
+											kind="border"
+											[value]="currentTableBorderColour"
+											[disabled]="locked"
+											(opened)="rememberColourSelection('border')"
+											(closed)="clearColourSelection('border')"
+											(colourChange)="applyColour('border', $event)"
+										/>
+									</div>
 									<label
 										class="toolbar-field table-field"
 										[hidden]="!showControl('Table border')"
@@ -247,27 +304,34 @@
 											<option value="none">No borders</option>
 										</select></label
 									>
+									<label
+										class="table-line-weight"
+										[hidden]="!showControl('Table line weight')"
+										><editra-icon name="line_weight" /><span>Line weight</span
+										><select
+											aria-label="Table line weight"
+											[disabled]="locked"
+											[ngModel]="currentTableLineWeight"
+											[ngModelOptions]="{ standalone: true }"
+											(change)="tableFormat($event, 'borderWidth')"
+										>
+											@for (weight of [1, 2, 3, 4, 6, 8]; track weight) {
+												<option [value]="weight">{{ weight }} px</option>
+											}
+										</select></label
+									>
 								</div>
 							</div>
-							<label
-								class="table-line-weight"
-								[hidden]="!showControl('Table line weight')"
-								><editra-icon name="line_weight" /><span>Line weight</span
-								><select
-									aria-label="Table line weight"
-									[disabled]="locked"
-									[ngModel]="currentTableLineWeight"
-									[ngModelOptions]="{ standalone: true }"
-									(change)="tableFormat($event, 'borderWidth')"
-								>
-									@for (weight of [1, 2, 3, 4, 6, 8]; track weight) {
-										<option [value]="weight">{{ weight }} px</option>
-									}
-								</select></label
-							>
 
-							<details class="table-settings">
-								<summary>More table settings</summary>
+							<div
+								class="table-settings"
+								role="group"
+								aria-label="Table dimensions"
+								[hidden]="tablePanel !== 'dimensions'"
+							>
+								<p class="table-panel-help">
+									Set the table width and minimum row height.
+								</p>
 								<div class="table-settings-content">
 									<label
 										class="toolbar-field table-field"
@@ -302,8 +366,8 @@
 										Reset row heights
 									</button>
 								</div>
-							</details>
-							<p class="table-resize-tip">
+							</div>
+							<p class="table-resize-tip" [hidden]="tablePanel !== 'dimensions'">
 								Drag a column border or anywhere along a row border to resize. Tab
 								to a resize boundary and use arrow keys for keyboard resizing.
 							</p>
@@ -382,14 +446,17 @@
 						}
 					</select></label
 				>
-				<div
-					class="line-preview"
-					aria-hidden="true"
-					[style.border-top-style]="lineStyle"
-					[style.border-top-width.px]="
-						lineStyle === 'double' ? (lineWeight < 3 ? 3 : lineWeight) : lineWeight
-					"
-				></div>
+				<div class="line-preview-area">
+					<span>Preview</span>
+					<div
+						class="line-preview"
+						aria-hidden="true"
+						[style.border-top-style]="lineStyle"
+						[style.border-top-width.px]="
+							lineStyle === 'double' ? (lineWeight < 3 ? 3 : lineWeight) : lineWeight
+						"
+					></div>
+				</div>
 				<button
 					type="button"
 					class="line-apply button-primary"
@@ -549,25 +616,41 @@
 	tabindex="-1"
 	[class.editra-table-picker]="dialogKind === 'table'"
 	[class.find-dialog]="dialogKind === 'find'"
+	[class.table-context-dialog]="dialogKind === 'tableContext'"
+	[class.content-dialog]="
+		dialogKind === 'link' || dialogKind === 'image' || dialogKind === 'video'
+	"
 	(click)="dialogBackdrop($event)"
 	(keydown.escape)="$event.preventDefault(); $event.stopPropagation(); closeDialog()"
 	(cancel)="closeDialog()"
 	(close)="dialogClosed()"
 	[attr.aria-label]="dialogKind === 'tableContext' ? 'Table actions' : 'Edit ' + dialogKind"
 >
-	<h2>
-		{{
-			dialogKind === 'table'
-				? 'Insert table'
-				: dialogKind === 'find'
-					? 'Find and replace'
-					: dialogKind === 'tableContext'
-						? 'Table actions'
-						: 'Insert or edit ' + dialogKind
-		}}
-	</h2>
+	<div class="dialog-heading">
+		<h2>
+			{{
+				dialogKind === 'table'
+					? 'Insert table'
+					: dialogKind === 'find'
+						? 'Find and replace'
+						: dialogKind === 'tableContext'
+							? 'Table actions'
+							: 'Insert or edit ' + dialogKind
+			}}
+		</h2>
+		@if (dialogKind === 'link' || dialogKind === 'image' || dialogKind === 'video') {
+			<button
+				type="button"
+				class="dialog-close"
+				aria-label="Close dialog"
+				(click)="closeDialog()"
+			>
+				<editra-icon name="close" />
+			</button>
+		}
+	</div>
 	@if (dialogKind === 'link' || dialogKind === 'image' || dialogKind === 'video') {
-		<label
+		<label class="dialog-url-field"
 			>URL
 			<input
 				type="url"
@@ -587,9 +670,21 @@
 		>
 	}
 	@if (dialogKind === 'image' || dialogKind === 'video') {
-		<p>
-			Paste a direct image URL or a supported video link. Resize and align it after inserting.
+		<p class="dialog-help">
+			{{
+				dialogKind === 'image'
+					? 'Use a direct image URL. You can resize and align the image after inserting it.'
+					: 'Paste a direct video URL or a supported video link. You can resize it after inserting it.'
+			}}
 		</p>
+		@if (dialogKind === 'image' && !editingMedia) {
+			<label class="dialog-url-field"
+				>Alternative text<input
+					[(ngModel)]="values.alt"
+					[ngModelOptions]="{ standalone: true }"
+					placeholder="Describe the image for readers"
+			/></label>
+		}
 		@if (editingMedia) {
 			<details class="media-options">
 				<summary>Image and video settings</summary>
@@ -692,10 +787,13 @@
 			[maxRows]="config.table?.maxRows ?? 8"
 			[maxColumns]="config.table?.maxColumns ?? 10"
 			[quickInsert]="true"
+			[selectedRows]="values.rows"
+			[selectedColumns]="values.columns"
+			[style.--editra-grid-border]="newTableBorderColour"
 			(dimensions)="chooseTable($event)"
 			(insert)="insertGridTable($event)"
 		/>
-		<p class="table-picker-help">Choose a grid size to insert, or enter dimensions below.</p>
+		<p class="table-picker-help">Click a cell to insert, or enter a size below.</p>
 		<div class="table-size-fields">
 			<label
 				>Rows
@@ -715,6 +813,16 @@
 					[ngModelOptions]="{ standalone: true }"
 			/></label>
 		</div>
+		<label class="table-insert-colour"
+			>Border colour
+			<span>{{ newTableBorderColour }}</span>
+			<input
+				type="color"
+				aria-label="New table border colour"
+				[(ngModel)]="newTableBorderColour"
+				[ngModelOptions]="{ standalone: true }"
+			/>
+		</label>
 	}
 	@if (dialogKind === 'find') {
 		<div class="find-fields">
@@ -773,7 +881,13 @@
 		</div>
 	}
 	@if (dialogKind === 'tableContext') {
-		<editra-menu [items]="tableActions" [enabled]="enabled" (execute)="contextAction($event)" />
+		<p class="table-context-description">Choose an action for the selected table or cells.</p>
+		<editra-menu
+			[items]="tableActions"
+			[groups]="tableMenuGroups"
+			[enabled]="enabled"
+			(execute)="contextAction($event)"
+		/>
 	}
 	@if (error) {
 		<p role="alert">{{ error }}</p>

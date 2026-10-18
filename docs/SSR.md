@@ -27,5 +27,13 @@ Angular 18+ SSR bootstrap functions need the platform BootstrapContext, and patc
 renderApplication APIs need explicit allowedHosts. The compatibility consumers demonstrate
 version-specific server setup. Do not set browser globals on the server to hide errors.
 
+The Angular 22 playground and documentation explicitly use
+`provideClientHydration(withNoIncrementalHydration())` from `@angular/platform-browser`.
+They retain standard hydration and load deferred demos after interaction. This avoids
+retaining repeatedly destroyed editor hosts in incremental event-replay bookkeeping;
+the workspace checks repeated DOM/listener and heap growth. Angular 22 enables
+incremental hydration by default; applications choosing it should test their own
+mount/unmount lifecycle. See [Angular's hydration option](https://angular.dev/api/platform-browser/withNoIncrementalHydration).
+
 Editor DOM methods are no-ops before activation. Conversion/state methods work during SSR.
 Extension onCreate/onDestroy callbacks run for browser editor activation/destruction only.

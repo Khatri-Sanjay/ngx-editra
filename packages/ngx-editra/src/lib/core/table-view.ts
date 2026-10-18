@@ -1,9 +1,9 @@
 import { TableView } from 'prosemirror-tables';
 import type { Node } from 'prosemirror-model';
 import { attributes } from './attributes';
-import { dimension } from './security';
+import { dimension, safeColor } from './security';
 
-/** Constructed exclusively by the browser column-resizing plugin. */
+/** Constructed by the browser table controls to keep model-backed column widths in sync. */
 export class EditraTableView extends TableView {
 	constructor(node: Node, minimum: number) {
 		super(node, minimum);
@@ -19,7 +19,7 @@ export class EditraTableView extends TableView {
 		if (!this.table.style.width || this.table.style.width.endsWith('%'))
 			this.table.style.width = `${dimension(attrs['width'], 100, 100)}%`;
 		this.table.style.borderWidth = `${Math.max(1, dimension(attrs['borderWidth'], 1, 8))}px`;
-		this.table.style.borderColor = '#b8c2d0';
+		this.table.style.borderColor = safeColor(attrs['borderColor']) ?? '#000000';
 		this.table.style.borderStyle = ['solid', 'dashed', 'dotted', 'double', 'none'].includes(
 			String(attrs['border']),
 		)

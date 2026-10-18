@@ -1,8 +1,10 @@
 # Maintenance policy
 
-This is an alpha library. The current development line receives fixes; older source snapshots
-do not have separate maintenance branches or an LTS promise. Breaking changes may still
-occur before a stable release and must be recorded in CHANGELOG.md with migration notes.
+Version 1.0.0 is being prepared as the first stable line. After publication, bug and
+security fixes target the current stable line; older snapshots have no separate
+maintenance branch or LTS promise. Stable releases follow semantic versioning:
+breaking public API changes require a major version and migration notes. Prereleases
+use `next`; stable releases use `latest`. Do not describe an unpublished version as published.
 
 ## Ownership and reporting
 
@@ -24,17 +26,26 @@ hash, and restores the original manifest and lockfile even on failure. Dependenc
 can therefore resolve the consumer dependencies before ngx-editra is published.
 Review update PRs through the complete release validation; never auto-merge major upgrades.
 
-Angular 17 is the current oldest compiler/runtime baseline. Node 20/npm 10, TypeScript 5.4
-and ESLint 8 remain the documented legacy compilation toolchain. This is a compatibility
-constraint, not a claim that the tooling is maintained upstream. Do not use this baseline
-to choose a production application's runtime; use its Angular version's supported tooling.
+Angular 17-22 compatibility is retained for 1.x. The private root compiler/test environment
+uses Angular 17, Node 20/npm 10 and TypeScript 5.4 to preserve the oldest compiler baseline.
+Its legacy dependencies are development dependencies and are not deployed as a website
+runtime. The playground and documentation have independent Angular 22, Node 24/npm 11,
+TypeScript 6 toolchains, lockfiles and application builders. `scripts/run-app.mjs`
+installs their dependencies and copies the compiled public library with npm `--install-links`.
+It does not resolve Angular from the root compiler environment.
 
-Before a stable release, decide whether to retain Angular 17-19 compatibility or raise the
-minimum peer major. Raising it requires a documented breaking change, migrating the root
-Angular/CLI/ng-packagr/TypeScript/lint toolchain together, updating runtime requirements,
-and validating the new supported matrix. Retaining it requires tracking build-only audit
-findings and keeping legacy compilation isolated from production consumers. Do not upgrade
-the compiler alone while continuing to advertise untested older peers.
+`npm run audit:dependencies` audits the entire dependency tree of both public apps and
+requires zero findings. Known root-toolchain advisories are recorded exactly by package,
+range, severity and advisory URL in `security-audit-baseline.json`; these remain security
+debt. New/changed advisories or an expired review deadline fail validation. Review each
+finding before explicitly refreshing the baseline with `--record-baseline`. Never use
+`npm audit fix --force` to upgrade the library compiler across Angular majors.
+Use trusted source/dependencies and isolated build workers; do not expose legacy test
+servers or process untrusted build input. Compatibility with an old Angular version
+does not imply upstream framework security support.
+
+Raising the minimum peer major requires a documented breaking change, migrating the
+library compiler/ng-packagr/TypeScript toolchain together, and validating the new matrix.
 
 ## Evidence and release controls
 
@@ -54,3 +65,12 @@ GitHub Actions must pass on the release revision. In repository settings, requir
 conversations, restrict direct release-branch pushes, and enable private vulnerability
 reporting. Repository settings cannot be established by committing YAML alone; verify
 them using an authenticated owner account. Publishing remains an explicit owner action.
+
+Run `npm run repo:check` to record read-only verification in
+`artifacts/repository-settings.json`; `--strict` fails on missing or unverified checks.
+Provide `GH_TOKEN` through the environment, never committed files or command arguments,
+when GitHub requires authentication. A green local run does not prove remote settings
+or CI on an uncommitted revision. Real inbox, assistive-technology and independent-review
+evidence is maintained separately in [manual acceptance](acceptance/README.md).
+
+The Angular 22 compatibility fixture intentionally loads the complete editor for integration tests. Its initial bundle warns at 500 kB and fails at 1.1 MB, allowing the measured Angular 22.0.0 framework output (about 1.054 MB) while retaining a fixed upper bound. This fixture budget is separate from the public apps and is not a library download-size claim.

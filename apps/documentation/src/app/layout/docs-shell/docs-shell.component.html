@@ -7,9 +7,17 @@
 			<span class="brand-subtitle">Docs</span></span
 		></a
 	>
-	<a class="version" [href]="package.packageUrl">npm v{{ package.publishedVersion }}</a>
+	<a class="version" [href]="package.packageUrl" target="_blank" rel="noopener noreferrer"
+		>npm v{{ package.publishedVersion }}</a
+	>
 	<div class="header-actions">
-		<a class="header-demo" [href]="package.repositoryUrl">GitHub</a>
+		<a
+			class="header-demo"
+			[href]="package.repositoryUrl"
+			target="_blank"
+			rel="noopener noreferrer"
+			>GitHub</a
+		>
 		<a routerLink="/examples" class="header-demo"
 			>Try the editor <span aria-hidden="true">↗</span></a
 		><button
@@ -90,7 +98,12 @@
 			</nav>
 		}
 		<div class="sidebar-note">
-			<a class="sidebar-package" [href]="package.packageUrl">
+			<a
+				class="sidebar-package"
+				[href]="package.packageUrl"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
 				<span>ngx-editra on npm</span><span aria-hidden="true">&nearr;</span>
 			</a>
 			<span class="sidebar-version">v{{ package.publishedVersion }}</span>

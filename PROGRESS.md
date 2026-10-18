@@ -11,6 +11,8 @@ and repository-setting checks below must be completed before a stable-release cl
 
 -   Standalone Angular editor with HTML-valued forms, disabled/read-only states, validation,
     reset, typed outputs, commands and document conversion.
+-   Dedicated Angular 22 Signal Forms integration, real browser clipboard checks,
+    forced-colour keyboard focus checks and repeated destruction/retention measurements.
 -   ProseMirror document engine with schema-based HTML/JSON validation, bounded input,
     escaped serialization, ordered extensions and URL/media policies.
 -   Text formatting, lists, code blocks, code copying, tables and resizing, media layout,
@@ -47,15 +49,11 @@ Remote CI success must be verified on the actual release revision.
 
 -   Test email exports in real Gmail, Outlook variants and Apple Mail inboxes; browser
     preview and serializer tests do not establish verified email-client rendering.
--   Add dedicated Signal Forms integration coverage before advertising fully verified
-    support; current Reactive Forms and template-driven bindings are tested.
 -   Verify remote CI, required checks/reviews and private vulnerability reporting in GitHub settings.
 -   Complete manual screen-reader, high-contrast and independent application/security reviews.
--   Extend native clipboard and browser memory stress coverage where automated mocks are insufficient.
 -   Review the full lazy editor download cost and compatibility-consumer bundle warnings;
     the smaller initial playground shell does not establish a lightweight editor bundle.
--   Decide the minimum Angular support policy before migrating the legacy compilation toolchain.
-    See docs/MAINTENANCE.md for the migration requirements and dependency review policy.
+-   Retain Angular 17-22 for 1.x while isolating the private Angular 17 compiler from the Angular 22 websites. Review tracked compiler advisories by the deadline in security-audit-baseline.json.
 -   Verify npm ownership and release notes before explicitly publishing the exact validated archive.
 
 ## Documented limitations
@@ -67,8 +65,7 @@ legacy Angular version does not establish upstream security support for its runt
 
 ## Ownership and architecture
 
-Root policies and docs/ are canonical and are assembled into the distribution at build
-time. The npm consumer README is maintained in packages/ngx-editra/README.md; the root
+Root policies and docs/ are canonical. Only the consumer documents selected in scripts/library-docs.mjs are assembled into the npm distribution and public docs. The npm consumer README is maintained in packages/ngx-editra/README.md; the root
 README covers workspace development and deployment. Applications import the public ngx-editra entry point. Core, extensions and Angular
 adapters remain separated by enforced import boundaries. The engine owns document state;
 browser views apply transactions. Extension serializers and providers are trusted code.

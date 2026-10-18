@@ -1,8 +1,11 @@
 # Workspace architecture
 
-The workspace uses Angular CLI 17.3, npm workspaces and one publishable Angular
-library. Build with Node 20.20.2/npm 10.8.2. Compatibility consumers own their
-Angular, TypeScript and runtime versions independently.
+The root npm workspace contains one publishable Angular library and its private
+Angular 17 compiler/test toolchain (Node 20.20.2/npm 10.8.2). The two public apps are
+independent Angular 22 projects using Node 24/npm 11 and their own lockfiles.
+Compatibility consumers also own their Angular, TypeScript and runtime versions.
+Use the root npm scripts: `scripts/run-app.mjs` selects the modern runtime and copies
+the compiled library into each app without sharing the root Angular installation.
 
 ## Repository ownership
 

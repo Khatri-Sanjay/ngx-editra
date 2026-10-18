@@ -21,7 +21,7 @@ export default defineConfig({
 		trace: 'retain-on-failure',
 	},
 	webServer: {
-		command: 'node dist/documentation/server/server.mjs',
+		command: 'node scripts/run-app.mjs serve-built documentation',
 		url: baseURL,
 		env: { PORT: port },
 		reuseExistingServer: false,

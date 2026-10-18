@@ -112,6 +112,7 @@ async function verify({ angular: major, profile, version, typescript, zone }) {
 		install: false,
 		build: false,
 		browserFormsSsrHydration: false,
+		signalForms: major === 22 ? false : null,
 		productionAudit: major === 22 && profile === 'current' ? false : null,
 		peerBypass: process.env['EDITRA_CANDIDATE_PEERS'] === '1',
 	};
@@ -169,6 +170,7 @@ async function verify({ angular: major, profile, version, typescript, zone }) {
 					'e2e/media-layout.spec.ts',
 					'e2e/word-tools.spec.ts',
 					'e2e/rendering.spec.ts',
+					...(major === 22 ? ['e2e/signal-forms.spec.ts'] : []),
 				],
 				root,
 				{
@@ -178,11 +180,22 @@ async function verify({ angular: major, profile, version, typescript, zone }) {
 					EDITRA_BASE_URL: `http://localhost:${4700 + major}`,
 					PORT: String(4700 + major),
 					EDITRA_SCREENSHOT_PREFIX: `${id}-word`,
+					EDITRA_SIGNAL_FORMS: major === 22 ? '1' : '0',
 				},
 			);
 		if (result.browserFormsSsrHydration) {
 			const report = JSON.parse(await readFile(`artifacts/${id}-e2e.json`, 'utf8'));
 			result.browserTests = report.stats;
+			if (major === 22) {
+				const suites = (rows) =>
+					rows.flatMap((row) => [...(row.specs ?? []), ...suites(row.suites ?? [])]);
+				const spec = suites(report.suites ?? []).find((item) =>
+					item.title.startsWith('Signal Forms synchronizes'),
+				);
+				result.signalForms = Boolean(
+					spec?.ok && spec.tests?.every((item) => item.status === 'expected'),
+				);
+			}
 			result.browserFormsSsrHydration =
 				report.stats.expected > 0 &&
 				!report.stats.unexpected &&
@@ -239,6 +252,7 @@ if (
 		(result) =>
 			!result.build ||
 			!result.browserFormsSsrHydration ||
+			(result.angular === 22 && !result.signalForms) ||
 			(result.angular === 22 && result.profile === 'current' && !result.productionAudit),
 	)
 )

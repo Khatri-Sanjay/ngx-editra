@@ -34,7 +34,8 @@ Unknown custom commands use an extension icon. SVG strings are never interpreted
 `EditraIconComponent` is available for custom Angular UI. Icons inherit currentColor and work
 without fonts, external requests or a third-party icon dependency.
 Extension toolbar contributions are appended. `groups` supplies labeled command groups,
-`overflow: 'scroll'` is the default and keeps commands in a compact horizontal scrolling row.
+`overflow: 'scroll'` is the default and keeps each toolbar row on one line, with horizontal
+scrolling when needed. Compact selectors leave more space for colour and insert tools.
 Choose `overflow: 'wrap'` for wrapped command groups on larger screens. `floating: true` enables
 a selection toolbar. `hiddenItems` hides command IDs or formatting input labels. Table
 operations are contextual to a table selection. Native selectors show current/default/mixed values.

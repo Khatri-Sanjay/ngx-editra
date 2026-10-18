@@ -17,6 +17,7 @@ const report = () => ({
 		install: true,
 		build: true,
 		browserFormsSsrHydration: true,
+		signalForms: angular === 22 ? true : null,
 		productionAudit: angular === 22 && profile === 'current' ? true : null,
 		peerBypass: false,
 	})),
@@ -55,6 +56,12 @@ test('rejects failed, incomplete or mismatched consumer evidence', () => {
 		/Angular 22/,
 	);
 	maintained.productionAudit = true;
+	maintained.signalForms = false;
+	assert.throws(
+		() => assertReleaseEvidence(candidate, manifest, 'source', 'archive'),
+		/Angular 22/,
+	);
+	maintained.signalForms = true;
 	candidate.compatibility[0].peerBypass = true;
 	assert.throws(
 		() => assertReleaseEvidence(candidate, manifest, 'source', 'archive'),

@@ -8,11 +8,13 @@ import {
 } from 'ngx-editra';
 import type { EditraConfig, EditraChange, EditraTheme } from 'ngx-editra';
 import { demoContent } from './demo-content';
+import { SignalFormsExampleComponent } from './signal-forms-example.component';
 
 @Component({
 	selector: 'app-root',
 	standalone: true,
 	imports: [
+		SignalFormsExampleComponent,
 		FormsModule,
 		ReactiveFormsModule,
 		NgxEditraComponent,
@@ -37,6 +39,10 @@ export class AppComponent {
 	selected = 'HTML';
 	readOnly = false;
 	mounted = true;
+	signalsOpen = false;
+	toggleSignals(event: Event): void {
+		if (event.target instanceof HTMLDetailsElement) this.signalsOpen = event.target.open;
+	}
 	templateValue = '<p>A template-driven editor.</p>';
 	markdownInput = '# Fresh ideas\n\nStart with **something small**.';
 	htmlInput = '<p>Imported HTML</p>';

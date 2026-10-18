@@ -15,11 +15,13 @@ import { DocumentOutputComponent } from '../../shared/components/document-output
 import type { DocumentFormat } from '../../shared/components/document-output/document-output.component';
 import { EmailExportComponent } from '../../shared/components/email-export/email-export.component';
 import { packageInfo } from '../../shared/data/package-info';
+import { SignalFormsComponent } from '../../shared/components/signal-forms/signal-forms.component';
 
 @Component({
 	selector: 'app-playground',
 	standalone: true,
 	imports: [
+		SignalFormsComponent,
 		DocumentOutputComponent,
 		EmailExportComponent,
 		FormsModule,
@@ -63,6 +65,10 @@ export class PlaygroundComponent {
 	readOnly = false;
 	mounted = true;
 	emailOpen = false;
+	signalsOpen = false;
+	toggleSignals(event: Event): void {
+		if (event.target instanceof HTMLDetailsElement) this.signalsOpen = event.target.open;
+	}
 	toggleEmail(event: Event): void {
 		if (event.target instanceof HTMLDetailsElement) this.emailOpen = event.target.open;
 	}

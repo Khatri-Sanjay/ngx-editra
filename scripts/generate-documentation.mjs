@@ -37,6 +37,9 @@ for (const path of [
 
 // Only repository-authored Markdown is compiled; raw HTML stays disabled.
 const markdown = new MarkdownIt({ html: false });
+// Angular templates own heading anchors on their block wrappers. Keeping IDs out
+// of innerHTML avoids stripped attributes while retaining Angular sanitization.
+markdown.renderer.rules.heading_open = (tokens, index) => `<${tokens[index].tag}>`;
 const sources = [
 	...libraryGuides.map(([slug, title, group, file]) => ({
 		slug,

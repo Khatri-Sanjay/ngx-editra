@@ -6,6 +6,7 @@ import { findTable, TableMap } from 'prosemirror-tables';
 import { closeHistory } from 'prosemirror-history';
 import { resizeTableColumns, resizeTableRow } from './table-dimensions';
 import { attributes } from './attributes';
+import { EditraTableView } from './table-view';
 
 type Axis = 'row' | 'column';
 interface Geometry {
@@ -323,6 +324,8 @@ class TableResizeControls implements PluginView {
 export function tableResizing(): Plugin {
 	return new Plugin({
 		key: new PluginKey('editra-table-resizing'),
+		// One owner for pointer resizing; keep ProseMirror's column layout without its competing mouse handlers.
+		props: { nodeViews: { table: (node) => new EditraTableView(node, 48) } },
 		view: (view) => new TableResizeControls(view),
 	});
 }

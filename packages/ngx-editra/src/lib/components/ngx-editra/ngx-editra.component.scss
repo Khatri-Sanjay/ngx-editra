@@ -149,6 +149,69 @@ ngx-editra {
 	dialog::backdrop {
 		background: #0008;
 	}
+	.content-dialog {
+		padding: 20px;
+		font-size: 13px;
+		line-height: 1.5;
+		.dialog-heading {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 16px;
+			margin-bottom: 20px;
+		}
+		h2 {
+			margin: 0;
+			font-size: 19px;
+			letter-spacing: -0.02em;
+		}
+		.dialog-close {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+			width: 32px;
+			height: 32px;
+			min-height: 32px;
+			padding: 0;
+			border-color: transparent;
+			background: transparent;
+		}
+		.dialog-close:hover {
+			background: var(--editra-hover);
+		}
+		.dialog-close editra-icon {
+			transform: scale(0.9);
+		}
+		.dialog-url-field {
+			display: grid;
+			gap: 8px;
+			margin: 14px 0;
+			font-size: 12px;
+			font-weight: 600;
+		}
+		.dialog-url-field input {
+			width: 100%;
+			min-width: 0;
+			min-height: 38px;
+			padding: 8px 10px;
+			border-radius: 6px;
+			box-sizing: border-box;
+			font-size: 13px;
+			font-weight: 400;
+		}
+		.dialog-help {
+			margin: 10px 0 18px;
+			color: var(--editra-muted);
+			font-size: 12px;
+			line-height: 1.6;
+		}
+		.dialog-actions {
+			border-top: 1px solid var(--editra-border);
+			margin-top: 20px;
+			padding-top: 14px;
+		}
+	}
 	dialog.editra-table-picker {
 		position: fixed;
 		margin: 0;
@@ -253,20 +316,20 @@ ngx-editra {
 		clip-path: inset(50%);
 	}
 	.toolbar-field {
-		font-size: 13px;
+		font-size: 12px;
 		flex-shrink: 0;
-		gap: 6px;
-		min-height: 36px;
+		gap: 4px;
+		min-height: 32px;
 		border: 1px solid var(--editra-border);
 		border-radius: 5px;
-		padding: 0 6px;
+		padding: 0 5px;
 		background: var(--editra-surface);
 		select,
 		input {
 			border: 0;
 			border-radius: 3px;
 			background: transparent;
-			min-height: 32px;
+			min-height: 28px;
 			padding: 2px 0;
 			max-width: 100%;
 			&:focus {
@@ -285,16 +348,57 @@ ngx-editra {
 		}
 	}
 	.field-style select {
-		width: 110px;
+		width: 94px;
 	}
 	.field-font select {
-		width: 110px;
+		width: 92px;
 	}
 	.field-size select {
-		width: 55px;
+		width: 46px;
 	}
 	.field-line-height select {
-		width: 45px;
+		width: 42px;
+	}
+	.field-case select {
+		width: 60px;
+		text-overflow: ellipsis;
+	}
+	editra-toolbar .options-bar > .toolbar-field {
+		position: relative;
+		gap: 6px;
+		padding-inline: 7px;
+		border-radius: 6px;
+		> editra-icon {
+			width: 18px;
+			height: 18px;
+			transform: scale(0.9);
+			color: var(--editra-muted);
+		}
+		select {
+			appearance: none;
+			padding-inline-end: 18px;
+			font: inherit;
+			color: inherit;
+			text-overflow: ellipsis;
+		}
+		&:has(select)::after {
+			content: '';
+			position: absolute;
+			right: 10px;
+			top: 50%;
+			width: 5px;
+			height: 5px;
+			border-right: 1.5px solid currentColor;
+			border-bottom: 1.5px solid currentColor;
+			transform: translateY(-65%) rotate(45deg);
+			pointer-events: none;
+		}
+		&:has(select:not(:disabled)):hover {
+			border-color: var(--editra-muted);
+		}
+		&:has(select:disabled) {
+			color: var(--editra-muted);
+		}
 	}
 	.editra-tool-button,
 	.toolbar-colour {
@@ -392,9 +496,30 @@ ngx-editra {
 			display: none;
 		}
 	}
-	// Let each insert control use the remaining space instead of wrapping the whole group.
+	// Keep insert tools together when wrapping is explicitly requested.
 	.toolbar-action-group.toolbar-insert-actions {
-		display: contents;
+		position: relative;
+		flex-wrap: nowrap;
+		flex-shrink: 0;
+		gap: 2px;
+		padding: 0 0 0 6px;
+		margin: 0;
+		border-right: 0;
+		border-left: 0;
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 1px;
+			height: 20px;
+			background: var(--editra-border);
+		}
+		.editra-tool-button > editra-icon,
+		.line-menu-trigger > editra-icon {
+			transform: scale(0.9);
+		}
 		&:not(:has(button:not([hidden]))) {
 			display: none;
 		}
@@ -476,50 +601,193 @@ ngx-editra {
 		position: fixed;
 		inset: auto;
 		margin: 0;
-		width: min(420px, calc(100vw - 16px));
-		max-height: calc(100vh - 24px);
-		overflow-y: auto;
+		width: min(400px, calc(100vw - 16px));
+		max-height: calc(100dvh - 24px);
+		overflow: hidden;
 		overscroll-behavior: contain;
 		padding: 12px;
 		border: 1px solid var(--editra-border);
-		border-radius: 10px;
-		background: var(--editra-surface, #fff);
-		color: var(--editra-text, #182338);
-		box-shadow: 0 8px 28px #0002;
+		border-radius: 12px;
+		background: var(--editra-surface);
+		color: var(--editra-text);
+		box-shadow: 0 12px 36px #0002;
 		box-sizing: border-box;
+		font-size: 12px;
 		&:not(:popover-open) {
 			display: none;
 		}
 		&:popover-open {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 10px;
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
 		}
-
+		.table-panel-switch {
+			display: flex;
+			flex-shrink: 0;
+			gap: 4px;
+			padding: 4px;
+			border-radius: 8px;
+			background: var(--editra-toolbar);
+		}
+		.table-panel-switch button {
+			flex: 1;
+			min-width: 0;
+			min-height: 32px;
+			padding: 6px 8px;
+			border: 1px solid transparent;
+			border-radius: 5px;
+			background: transparent;
+			color: var(--editra-muted);
+			font-size: 12px;
+		}
+		.table-panel-switch button[aria-pressed='true'] {
+			background: var(--editra-surface);
+			border-color: var(--editra-border);
+			color: var(--editra-focus);
+			font-weight: 600;
+		}
+		.table-panel-switch button:not([aria-pressed='true']):hover {
+			background: var(--editra-hover);
+		}
+		.table-structure-panel {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 12px;
+		}
+		.table-structure-panel,
+		.table-appearance,
+		.table-settings {
+			min-height: 0;
+			overflow: auto;
+			scrollbar-width: thin;
+			padding: 3px;
+		}
+		.table-panel-help {
+			margin: 0 0 12px;
+			color: var(--editra-muted);
+			font-size: 12px;
+			line-height: 1.5;
+		}
+		.table-popup-heading {
+			flex-shrink: 0;
+			grid-column: 1 / -1;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			position: sticky;
+			top: -12px;
+			z-index: 5;
+			background: var(--editra-surface);
+			border-bottom: 1px solid var(--editra-border);
+			margin: -12px -12px 0;
+			padding: 10px 12px;
+			strong {
+				font-size: 15px;
+			}
+		}
 		.table-control-group {
+			min-width: 0;
 			border: 0;
 			padding: 0;
-			gap: 5px;
+			gap: 8px;
+			border-radius: 0;
+			background: transparent;
+		}
+		.table-group-label {
+			font-size: 11px;
+			padding: 0 6px 6px;
+			border-bottom: 1px solid var(--editra-border);
 		}
 		.table-group-actions {
 			display: flex;
 			flex-direction: column;
 			align-items: stretch;
-			gap: 2px;
+			gap: 3px;
 		}
 		.table-action-button {
+			display: flex;
 			flex-direction: row;
 			justify-content: flex-start;
 			gap: 8px;
 			min-width: 0;
 			height: auto;
-			min-height: 36px;
+			min-height: 32px;
 			padding: 6px;
+			border: 1px solid transparent;
+			border-radius: 5px;
+			background: transparent;
 			text-align: left;
+			font: inherit;
+		}
+		.table-action-button:not(:disabled):hover {
+			background: var(--editra-hover);
+		}
+		.table-action-button editra-icon {
+			transform: scale(0.9);
 		}
 		.table-action-caption {
-			white-space: normal;
 			font-size: 12px;
+			white-space: normal;
+			line-height: 1.4;
+		}
+		.table-control-group[aria-label='Remove'] {
+			grid-column: 1 / -1;
+			order: 4;
+			background: transparent;
+			border-top: 1px solid var(--editra-border);
+			border-radius: 0;
+			padding: 8px 0 0;
+		}
+		.table-control-group[aria-label='Remove'] > .table-group-label {
+			display: none;
+		}
+		.table-control-group[aria-label='Remove'] .table-action-button {
+			color: var(--editra-error);
+		}
+		.table-appearance {
+			grid-column: 1 / -1;
+		}
+		.table-appearance .table-group-actions {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			align-items: start;
+			gap: 10px;
+		}
+		.table-cell-fill,
+		.table-appearance .toolbar-field,
+		.table-line-weight {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			gap: 8px;
+			min-width: 0;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			background: transparent;
+			font-size: 11px;
+		}
+		.table-cell-fill > span {
+			color: var(--editra-muted);
+		}
+		.table-cell-fill {
+			grid-column: 1 / -1;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			padding: 10px;
+			border: 1px solid var(--editra-border);
+			border-radius: 8px;
+		}
+		.table-line-weight > editra-icon {
+			display: none;
+		}
+		.table-appearance select {
+			width: 100%;
+			min-width: 0;
+			min-height: 34px;
+			height: 34px;
+			margin: 0;
 		}
 		.table-settings,
 		.table-resize-tip {
@@ -527,21 +795,76 @@ ngx-editra {
 			margin: 0;
 		}
 		.table-settings {
-			border-top: 1px solid var(--editra-border);
-			padding-top: 4px;
-		}
-		.table-appearance .toolbar-field {
-			flex-wrap: wrap;
-			font-size: 12px;
+			width: 100%;
 		}
 		.table-resize-tip {
+			flex-shrink: 0;
+			color: var(--editra-muted);
 			font-size: 11px;
 			line-height: 1.5;
+			opacity: 1;
+		}
+		select,
+		input {
+			min-height: 34px;
+			padding: 5px 8px;
+			border: 1px solid var(--editra-border);
+			border-radius: 6px;
+			color: var(--editra-text);
+			background: var(--editra-surface);
+			font: inherit;
+			box-sizing: border-box;
+		}
+		select:focus-visible,
+		input:focus-visible {
+			outline: 2px solid var(--editra-focus);
+			outline-offset: 1px;
+		}
+		.table-settings-content {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 8px;
+		}
+		.table-settings-content .toolbar-field {
+			flex-direction: column;
+			align-items: stretch;
+			font-size: 12px;
+			border: 0;
+			padding: 0;
+			gap: 8px;
+			background: transparent;
+		}
+		.table-settings-content input {
+			width: 100%;
+		}
+		.table-settings-content > button {
+			grid-column: 1 / -1;
+			min-height: 34px;
+			border: 1px solid var(--editra-border);
+			border-radius: 6px;
+			background: var(--editra-surface);
+			color: inherit;
+			cursor: pointer;
 		}
 	}
-	@media (max-width: 380px) {
-		.table-tools-popup:popover-open {
-			grid-template-columns: 1fr;
+	dialog.table-context-dialog {
+		width: min(500px, calc(100vw - 24px));
+		padding: 20px;
+	}
+	.table-context-dialog h2 {
+		margin: 0 0 8px;
+		font-size: 20px;
+	}
+	.table-context-description {
+		margin: 0 0 18px;
+		color: var(--editra-muted);
+		font-size: 12px;
+		line-height: 1.5;
+	}
+	@media (pointer: coarse) {
+		.table-tools-popup .table-action-button,
+		.table-tools-popup .table-panel-switch button {
+			min-height: 44px;
 		}
 	}
 
@@ -554,11 +877,40 @@ ngx-editra {
 		flex-shrink: 0;
 	}
 	.editor-tools {
+		position: relative;
 		flex-wrap: nowrap;
 		flex-shrink: 0;
 		margin-left: auto;
-		padding-left: 8px;
-		border-left: 1px solid var(--editra-border);
+		padding-left: 6px;
+		border-left: 0;
+		border-right: 0;
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 1px;
+			height: 20px;
+			background: var(--editra-border);
+		}
+		editra-icon {
+			transform: scale(0.9);
+		}
+	}
+	@media (pointer: fine) {
+		editra-toolbar .options-bar,
+		editra-toolbar .command-bar {
+			.editra-tool-button,
+			.line-menu-trigger {
+				width: 32px;
+				height: 32px;
+				padding: 5px;
+			}
+			.table-menu-arrow {
+				height: 32px;
+			}
+		}
 	}
 	@media (pointer: coarse) {
 		editra-toolbar .editra-tool-button {
@@ -567,6 +919,15 @@ ngx-editra {
 		}
 		editra-toolbar .toolbar-field {
 			min-height: 44px;
+			font-size: 13px;
+			select {
+				min-height: 40px;
+			}
+		}
+		editra-toolbar .line-menu-trigger,
+		editra-toolbar .table-menu-arrow {
+			width: 44px;
+			height: 44px;
 		}
 	}
 	.table-insert-pair {
@@ -607,58 +968,6 @@ ngx-editra {
 		outline: 2px solid var(--editra-focus);
 		outline-offset: -2px;
 	}
-	.table-tools-popup {
-		width: min(400px, calc(100vw - 16px));
-		padding: 10px;
-		font-size: 12px;
-		.table-popup-heading {
-			grid-column: 1 / -1;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			border-bottom: 1px solid var(--editra-border);
-			padding-bottom: 4px;
-		}
-		.table-popup-heading strong {
-			font-size: 14px;
-		}
-		.table-control-group {
-			background: var(--editra-toolbar, var(--editra-surface));
-			padding: 8px;
-			border-radius: 6px;
-			min-width: 0;
-		}
-		.table-action-button {
-			min-height: 32px;
-			padding: 4px;
-		}
-		.table-appearance {
-			grid-column: 1 / -1;
-		}
-		.table-appearance .table-group-actions {
-			flex-direction: row;
-			align-items: center;
-			justify-content: space-between;
-		}
-		.table-appearance .toolbar-field {
-			flex-wrap: nowrap;
-		}
-		.table-control-group[aria-label='Remove'] {
-			grid-column: 1 / -1;
-			order: 4;
-			border-top: 1px solid var(--editra-border);
-			background: transparent;
-		}
-		.table-control-group[aria-label='Remove'] > .table-group-label {
-			display: none;
-		}
-		.table-settings {
-			order: 2;
-		}
-		.table-resize-tip {
-			order: 3;
-		}
-	}
 
 	&,
 	.editra-surface,
@@ -684,68 +993,6 @@ ngx-editra {
 	.table-tools-popup::-webkit-scrollbar-track {
 		background: transparent;
 	}
-	.table-tools-popup {
-		.table-popup-heading {
-			position: sticky;
-			top: -10px;
-			z-index: 5;
-			background: var(--editra-surface);
-			margin: -10px -10px 0;
-			padding: 8px 12px;
-		}
-		.table-line-weight {
-			grid-column: 1 / -1;
-			display: flex;
-			align-items: center;
-			gap: 8px;
-			padding: 8px;
-			background: var(--editra-toolbar);
-			border-radius: 6px;
-			font-size: 12px;
-		}
-		.table-line-weight select {
-			margin-left: auto;
-			width: 110px;
-		}
-		select,
-		input {
-			min-height: 34px;
-			padding: 5px 8px;
-			border: 1px solid var(--editra-border);
-			border-radius: 5px;
-			color: var(--editra-text);
-			background: var(--editra-surface);
-			font: inherit;
-		}
-		select:focus-visible,
-		input:focus-visible {
-			outline: 2px solid var(--editra-focus);
-			outline-offset: 1px;
-		}
-		.table-settings-content {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 8px;
-		}
-		.table-settings-content .toolbar-field {
-			flex-direction: column;
-			align-items: stretch;
-			font-size: 12px;
-		}
-		.table-settings-content input {
-			width: 100%;
-			box-sizing: border-box;
-		}
-		.table-settings-content > button {
-			grid-column: 1 / -1;
-			min-height: 34px;
-			border: 1px solid var(--editra-border);
-			border-radius: 5px;
-			background: var(--editra-surface);
-			color: inherit;
-			cursor: pointer;
-		}
-	}
 
 	.line-menu-trigger {
 		display: inline-flex;
@@ -765,11 +1012,11 @@ ngx-editra {
 		position: fixed;
 		inset: auto;
 		margin: 0;
-		width: min(280px, calc(100vw - 16px));
-		padding: 12px;
+		width: min(304px, calc(100vw - 16px));
+		padding: 14px;
 		box-sizing: border-box;
 		border: 1px solid var(--editra-border);
-		border-radius: 8px;
+		border-radius: 12px;
 		background: var(--editra-surface);
 		color: var(--editra-text);
 		box-shadow: 0 8px 24px #0002;
@@ -785,34 +1032,50 @@ ngx-editra {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		border-bottom: 1px solid var(--editra-border);
+		padding-bottom: 8px;
+		font-size: 14px;
 	}
 	.line-settings-popup label {
-		display: flex;
-		justify-content: space-between;
+		display: grid;
+		grid-template-columns: 1fr 120px;
+		align-items: center;
+		gap: 12px;
+		margin: 0;
+		font-size: 12px;
 	}
 	.line-settings-popup select {
 		width: 120px;
+		min-height: 36px;
+		padding: 6px 8px;
+		border-radius: 6px;
+		font-size: 12px;
+	}
+	.line-preview-area {
+		padding: 12px;
+		background: var(--editra-toolbar);
+		border-radius: 8px;
+		font-size: 11px;
+		color: var(--editra-muted);
 	}
 	.line-preview {
-		border-top-color: currentColor;
-		margin: 8px 0;
+		border-top-color: var(--editra-text);
+		margin: 14px 0 6px;
 	}
 	.line-apply {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 6px;
+		min-height: 36px;
+		font-size: 13px;
+		border-radius: 6px;
 		padding: 8px;
 		border: 0;
 		border-radius: 5px;
 		background: var(--editra-focus);
 		color: var(--editra-surface);
 		cursor: pointer;
-	}
-
-	.editor-tools {
-		flex-wrap: nowrap;
-		flex-shrink: 0;
-		margin-left: auto;
-		border-right: 0;
-		border-left: 1px solid var(--editra-border);
-		padding: 0 0 0 8px;
 	}
 
 	.button-primary,
@@ -946,5 +1209,56 @@ ngx-editra {
 	input::placeholder {
 		color: var(--editra-muted);
 		opacity: 1;
+	}
+}
+
+ngx-editra {
+	.table-size-fields input {
+		height: 36px;
+		box-sizing: border-box;
+	}
+	.table-insert-colour {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 8px;
+		margin: 8px 0;
+		border-radius: 8px;
+		background: var(--editra-toolbar, #f7f9fc);
+		font-size: 12px;
+	}
+	.table-insert-colour span {
+		margin-left: auto;
+		opacity: 0.75;
+		font-size: 11px;
+	}
+	.table-insert-colour input[type='color'] {
+		flex: none;
+		min-width: 0;
+		width: 36px;
+		height: 30px;
+		padding: 2px;
+		cursor: pointer;
+	}
+}
+
+ngx-editra dialog.editra-table-picker[open] {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	box-sizing: border-box;
+	> * {
+		flex-shrink: 0;
+	}
+	editra-table-grid {
+		flex-shrink: 1;
+		min-height: 80px;
+		overflow: auto;
+		scrollbar-width: thin;
+	}
+	.dialog-actions {
+		margin-top: 12px;
+		padding-top: 10px;
+		border-top: 1px solid var(--editra-border);
 	}
 }

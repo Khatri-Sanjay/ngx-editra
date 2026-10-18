@@ -1,0 +1,20 @@
+.actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 12px;
+}
+button {
+	font: inherit;
+	min-height: 40px;
+	padding: 8px 12px;
+	border: 1px solid #c7d2e3;
+	border-radius: 7px;
+	background: #fff;
+	color: #263750;
+	cursor: pointer;
+}
+pre {
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+}

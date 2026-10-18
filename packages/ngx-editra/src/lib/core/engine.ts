@@ -5,12 +5,11 @@ import { history } from 'prosemirror-history';
 import { keymap } from 'prosemirror-keymap';
 import { baseKeymap, chainCommands, exitCode } from 'prosemirror-commands';
 import { splitListItem } from 'prosemirror-schema-list';
-import { tableEditing, columnResizing, goToNextCell, fixTables } from 'prosemirror-tables';
+import { tableEditing, goToNextCell, fixTables } from 'prosemirror-tables';
 import { createSchema } from './schema';
 import { createCommands } from './commands';
 import { parseHTML, serializeHTML, documentJSON, plainText, parseJSON } from './content';
 import { automaticLinks } from './plugins';
-import { EditraTableView } from './table-view';
 import { tableResizing } from './table-resizing';
 import { normalizeConfig } from './configuration';
 import type { EditraConfig, EditraDocument, EditraExtension, EditraCounts } from './types';
@@ -109,17 +108,7 @@ export class EditraEngine {
 				keymap(shortcuts),
 				keymap(baseKeymap),
 				automaticLinks(this.schema, config.security),
-				...(config.table?.enabled !== false
-					? [
-							columnResizing({
-								View: EditraTableView,
-								cellMinWidth: 48,
-								defaultCellMinWidth: 48,
-							}),
-							tableResizing(),
-							tableEditing(),
-						]
-					: []),
+				...(config.table?.enabled !== false ? [tableResizing(), tableEditing()] : []),
 				...this.extensions.flatMap((ext) => [...(ext.plugins?.(this.schema) ?? [])]),
 			],
 		});

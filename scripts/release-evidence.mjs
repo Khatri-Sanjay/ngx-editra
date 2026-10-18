@@ -14,6 +14,7 @@ const roots = [
 	'apps/compatibility',
 ];
 const rootFiles = [
+	'security-audit-baseline.json',
 	'release.config.example.json',
 	'npm-package.json',
 	'package.json',
@@ -44,6 +45,7 @@ export const requiredChecks = [
 	'lint',
 	'test:architecture',
 	'test:maintenance',
+	'audit:dependencies',
 	'typecheck',
 	'test:ci',
 	'test:ssr',
@@ -127,6 +129,7 @@ export function assertReleaseEvidence(
 				!row.install ||
 				!row.build ||
 				!row.browserFormsSsrHydration ||
+				(angular === 22 && row.signalForms !== true) ||
 				row.peerBypass !== false ||
 				(angular === 22 && profile === 'current' && row.productionAudit !== true)
 			)

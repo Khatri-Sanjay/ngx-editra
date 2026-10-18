@@ -42,8 +42,8 @@ framework releases when possible.
 ## Forms and server rendering
 
 Reactive Forms and template-driven forms use Angular's ControlValueAccessor.
-Angular 22 Signal Forms can use its CVA compatibility integration; dedicated Signal
-Forms tests remain outstanding. See [forms integration](ANGULAR_FORMS.md).
+Angular 22 Signal Forms uses the CVA compatibility integration and has dedicated
+consumer tests. See [forms integration](ANGULAR_FORMS.md).
 
 The editor uses an explicit hydration boundary for ProseMirror-managed DOM.
 The surrounding application can hydrate normally. See [SSR and hydration](SSR.md)

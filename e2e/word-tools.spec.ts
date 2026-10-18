@@ -81,6 +81,7 @@ test('table grid previews size and inserts immediately; numeric dimensions are v
 	).toBeVisible();
 	if (!(await page.getByRole('dialog', { name: 'Table tools', exact: true }).isVisible()))
 		await page.getByRole('button', { name: 'Table tools', exact: true }).click();
+	await page.getByRole('button', { name: 'Appearance', exact: true }).click();
 	await page.getByRole('button', { name: 'Choose cell background colour', exact: true }).click();
 	await page
 		.getByRole('dialog', { name: 'Cell shading palette' })
@@ -180,7 +181,7 @@ test('invisible boundaries resize rows across their width and keep every border 
 	}
 	if (!(await page.getByRole('dialog', { name: 'Table tools', exact: true }).isVisible()))
 		await page.getByRole('button', { name: 'Table tools', exact: true }).click();
-	await page.getByText('More table settings', { exact: true }).click();
+	await page.getByRole('button', { name: 'Appearance', exact: true }).click();
 	for (const style of ['solid', 'dashed', 'none']) {
 		await page.getByLabel('Table border', { exact: true }).selectOption(style);
 		const appearance = await table.evaluate((el) =>
@@ -196,7 +197,7 @@ test('invisible boundaries resize rows across their width and keep every border 
 		for (const border of appearance)
 			expect(border).toEqual({
 				width: style === 'none' ? '0px' : '1px',
-				color: 'rgb(184, 194, 208)',
+				color: 'rgb(0, 0, 0)',
 				style,
 			});
 	}

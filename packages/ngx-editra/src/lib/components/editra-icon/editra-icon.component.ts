@@ -81,10 +81,6 @@ export class EditraIconComponent {
 		return (
 			(
 				{
-					bold: 'B',
-					italic: 'I',
-					underline: 'U',
-					strike: 'S',
 					font: 'A',
 					font_size: 'A',
 					text_case: 'Aa',

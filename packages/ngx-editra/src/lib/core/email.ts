@@ -202,7 +202,7 @@ export function exportEmail(
 			)
 				? String(a['border'])
 				: 'solid';
-			const edge = `${Math.max(1, dimension(a['borderWidth'], 1, 8))}px ${style} #b8c2d0`;
+			const edge = `${Math.max(1, dimension(a['borderWidth'], 1, 8))}px ${style} ${safeColor(a['borderColor']) ?? '#000000'}`;
 			const percent = Math.max(1, dimension(a['width'], 100, 100));
 			let columns = 0;
 			node.firstChild?.forEach(

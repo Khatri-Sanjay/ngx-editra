@@ -43,92 +43,99 @@
 			aria-label="Close colour palette"
 			(click)="close(true)"
 		>
-			×
+			<editra-icon name="close" />
 		</button>
 	</div>
-	<button
-		type="button"
-		class="automatic-colour"
-		[attr.aria-pressed]="!value"
-		(click)="choose(null)"
-	>
-		<span
-			class="no-colour"
-			[class.automatic-swatch]="kind === 'color'"
-			aria-hidden="true"
-		></span
-		>{{ removeLabel }}
-	</button>
-	@for (group of colourGroups; track group.title) {
-		<h3>{{ group.title }}</h3>
-		<div
-			class="swatches"
-			role="group"
-			[attr.aria-label]="group.title"
-			data-palette
-			[attr.data-columns]="group.columns"
-			[style.grid-template-columns]="'repeat(' + group.columns + ', 24px)'"
+	<div class="palette-content" tabindex="0" role="region" aria-label="Available colours">
+		<button
+			type="button"
+			class="automatic-colour"
+			[attr.aria-pressed]="!value"
+			(click)="choose(null)"
 		>
-			@for (swatch of group.colours; track $index) {
-				<button
-					type="button"
-					class="swatch"
-					data-swatch
-					[attr.tabindex]="swatchTabIndex(group.title, $index, group.colours)"
-					(focus)="focusSwatch(group.title, $index)"
-					[style.background]="swatch.colour"
-					[attr.aria-label]="swatch.name + ' (' + swatch.colour + ')'"
-					[title]="swatch.name + ' (' + swatch.colour + ')'"
-					[attr.aria-pressed]="value.toLowerCase() === swatch.colour"
-					(click)="choose(swatch.colour)"
-				></button>
-			}
-		</div>
-	}
-	@if (recent.length) {
-		<h3>Recent colours</h3>
-		<div
-			class="swatches"
-			role="group"
-			aria-label="Recent colours"
-			data-palette
-			data-columns="10"
-		>
-			@for (colour of recent; track colour) {
-				<button
-					type="button"
-					class="swatch"
-					data-swatch
-					[attr.tabindex]="$index === 0 ? 0 : -1"
-					[style.background]="colour"
-					[attr.aria-label]="'Recent colour ' + colour"
-					[title]="colour"
-					(click)="choose(colour)"
-				></button>
-			}
-		</div>
-	}
-	<div class="custom-colour">
-		<label
-			>Custom colour
-			<input
-				type="text"
-				aria-label="Custom colour hex"
-				maxlength="7"
-				[value]="customColour"
-				(input)="updateCustom($event)"
-				(keydown.enter)="$event.preventDefault(); applyCustom()"
-				placeholder="#4472c4" /></label
-		><button type="button" (click)="applyCustom()">Apply</button>
+			<span
+				class="no-colour"
+				[class.automatic-swatch]="kind === 'color' || kind === 'border'"
+				aria-hidden="true"
+			></span
+			>{{ removeLabel }}
+		</button>
+		@for (group of colourGroups; track group.title) {
+			<h3>{{ group.title }}</h3>
+			<div
+				class="swatches"
+				role="group"
+				[attr.aria-label]="group.title"
+				data-palette
+				[attr.data-columns]="group.columns"
+				[style.grid-template-columns]="'repeat(' + group.columns + ', minmax(0, 1fr))'"
+			>
+				@for (swatch of group.colours; track $index) {
+					<button
+						type="button"
+						class="swatch"
+						data-swatch
+						[attr.tabindex]="swatchTabIndex(group.title, $index, group.colours)"
+						(focus)="focusSwatch(group.title, $index)"
+						[style.background]="swatch.colour"
+						[attr.aria-label]="swatch.name + ' (' + swatch.colour + ')'"
+						[title]="swatch.name + ' (' + swatch.colour + ')'"
+						[attr.aria-pressed]="value.toLowerCase() === swatch.colour"
+						(click)="choose(swatch.colour)"
+					></button>
+				}
+			</div>
+		}
+		@if (recent.length) {
+			<h3>Recent colours</h3>
+			<div
+				class="swatches"
+				role="group"
+				aria-label="Recent colours"
+				data-palette
+				data-columns="10"
+			>
+				@for (colour of recent; track colour) {
+					<button
+						type="button"
+						class="swatch"
+						data-swatch
+						[attr.tabindex]="$index === 0 ? 0 : -1"
+						[style.background]="colour"
+						[attr.aria-label]="'Recent colour ' + colour"
+						[title]="colour"
+						(click)="choose(colour)"
+					></button>
+				}
+			</div>
+		}
 	</div>
-	<label class="more-colours"
-		>More colours…<input
-			type="color"
-			aria-label="More colours"
-			[value]="customColour"
-			(change)="useNative($event)"
-	/></label>
-	@if (error) {
-		<p class="palette-error" role="alert">{{ error }}</p>
-	}
+	<div class="palette-footer">
+		<div class="custom-colour">
+			<label
+				>Custom colour
+				<input
+					type="text"
+					aria-label="Custom colour hex"
+					[attr.aria-invalid]="error ? 'true' : null"
+					autocomplete="off"
+					spellcheck="false"
+					maxlength="7"
+					[value]="customColour"
+					(input)="updateCustom($event)"
+					(keydown.enter)="$event.preventDefault(); applyCustom()"
+					placeholder="#4472c4" /></label
+			><button type="button" (click)="applyCustom()">Apply</button>
+		</div>
+		<label class="more-colours"
+			>More colours…<input
+				type="color"
+				aria-label="More colours"
+				[value]="customColour"
+				(change)="useNative($event)"
+		/></label>
+		@if (error) {
+			<p class="palette-error" role="alert">{{ error }}</p>
+		}
+	</div>
 </dialog>

@@ -1,0 +1,27 @@
+<section aria-label="Signal Forms example">
+	<h2>Signal Forms</h2>
+	<ngx-editra
+		[formField]="article.body"
+		[required]="true"
+		[config]="{ toolbar: { hidden: true } }"
+	/>
+	<div class="actions">
+		<button type="button" (click)="locked.set(!locked())">
+			{{ locked() ? 'Enable signal editor' : 'Disable signal editor' }}
+		</button>
+		<button
+			type="button"
+			(click)="model.set({ body: '<p>Updated from the signal model.</p>' })"
+		>
+			Set signal value
+		</button>
+		<button type="button" (click)="article().reset({ body: '' })">Clear signal value</button>
+		<button type="button" (click)="reset()">Reset signal form</button>
+	</div>
+	<p data-testid="signal-state">
+		{{ article.body().dirty() ? 'Modified' : 'Pristine' }} ·
+		{{ article.body().touched() ? 'Touched' : 'Untouched' }} ·
+		{{ article.body().valid() ? 'Valid' : 'Invalid' }}
+	</p>
+	<pre data-testid="signal-value">{{ model().body }}</pre>
+</section>

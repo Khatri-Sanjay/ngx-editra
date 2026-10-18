@@ -131,4 +131,25 @@ describe('Angular forms adapter', () => {
 			fixture.destroy();
 		}
 	});
+	it('refreshes semantic validation after programmatic writes without emitting model changes', () => {
+		const fixture = TestBed.createComponent(NgxEditraComponent);
+		const editor = fixture.componentInstance;
+		editor.required = true;
+		const control = new FormControl('');
+		let invalid = false;
+		const changed = jasmine.createSpy('changed');
+		editor.registerOnChange(changed);
+		editor.registerOnValidatorChange(() => {
+			invalid = editor.validate(control) !== null;
+		});
+		editor.writeValue('<p> </p>');
+		expect(invalid).toBeTrue();
+		editor.writeValue('<p>A restored draft</p>');
+		expect(invalid).toBeFalse();
+		editor.setJSON({ type: 'doc', content: [{ type: 'paragraph' }] });
+		expect(invalid).toBeTrue();
+		expect(changed).not.toHaveBeenCalled();
+		expect(editor.isDirty()).toBeFalse();
+		fixture.destroy();
+	});
 });

@@ -1,3 +1,4 @@
+import type { OnChanges } from '@angular/core';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
@@ -13,6 +14,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 			tabindex="0"
 			aria-multiselectable="true"
 			(keydown)="navigate($event)"
+			(pointerleave)="previewRows = 0; previewColumns = 0"
 		>
 			@for (row of rows; track row) {
 				<div role="row">
@@ -47,6 +49,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 			[role='grid'] {
 				display: inline-block;
 				margin: 8px 0;
+				padding: 3px;
+				border-radius: 5px;
+				outline-offset: 1px;
+			}
+			[role='gridcell'] {
+				display: flex;
 			}
 			[role='row'] {
 				display: flex;
@@ -59,7 +67,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 				min-height: 24px;
 				padding: 0;
 				border-radius: 2px;
-				border: 1px solid var(--editra-border, #77869d);
+				border: 1px solid var(--editra-grid-border, var(--editra-border, #77869d));
 				background: var(--editra-surface, #fff);
 				cursor: pointer;
 			}
@@ -79,17 +87,21 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 		`,
 	],
 })
-export class EditraTableGridComponent {
+export class EditraTableGridComponent implements OnChanges {
 	@Input() maxRows = 8;
 	@Input() maxColumns = 10;
 	@Input() quickInsert = false;
 	@Output() readonly dimensions = new EventEmitter<{ rows: number; columns: number }>();
 	@Output() readonly insert = new EventEmitter<{ rows: number; columns: number }>();
 	active = 0;
-	selectedRows = 0;
-	selectedColumns = 0;
+	@Input() selectedRows = 0;
+	@Input() selectedColumns = 0;
 	previewRows = 0;
 	previewColumns = 0;
+	ngOnChanges(): void {
+		this.previewRows = 0;
+		this.previewColumns = 0;
+	}
 	preview(rows: number, columns: number): void {
 		this.previewRows = rows;
 		this.previewColumns = columns;

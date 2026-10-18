@@ -2,10 +2,21 @@
 
 ## 1.0.0 - in preparation
 
+-   Keep table and colour panels open when a queued toolbar scroll event arrives after opening.
+
+-   Add table border colours when inserting or editing tables, preserved in HTML, JSON and email export.
+
 -   Expand Angular peers to `>=17.0.0 <23.0.0`, including Angular 22.1.2.
--   Keep narrow toolbars compact with two scrollable rows, grouped commands,
-    larger touch targets, clearer active states and shortcut hints.
+-   Verify Angular 22 Signal Forms compatibility for HTML values, validation, disabled
+    state, dirty/touched state and resets.
+-   Refresh semantic required validation after programmatic writes and resets.
+-   Keep toolbars compact with two scrollable rows, bounded selector widths and grouped
+    insert tools, larger touch targets, clearer active states and shortcut hints.
 -   Prepare the first stable release, installed with `npm install ngx-editra`.
+-   Group table actions into compact, responsive panels with separate Structure, Appearance,
+    and Dimensions views and labelled appearance controls.
+-   Keep table resize cursors aligned with the actual handles and clear them in read-only mode.
+-   Refine colour, media, and line settings panels; allow alternative text during image insertion.
 
 ## 0.1.0-alpha.0 - initial published release
 

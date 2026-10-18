@@ -168,6 +168,7 @@ test('automatic embeds use responsive proportions and full-width resizing persis
 test('direct media uses metadata size and unlocked resizing changes width and height independently', async ({
 	page,
 }) => {
+	await page.setViewportSize({ width: 1800, height: 1000 });
 	await start(page);
 	await page.route('https://media.example.test/automatic.mp4', (route) =>
 		route.fulfill({
@@ -215,7 +216,8 @@ test('URL-only insertion and editable content beside an image', async ({ page })
 	await start(page);
 	await page.getByRole('button', { name: 'image', exact: true }).click();
 	const dialog = page.getByRole('dialog');
-	await expect(dialog.locator('input')).toHaveCount(1);
+	await expect(dialog.getByLabel('URL', { exact: true })).toBeVisible();
+	await expect(dialog.getByLabel('Alternative text', { exact: true })).toBeVisible();
 	await dialog.getByLabel('URL', { exact: true }).fill('https://media.example.test/side.svg');
 	await dialog.getByRole('button', { name: 'Apply', exact: true }).click();
 	await page.locator('.ProseMirror img').click();

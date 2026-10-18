@@ -361,6 +361,7 @@ export function createSchema(
 					width: { default: 100 },
 					border: { default: 'solid' },
 					borderWidth: { default: 1 },
+					borderColor: { default: '#000000' },
 				},
 				parseDOM: [
 					{
@@ -373,6 +374,7 @@ export function createSchema(
 											1,
 											dimension(dom.style.borderWidth, 1, 8),
 										),
+										borderColor: safeColor(dom.style.borderColor) ?? '#000000',
 										width: dimension(
 											dom.style.width.replace('%', ''),
 											100,
@@ -393,7 +395,7 @@ export function createSchema(
 				toDOM: (node) => [
 					'table',
 					{
-						style: `width:${dimension(attributes(node)['width'], 100, 100)}%;border:${Math.max(1, dimension(attributes(node)['borderWidth'], 1, 8))}px ${['solid', 'dashed', 'dotted', 'double', 'none'].includes(String(attributes(node)['border'])) ? String(attributes(node)['border']) : 'solid'} #b8c2d0;border-collapse:collapse;table-layout:fixed;max-width:100%`,
+						style: `width:${dimension(attributes(node)['width'], 100, 100)}%;border:${Math.max(1, dimension(attributes(node)['borderWidth'], 1, 8))}px ${['solid', 'dashed', 'dotted', 'double', 'none'].includes(String(attributes(node)['border'])) ? String(attributes(node)['border']) : 'solid'} ${safeColor(attributes(node)['borderColor']) ?? '#000000'};border-collapse:collapse;table-layout:fixed;max-width:100%`,
 					},
 					['tbody', { style: 'border:inherit' }, 0],
 				],

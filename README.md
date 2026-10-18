@@ -1,7 +1,7 @@
 # ngx-editra workspace
 
 [![npm version](https://img.shields.io/npm/v/ngx-editra?label=npm)](https://www.npmjs.com/package/ngx-editra)
-[![npm downloads per month](https://img.shields.io/badge/downloads-pending-lightgrey)](https://www.npmjs.com/package/ngx-editra)
+[![npm downloads per month](https://img.shields.io/npm/dm/ngx-editra)](https://www.npmjs.com/package/ngx-editra)
 [![License](https://img.shields.io/npm/l/ngx-editra)](https://github.com/Khatri-Sanjay/ngx-editra/blob/main/LICENSE)
 
 [npm](https://www.npmjs.com/package/ngx-editra) | [Documentation](https://ngx-editra-docs.vercel.app) | [Playground](https://ngx-editra-playground.vercel.app) | [Source](https://github.com/Khatri-Sanjay/ngx-editra) | [Issues](https://github.com/Khatri-Sanjay/ngx-editra/issues)
@@ -32,8 +32,11 @@ explains repository development and deployment.
 
 ## Develop locally
 
-The legacy compilation baseline uses Node 20.20.2 and npm 10.8.2. Use the application's
-own Angular requirements for consumers; this baseline is not a production runtime recommendation.
+The root library compiler uses Node 20.20.2/npm 10.8.2. The public websites use independent
+Angular 22/TypeScript 6 projects with Node 24/npm 11. Configure `node24` once in
+`release.local.json` (or `EDITRA_NODE24`); root scripts select the app runtime and
+install from each app's lockfile automatically. This keeps the old compiler out of
+the deployed applications. Consumers use their own Angular runtime requirements.
 
 ```sh
 npm ci
@@ -43,8 +46,21 @@ npm run start:all
 Playground: http://localhost:4200. Documentation: http://localhost:4300.
 Set `PLAYGROUND_PORT` or `DOCS_PORT` to override ports. Press Ctrl+C to stop both.
 Use `npm start` or `npm run start:docs` to run one app. Each starts from the compiled
-public library; run `npm run watch` in another terminal when editing library sources.
+public library. `npm run watch` compiles library edits continuously; restart the app
+commands after a library rebuild to refresh their isolated package copies. App source
+edits reload normally without reinstalling dependencies.
+Startup reuses installed app dependencies while each app's manifest and lockfile are
+unchanged. A library rebuild refreshes only the local `ngx-editra` copy. If a preview
+port is already occupied, startup stops before building or changing dependencies;
+stop the existing run with Ctrl+C before starting it again. This avoids Windows Sass
+file locks from overlapping preview sessions.
 Windows PowerShell can use `npm.cmd` if npm.ps1 is blocked.
+
+The workspace dev servers disable dependency prebundling to avoid stale optimized
+chunks when both apps run or the local library is rebuilt. Production builds are
+unaffected. If an already running browser reports missing `.angular/cache/.../vite/deps`
+chunks, stop both dev servers, run `npm run dev:clean`, restart with
+`npm run start:all`, and hard-refresh both browser tabs (Ctrl+Shift+R).
 
 ## Documentation
 
@@ -82,9 +98,9 @@ authentication, validation, publication and troubleshooting.
 
 ## Deploy the websites from GitHub to Vercel
 
-The two apps are independent static sites. Build them in GitHub Actions with the
-repository toolchain, then deploy the prepared output using Node 24. This avoids
-Vercel's retired Node 20 build runtime and does not deploy the legacy Express SSR server.
+The two apps are independent static sites. GitHub Actions compiles the library with
+Node 20, builds the apps with Node 24, then deploys prepared static output using Node 24.
+No local SSR test server or root compiler dependency tree is deployed.
 
 ```sh
 npm run build:site -- documentation

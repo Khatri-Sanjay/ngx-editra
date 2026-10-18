@@ -2,11 +2,11 @@
 
 Connect the editor to your Angular form just like another value accessor. Its value is an HTML string, so you can load, validate, reset, disable, and save it through the form API.
 
-| Form API                                            | Current support                                                                             |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| Reactive Forms: `formControl` and `formControlName` | Implemented and integration-tested                                                          |
-| Template-driven forms: `ngModel`                    | Implemented and integration-tested                                                          |
-| Signal Forms: `formField`                           | Angular ControlValueAccessor compatibility; dedicated library integration tests outstanding |
+| Form API                                            | Current support                                                          |
+| --------------------------------------------------- | ------------------------------------------------------------------------ |
+| Reactive Forms: `formControl` and `formControlName` | Implemented and integration-tested                                       |
+| Template-driven forms: `ngModel`                    | Implemented and integration-tested                                       |
+| Signal Forms: `formField`                           | Angular 22 integration-tested through ControlValueAccessor compatibility |
 
 ## Complete reactive form example
 
@@ -90,14 +90,15 @@ is the editor's existing integration. The editor does not implement the native
 `FormValueControl` interface. Signal Forms is stable in Angular 22. See Angular's
 [FormField reference](https://angular.dev/api/forms/signals/FormField).
 
-This example is a usage pattern, not a claim of completed Signal Forms validation.
-The current suite tests Reactive Forms and ngModel. Value updates, disabled state,
-touched state, required validation and resets need dedicated Signal Forms tests before
-the library advertises fully verified support.
+Dedicated Angular 22 consumer tests cover HTML value updates in both directions,
+dirty/touched state, disabled state, semantic required validation and resets. Open
+**Signal Forms integration** in the playground for a working example. This is CVA
+compatibility; the library does not import Angular's Signal Forms API, preserving
+compatibility with older Angular applications.
 
 ```typescript
 import { Component, signal } from '@angular/core';
-import { form, FormField } from '@angular/forms/signals';
+import { form, FormField, required } from '@angular/forms/signals';
 import { NgxEditraComponent } from 'ngx-editra';
 
 @Component({
@@ -108,13 +109,18 @@ import { NgxEditraComponent } from 'ngx-editra';
 })
 export class SignalDescriptionComponent {
 	readonly model = signal({ body: '<p>Initial content.</p>' });
-	readonly articleForm = form(this.model);
+	readonly articleForm = form(this.model, (path) => required(path.body));
 }
 ```
 
 Read the HTML from `model().body`. Do not combine `formField`, `ngModel` and `formControl`
 on the same editor. This example requires Angular 22; Angular 17–20 applications should
 use Reactive Forms or template-driven forms.
+
+Reset values and interaction state together with
+`articleForm().reset({ body: '<p>Initial content.</p>' })`. Apply disabled/readonly
+rules through Signal Forms rather than competing template bindings. Semantic
+validation also updates after programmatic writes and resets.
 
 ## Disabled and readonly are different
 

@@ -6,9 +6,13 @@
 	display: flex;
 	border: 1px solid transparent;
 	border-radius: 5px;
-	&:hover,
+	&:has(button:not(:disabled)):hover,
 	&:focus-within {
 		border-color: var(--editra-border, #b8c2d0);
+	}
+	&:has(.palette-toggle[aria-expanded='true']) {
+		border-color: var(--editra-focus, #1763d1);
+		background: var(--editra-active, #dce9ff);
 	}
 }
 button {
@@ -22,7 +26,8 @@ button {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	height: 36px;
+	height: 30px;
+	min-height: 30px;
 	padding: 0;
 	border: 0;
 	background: transparent;
@@ -36,8 +41,11 @@ button {
 	}
 }
 .apply-colour {
-	width: 34px;
+	width: 30px;
 	border-radius: 4px 0 0 4px;
+	editra-icon {
+		transform: translateY(-1px) scale(0.9);
+	}
 }
 .palette-toggle {
 	width: 24px;
@@ -49,12 +57,20 @@ button {
 .split-colour:hover .palette-toggle {
 	border-left: 1px solid var(--editra-border, #b8c2d0);
 }
+@media (pointer: coarse) {
+	.apply-colour,
+	.palette-toggle {
+		width: 44px;
+		height: 44px;
+	}
+}
 .colour-bar {
 	position: absolute;
 	bottom: 4px;
-	left: 9px;
-	width: 16px;
-	height: 3px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 14px;
+	height: 2px;
 	border-radius: 1px;
 }
 .mixed .colour-bar {
@@ -74,10 +90,10 @@ dialog {
 	width: 312px;
 	max-width: calc(100vw - 16px);
 	max-height: calc(100dvh - 16px);
-	overflow: auto;
-	padding: 12px;
+	overflow: hidden;
+	padding: 14px;
 	border: 1px solid var(--editra-border, #b8c2d0);
-	border-radius: 8px;
+	border-radius: 12px;
 	background: var(--editra-surface, #fff);
 	color: var(--editra-text, #182338);
 	box-shadow: 0 10px 35px #0003;
@@ -86,7 +102,24 @@ dialog {
 		12px/1.5 system-ui,
 		sans-serif;
 }
+dialog[open] {
+	display: flex;
+	flex-direction: column;
+}
+.palette-content {
+	min-height: 0;
+	overflow: auto;
+	scrollbar-width: thin;
+	padding: 4px;
+	margin: -4px -4px 0;
+}
+.palette-footer {
+	flex-shrink: 0;
+	min-width: 0;
+	background: var(--editra-surface, #fff);
+}
 .palette-heading {
+	flex-shrink: 0;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -94,24 +127,31 @@ dialog {
 	margin: -2px 0 10px;
 	padding-bottom: 7px;
 	h2 {
-		font-size: 13px;
+		font-size: 14px;
 		margin: 0;
 		font-weight: 600;
 	}
 }
 .close-palette {
-	width: 28px;
-	height: 28px;
-	font-size: 20px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	min-height: 32px;
+	padding: 0;
 	background: transparent;
 	color: inherit;
 	border: 0;
 	border-radius: 4px;
+	editra-icon {
+		transform: scale(0.9);
+	}
 }
 h3 {
 	font-size: 11px;
 	font-weight: 600;
-	margin: 12px 0 6px;
+	margin: 10px 0 4px;
 }
 .automatic-colour {
 	display: flex;
@@ -119,7 +159,7 @@ h3 {
 	align-items: center;
 	width: 100%;
 	min-height: 32px;
-	padding: 4px 6px;
+	padding: 4px 8px;
 	border: 0;
 	border-radius: 4px;
 	background: transparent;
@@ -134,8 +174,8 @@ h3 {
 }
 .swatches {
 	display: grid;
-	grid-template-columns: repeat(10, 24px);
-	gap: 2px;
+	grid-template-columns: repeat(10, minmax(0, 1fr));
+	gap: 3px;
 }
 .automatic-swatch {
 	background: currentColor;
@@ -144,10 +184,10 @@ h3 {
 	box-sizing: border-box;
 	min-height: 0;
 	min-width: 0;
-	width: 24px;
+	width: 100%;
 	height: 24px;
 	border: 1px solid #8888;
-	border-radius: 1px;
+	border-radius: 3px;
 	padding: 0;
 	position: relative;
 	&[aria-pressed='true'] {
@@ -162,18 +202,21 @@ h3 {
 	}
 }
 .custom-colour {
-	margin-top: 14px;
+	margin-top: 8px;
 	border-top: 1px solid var(--editra-border, #b8c2d0);
-	padding-top: 12px;
+	padding-top: 8px;
 	display: flex;
 	align-items: flex-end;
 	gap: 8px;
 	label {
 		flex: 1;
+		min-width: 0;
+		margin: 0;
 		display: grid;
 		gap: 4px;
 	}
 	input {
+		box-sizing: border-box;
 		width: 100%;
 		min-width: 0;
 		background: var(--editra-surface, #fff);
@@ -181,15 +224,19 @@ h3 {
 		border: 1px solid var(--editra-border, #b8c2d0);
 		border-radius: 4px;
 		height: 32px;
+		min-height: 32px;
 		padding: 5px 8px;
 		font:
 			12px ui-monospace,
 			monospace;
 	}
 	button {
+		box-sizing: border-box;
 		min-height: 32px;
-		background: var(--editra-active, #dce9ff);
-		border: 1px solid var(--editra-border, #b8c2d0);
+		height: 32px;
+		background: var(--editra-focus, #1763d1);
+		color: var(--editra-surface, #fff);
+		border: 1px solid var(--editra-focus, #1763d1);
 		border-radius: 4px;
 		padding: 5px 10px;
 	}
@@ -198,13 +245,13 @@ h3 {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-top: 10px;
+	margin: 8px 0 0;
 	input {
 		flex: none;
 		min-width: 0;
 		min-height: 0;
 		width: 40px;
-		height: 30px;
+		height: 24px;
 		border: 1px solid var(--editra-border, #b8c2d0);
 		background: transparent;
 		cursor: pointer;

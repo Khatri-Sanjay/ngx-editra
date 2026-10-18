@@ -185,7 +185,7 @@ export class NgxEditraComponent implements ControlValueAccessor, Validator, OnCh
 	private savedSelection: Selection | undefined;
 	private colourSelection:
 		| {
-				readonly kind: 'color' | 'highlight' | 'background';
+				readonly kind: 'color' | 'highlight' | 'background' | 'border';
 				readonly selection: Selection;
 				readonly document: ProseMirrorNode;
 		  }
@@ -291,17 +291,27 @@ export class NgxEditraComponent implements ControlValueAccessor, Validator, OnCh
 		label: group.label,
 		actions: group.ids.flatMap((id) => this.tableActions.filter((action) => action.id === id)),
 	}));
+	readonly tableMenuGroups = this.tableActionGroups.map((group) => ({
+		id: group.label,
+		label: group.label,
+		items: group.actions,
+	}));
 	get currentTableLineWeight(): number {
 		return Math.max(1, dimension(this.tableNodeAttribute('table', 'borderWidth'), 1, 8));
 	}
 	get currentTableBorder(): string {
 		return this.tableNodeAttribute('table', 'border') || 'solid';
 	}
+	get currentTableBorderColour(): string {
+		return safeColor(this.tableNodeAttribute('table', 'borderColor')) ?? '#000000';
+	}
+	newTableBorderColour = '#000000';
 	private tablePopupCleanup: (() => void) | undefined;
 	private linePopupCleanup: (() => void) | undefined;
 	private releaseDialogScroll: (() => void) | undefined;
 	private releaseFullscreenScroll: (() => void) | undefined;
 	tableMenuOpen = false;
+	tablePanel: 'structure' | 'appearance' | 'dimensions' = 'structure';
 	onTableMenuToggle(popup: HTMLElement): void {
 		this.tableMenuOpen = popup.matches(':popover-open');
 	}
@@ -313,7 +323,9 @@ export class NgxEditraComponent implements ControlValueAccessor, Validator, OnCh
 		if (!(event.currentTarget instanceof HTMLElement)) return;
 		this.tablePopupCleanup?.();
 		this.tablePopupCleanup = openToolbarPopup(popup, event.currentTarget);
-		popup.querySelector<HTMLButtonElement>('button:not(:disabled):not([hidden])')?.focus();
+		popup
+			.querySelector<HTMLButtonElement>('.table-panel-switch button[aria-pressed="true"]')
+			?.focus({ preventScroll: true });
 	}
 	floatingVisible = false;
 	floatingX = 0;
@@ -524,17 +536,17 @@ export class NgxEditraComponent implements ControlValueAccessor, Validator, OnCh
 			}
 		return '';
 	}
-	rememberColourSelection(kind: 'color' | 'highlight' | 'background'): void {
+	rememberColourSelection(kind: 'color' | 'highlight' | 'background' | 'border'): void {
 		this.colourSelection = {
 			kind,
 			selection: this.engine.state.selection,
 			document: this.engine.state.doc,
 		};
 	}
-	clearColourSelection(kind: 'color' | 'highlight' | 'background'): void {
+	clearColourSelection(kind: 'color' | 'highlight' | 'background' | 'border'): void {
 		if (this.colourSelection?.kind === kind) this.colourSelection = undefined;
 	}
-	applyColour(kind: 'color' | 'highlight' | 'background', value: string | null): void {
+	applyColour(kind: 'color' | 'highlight' | 'background' | 'border', value: string | null): void {
 		if (this.locked) return;
 		const colour = value === null ? null : safeColor(value);
 		if (value !== null && colour === null) {
@@ -546,10 +558,12 @@ export class NgxEditraComponent implements ControlValueAccessor, Validator, OnCh
 			saved?.kind === kind && saved.document === this.engine.state.doc
 				? saved.selection
 				: this.engine.state.selection;
-		if (kind === 'background') {
+		if (kind === 'background' || kind === 'border') {
 			if (!selection.eq(this.engine.state.selection))
 				this.dispatch(this.engine.state.tr.setSelection(selection));
-			cellBackground(colour ?? '')(
+			(kind === 'border'
+				? tableAttribute('table', 'borderColor', colour ?? '#000000')
+				: cellBackground(colour ?? ''))(
 				this.engine.state,
 				(tr) => this.dispatch(closeHistory(tr)),
 				this.view,
@@ -898,6 +912,7 @@ export class NgxEditraComponent implements ControlValueAccessor, Validator, OnCh
 		this.dialog.nativeElement.style.removeProperty('max-height');
 		this.values = dialogDefaults();
 		if (kind === 'table') {
+			this.newTableBorderColour = '#000000';
 			this.values.rows = Math.min(3, this.config.table?.maxRows ?? 50);
 			this.values.columns = Math.min(3, this.config.table?.maxColumns ?? 20);
 		}
@@ -952,6 +967,10 @@ export class NgxEditraComponent implements ControlValueAccessor, Validator, OnCh
 		}
 		this.changeDetector.detectChanges();
 		this.dialogPresenter.open(this.dialog.nativeElement);
+		if (kind === 'link' || kind === 'image' || kind === 'video')
+			this.dialog.nativeElement
+				.querySelector<HTMLInputElement>('input[type="url"]')
+				?.focus({ preventScroll: true });
 		this.releaseDialogScroll ??= lockPageScroll(this.dialog.nativeElement.ownerDocument);
 		if (kind === 'tableContext')
 			this.dialog.nativeElement
@@ -1107,7 +1126,14 @@ export class NgxEditraComponent implements ControlValueAccessor, Validator, OnCh
 				),
 		);
 		this.dispatch(
-			this.engine.state.tr.replaceSelectionWith(table.create(null, content)).scrollIntoView(),
+			this.engine.state.tr
+				.replaceSelectionWith(
+					table.create(
+						{ borderColor: safeColor(this.newTableBorderColour) ?? '#000000' },
+						content,
+					),
+				)
+				.scrollIntoView(),
 		);
 	}
 	readonly textCases = [
@@ -1371,6 +1397,9 @@ export class NgxEditraComponent implements ControlValueAccessor, Validator, OnCh
 			const wasDirty = this.engine.dirty;
 			this.engine.setHTML(value);
 			this.view?.updateState(this.engine.state);
+			// Signal Forms caches legacy validators until their change callback fires.
+			// Programmatic writes can change semantic emptiness without a transaction.
+			this.onValidatorChange();
 			this.changeDetector.markForCheck();
 			if (wasDirty && !this.engine.dirty) this.dirtyChange.emit(false);
 			return true;
@@ -1434,6 +1463,7 @@ export class NgxEditraComponent implements ControlValueAccessor, Validator, OnCh
 		const wasDirty = this.engine.dirty;
 		this.engine.setJSON(value);
 		this.view?.updateState(this.engine.state);
+		this.onValidatorChange();
 		this.changeDetector.markForCheck();
 		this.syncFormValue();
 		if (wasDirty) this.dirtyChange.emit(false);

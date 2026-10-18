@@ -255,6 +255,11 @@ export function parseHTML(html: string, schema: Schema, config: EditraConfig = {
 				'table',
 				{
 					width: dimension(css['width']?.replace('%', ''), 100, 100),
+					borderColor:
+						safeColor(
+							css['border-color'] ??
+								css['border']?.match(/#[\da-f]{3,6}\b|rgb\([^)]*\)/iu)?.[0],
+						) ?? '#000000',
 					borderWidth: Math.max(
 						1,
 						dimension(css['border-width'] ?? css['border']?.split(' ')[0], 1, 8),

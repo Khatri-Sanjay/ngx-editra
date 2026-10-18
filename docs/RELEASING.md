@@ -20,8 +20,16 @@ Keep changelog entries focused on library features, fixes, compatibility and bre
 changes that affect consumers. Document publishing scripts, CI, local setup and
 workspace maintenance in the maintainer guides instead of release notes.
 
+Public app dependencies are independently locked on Angular 22; the Angular 17 compiler
+remains private. Release validation includes the dependency audit baseline and both
+website audits. Before making a complete manual acceptance claim, run
+`npm run acceptance:check -- --strict` and review [the evidence record](acceptance/README.md).
+Run `npm run repo:check -- --strict` after committing/pushing the release revision to
+verify remote settings and CI. Missing credentials or pending real-device tests are
+unverified, not passing evidence.
+
 1. Run the validation commands in CONTRIBUTING.md and complete the outstanding acceptance
-   criteria in PROGRESS.md. Do not call this alpha a stable release.
+   criteria in PROGRESS.md before claiming the stable release is fully verified.
 2. Update package version, changelog, consumer tarball paths and any demonstrated peer ranges.
 3. Run npm run pack (production build, dry-run package validation and actual tarball).
 4. Install that exact tarball into independent consumers; run the full compatibility matrix.
@@ -34,13 +42,13 @@ npm publish ./artifacts/ngx-editra-1.0.0.tgz --access public --tag latest
 ```
 
 No workflow publishes automatically. GitHub Actions prepares validation evidence and archives.
-The package is named `ngx-editra`; source metadata defaults publishing to public access and the
-`next` tag. The workspace root is private. Do not publish `packages/ngx-editra` directly:
+The package is named `ngx-editra`; source metadata for the `1.0.0` candidate defaults publishing to public access and the
+`latest` tag. The workspace root is private. Do not publish `packages/ngx-editra` directly:
 ng-packagr's compiled distribution is the package consumers need. Update the archive filename
 when the version changes. After a stable release is approved, explicitly publish that stable
 archive with `--tag latest` and update the source publishing default accordingly.
 
-After publication, verify the published alpha and its consumer instructions:
+After publication, verify the published version and its consumer instructions:
 
 ```sh
 npm view ngx-editra@latest version dist-tags peerDependencies

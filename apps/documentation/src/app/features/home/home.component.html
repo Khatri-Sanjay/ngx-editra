@@ -6,13 +6,15 @@
 		ProseMirror. Designed around your application.
 	</p>
 	<p>
-		Available on <a [href]="package.packageUrl">npm: v{{ package.publishedVersion }}</a
+		Available on
+		<a [href]="package.packageUrl" target="_blank" rel="noopener noreferrer"
+			>npm: v{{ package.publishedVersion }}</a
 		>. Install with <code>{{ package.installCommand }}</code
 		>. This site previews development version {{ package.developmentVersion }};
 		<a routerLink="/guides/compatibility">check compatibility for your installed release</a>.
 	</p>
 	<div class="package-badges" aria-label="Package information">
-		<a [href]="package.packageUrl"
+		<a [href]="package.packageUrl" target="_blank" rel="noopener noreferrer"
 			><img
 				[src]="package.downloadsBadgeUrl"
 				alt="npm downloads per month"
@@ -20,9 +22,16 @@
 				height="20"
 				loading="lazy"
 		/></a>
-		<a [href]="package.repositoryUrl + '/blob/main/LICENSE'">MIT license</a>
-		<a [href]="package.repositoryUrl + '/issues'">Report an issue</a>
-		<a [href]="package.playgroundUrl">Playground</a>
+		<a
+			[href]="package.repositoryUrl + '/blob/main/LICENSE'"
+			target="_blank"
+			rel="noopener noreferrer"
+			>MIT license</a
+		>
+		<a [href]="package.repositoryUrl + '/issues'" target="_blank" rel="noopener noreferrer"
+			>Report an issue</a
+		>
+		<a [href]="package.playgroundUrl" target="_blank" rel="noopener noreferrer">Playground</a>
 	</div>
 	<div class="hero-actions">
 		<a class="primary-link" routerLink="/guides/quick-start"

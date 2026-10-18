@@ -1,7 +1,7 @@
 # Documentation application
 
 [![npm version](https://img.shields.io/npm/v/ngx-editra?label=npm)](https://www.npmjs.com/package/ngx-editra)
-[![npm downloads per month](https://img.shields.io/badge/downloads-pending-lightgrey)](https://www.npmjs.com/package/ngx-editra)
+[![npm downloads per month](https://img.shields.io/npm/dm/ngx-editra)](https://www.npmjs.com/package/ngx-editra)
 [![License](https://img.shields.io/npm/l/ngx-editra)](https://github.com/Khatri-Sanjay/ngx-editra/blob/main/LICENSE)
 
 [npm](https://www.npmjs.com/package/ngx-editra) | [Documentation](https://ngx-editra-docs.vercel.app) | [Playground](https://ngx-editra-playground.vercel.app) | [Source](https://github.com/Khatri-Sanjay/ngx-editra) | [Issues](https://github.com/Khatri-Sanjay/ngx-editra/issues)
@@ -11,7 +11,7 @@ by both apps. The demo may use a newer development build, labelled separately.
 
 Live site: https://ngx-editra-docs.vercel.app.
 
-Use the workspace's Node 20.20.2 / npm 10.8.2 toolchain:
+Use the root Node 20/npm 10 launcher for library compilation and configure Node 24 for the independent Angular 22 documentation app:
 
 ```sh
 npm ci
@@ -35,11 +35,11 @@ set PORT to override it.
 
 For GitHub-to-Vercel deployment, use `npm run build:site -- documentation` and the
 manual deployment workflow. The static browser output is hosted in its own project;
-the Express server is not deployed. Follow [deployment setup](../../docs/DEPLOYMENT.md)
-for Node 20 build / Node 24 deployment separation and project secrets.
+the local SSR harness is not deployed. Follow [deployment setup](../../docs/DEPLOYMENT.md)
+for the separate library/compiler and modern app/deployment toolchains and project secrets.
 The workspace's MIT [LICENSE](../../LICENSE) applies to this application.
 
-Edit files in `docs/`, PROGRESS.md, CONTRIBUTING.md, or CHANGELOG.md to update guides.
+Edit consumer guides selected in `scripts/library-docs.mjs`, CHANGELOG.md or SECURITY.md to update public pages. Workspace policies and deployment instructions remain repository-only.
 `npm run docs:generate` converts them to typed page data and regenerates the prerender routes.
 Do not edit files in `src/app/content/generated/` directly. Markdown-it is a build-time dependency;
 raw HTML is disabled, and Angular sanitizes the rendered guide HTML. The generator rewrites

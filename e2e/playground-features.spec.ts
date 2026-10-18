@@ -47,3 +47,31 @@ test('sample documents, reset, source formats and copying work together', async 
 	);
 	await page.screenshot({ path: 'artifacts/playground-settings-mobile.png' });
 });
+
+test('workspace imports, empty state and responsive layout remain usable', async ({ page }) => {
+	await page.setViewportSize({ width: 1440, height: 1000 });
+	await page.goto('/');
+	await page.screenshot({ path: 'artifacts/playground-redesign-desktop.png', fullPage: true });
+	await page.getByText('Import Markdown', { exact: true }).first().click();
+	await page
+		.getByLabel('Markdown input', { exact: true })
+		.fill('# A new draft\n\nReady to preview.');
+	await page.getByRole('button', { name: 'Import Markdown', exact: true }).click();
+	await expect(page.locator('.ProseMirror').first()).toContainText('A new draft');
+	await expect(page.getByRole('region', { name: 'Reader preview content' })).toContainText(
+		'Ready to preview.',
+	);
+	await page.getByRole('button', { name: 'Unmount editor', exact: true }).click();
+	await expect(page.getByRole('heading', { name: 'Your draft is still here.' })).toBeVisible();
+	await expect(page.getByRole('button', { name: 'Import Markdown', exact: true })).toBeDisabled();
+	await page.getByRole('button', { name: 'Continue editing', exact: true }).click();
+	await expect(page.locator('.ProseMirror').first()).toContainText('A new draft');
+	for (const width of [1024, 390, 320]) {
+		await page.setViewportSize({ width, height: 844 });
+		expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+			true,
+		);
+	}
+	await page.evaluate(() => scrollTo(0, 0));
+	await page.screenshot({ path: 'artifacts/playground-redesign-mobile.png', fullPage: true });
+});

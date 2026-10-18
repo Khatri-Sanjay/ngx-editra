@@ -5,12 +5,23 @@
 			<a href="#">ngx-editra<span>Playground</span></a
 			><span class="version">Angular 17–22</span>
 		</div>
-		<span class="eyebrow">YOUR NEXT DRAFT STARTS HERE</span>
-		<h1>Make room for your ideas.</h1>
-		<p>
-			Write, format and explore. Try the editor, preview your content and find the output you
-			need.
-		</p>
+		<div class="hero">
+			<div>
+				<span class="eyebrow">THE NGX-EDITRA PLAYGROUND</span>
+				<h1>Make room for your ideas.</h1>
+				<p>
+					Write, format and explore. Try the editor, preview your content and find the
+					output you need.
+				</p>
+			</div>
+			<aside class="getting-started" aria-label="Get started with ngx-editra">
+				<span class="eyebrow">BRING IT TO YOUR APP</span>
+				<p class="package-install">
+					<code>{{ package.installCommand }}</code>
+				</p>
+				<a [href]="package.documentationUrl">Read the setup guide &rarr;</a>
+			</aside>
+		</div>
 		<nav class="package-links" aria-label="Package information">
 			<a [href]="package.packageUrl">npm v{{ package.publishedVersion }}</a>
 			<a [href]="package.documentationUrl">Documentation</a>
@@ -25,9 +36,6 @@
 					loading="lazy"
 			/></a>
 		</nav>
-		<p class="package-install">
-			<code>{{ package.installCommand }}</code> · Demo build {{ package.developmentVersion }}
-		</p>
 	</header>
 	<nav class="section-links" aria-label="Playground sections">
 		<a href="#editor-workspace">Editor</a>
@@ -35,111 +43,151 @@
 		<a href="#document-output">HTML, JSON and Markdown</a>
 		<a href="#form-examples">Form examples</a>
 	</nav>
-	<section class="settings" aria-label="Editor settings">
-		<div class="settings-heading">
-			<h2>Make it yours</h2>
-			<p>Choose a sample and tune your editor.</p>
-		</div>
-		<label
-			>Sample document
-			<select aria-label="Sample document" (change)="loadSample($event)">
-				@for (sample of samples; track sample.id) {
-					<option [value]="sample.id">{{ sample.label }}</option>
-				}
-			</select></label
-		>
-		<label
-			>Toolbar
-			<select aria-label="Toolbar preset" (change)="preset($event)">
-				<option value="full">Full</option>
-				<option value="compact">Compact</option>
-				<option value="grouped">Grouped + floating</option>
-			</select></label
-		>
-		<label
-			>Theme
-			<select aria-label="Theme" [ngModel]="config.theme" (ngModelChange)="theme($event)">
-				<option>light</option>
-				<option>dark</option>
-				<option>auto</option>
-			</select></label
-		>
-		<label><input type="checkbox" [(ngModel)]="readOnly" /> Read only</label>
-		<label
-			><input
-				type="checkbox"
-				[ngModel]="form.controls.body.disabled"
-				(ngModelChange)="disable($event)"
-			/>
-			Disabled</label
-		>
-		<button type="button" (click)="form.reset({ body: initial })">Reset form</button>
-		<button type="button" (click)="mounted = !mounted">
-			{{ mounted ? 'Unmount editor' : 'Mount editor' }}
-		</button>
-	</section>
-	<section id="editor-workspace" class="workspace" aria-label="Reactive Forms example">
-		<div class="section-heading">
-			<h2>Your document</h2>
-			<span
-				>Reactive Forms · {{ form.dirty ? 'Modified' : 'Pristine' }} ·
-				{{ form.touched ? 'Touched' : 'Untouched' }}</span
+	<div class="studio-grid">
+		<aside class="settings" aria-label="Editor settings">
+			<div class="settings-heading">
+				<span class="eyebrow">WORKSPACE SETTINGS</span>
+				<h2>Make it yours</h2>
+				<p>Start with a sample, then make it your own.</p>
+			</div>
+			<label
+				>Sample document
+				<select aria-label="Sample document" (change)="loadSample($event)">
+					@for (sample of samples; track sample.id) {
+						<option [value]="sample.id">{{ sample.label }}</option>
+					}
+				</select></label
 			>
-		</div>
-		@if (mounted) {
-			<ngx-editra
-				#editor
-				[formControl]="form.controls.body"
-				[config]="config"
-				[readonly]="readOnly"
-				[required]="true"
-				(contentChange)="changed($event)"
-				(editorError)="error = $event.message"
+			<label
+				>Toolbar
+				<select aria-label="Toolbar preset" (change)="preset($event)">
+					<option value="full">Full</option>
+					<option value="compact">Compact</option>
+					<option value="grouped">Grouped + floating</option>
+				</select></label
+			>
+			<label
+				>Theme
+				<select aria-label="Theme" [ngModel]="config.theme" (ngModelChange)="theme($event)">
+					<option>light</option>
+					<option>dark</option>
+					<option>auto</option>
+				</select></label
+			>
+			<div class="editor-options">
+				<label><input type="checkbox" [(ngModel)]="readOnly" /> Read only</label>
+				<label
+					><input
+						type="checkbox"
+						[ngModel]="form.controls.body.disabled"
+						(ngModelChange)="disable($event)"
+					/>
+					Disabled</label
+				>
+			</div>
+			<div class="settings-actions">
+				<button type="button" (click)="form.reset({ body: initial })">Reset form</button>
+				<button type="button" (click)="mounted = !mounted">
+					{{ mounted ? 'Unmount editor' : 'Mount editor' }}
+				</button>
+			</div>
+			<p class="settings-note">
+				Samples and resets replace the current draft. Edits are not saved after a refresh.
+			</p>
+		</aside>
+		<section id="editor-workspace" class="workspace" aria-label="Reactive Forms example">
+			<div class="section-heading">
+				<div>
+					<span class="eyebrow">WRITE &amp; EXPLORE</span>
+					<h2>Your document</h2>
+				</div>
+				<span class="form-state" [class.modified]="form.dirty"
+					>Reactive Forms · {{ form.dirty ? 'Modified' : 'Pristine' }} ·
+					{{ form.touched ? 'Touched' : 'Untouched' }}</span
+				>
+			</div>
+			@if (mounted) {
+				<ngx-editra
+					#editor
+					[formControl]="form.controls.body"
+					[config]="config"
+					[readonly]="readOnly"
+					[required]="true"
+					(contentChange)="changed($event)"
+					(editorError)="error = $event.message"
+				/>
+			} @else {
+				<div class="empty-editor">
+					<h3>Your draft is still here.</h3>
+					<p>The editor is unmounted. Mount it again to keep writing.</p>
+					<button type="button" (click)="mounted = true">Continue editing</button>
+				</div>
+			}
+			@if (error) {
+				<p role="alert">{{ error }}</p>
+			}
+		</section>
+	</div>
+	<div class="inspection-grid">
+		<section id="rendered-document" class="workspace" aria-label="Rendered document">
+			<div class="section-heading">
+				<div>
+					<span class="eyebrow">READER PREVIEW</span>
+					<h2>Rendered document</h2>
+				</div>
+				<p>See how your saved content looks.</p>
+			</div>
+			<div
+				class="reader-content"
+				tabindex="0"
+				role="region"
+				aria-label="Reader preview content"
+				[editraContent]="form.controls.body.value"
+				[editraContentConfig]="config"
+			></div>
+		</section>
+		<section id="document-output" class="output" aria-label="Document output">
+			<div class="section-heading">
+				<div>
+					<span class="eyebrow">DOCUMENT OUTPUT</span>
+					<h2>Under the surface</h2>
+				</div>
+				<p>Inspect, copy or import your content.</p>
+			</div>
+			<app-document-output
+				[value]="output()"
+				[format]="selected"
+				(formatChange)="selected = $event"
 			/>
-		}
-		@if (error) {
-			<p role="alert">{{ error }}</p>
-		}
-	</section>
-	<section id="rendered-document" class="workspace" aria-label="Rendered document">
-		<div class="section-heading">
-			<div>
-				<span class="eyebrow">READER PREVIEW</span>
-				<h2>Rendered document</h2>
-			</div>
-			<p>See how your saved content looks.</p>
+		</section>
+	</div>
+	<div class="section-heading examples-heading">
+		<div>
+			<span class="eyebrow">TAKE IT FURTHER</span>
+			<h2>Explore the integrations</h2>
 		</div>
-		<div
-			class="reader-content"
-			tabindex="0"
-			role="region"
-			aria-label="Reader preview content"
-			[editraContent]="form.controls.body.value"
-			[editraContentConfig]="config"
-		></div>
-	</section>
-	<section id="document-output" class="output" aria-label="Document output">
-		<div class="section-heading">
-			<div>
-				<span class="eyebrow">DOCUMENT OUTPUT</span>
-				<h2>Under the surface</h2>
-			</div>
-			<p>Inspect, copy or import your content.</p>
-		</div>
-		<app-document-output
-			[value]="output()"
-			[format]="selected"
-			(formatChange)="selected = $event"
-		/>
-		<label>Import Markdown <textarea [(ngModel)]="markdownInput" rows="3"></textarea></label
-		><button type="button" (click)="importMarkdown()">Import Markdown</button>
-	</section>
+		<p>Import a draft, connect a form or prepare an email.</p>
+	</div>
+	<details>
+		<summary>Import Markdown</summary>
+		<p class="detail-description">Replace the editor document with your Markdown content.</p>
+		<label
+			>Markdown input
+			<textarea aria-label="Markdown input" [(ngModel)]="markdownInput" rows="4"></textarea>
+		</label>
+		<button type="button" [disabled]="!mounted" (click)="importMarkdown()">
+			Import Markdown
+		</button>
+	</details>
 	<details>
 		<summary>Import HTML</summary>
+		<p class="detail-description">
+			Load existing HTML and inspect the result in the reader preview.
+		</p>
 		<label
 			>HTML input
 			<textarea aria-label="HTML input" [(ngModel)]="htmlInput" rows="4"></textarea></label
-		><button type="button" (click)="importHTML()">Apply HTML</button>
+		><button type="button" [disabled]="!mounted" (click)="importHTML()">Apply HTML</button>
 	</details>
 	<details id="form-examples">
 		<summary>Template-driven forms example</summary>
@@ -155,6 +203,12 @@
 			<ngx-editra-viewer [html]="form.controls.body.value" [config]="config" />
 		</section>
 	</details>
+	<details (toggle)="toggleSignals($event)">
+		<summary>Signal Forms integration</summary>
+		@defer (when signalsOpen) {
+			<app-signal-forms />
+		}
+	</details>
 	<details (toggle)="toggleEmail($event)">
 		<summary>Email export</summary>
 		@if (emailOpen) {
@@ -162,7 +216,10 @@
 		}
 	</details>
 	<footer>
-		<span>Built with ngx-editra. Your edits stay in this browser session.</span>
+		<span
+			>ngx-editra · Demo build {{ package.developmentVersion }} · Edits are kept in memory
+			only.</span
+		>
 		<a [href]="package.documentationUrl">Explore the documentation &rarr;</a>
 	</footer>
 </main>

@@ -1,3 +1,4 @@
+import { scrollChangedSinceOpen } from '../../utils/popup-behavior';
 import { lockPageScroll } from '../../utils/page-scroll-lock';
 import {
 	ChangeDetectionStrategy,
@@ -26,7 +27,7 @@ import { themeColours, standardColours, highlightColours } from './colour-palett
 })
 export class EditraColourPickerComponent implements OnChanges, OnDestroy {
 	@Input() label = 'Text colour';
-	@Input() kind: 'color' | 'highlight' | 'background' = 'color';
+	@Input() kind: 'color' | 'highlight' | 'background' | 'border' = 'color';
 	@Input() value = '';
 	@Input() disabled = false;
 	@Output() readonly colourChange = new EventEmitter<string | null>();
@@ -55,6 +56,7 @@ export class EditraColourPickerComponent implements OnChanges, OnDestroy {
 		);
 	}
 	get icon(): string {
+		if (this.kind === 'border') return 'table';
 		return this.kind === 'highlight'
 			? 'highlight'
 			: this.kind === 'background'
@@ -67,6 +69,7 @@ export class EditraColourPickerComponent implements OnChanges, OnDestroy {
 			: this.colour;
 	}
 	get title(): string {
+		if (this.kind === 'border') return 'Table border colour';
 		return this.kind === 'highlight'
 			? 'Text highlight colour'
 			: this.kind === 'background'
@@ -74,7 +77,7 @@ export class EditraColourPickerComponent implements OnChanges, OnDestroy {
 				: 'Font colour';
 	}
 	get removeLabel(): string {
-		return this.kind === 'color'
+		return this.kind === 'color' || this.kind === 'border'
 			? 'Automatic'
 			: this.kind === 'background'
 				? 'No fill'
@@ -160,10 +163,14 @@ export class EditraColourPickerComponent implements OnChanges, OnDestroy {
 			passive: false,
 			signal: events.signal,
 		});
+		const scrollChanged = scrollChangedSinceOpen(toggle);
 		this.document.defaultView?.addEventListener(
 			'scroll',
 			(event) => {
-				if (!(event.target instanceof Node && palette.contains(event.target)))
+				if (
+					!(event.target instanceof Node && palette.contains(event.target)) &&
+					scrollChanged(event.target)
+				)
 					this.close(false);
 			},
 			{

@@ -67,7 +67,7 @@ test('keyboard table grid, contextual menu and persisted row sizing', async ({ p
 	await page.locator('.ProseMirror td').first().click();
 	if (!(await page.getByRole('dialog', { name: 'Table tools', exact: true }).isVisible()))
 		await page.getByRole('button', { name: 'Table tools', exact: true }).click();
-	await page.getByText('More table settings', { exact: true }).click();
+	await page.getByRole('button', { name: 'Dimensions', exact: true }).click();
 	await page.getByLabel('Row height pixels').fill('60');
 	await page.getByLabel('Row height pixels').press('Tab');
 	await expect(page.locator('.output pre')).toContainText('height:60px');

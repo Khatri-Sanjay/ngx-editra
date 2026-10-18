@@ -35,6 +35,7 @@ export const defaultToolbar: readonly EditraToolbarItem[] = [
 				aria-label="Formatting and insert options"
 				tabindex="0"
 				class="options-bar"
+				[class.scroll]="overflow === 'scroll'"
 				(keydown)="navigate($event)"
 			>
 				<ng-content />
@@ -48,7 +49,12 @@ export const defaultToolbar: readonly EditraToolbarItem[] = [
 				(keydown)="navigate($event)"
 			>
 				@for (group of renderedGroups; track group.id) {
-					<div role="group" [attr.aria-label]="group.label" class="toolbar-group">
+					<div
+						role="group"
+						[attr.aria-label]="group.label"
+						class="toolbar-group"
+						[class.last-command-group]="$last"
+					>
 						@for (item of group.items; track item.id) {
 							<button
 								class="command-button"
@@ -96,28 +102,31 @@ export const defaultToolbar: readonly EditraToolbarItem[] = [
 			}
 			.options-bar {
 				border-bottom: 1px solid var(--editra-border, #ccd2dc);
+				gap: 4px;
+				padding: 6px 8px;
 			}
 			.options-bar:empty {
 				display: none;
 			}
 			.command-bar {
-				gap: 6px;
+				gap: 4px;
+				padding: 6px 8px;
 			}
 			.command-button {
 				display: inline-flex;
 				align-items: center;
 				justify-content: center;
-				width: 36px;
+				width: 32px;
 				flex-shrink: 0;
 			}
 			button {
 				font: inherit;
-				min-height: 36px;
+				min-height: 32px;
 				border: 1px solid transparent;
 				border-radius: 5px;
 				background: transparent;
 				color: inherit;
-				padding: 7px;
+				padding: 5px;
 				cursor: pointer;
 			}
 			button[aria-pressed='true'] {
@@ -146,15 +155,22 @@ export const defaultToolbar: readonly EditraToolbarItem[] = [
 				gap: 2px;
 				flex-wrap: nowrap;
 				flex-shrink: 0;
-				border-right: 1px solid var(--editra-border, #ccd2dc);
+				background: linear-gradient(
+						var(--editra-border, #ccd2dc),
+						var(--editra-border, #ccd2dc)
+					)
+					right center / 1px 20px no-repeat;
 				padding-right: 6px;
 				margin-right: 0;
 				align-items: center;
 			}
-			.toolbar-group:last-child {
-				border-right: 0;
+			.toolbar-group.last-command-group {
+				background: none;
 				margin-right: 0;
 				padding-right: 0;
+			}
+			.command-button editra-icon {
+				transform: scale(0.9);
 			}
 			[role='toolbar'].scroll {
 				flex-wrap: nowrap;
@@ -184,6 +200,14 @@ export const defaultToolbar: readonly EditraToolbarItem[] = [
 				.command-button {
 					width: 44px;
 					min-height: 44px;
+				}
+			}
+			@media (forced-colors: active) {
+				button[aria-pressed='true'] {
+					forced-color-adjust: none;
+					background: Highlight;
+					color: HighlightText;
+					border-color: Highlight;
 				}
 			}
 		`,

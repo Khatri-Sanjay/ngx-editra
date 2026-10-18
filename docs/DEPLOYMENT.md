@@ -15,13 +15,10 @@ without `--prod`; later deployments default to preview unless production is requ
 
 ## Build model
 
-The Angular 17 compilation baseline uses Node 20.20.2/npm 10. Vercel disabled Node 20
-for new builds on October 1, 2026. Build in GitHub Actions with Node 20, then deploy
-prepared static output with Node 24 and the pinned Vercel CLI. Do not configure Vercel
-to rebuild this workspace directly with the retired Node runtime.
+The library compiler uses Angular 17/Node 20/npm 10. The public websites have independent Angular 22/Node 24/npm 11 toolchains and lockfiles. GitHub Actions configures both runtimes, compiles the library with Node 20, then builds and deploys the apps with Node 24. The root npm commands select the appropriate runtime. Do not rebuild the apps with the root legacy compiler.
 
 Only `dist/<app>/browser` is included. Documentation routes are prerendered; editor,
-search and theme interactions run in the browser. No Express SSR server, Node dependency
+search and theme interactions run in the browser. No local SSR server, Node dependency
 tree or function is deployed. Legacy build-tool audit findings still require maintenance.
 
 ## Owner setup
@@ -57,7 +54,7 @@ No npm publish command is run. Account settings and secrets require owner config
 
 ## Local preparation
 
-From the repository root with Node 20/npm 10:
+From the repository root with Node 20/npm 10 and node24 configured in release.local.json or EDITRA_NODE24:
 
 ```sh
 npm ci

@@ -268,7 +268,7 @@ test('toolbar fills available space, renders the link icon and stays framed when
 	}
 });
 
-test('colour swatches are square and opening a palette preserves the sticky page layout', async ({
+test('colour swatches stay compact and opening a palette preserves the sticky page layout', async ({
 	page,
 }) => {
 	await page.goto('/examples');
@@ -286,7 +286,9 @@ test('colour swatches are square and opening a palette preserves the sticky page
 	);
 	await expect(palette.getByRole('button', { name: 'Automatic', exact: true })).toBeFocused();
 	const swatch = palette.locator('.swatch').first();
-	await expect(swatch).toHaveCSS('width', '24px');
+	const swatchBounds = await swatch.boundingBox();
+	expect(swatchBounds?.width).toBeGreaterThanOrEqual(24);
+	expect(swatchBounds?.width).toBeLessThanOrEqual(28);
 	await expect(swatch).toHaveCSS('height', '24px');
 	await expect(palette.getByRole('textbox', { name: 'Custom colour hex' })).toBeVisible();
 	await expect(palette.locator('input[type="color"]')).toHaveCSS('width', '40px');

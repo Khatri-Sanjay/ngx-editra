@@ -1,5 +1,32 @@
 import { test, expect } from '@playwright/test';
 
+test('desktop options stay on one row without stranding insert tools', async ({ page }) => {
+	await page.setViewportSize({ width: 1440, height: 1000 });
+	await page.goto('/');
+	const workspace = page.getByRole('region', { name: 'Reactive Forms example', exact: true });
+	await expect(workspace.locator('.ProseMirror')).toBeVisible();
+	const options = workspace.getByRole('toolbar', { name: 'Formatting and insert options' });
+	for (const width of [1280, 1100, 900, 760]) {
+		await workspace.evaluate((element, width) => {
+			(element as HTMLElement).style.width = `${width}px`;
+		}, width);
+		expect((await options.boundingBox())?.height).toBeLessThan(65);
+		const inserts = workspace.getByRole('group', { name: 'Insert content', exact: true });
+		const tops = await inserts
+			.locator('button:visible')
+			.evaluateAll((buttons) =>
+				buttons.map((button) => Math.round(button.getBoundingClientRect().top)),
+			);
+		expect(new Set(tops).size).toBe(1);
+		await options.focus();
+		await page.keyboard.press('End');
+		await expect(options.locator('button:enabled:visible').last()).toBeFocused();
+		await workspace
+			.locator('editra-toolbar')
+			.screenshot({ path: `artifacts/toolbar-desktop-${width}.png` });
+	}
+});
+
 test('narrow editors keep two scrollable toolbar rows and keyboard access to every command', async ({
 	page,
 }) => {

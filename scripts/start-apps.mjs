@@ -1,8 +1,8 @@
 import { spawn, spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { assertPreviewPortsAvailable } from './app-workspace.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-const cli = fileURLToPath(new URL('../node_modules/@angular/cli/bin/ng.js', import.meta.url));
 const children = new Set();
 const playgroundPort = process.env.PLAYGROUND_PORT ?? '4200';
 const documentationPort = process.env.DOCS_PORT ?? '4300';
@@ -46,8 +46,14 @@ function run(args) {
 }
 
 try {
+	await assertPreviewPortsAvailable([
+		{ name: 'Playground', port: playgroundPort },
+		{ name: 'Documentation', port: documentationPort },
+	]);
 	await run(['scripts/build-library.mjs']);
 	if (!stopping) await run(['scripts/generate-documentation.mjs']);
+	if (!stopping) await run(['scripts/run-app.mjs', 'prepare', 'playground']);
+	if (!stopping) await run(['scripts/run-app.mjs', 'prepare', 'documentation']);
 	if (!stopping) {
 		console.log(
 			`\nPlayground: http://localhost:${playgroundPort}\nDocumentation: http://localhost:${documentationPort}`,
@@ -55,8 +61,22 @@ try {
 		console.log('Press Ctrl+C to stop both apps.\n');
 		// If either server exits, shut down the other server as well.
 		await Promise.race([
-			run([cli, 'serve', 'playground', '--port', playgroundPort]),
-			run([cli, 'serve', 'documentation', '--port', documentationPort]),
+			run([
+				'scripts/run-app.mjs',
+				'serve',
+				'playground',
+				'--prepared',
+				'--port',
+				playgroundPort,
+			]),
+			run([
+				'scripts/run-app.mjs',
+				'serve',
+				'documentation',
+				'--prepared',
+				'--port',
+				documentationPort,
+			]),
 		]);
 		stop();
 	}

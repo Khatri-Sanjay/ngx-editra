@@ -91,6 +91,10 @@
 		</section>
 	</details>
 	<footer>
+		<details (toggle)="toggleSignals($event)">
+			<summary>Signal Forms integration</summary>
+			@defer (when signalsOpen) { <app-signal-forms-example /> }
+		</details>
 		URL-only media. No uploads. HTML-valued forms. SSR static rendering with an explicit editor
 		hydration boundary.
 	</footer>

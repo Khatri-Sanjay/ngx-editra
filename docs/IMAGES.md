@@ -5,8 +5,8 @@ Add an image that is already hosted at an accessible HTTPS URL. The library inse
 ## Insert your first image
 
 1. Place the caret where the image should appear and open the image tool.
-2. Enter the image URL and apply. A public image URL should return an image, not a website page.
-3. Select the inserted image to open its contextual tools. Add meaningful alternative text and, if useful, a caption.
+2. Enter the image URL, add meaningful alternative text, and apply. A public image URL should return an image, not a website page.
+3. Select the inserted image to open its contextual tools. Reopen the image dialog to update alternative text and, if useful, add a caption.
 4. Drag the corner handle to resize, or focus the handle and use arrow keys. Save the HTML form value to retain the result.
 
 Use Add content beside image for an independent text column next to the image. See [columns](LAYOUT.md). For a smaller display without manual pixel sizing, use automatic sizing and the available content-width controls.
