@@ -28,6 +28,7 @@ tree or function is deployed. Legacy build-tool audit findings still require mai
    framework, Node 24 in project settings, and the repository root if requested.
 3. Disable automatic Git deployments for these projects; the GitHub workflow deploys
    prepared output and avoids a second Vercel source build using the legacy toolchain.
+   The root `vercel.json` sets `git.deploymentEnabled` to `false` for this purpose.
 4. Add GitHub Actions secrets at repository level or in both deployment environments:
 
 | Secret                       | Value                                      |
@@ -77,6 +78,29 @@ npm exec --yes --package=vercel@64.4.0 -- vercel deploy --prebuilt
 This creates a preview. Add `--prod` only for an authorized production deployment.
 The staging directory declares Node 24 independently of the legacy workspace engine.
 Do not use `vercel build` to rebuild the workspace on Vercel.
+
+## Vercel reports that Node 20 is discontinued
+
+A log that starts by cloning a branch and rejects Node 20 before installation is a
+Vercel source build of the workspace root. It is not the prebuilt deployment from
+the GitHub workflow. The root compiler still requires Node 20; changing only its
+engine to Node 24 does not migrate Angular 17 or its dependencies.
+
+1. Set **Node.js Version** to **24.x** in both Vercel project settings.
+2. Commit the root `vercel.json` on the production branch. Its
+   `git.deploymentEnabled: false` disables automatic Git builds, including new
+   Dependabot branch deployments; it does not prevent CLI deployments.
+3. Ensure the four Vercel secrets listed above are configured in GitHub.
+4. Run **Deploy static site to Vercel** from GitHub Actions on the intended reviewed
+   branch, select the site, and choose preview or production. Repeat for the other site.
+5. Confirm the deployment uses `vercel deploy --prebuilt` from the isolated staging
+   directory, whose package manifest declares Node 24.
+
+Do not redeploy the failed source-build deployment or use a Dependabot dependency
+update branch as the production release. Existing branches without the new config
+may still trigger Git builds; disconnect the Vercel Git integration for these
+projects if automatic builds continue. The workflow uses the configured project
+IDs and token to deploy prebuilt output.
 
 ## Verify the result
 
