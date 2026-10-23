@@ -10,7 +10,7 @@ Install the published package from [npm](https://www.npmjs.com/package/ngx-editr
 npm install ngx-editra
 ```
 
-The version badge follows npm's `next` tag, not the development manifest. Monthly
+The version badge follows npm's `latest` tag, not the development manifest. Monthly
 downloads come from Shields.io using npm statistics. A new package can show
 pending data while npm reports catch up. The download badge shows pending until npm statistics are available.
 Counts cover the whole package,
@@ -18,6 +18,7 @@ not unique users or downloads of a specific version.
 
 ## Versions and channels
 
+Version `1.0.0` is published on `latest`; `1.0.1` is the development candidate.
 `next` is the prerelease channel. `latest` is a registry tag; it does not guarantee
 a stable release. Check the registry before choosing a version:
 

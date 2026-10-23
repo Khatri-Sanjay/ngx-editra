@@ -487,4 +487,19 @@ describe('Editra engine', () => {
 		expect(engine.getHTML()).toContain('<strong>World</strong>');
 		expect(exportMarkdown(engine.state.doc)).toContain('**World**');
 	});
+	it('exports column layouts as escaped HTML in Markdown without losing adjacent blocks', () => {
+		const engine = new EditraEngine(
+			{},
+			'<p>Before</p><div data-editra-columns="true">' +
+				'<div data-editra-column="true"><p>Left &lt;script&gt;</p></div>' +
+				'<div data-editra-column="true"><p>Right</p></div></div><p>After</p>',
+		);
+		const markdown = exportMarkdown(engine.state.doc);
+		expect(markdown).toContain('data-editra-columns="true"');
+		expect(markdown).toContain('Left &lt;script&gt;');
+		expect(markdown).not.toContain('<script>');
+		expect(markdown).toContain('Right');
+		expect(markdown.indexOf('Before')).toBeLessThan(markdown.indexOf('data-editra-columns'));
+		expect(markdown.indexOf('Right')).toBeLessThan(markdown.indexOf('After'));
+	});
 });

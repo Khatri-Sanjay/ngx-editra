@@ -1,6 +1,10 @@
 ﻿# Changelog
 
-## 1.0.0 - in preparation
+## 1.0.1 - in preparation
+
+-   Export column layouts as validated HTML in Markdown instead of throwing an unsupported-node error.
+
+## 1.0.0 - published
 
 -   Keep table and colour panels open when a queued toolbar scroll event arrives after opening.
 

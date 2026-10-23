@@ -1,6 +1,6 @@
 # Deploy the websites
 
-The library is distributed through npm; `0.1.0-alpha.0` is published.
+The library is distributed through npm; `1.0.0` is published and `1.0.1` is the development candidate.
 
 After a new npm release, run `npm run package:sync`, review the generated package
 metadata, and commit it before rebuilding the sites. This keeps npm links and

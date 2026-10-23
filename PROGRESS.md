@@ -2,10 +2,10 @@
 
 ## Release status
 
-ngx-editra has a published `0.1.0-alpha.0`; the first stable release, `1.0.0`,
+ngx-editra has a published `1.0.0`; patch release `1.0.1`
 is in preparation with the `latest` npm tag. The current development line receives fixes;
 no historical maintenance branch or LTS promise is established. The remaining manual
-and repository-setting checks below must be completed before a stable-release claim.
+and repository-setting checks below must be completed before the next publication.
 
 ## Implemented and covered
 

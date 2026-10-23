@@ -32,7 +32,13 @@
 			{{ body.disabled ? 'Enable editor' : 'Disable editor' }}</button
 		><button type="button" (click)="reset()">Reset content</button>
 	</div>
-	<ngx-editra #editor [formControl]="body" [config]="config()" [readonly]="readonlyState" />
+	<ngx-editra
+		#editor
+		[formControl]="body"
+		[config]="config()"
+		[readonly]="readonlyState"
+		(contentChange)="copyStatus.set('')"
+	/>
 	<div class="form-status">
 		<span><i class="status-dot"></i> Reactive FormControl</span
 		><span
@@ -49,7 +55,7 @@
 					<button
 						type="button"
 						[attr.aria-pressed]="output === format"
-						(click)="output = format"
+						(click)="output = format; copyStatus.set('')"
 					>
 						{{ format.toUpperCase() }}
 					</button>
@@ -57,10 +63,17 @@
 			</div>
 		</div>
 		<pre
+			#documentSource
 			tabindex="0"
 			role="region"
 			aria-label="Current document source"
 		><code>{{ output === 'html' ? body.value : output === 'text' ? editor.getText() : output === 'markdown' ? editor.getMarkdown() : jsonOutput(editor.getJSON()) }}</code></pre>
+		<div class="output-actions">
+			<button type="button" (click)="copyOutput(documentSource.textContent)">
+				Copy output
+			</button>
+			<p role="status">{{ copyStatus() }}</p>
+		</div>
 	</section>
 	<section class="output-panel" aria-labelledby="reader-preview-title">
 		<h2 id="reader-preview-title">What your readers see</h2>

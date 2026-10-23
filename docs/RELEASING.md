@@ -14,6 +14,10 @@ for the ignored `release.local.json`. `npm run release:check` checks the paths a
 toolchain versions without building or publishing. Preparation runs the full matrix
 when evidence is stale and reuses matching evidence when source/archive are unchanged.
 Publishing requires an interactive terminal and an explicit package/version confirmation.
+For stable versions, publication also requires passing manual acceptance evidence and
+verified repository settings/remote CI for the clean release revision. These checks run
+before npm account checks or publication; preparation and pull-request CI remain available
+while manual acceptance is pending. Prereleases still require complete automated evidence.
 The lower-level commands below remain available for troubleshooting.
 
 Keep changelog entries focused on library features, fixes, compatibility and breaking
@@ -38,11 +42,11 @@ unverified, not passing evidence.
 7. After explicit owner authorization, publish the exact tested archive from the workspace root with the stable tag:
 
 ```sh
-npm publish ./artifacts/ngx-editra-1.0.0.tgz --access public --tag latest
+npm publish ./artifacts/ngx-editra-1.0.1.tgz --access public --tag latest
 ```
 
 No workflow publishes automatically. GitHub Actions prepares validation evidence and archives.
-The package is named `ngx-editra`; source metadata for the `1.0.0` candidate defaults publishing to public access and the
+The package is named `ngx-editra`; source metadata for the `1.0.1` candidate defaults publishing to public access and the
 `latest` tag. The workspace root is private. Do not publish `packages/ngx-editra` directly:
 ng-packagr's compiled distribution is the package consumers need. Update the archive filename
 when the version changes. After a stable release is approved, explicitly publish that stable
@@ -63,7 +67,7 @@ for archive publishing and tags.
 
 ## Automated validation and maintenance
 
-The published release is `0.1.0-alpha.0`; the next stable release is `1.0.0`. Validation and packing never publish a package.
+The published release is `1.0.0`; the next patch release is `1.0.1`. Validation and packing never publish a package.
 
 ## Local validation
 

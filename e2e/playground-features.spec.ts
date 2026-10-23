@@ -75,3 +75,27 @@ test('workspace imports, empty state and responsive layout remain usable', async
 	await page.evaluate(() => scrollTo(0, 0));
 	await page.screenshot({ path: 'artifacts/playground-redesign-mobile.png', fullPage: true });
 });
+
+test('unmounted editor preserves each output format and reflects sample changes', async ({
+	page,
+}) => {
+	await page.goto('/');
+	await page.getByLabel('Sample document', { exact: true }).selectOption('article');
+	const source = page.getByRole('region', { name: 'Document source code' });
+	const outputs = new Map<string, string>();
+	for (const format of ['HTML', 'JSON', 'Text', 'Markdown']) {
+		await page.getByRole('button', { name: format, exact: true }).click();
+		outputs.set(format, (await source.textContent()) ?? '');
+	}
+	await page.getByRole('button', { name: 'Unmount editor', exact: true }).click();
+	for (const [format, expected] of outputs) {
+		await page.getByRole('button', { name: format, exact: true }).click();
+		await expect(source).toHaveText(expected);
+	}
+	await page.getByLabel('Sample document', { exact: true }).selectOption('blank');
+	await page.getByRole('button', { name: 'JSON', exact: true }).click();
+	await expect(source).toContainText('"type": "doc"');
+	await expect(source).not.toContainText('A fresh perspective');
+	await page.getByRole('button', { name: 'Text', exact: true }).click();
+	await expect(source).toBeEmpty();
+});

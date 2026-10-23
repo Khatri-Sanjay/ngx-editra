@@ -33,8 +33,11 @@ recovery action and preserves the draft in memory; refreshing the page discards 
 Choose a complete tour, blank document, article, or table/code sample. Reset restores
 the selected sample. Try toolbar presets, themes, read-only/disabled controls, mount
 and unmount, and Reactive Forms state. Inspect or copy HTML, JSON, text and Markdown;
-clipboard denial displays a manual-copy fallback. Import HTML/Markdown and compare
-directive, pipe and viewer rendering. A separate template-driven editor demonstrates
+clipboard denial displays a manual-copy fallback. Output format selection remains
+available while the editor is unmounted, including after changing or resetting the
+selected sample. Column layouts export as validated HTML inside Markdown because
+CommonMark has no native column syntax. Import HTML/Markdown and compare directive,
+pipe and viewer rendering. A separate template-driven editor demonstrates
 ngModel. Open Signal Forms integration for a deferred Angular 22 example covering model updates, validation, dirty/touched state, disabled state and reset.
 
 Open Email export for an inline-styled email body, plain text, conversion notes and a

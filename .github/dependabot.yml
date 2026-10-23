@@ -4,6 +4,9 @@ updates:
       directories: [/apps/playground, /apps/documentation]
       schedule:
           interval: weekly
+      groups:
+          angular:
+              patterns: ['@angular/*', 'zone.js']
       ignore:
           - dependency-name: ngx-editra
           - dependency-name: '@angular/*'

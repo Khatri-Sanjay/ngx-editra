@@ -11,6 +11,45 @@ async function accessibility(page: Page): Promise<unknown[]> {
 	});
 }
 
+test('live example copies the selected format and explains clipboard denial', async ({
+	page,
+	context,
+}) => {
+	await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+	await page.goto('/examples');
+	await page.getByRole('button', { name: 'JSON', exact: true }).click();
+	const source = page.getByRole('region', { name: 'Current document source' });
+	await expect(source).toContainText('"type": "doc"');
+	await page.getByRole('button', { name: 'Copy output', exact: true }).click();
+	await expect(page.getByRole('status')).toHaveText('Document output copied.');
+	// Native Windows clipboard text normalizes LF to CRLF.
+	expect((await page.evaluate(() => navigator.clipboard.readText())).replace(/\r\n/g, '\n')).toBe(
+		await source.textContent(),
+	);
+	await page.getByRole('button', { name: 'TEXT', exact: true }).click();
+	await expect(page.getByRole('status')).toBeEmpty();
+	await page.evaluate(() => {
+		Object.defineProperty(navigator.clipboard, 'writeText', {
+			value: () => Promise.reject(new Error('Denied')),
+		});
+	});
+	await page.getByRole('button', { name: 'Copy output', exact: true }).click();
+	await expect(page.getByRole('status')).toContainText('Copy unavailable');
+});
+
+test('mobile navigation closes with Escape and restores keyboard focus', async ({ page }) => {
+	await page.setViewportSize({ width: 390, height: 844 });
+	await page.goto('/');
+	const menu = page.getByRole('button', { name: 'Menu', exact: true });
+	await menu.click();
+	await page.getByRole('searchbox').fill('forms');
+	await page.getByRole('searchbox').press('Escape');
+	await expect(menu).toHaveAttribute('aria-expanded', 'false');
+	await expect(menu).toBeFocused();
+	await menu.click();
+	await expect(page.getByRole('searchbox')).toBeEmpty();
+});
+
 test('every documented guide has a prerendered page and code is copyable', async ({
 	page,
 	request,

@@ -18,7 +18,7 @@
 			rel="noopener noreferrer"
 			>GitHub</a
 		>
-		<a routerLink="/examples" class="header-demo"
+		<a routerLink="/examples" class="header-demo" (click)="closeMenu()"
 			>Try the editor <span aria-hidden="true">↗</span></a
 		><button
 			type="button"
@@ -29,6 +29,7 @@
 		>
 			{{ dark() ? '☀' : '◐' }}</button
 		><button
+			#menuButton
 			type="button"
 			class="mobile-toggle"
 			(click)="menuOpen.set(!menuOpen())"
@@ -43,8 +44,10 @@
 	<aside
 		id="documentation-navigation"
 		class="sidebar"
+		tabindex="-1"
 		[class.is-open]="menuOpen()"
 		aria-label="Documentation navigation"
+		(keydown.escape)="closeMenu(); menuButton.focus()"
 	>
 		<label class="search-label" for="guide-search">Search documentation</label>
 		<div class="search-box">

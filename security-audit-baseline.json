@@ -1,7 +1,7 @@
 {
 	"scope": "Private Angular 17 library compilation and tests only. Public apps use independent Angular 22 dependencies. These findings remain security debt, not resolved advisories.",
-	"reviewedAt": "2026-10-17",
-	"nextReview": "2026-11-17",
+	"reviewedAt": "2026-10-23",
+	"nextReview": "2026-11-22",
 	"findings": [
 		{
 			"name": "@angular-devkit/architect",
@@ -22,7 +22,6 @@
 				"@babel/core",
 				"@ngtools/webpack",
 				"@vitejs/plugin-basic-ssl",
-				"babel-plugin-istanbul",
 				"copy-webpack-plugin",
 				"esbuild",
 				"fast-glob",
@@ -108,6 +107,7 @@
 				"https://github.com/advisories/GHSA-39pv-4j6c-2g6v",
 				"https://github.com/advisories/GHSA-48r7-hpm6-gfxm",
 				"https://github.com/advisories/GHSA-58c5-g7wp-6w37",
+				"https://github.com/advisories/GHSA-jfgx-762w-99vr",
 				"https://github.com/advisories/GHSA-jhpw-976m-542j",
 				"https://github.com/advisories/GHSA-p297-fm68-3q8c",
 				"https://github.com/advisories/GHSA-p3vc-36g9-x9gr",
@@ -193,6 +193,7 @@
 				"https://github.com/advisories/GHSA-rfh7-fxqc-q52v",
 				"https://github.com/advisories/GHSA-v3p8-whq6-r5jg",
 				"https://github.com/advisories/GHSA-vpx6-8pjr-4g3v",
+				"https://github.com/advisories/GHSA-w739-gvwx-grc3",
 				"https://github.com/advisories/GHSA-xrxm-cp7j-8xf6"
 			]
 		},
@@ -201,12 +202,6 @@
 			"severity": "low",
 			"range": "<=7.29.0",
 			"advisories": ["https://github.com/advisories/GHSA-4x5r-pxfx-6jf8"]
-		},
-		{
-			"name": "@istanbuljs/load-nyc-config",
-			"severity": "moderate",
-			"range": "*",
-			"advisories": ["js-yaml"]
 		},
 		{
 			"name": "@ngtools/webpack",
@@ -297,18 +292,6 @@
 			"advisories": ["https://github.com/advisories/GHSA-2g4f-4pwh-qvx6"]
 		},
 		{
-			"name": "argparse",
-			"severity": "moderate",
-			"range": "1.0.0 - 1.0.10",
-			"advisories": ["sprintf-js"]
-		},
-		{
-			"name": "babel-plugin-istanbul",
-			"severity": "moderate",
-			"range": ">=6.0.0-beta.0",
-			"advisories": ["@istanbuljs/load-nyc-config"]
-		},
-		{
 			"name": "braces",
 			"severity": "high",
 			"range": "*",
@@ -371,12 +354,6 @@
 			"severity": "low",
 			"range": "3.0.0 - 8.2.6 || 9.0.0 - 9.3.7",
 			"advisories": ["external-editor"]
-		},
-		{
-			"name": "js-yaml",
-			"severity": "moderate",
-			"range": "3.2.7 - 3.15.2",
-			"advisories": ["argparse"]
 		},
 		{
 			"name": "karma",
@@ -514,12 +491,6 @@
 			"advisories": ["uuid"]
 		},
 		{
-			"name": "sprintf-js",
-			"severity": "moderate",
-			"range": "*",
-			"advisories": ["https://github.com/advisories/GHSA-hp3w-g68c-fv3c"]
-		},
-		{
 			"name": "tar",
 			"severity": "critical",
 			"range": "<=7.5.20",
@@ -562,11 +533,16 @@
 		{
 			"name": "vite",
 			"severity": "high",
-			"range": "<=6.4.2",
+			"range": "<=6.4.3",
 			"advisories": [
 				"esbuild",
 				"https://github.com/advisories/GHSA-4w7w-66w2-5vf9",
+				"https://github.com/advisories/GHSA-587h-7wmj-h5pm",
+				"https://github.com/advisories/GHSA-698v-4r3x-3vcv",
+				"https://github.com/advisories/GHSA-9jrq-w75r-8gcw",
 				"https://github.com/advisories/GHSA-fx2h-pf6j-xcff",
+				"https://github.com/advisories/GHSA-r825-w8mm-5pxw",
+				"https://github.com/advisories/GHSA-rq7h-c2jc-7f22",
 				"https://github.com/advisories/GHSA-v6wh-96g9-6wx3"
 			]
 		},
@@ -588,7 +564,7 @@
 		{
 			"name": "webpack-dev-server",
 			"severity": "high",
-			"range": "<=5.2.6",
+			"range": "<=5.2.7",
 			"advisories": [
 				"chokidar",
 				"https://github.com/advisories/GHSA-4v9v-hfq4-rm2v",

@@ -3,6 +3,7 @@ import { access, readFile } from 'node:fs/promises';
 import { dirname, resolve, delimiter } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createInterface } from 'node:readline/promises';
+import { verifyStableRelease } from './release-policy.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const flags = process.argv.slice(2);
@@ -43,7 +44,9 @@ async function main() {
 			'Set node20, node24 and browser in release.local.json. See release.config.example.json.',
 		);
 	const npm10 =
-		process.env.EDITRA_NPM_CLI ?? resolve(dirname(node20), 'node_modules/npm/bin/npm-cli.js');
+		process.env.EDITRA_NPM_CLI ??
+		local.npm10 ??
+		resolve(dirname(node20), 'node_modules/npm/bin/npm-cli.js');
 	const npm24 = resolve(root, 'artifacts/toolchains/npm24/node_modules/npm/bin/npm-cli.js');
 	const env = {
 		...process.env,
@@ -152,6 +155,7 @@ async function main() {
 		return;
 	}
 	await run(node20, ['scripts/verify-release.mjs']);
+	await verifyStableRelease(pkg.version, (args) => run(node20, args));
 	const account = await run(node20, [npm10, 'whoami', `--registry=${registry}`], true);
 	const response = await fetch(
 		`${registry}${encodeURIComponent(pkg.name)}/${encodeURIComponent(pkg.version)}`,
@@ -191,6 +195,7 @@ async function main() {
 		return;
 	}
 	await run(node20, ['scripts/verify-release.mjs']);
+	await verifyStableRelease(pkg.version, (args) => run(node20, args));
 	await run(node20, [
 		npm10,
 		'publish',

@@ -3,7 +3,7 @@
 This directory is workspace-only and is excluded from npm and public documentation.
 Automated tests do not establish real inbox, assistive-technology or independent-review results.
 
-Use `1.0.0.json` to record each actual result with reviewer, exact client/OS/version,
+Use the file matching the candidate version (`1.0.1.json`) to record each actual result with reviewer, exact client/OS/version,
 ISO test date and a screenshot/report location. Keep private messages, account details
 and customer content out of the repository. Use synthetic content from the playground.
 Leave unperformed checks pending; a plan or browser preview is not passing evidence.

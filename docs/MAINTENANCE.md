@@ -1,6 +1,6 @@
 # Maintenance policy
 
-Version 1.0.0 is being prepared as the first stable line. After publication, bug and
+Version 1.0.0 is published; 1.0.1 is the next patch candidate. Bug and
 security fixes target the current stable line; older snapshots have no separate
 maintenance branch or LTS promise. Stable releases follow semantic versioning:
 breaking public API changes require a major version and migration notes. Prereleases
@@ -40,6 +40,9 @@ range, severity and advisory URL in `security-audit-baseline.json`; these remain
 debt. New/changed advisories or an expired review deadline fail validation. Review each
 finding before explicitly refreshing the baseline with `--record-baseline`. Never use
 `npm audit fix --force` to upgrade the library compiler across Angular majors.
+The public apps override the Angular 22.2.3 builder's exact Vite dependency to
+8.3.5 for the patched development server. Remove this override when the Angular
+builder includes a patched Vite release, and rerun both app builds and audits.
 Use trusted source/dependencies and isolated build workers; do not expose legacy test
 servers or process untrusted build input. Compatibility with an old Angular version
 does not imply upstream framework security support.

@@ -5,6 +5,8 @@ import {
 	EditraContentDirective,
 	EditraHtmlPipe,
 	NgxEditraViewerComponent,
+	EditraEngine,
+	exportMarkdown,
 } from 'ngx-editra';
 import type { EditraConfig, EditraChange, EditraTheme } from 'ngx-editra';
 import { demoContent } from './data/demo-content';
@@ -62,6 +64,11 @@ export class PlaygroundComponent {
 	}
 	readonly compactConfig: EditraConfig = { toolbar: { hidden: true } };
 	selected: DocumentFormat = 'HTML';
+	private detachedOutput?: {
+		html: string;
+		config: EditraConfig;
+		values: Record<DocumentFormat, string>;
+	};
 	readOnly = false;
 	mounted = true;
 	emailOpen = false;
@@ -87,7 +94,24 @@ export class PlaygroundComponent {
 		else this.form.controls.body.enable();
 	}
 	output(): string {
-		if (!this.editor) return this.form.controls.body.value;
+		if (!this.editor || !this.mounted) {
+			const html = this.form.controls.body.value;
+			if (this.selected === 'HTML') return html;
+			if (this.detachedOutput?.html !== html || this.detachedOutput.config !== this.config) {
+				const model = new EditraEngine(this.config, html);
+				this.detachedOutput = {
+					html,
+					config: this.config,
+					values: {
+						HTML: html,
+						JSON: JSON.stringify(model.getJSON(), null, 2),
+						Text: model.getText(),
+						Markdown: exportMarkdown(model.state.doc),
+					},
+				};
+			}
+			return this.detachedOutput.values[this.selected];
+		}
 		switch (this.selected) {
 			case 'JSON':
 				return JSON.stringify(this.editor.getJSON(), null, 2);

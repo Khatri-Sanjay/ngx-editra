@@ -75,6 +75,25 @@
 		margin: 0;
 	}
 }
+.output-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px;
+	padding: 12px 20px;
+	border-top: 1px solid var(--line);
+	button {
+		min-height: 44px;
+		padding: 8px 12px;
+		border: 1px solid var(--line);
+		border-radius: 5px;
+		background: var(--surface);
+	}
+	p {
+		margin: 0;
+		font-size: 12px;
+	}
+}
 .output-tabs {
 	display: flex;
 	gap: 4px;
