@@ -6,8 +6,10 @@
 
 [npm](https://www.npmjs.com/package/ngx-editra) | [Documentation](https://ngx-editra-docs.vercel.app) | [Playground](https://ngx-editra-playground.vercel.app) | [Source](https://github.com/Khatri-Sanjay/ngx-editra) | [Issues](https://github.com/Khatri-Sanjay/ngx-editra/issues)
 
-Run `npm run package:sync` after publication to refresh the published version shared
-by both apps. The demo may use a newer development build, labelled separately.
+Published-version labels read npm's `latest` tag after page load, when the window
+regains focus, and every five minutes. Registry failures retain the last known
+version. Deployment refreshes the server-rendered fallback; `npm run package:sync`
+can refresh it locally. The demo build version remains labelled separately.
 
 Live site: https://ngx-editra-playground.vercel.app.
 

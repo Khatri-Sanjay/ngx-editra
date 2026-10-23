@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CodeExampleComponent } from '../../shared/components/code-example/code-example.component';
-import { packageInfo } from '../../content/generated/package-info';
+import { PublishedPackage } from '../../core/services/published-package.service';
 @Component({
 	selector: 'app-docs-home',
 	standalone: true,
@@ -10,7 +10,10 @@ import { packageInfo } from '../../content/generated/package-info';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
-	readonly package = packageInfo;
+	private readonly published = inject(PublishedPackage);
+	get package() {
+		return this.published.info();
+	}
 	readonly tasks = [
 		{
 			slug: 'features',

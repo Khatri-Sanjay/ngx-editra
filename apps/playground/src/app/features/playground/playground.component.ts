@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
 	NgxEditraComponent,
@@ -16,7 +16,7 @@ import { samples } from './data/samples';
 import { DocumentOutputComponent } from '../../shared/components/document-output/document-output.component';
 import type { DocumentFormat } from '../../shared/components/document-output/document-output.component';
 import { EmailExportComponent } from '../../shared/components/email-export/email-export.component';
-import { packageInfo } from '../../shared/data/package-info';
+import { PublishedPackage } from '../../shared/services/published-package.service';
 import { SignalFormsComponent } from '../../shared/components/signal-forms/signal-forms.component';
 
 @Component({
@@ -37,7 +37,10 @@ import { SignalFormsComponent } from '../../shared/components/signal-forms/signa
 	styleUrl: './playground.component.scss',
 })
 export class PlaygroundComponent {
-	readonly package = packageInfo;
+	private readonly published = inject(PublishedPackage);
+	get package() {
+		return this.published.info();
+	}
 	@ViewChild('editor') editor?: NgxEditraComponent;
 	initial = demoContent;
 	readonly samples = samples;

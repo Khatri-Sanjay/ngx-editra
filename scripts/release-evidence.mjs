@@ -27,6 +27,7 @@ const rootFiles = [
 	'.prettierignore',
 	'.editorconfig',
 	'.gitignore',
+	'.gitattributes',
 	'playwright.config.ts',
 	'playwright.docs.config.ts',
 	'README.md',

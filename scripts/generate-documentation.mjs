@@ -13,7 +13,7 @@ async function output(path, contents) {
 	} else await writeFile(path, contents);
 }
 
-// Registry metadata is refreshed explicitly; builds never depend on a live npm request.
+// This snapshot is the SSR/offline fallback. Browser labels refresh npm latest independently.
 const packageInfo = JSON.parse(await readFile('npm-package.json', 'utf8'));
 const libraryPackage = JSON.parse(await readFile('packages/ngx-editra/package.json', 'utf8'));
 packageInfo.developmentVersion = libraryPackage.version;

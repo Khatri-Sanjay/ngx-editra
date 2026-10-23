@@ -74,7 +74,8 @@ export class EditraCodeCopyDirective implements AfterViewInit, OnDestroy {
 		const code = wrapper?.querySelector('pre > code');
 		const status = wrapper?.querySelector('.editra-copy-status');
 		if (!code || !status) return;
-		clearTimeout(this.timers.get(button));
+		const timer = this.timers.get(button);
+		if (timer !== undefined) clearTimeout(timer);
 		try {
 			const clipboard = this.element.ownerDocument.defaultView?.navigator.clipboard;
 			if (!clipboard) throw new Error('Clipboard unavailable');

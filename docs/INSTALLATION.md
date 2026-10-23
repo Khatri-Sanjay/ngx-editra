@@ -20,11 +20,11 @@ The historical alpha.0 still uses narrower patch minimums. Check npm for release
 npm install ngx-editra
 ```
 
-This installs the release tagged `latest`, currently stable 1.0.0. The documentation
+This installs the release tagged `latest`. The documentation
 and playground may preview the next development patch; check their build label and
 the registry tags when comparing behavior.
 
-For a reproducible installation of the current published stable release:
+For a reproducible installation, pin a published version. For example:
 
 ```sh
 npm install ngx-editra@1.0.0

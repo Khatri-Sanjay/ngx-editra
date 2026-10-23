@@ -8,7 +8,8 @@ const response = await fetch(`https://registry.npmjs.org/${encodeURIComponent(in
 });
 if (!response.ok) throw new Error(`npm registry returned ${response.status}`);
 const metadata = await response.json();
-const version = metadata['dist-tags']?.[info.channel];
+info.channel = 'latest';
+const version = metadata['dist-tags']?.latest;
 if (metadata.name !== info.name || !metadata.versions?.[version])
 	throw new Error(`Missing published ${info.channel} release for ${info.name}`);
 info.publishedVersion = version;
