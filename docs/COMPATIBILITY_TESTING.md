@@ -10,7 +10,7 @@ The 1.0.0 peer range is `>=17.0.0 <23.0.0`: stable Angular 17–22 releases are 
 including Angular 22.1.2. Angular 16, Angular 23 and prerelease Angular versions
 are outside the range. All Angular peer packages in an application must use a
 consistent Angular version.
-The published alpha.0 retains its earlier, narrower patch minimums; installing it
+The historical alpha.0 retains its earlier, narrower patch minimums; installing it
 does not acquire the candidate's expanded range.
 
 | Angular line | Minimum boundary | Current locked fixture | Consumer runtime |

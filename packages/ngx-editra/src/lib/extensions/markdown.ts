@@ -28,6 +28,10 @@ export function exportMarkdown(doc: Node): string {
 				state.write(serializeHTML(node));
 				state.closeBlock(node);
 			},
+			content_columns: (state, node) => {
+				state.write(serializeHTML(node));
+				state.closeBlock(node);
+			},
 		},
 		{
 			...defaultMarkdownSerializer.marks,

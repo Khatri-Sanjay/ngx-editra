@@ -6,11 +6,11 @@ compatibility flags through PowerShell.
 
 ## Publish a stable version
 
-For a first stable release, set these fields in `packages/ngx-editra/package.json`:
+For the next stable patch release, set these fields in `packages/ngx-editra/package.json`:
 
 ```json
 {
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"publishConfig": {
 		"access": "public",
 		"registry": "https://registry.npmjs.org/",
@@ -52,6 +52,10 @@ This checkout already has a local configuration. On another machine, copy
 Node 20, Node 24 and Chrome/Edge. The local configuration is ignored by Git.
 The compilation baseline uses npm 10 beside Node 20; preparation installs pinned
 npm 11.6.2 under ignored artifacts for Angular 21/22 consumers when necessary.
+If npm 10 is installed separately, set the optional `npm10` path in
+`release.local.json` to its `npm-cli.js` entry point. `EDITRA_NPM_CLI` overrides it.
+The release check verifies executable versions; a path named Node 20 may point to
+a newer runtime after a system-wide upgrade.
 
 Open a terminal in the workspace root and check the configuration:
 
@@ -100,7 +104,7 @@ npm.cmd run release:publish
 
 The command checks evidence, npm login and version availability, then displays
 an npm dry run, account, package version, tag, archive and SHA-256. To publish,
-type the exact confirmation shown, for example `publish ngx-editra@1.0.0`.
+type the exact confirmation shown, for example `publish ngx-editra@1.0.1`.
 Any other response cancels. Complete npm's authentication prompt when requested.
 The command verifies evidence again before sending the tested archive to npm.
 It refuses noninteractive publication and has no automatic confirmation flag.

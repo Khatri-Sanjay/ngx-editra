@@ -49,6 +49,9 @@ Markdown guide links to app routes.
 The live example imports only public `ngx-editra` exports. Editor code is lazy-loaded when
 the examples route opens. Search indexes complete guide text and runs locally.
 Theme choice is saved locally when storage is available.
+The live example can copy the selected HTML, text, JSON or Markdown output, with
+manual-copy guidance when clipboard access is unavailable. Escape closes the mobile
+navigation and returns keyboard focus to its Menu button.
 
 ## Application architecture
 

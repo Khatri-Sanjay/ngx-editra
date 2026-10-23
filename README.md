@@ -7,8 +7,8 @@
 [npm](https://www.npmjs.com/package/ngx-editra) | [Documentation](https://ngx-editra-docs.vercel.app) | [Playground](https://ngx-editra-playground.vercel.app) | [Source](https://github.com/Khatri-Sanjay/ngx-editra) | [Issues](https://github.com/Khatri-Sanjay/ngx-editra/issues)
 
 Source repository for **ngx-editra**, a standalone Angular rich-text editor, its
-playground, and its documentation website. `0.1.0-alpha.0` is published on npm;
-the first stable release, `1.0.0`, is in preparation.
+playground, and its documentation website. `1.0.0` is published on npm;
+the patch release, `1.0.1`, is in preparation.
 
 Install from the default npm channel with `npm install ngx-editra`. See
 [package information](docs/PACKAGE.md) for release channels and download statistics.

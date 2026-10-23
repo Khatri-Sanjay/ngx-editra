@@ -1,0 +1,60 @@
+{
+	"version": "1.0.1",
+	"note": "Owner-run acceptance evidence. Pending entries are not verified and must never be inferred from browser automation.",
+	"checks": [
+		{
+			"id": "gmail",
+			"task": "Gmail web and mobile: narrow screens, dark mode, blocked images, tables and links",
+			"status": "pending",
+			"reviewer": "",
+			"clientVersion": "",
+			"testedAt": "",
+			"evidence": ""
+		},
+		{
+			"id": "outlook",
+			"task": "Classic Outlook Windows and new Outlook/web: tables, spacing, images and plain text",
+			"status": "pending",
+			"reviewer": "",
+			"clientVersion": "",
+			"testedAt": "",
+			"evidence": ""
+		},
+		{
+			"id": "apple-mail",
+			"task": "Apple Mail macOS and iOS: layout, dark mode, images and links",
+			"status": "pending",
+			"reviewer": "",
+			"clientVersion": "",
+			"testedAt": "",
+			"evidence": ""
+		},
+		{
+			"id": "screen-reader",
+			"task": "NVDA/Chrome and VoiceOver/Safari: toolbar, editing, dialogs, counts and saved-content navigation",
+			"status": "pending",
+			"reviewer": "",
+			"clientVersion": "",
+			"testedAt": "",
+			"evidence": ""
+		},
+		{
+			"id": "high-contrast",
+			"task": "Windows High Contrast: focus, selected states, palettes, tables and fullscreen",
+			"status": "pending",
+			"reviewer": "",
+			"clientVersion": "",
+			"testedAt": "",
+			"evidence": ""
+		},
+		{
+			"id": "independent-review",
+			"task": "Independent application/security review of HTML policies, trusted extensions and deployment boundaries",
+			"status": "pending",
+			"reviewer": "",
+			"clientVersion": "",
+			"testedAt": "",
+			"evidence": ""
+		}
+	]
+}
