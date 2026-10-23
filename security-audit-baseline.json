@@ -1,13 +1,15 @@
 {
 	"scope": "Private Angular 17 library compilation and tests only. Public apps use independent Angular 22 dependencies. These findings remain security debt, not resolved advisories.",
-	"reviewedAt": "2026-10-17",
-	"nextReview": "2026-11-17",
+	"reviewedAt": "2026-10-23",
+	"nextReview": "2026-11-22",
 	"findings": [
 		{
 			"name": "@angular-devkit/architect",
 			"severity": "moderate",
 			"range": "0.1000.0-next.0 - 0.1000.0-rc.1 || 0.1200.0-next.0 - 0.1902.21 || 0.2000.0-next.0 - 0.2003.17 || 0.2100.0-next.0 - 0.2101.4 || 0.2102.0-next.0 - 0.2102.0-rc.2",
-			"advisories": ["@angular-devkit/core"]
+			"advisories": [
+				"@angular-devkit/core"
+			]
 		},
 		{
 			"name": "@angular-devkit/build-angular",
@@ -22,7 +24,6 @@
 				"@babel/core",
 				"@ngtools/webpack",
 				"@vitejs/plugin-basic-ssl",
-				"babel-plugin-istanbul",
 				"copy-webpack-plugin",
 				"esbuild",
 				"fast-glob",
@@ -44,25 +45,37 @@
 			"name": "@angular-devkit/build-webpack",
 			"severity": "moderate",
 			"range": "<=0.1902.21 || 0.2000.0-next.0 - 0.2003.17 || 0.2100.0-next.0 - 0.2101.4 || 0.2102.0-next.0 - 0.2102.0-rc.2",
-			"advisories": ["@angular-devkit/architect", "webpack-dev-server"]
+			"advisories": [
+				"@angular-devkit/architect",
+				"webpack-dev-server"
+			]
 		},
 		{
 			"name": "@angular-devkit/core",
 			"severity": "high",
 			"range": "0.5.11 - 8.0.0-rc.4 || 12.0.0-next.0 - 19.2.22 || 20.0.0-next.0 - 20.3.21 || 21.0.0-next.0 - 21.2.4 || 22.0.0-next.0 - 22.0.0-rc.3",
-			"advisories": ["ajv", "chokidar", "picomatch"]
+			"advisories": [
+				"ajv",
+				"chokidar",
+				"picomatch"
+			]
 		},
 		{
 			"name": "@angular-devkit/schematics",
 			"severity": "moderate",
 			"range": "12.0.0-next.0 - 19.2.21 || 20.0.0-next.0 - 20.3.17 || 21.0.0-next.0 - 21.1.4 || 21.2.0-next.0 - 21.2.0-rc.2",
-			"advisories": ["@angular-devkit/core"]
+			"advisories": [
+				"@angular-devkit/core"
+			]
 		},
 		{
 			"name": "@angular-eslint/eslint-plugin",
 			"severity": "high",
 			"range": "13.5.1-alpha.0 - 18.0.0",
-			"advisories": ["@angular-eslint/utils", "@typescript-eslint/utils"]
+			"advisories": [
+				"@angular-eslint/utils",
+				"@typescript-eslint/utils"
+			]
 		},
 		{
 			"name": "@angular-eslint/eslint-plugin-template",
@@ -78,13 +91,17 @@
 			"name": "@angular-eslint/utils",
 			"severity": "high",
 			"range": "13.5.1-alpha.0 - 18.0.0",
-			"advisories": ["@typescript-eslint/utils"]
+			"advisories": [
+				"@typescript-eslint/utils"
+			]
 		},
 		{
 			"name": "@angular/animations",
 			"severity": "moderate",
 			"range": "<=19.2.25",
-			"advisories": ["@angular/core"]
+			"advisories": [
+				"@angular/core"
+			]
 		},
 		{
 			"name": "@angular/cli",
@@ -108,6 +125,7 @@
 				"https://github.com/advisories/GHSA-39pv-4j6c-2g6v",
 				"https://github.com/advisories/GHSA-48r7-hpm6-gfxm",
 				"https://github.com/advisories/GHSA-58c5-g7wp-6w37",
+				"https://github.com/advisories/GHSA-jfgx-762w-99vr",
 				"https://github.com/advisories/GHSA-jhpw-976m-542j",
 				"https://github.com/advisories/GHSA-p297-fm68-3q8c",
 				"https://github.com/advisories/GHSA-p3vc-36g9-x9gr",
@@ -133,7 +151,11 @@
 			"name": "@angular/compiler-cli",
 			"severity": "high",
 			"range": "<=20.3.25 || 21.0.0-next.0 - 21.2.17 || 22.0.0-next.0 - 22.0.2",
-			"advisories": ["@angular/compiler", "@babel/core", "chokidar"]
+			"advisories": [
+				"@angular/compiler",
+				"@babel/core",
+				"chokidar"
+			]
 		},
 		{
 			"name": "@angular/core",
@@ -154,13 +176,21 @@
 			"name": "@angular/forms",
 			"severity": "moderate",
 			"range": "<=19.2.25",
-			"advisories": ["@angular/common", "@angular/core", "@angular/platform-browser"]
+			"advisories": [
+				"@angular/common",
+				"@angular/core",
+				"@angular/platform-browser"
+			]
 		},
 		{
 			"name": "@angular/platform-browser",
 			"severity": "moderate",
 			"range": "<=19.2.25",
-			"advisories": ["@angular/animations", "@angular/common", "@angular/core"]
+			"advisories": [
+				"@angular/animations",
+				"@angular/common",
+				"@angular/core"
+			]
 		},
 		{
 			"name": "@angular/platform-browser-dynamic",
@@ -193,6 +223,7 @@
 				"https://github.com/advisories/GHSA-rfh7-fxqc-q52v",
 				"https://github.com/advisories/GHSA-v3p8-whq6-r5jg",
 				"https://github.com/advisories/GHSA-vpx6-8pjr-4g3v",
+				"https://github.com/advisories/GHSA-w739-gvwx-grc3",
 				"https://github.com/advisories/GHSA-xrxm-cp7j-8xf6"
 			]
 		},
@@ -200,55 +231,67 @@
 			"name": "@babel/core",
 			"severity": "low",
 			"range": "<=7.29.0",
-			"advisories": ["https://github.com/advisories/GHSA-4x5r-pxfx-6jf8"]
-		},
-		{
-			"name": "@istanbuljs/load-nyc-config",
-			"severity": "moderate",
-			"range": "*",
-			"advisories": ["js-yaml"]
+			"advisories": [
+				"https://github.com/advisories/GHSA-4x5r-pxfx-6jf8"
+			]
 		},
 		{
 			"name": "@ngtools/webpack",
 			"severity": "low",
 			"range": "16.0.0-next.0 - 19.2.27",
-			"advisories": ["@angular/compiler-cli"]
+			"advisories": [
+				"@angular/compiler-cli"
+			]
 		},
 		{
 			"name": "@npmcli/run-script",
 			"severity": "high",
 			"range": "1.1.1 - 9.0.1",
-			"advisories": ["node-gyp"]
+			"advisories": [
+				"node-gyp"
+			]
 		},
 		{
 			"name": "@schematics/angular",
 			"severity": "moderate",
 			"range": "12.0.0-next.0 - 19.2.21 || 20.0.0-next.0 - 20.3.17 || 21.0.0-next.0 - 21.1.4 || 21.2.0-next.0 - 21.2.0-rc.2",
-			"advisories": ["@angular-devkit/core", "@angular-devkit/schematics"]
+			"advisories": [
+				"@angular-devkit/core",
+				"@angular-devkit/schematics"
+			]
 		},
 		{
 			"name": "@sigstore/core",
 			"severity": "moderate",
 			"range": "<=3.2.0",
-			"advisories": ["https://github.com/advisories/GHSA-jfc7-64v2-mr8c"]
+			"advisories": [
+				"https://github.com/advisories/GHSA-jfc7-64v2-mr8c"
+			]
 		},
 		{
 			"name": "@sigstore/sign",
 			"severity": "high",
 			"range": "<=3.1.0",
-			"advisories": ["@sigstore/core", "make-fetch-happen"]
+			"advisories": [
+				"@sigstore/core",
+				"make-fetch-happen"
+			]
 		},
 		{
 			"name": "@sigstore/tuf",
 			"severity": "high",
 			"range": "<=2.3.4",
-			"advisories": ["tuf-js"]
+			"advisories": [
+				"tuf-js"
+			]
 		},
 		{
 			"name": "@sigstore/verify",
 			"severity": "moderate",
 			"range": "<=2.1.1",
-			"advisories": ["@sigstore/core"]
+			"advisories": [
+				"@sigstore/core"
+			]
 		},
 		{
 			"name": "@typescript-eslint/eslint-plugin",
@@ -264,97 +307,116 @@
 			"name": "@typescript-eslint/parser",
 			"severity": "high",
 			"range": "3.10.2-alpha.0 - 8.2.1-alpha.25",
-			"advisories": ["@typescript-eslint/typescript-estree"]
+			"advisories": [
+				"@typescript-eslint/typescript-estree"
+			]
 		},
 		{
 			"name": "@typescript-eslint/type-utils",
 			"severity": "high",
 			"range": "5.9.2-alpha.0 - 8.2.1-alpha.25",
-			"advisories": ["@typescript-eslint/typescript-estree", "@typescript-eslint/utils"]
+			"advisories": [
+				"@typescript-eslint/typescript-estree",
+				"@typescript-eslint/utils"
+			]
 		},
 		{
 			"name": "@typescript-eslint/typescript-estree",
 			"severity": "high",
 			"range": "3.10.2-alpha.0 - 8.2.1-alpha.25",
-			"advisories": ["globby"]
+			"advisories": [
+				"globby"
+			]
 		},
 		{
 			"name": "@typescript-eslint/utils",
 			"severity": "high",
 			"range": "<=8.2.1-alpha.25",
-			"advisories": ["@typescript-eslint/typescript-estree"]
+			"advisories": [
+				"@typescript-eslint/typescript-estree"
+			]
 		},
 		{
 			"name": "@vitejs/plugin-basic-ssl",
 			"severity": "moderate",
 			"range": "<=1.1.0",
-			"advisories": ["vite"]
+			"advisories": [
+				"vite"
+			]
 		},
 		{
 			"name": "ajv",
 			"severity": "moderate",
 			"range": "7.0.0-alpha.0 - 8.17.1",
-			"advisories": ["https://github.com/advisories/GHSA-2g4f-4pwh-qvx6"]
-		},
-		{
-			"name": "argparse",
-			"severity": "moderate",
-			"range": "1.0.0 - 1.0.10",
-			"advisories": ["sprintf-js"]
-		},
-		{
-			"name": "babel-plugin-istanbul",
-			"severity": "moderate",
-			"range": ">=6.0.0-beta.0",
-			"advisories": ["@istanbuljs/load-nyc-config"]
+			"advisories": [
+				"https://github.com/advisories/GHSA-2g4f-4pwh-qvx6"
+			]
 		},
 		{
 			"name": "braces",
 			"severity": "high",
 			"range": "*",
-			"advisories": ["https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"]
+			"advisories": [
+				"https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"
+			]
 		},
 		{
 			"name": "cacache",
 			"severity": "high",
 			"range": "14.0.0 - 18.0.4",
-			"advisories": ["tar"]
+			"advisories": [
+				"tar"
+			]
 		},
 		{
 			"name": "chokidar",
 			"severity": "high",
 			"range": "2.0.0 - 3.6.0",
-			"advisories": ["braces"]
+			"advisories": [
+				"braces"
+			]
 		},
 		{
 			"name": "copy-webpack-plugin",
 			"severity": "high",
 			"range": "6.0.0 - 13.0.1",
-			"advisories": ["fast-glob", "globby", "serialize-javascript"]
+			"advisories": [
+				"fast-glob",
+				"globby",
+				"serialize-javascript"
+			]
 		},
 		{
 			"name": "esbuild",
 			"severity": "moderate",
 			"range": "<=0.24.2",
-			"advisories": ["https://github.com/advisories/GHSA-67mh-4wv8-2f99"]
+			"advisories": [
+				"https://github.com/advisories/GHSA-67mh-4wv8-2f99"
+			]
 		},
 		{
 			"name": "external-editor",
 			"severity": "low",
 			"range": ">=1.1.1",
-			"advisories": ["tmp"]
+			"advisories": [
+				"tmp"
+			]
 		},
 		{
 			"name": "fast-glob",
 			"severity": "high",
 			"range": "*",
-			"advisories": ["micromatch"]
+			"advisories": [
+				"micromatch"
+			]
 		},
 		{
 			"name": "globby",
 			"severity": "high",
 			"range": ">=8.0.0",
-			"advisories": ["fast-glob"]
+			"advisories": [
+				"fast-glob"
+			]
 		},
 		{
 			"name": "http-proxy-middleware",
@@ -370,67 +432,88 @@
 			"name": "inquirer",
 			"severity": "low",
 			"range": "3.0.0 - 8.2.6 || 9.0.0 - 9.3.7",
-			"advisories": ["external-editor"]
-		},
-		{
-			"name": "js-yaml",
-			"severity": "moderate",
-			"range": "3.2.7 - 3.15.2",
-			"advisories": ["argparse"]
+			"advisories": [
+				"external-editor"
+			]
 		},
 		{
 			"name": "karma",
 			"severity": "high",
 			"range": ">=2.0.3",
-			"advisories": ["braces", "chokidar"]
+			"advisories": [
+				"braces",
+				"chokidar"
+			]
 		},
 		{
 			"name": "karma-jasmine",
 			"severity": "high",
 			"range": ">=5.0.0",
-			"advisories": ["karma"]
+			"advisories": [
+				"karma"
+			]
 		},
 		{
 			"name": "karma-jasmine-html-reporter",
 			"severity": "high",
 			"range": ">=2.0.0",
-			"advisories": ["karma", "karma-jasmine"]
+			"advisories": [
+				"karma",
+				"karma-jasmine"
+			]
 		},
 		{
 			"name": "make-fetch-happen",
 			"severity": "high",
 			"range": "7.1.1 - 14.0.0",
-			"advisories": ["cacache"]
+			"advisories": [
+				"cacache"
+			]
 		},
 		{
 			"name": "micromatch",
 			"severity": "high",
 			"range": ">=0.2.0",
-			"advisories": ["braces"]
+			"advisories": [
+				"braces"
+			]
 		},
 		{
 			"name": "ng-packagr",
 			"severity": "high",
 			"range": "4.0.0-rc.0 - 20.0.0-rc.2",
-			"advisories": ["@angular/compiler-cli", "cacache", "chokidar", "esbuild", "fast-glob"]
+			"advisories": [
+				"@angular/compiler-cli",
+				"cacache",
+				"chokidar",
+				"esbuild",
+				"fast-glob"
+			]
 		},
 		{
 			"name": "node-forge",
 			"severity": "high",
 			"range": "*",
-			"advisories": ["https://github.com/advisories/GHSA-86w9-cpqp-85rv"]
+			"advisories": [
+				"https://github.com/advisories/GHSA-86w9-cpqp-85rv"
+			]
 		},
 		{
 			"name": "node-gyp",
 			"severity": "high",
 			"range": "<=10.3.1",
-			"advisories": ["make-fetch-happen", "tar"]
+			"advisories": [
+				"make-fetch-happen",
+				"tar"
+			]
 		},
 		{
 			"name": "npm-registry-fetch",
 			"severity": "high",
 			"range": "7.0.0 - 18.0.0",
-			"advisories": ["make-fetch-happen"]
+			"advisories": [
+				"make-fetch-happen"
+			]
 		},
 		{
 			"name": "pacote",
@@ -478,13 +561,17 @@
 			"name": "sass",
 			"severity": "high",
 			"range": "1.6.0 - 1.78.0",
-			"advisories": ["chokidar"]
+			"advisories": [
+				"chokidar"
+			]
 		},
 		{
 			"name": "selfsigned",
 			"severity": "high",
 			"range": "1.1.1 - 4.0.1",
-			"advisories": ["node-forge"]
+			"advisories": [
+				"node-forge"
+			]
 		},
 		{
 			"name": "serialize-javascript",
@@ -511,13 +598,9 @@
 			"name": "sockjs",
 			"severity": "moderate",
 			"range": ">=0.3.17",
-			"advisories": ["uuid"]
-		},
-		{
-			"name": "sprintf-js",
-			"severity": "moderate",
-			"range": "*",
-			"advisories": ["https://github.com/advisories/GHSA-hp3w-g68c-fv3c"]
+			"advisories": [
+				"uuid"
+			]
 		},
 		{
 			"name": "tar",
@@ -551,22 +634,31 @@
 			"name": "tuf-js",
 			"severity": "high",
 			"range": "<=2.2.1",
-			"advisories": ["make-fetch-happen"]
+			"advisories": [
+				"make-fetch-happen"
+			]
 		},
 		{
 			"name": "uuid",
 			"severity": "moderate",
 			"range": "<11.1.1",
-			"advisories": ["https://github.com/advisories/GHSA-w5hq-g745-h8pq"]
+			"advisories": [
+				"https://github.com/advisories/GHSA-w5hq-g745-h8pq"
+			]
 		},
 		{
 			"name": "vite",
 			"severity": "high",
-			"range": "<=6.4.2",
+			"range": "<=6.4.3",
 			"advisories": [
 				"esbuild",
 				"https://github.com/advisories/GHSA-4w7w-66w2-5vf9",
+				"https://github.com/advisories/GHSA-587h-7wmj-h5pm",
+				"https://github.com/advisories/GHSA-698v-4r3x-3vcv",
+				"https://github.com/advisories/GHSA-9jrq-w75r-8gcw",
 				"https://github.com/advisories/GHSA-fx2h-pf6j-xcff",
+				"https://github.com/advisories/GHSA-r825-w8mm-5pxw",
+				"https://github.com/advisories/GHSA-rq7h-c2jc-7f22",
 				"https://github.com/advisories/GHSA-v6wh-96g9-6wx3"
 			]
 		},
@@ -583,12 +675,14 @@
 			"name": "webpack-dev-middleware",
 			"severity": "high",
 			"range": "<7.4.5",
-			"advisories": ["https://github.com/advisories/GHSA-g84c-rxfj-3j2c"]
+			"advisories": [
+				"https://github.com/advisories/GHSA-g84c-rxfj-3j2c"
+			]
 		},
 		{
 			"name": "webpack-dev-server",
 			"severity": "high",
-			"range": "<=5.2.6",
+			"range": "<=5.2.7",
 			"advisories": [
 				"chokidar",
 				"https://github.com/advisories/GHSA-4v9v-hfq4-rm2v",
