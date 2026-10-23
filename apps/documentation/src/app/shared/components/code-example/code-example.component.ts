@@ -27,18 +27,18 @@ export class CodeExampleComponent implements OnChanges {
 	constructor() {
 		inject(DestroyRef).onDestroy(() => {
 			this.revision++;
-			clearTimeout(this.timer);
+			if (this.timer !== undefined) clearTimeout(this.timer);
 		});
 	}
 	ngOnChanges(): void {
 		this.revision++;
-		clearTimeout(this.timer);
+		if (this.timer !== undefined) clearTimeout(this.timer);
 		this.state.set('idle');
 	}
 	async copy(): Promise<void> {
 		if (this.state() === 'copying') return;
 		const revision = this.revision;
-		clearTimeout(this.timer);
+		if (this.timer !== undefined) clearTimeout(this.timer);
 		this.state.set('copying');
 		try {
 			const clipboard = this.document.defaultView?.navigator.clipboard;

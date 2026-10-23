@@ -2,6 +2,17 @@ import { test, expect } from '@playwright/test';
 import { resolve } from 'node:path';
 import type { Page } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
+import { publishedVersionTests } from './published-version';
+
+publishedVersionTests(
+	[
+		'.site-header .version',
+		'.sidebar-version',
+		'.home-page > p:has(a[href="https://www.npmjs.com/package/ngx-editra"])',
+	],
+	'.home-page > p:has(a[href="https://www.npmjs.com/package/ngx-editra"])',
+	'previews development version',
+);
 
 async function accessibility(page: Page): Promise<unknown[]> {
 	await page.addScriptTag({ path: resolve('node_modules/axe-core/axe.min.js') });
@@ -401,7 +412,7 @@ test('fullscreen covers the viewport without exposing the surrounding page', asy
 		const bounds = await editor.boundingBox();
 		expect(bounds).toEqual({ x: 0, y: 0, width, height: 900 });
 		const coverage = await editor.evaluate((host) => {
-			const points = [
+			const points: [number, number][] = [
 				[1, 1],
 				[innerWidth - 2, 1],
 				[1, innerHeight - 2],

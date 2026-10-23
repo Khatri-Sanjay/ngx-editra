@@ -1,4 +1,7 @@
 import { test, expect } from '@playwright/test';
+import { publishedVersionTests } from './published-version';
+
+publishedVersionTests(['.package-links > a:first-child'], 'footer > span', 'Demo build');
 
 test('sample documents, reset, source formats and copying work together', async ({ page }) => {
 	await page.goto('/');

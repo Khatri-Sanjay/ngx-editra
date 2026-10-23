@@ -18,7 +18,10 @@ not unique users or downloads of a specific version.
 
 ## Versions and channels
 
-Version `1.0.0` is published on `latest`; `1.0.1` is the development candidate.
+The documentation and playground check npm's `latest` release after loading,
+when the window regains focus, and every five minutes. If npm is unavailable,
+they retain the last known version. The demo build label identifies the actual
+website code and updates when that site is rebuilt.
 `next` is the prerelease channel. `latest` is a registry tag; it does not guarantee
 a stable release. Check the registry before choosing a version:
 

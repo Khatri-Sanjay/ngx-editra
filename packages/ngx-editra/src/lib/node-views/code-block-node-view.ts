@@ -86,7 +86,7 @@ export class CodeBlockNodeView implements NodeView {
 			if (this.destroyed) return;
 			this.status.textContent = 'Unable to copy. Select the code and copy manually.';
 		}
-		clearTimeout(this.timer);
+		if (this.timer !== undefined) clearTimeout(this.timer);
 		this.timer = setTimeout(() => {
 			this.setCopyState(false);
 			this.status.textContent = '';
@@ -145,7 +145,7 @@ export class CodeBlockNodeView implements NodeView {
 	}
 	destroy(): void {
 		this.destroyed = true;
-		clearTimeout(this.timer);
+		if (this.timer !== undefined) clearTimeout(this.timer);
 		this.button.removeEventListener('click', this.onCopy);
 		this.language.removeEventListener('change', this.changeLanguage);
 	}
