@@ -2,6 +2,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { format, resolveConfig } from 'prettier';
 const execute = promisify(execFile);
 const baselinePath = 'security-audit-baseline.json';
 const record = process.argv.includes('--record-baseline');
@@ -66,16 +67,18 @@ for (const target of ['workspace', 'playground', 'documentation']) {
 		if (record)
 			await writeFile(
 				baselinePath,
-				JSON.stringify(
-					{
+				await format(
+					JSON.stringify({
 						scope: 'Private Angular 17 library compilation and tests only. Public apps use independent Angular 22 dependencies. These findings remain security debt, not resolved advisories.',
 						reviewedAt: new Date().toISOString().slice(0, 10),
 						nextReview: new Date(Date.now() + 30 * 86400000).toISOString().slice(0, 10),
 						findings,
+					}),
+					{
+						...(await resolveConfig(baselinePath, { editorconfig: true })),
+						filepath: baselinePath,
 					},
-					null,
-					'\t',
-				) + '\n',
+				),
 			);
 		const baseline = JSON.parse(await readFile(baselinePath, 'utf8'));
 		const known = new Set(baseline.findings.map((item) => JSON.stringify(item)));

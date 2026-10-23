@@ -12,7 +12,7 @@
 		{
 			"name": "@angular-devkit/build-angular",
 			"severity": "high",
-			"range": "*",
+			"range": "<=21.2.19 || 22.0.0-next.0 - 22.1.2",
 			"advisories": [
 				"@angular-devkit/architect",
 				"@angular-devkit/build-webpack",
@@ -24,15 +24,12 @@
 				"@vitejs/plugin-basic-ssl",
 				"copy-webpack-plugin",
 				"esbuild",
-				"fast-glob",
 				"http-proxy-middleware",
 				"inquirer",
-				"karma",
 				"ng-packagr",
 				"picomatch",
 				"piscina",
 				"postcss",
-				"sass",
 				"vite",
 				"webpack",
 				"webpack-dev-middleware",
@@ -47,37 +44,15 @@
 		},
 		{
 			"name": "@angular-devkit/core",
-			"severity": "high",
-			"range": "0.5.11 - 8.0.0-rc.4 || 12.0.0-next.0 - 19.2.22 || 20.0.0-next.0 - 20.3.21 || 21.0.0-next.0 - 21.2.4 || 22.0.0-next.0 - 22.0.0-rc.3",
-			"advisories": ["ajv", "chokidar", "picomatch"]
+			"severity": "moderate",
+			"range": "12.0.0-next.0 - 19.2.22 || 20.0.0-next.0 - 20.3.21 || 21.0.0-next.0 - 21.2.4 || 22.0.0-next.0 - 22.0.0-rc.3",
+			"advisories": ["ajv", "picomatch"]
 		},
 		{
 			"name": "@angular-devkit/schematics",
 			"severity": "moderate",
 			"range": "12.0.0-next.0 - 19.2.21 || 20.0.0-next.0 - 20.3.17 || 21.0.0-next.0 - 21.1.4 || 21.2.0-next.0 - 21.2.0-rc.2",
 			"advisories": ["@angular-devkit/core"]
-		},
-		{
-			"name": "@angular-eslint/eslint-plugin",
-			"severity": "high",
-			"range": "13.5.1-alpha.0 - 18.0.0",
-			"advisories": ["@angular-eslint/utils", "@typescript-eslint/utils"]
-		},
-		{
-			"name": "@angular-eslint/eslint-plugin-template",
-			"severity": "high",
-			"range": "13.5.1-alpha.0 - 18.0.0",
-			"advisories": [
-				"@angular-eslint/utils",
-				"@typescript-eslint/type-utils",
-				"@typescript-eslint/utils"
-			]
-		},
-		{
-			"name": "@angular-eslint/utils",
-			"severity": "high",
-			"range": "13.5.1-alpha.0 - 18.0.0",
-			"advisories": ["@typescript-eslint/utils"]
 		},
 		{
 			"name": "@angular/animations",
@@ -131,9 +106,9 @@
 		},
 		{
 			"name": "@angular/compiler-cli",
-			"severity": "high",
+			"severity": "moderate",
 			"range": "<=20.3.25 || 21.0.0-next.0 - 21.2.17 || 22.0.0-next.0 - 22.0.2",
-			"advisories": ["@angular/compiler", "@babel/core", "chokidar"]
+			"advisories": ["@angular/compiler", "@babel/core"]
 		},
 		{
 			"name": "@angular/core",
@@ -246,40 +221,6 @@
 			"advisories": ["@sigstore/core"]
 		},
 		{
-			"name": "@typescript-eslint/eslint-plugin",
-			"severity": "high",
-			"range": "4.0.1-alpha.0 - 8.2.1-alpha.25",
-			"advisories": [
-				"@typescript-eslint/parser",
-				"@typescript-eslint/type-utils",
-				"@typescript-eslint/utils"
-			]
-		},
-		{
-			"name": "@typescript-eslint/parser",
-			"severity": "high",
-			"range": "3.10.2-alpha.0 - 8.2.1-alpha.25",
-			"advisories": ["@typescript-eslint/typescript-estree"]
-		},
-		{
-			"name": "@typescript-eslint/type-utils",
-			"severity": "high",
-			"range": "5.9.2-alpha.0 - 8.2.1-alpha.25",
-			"advisories": ["@typescript-eslint/typescript-estree", "@typescript-eslint/utils"]
-		},
-		{
-			"name": "@typescript-eslint/typescript-estree",
-			"severity": "high",
-			"range": "3.10.2-alpha.0 - 8.2.1-alpha.25",
-			"advisories": ["globby"]
-		},
-		{
-			"name": "@typescript-eslint/utils",
-			"severity": "high",
-			"range": "<=8.2.1-alpha.25",
-			"advisories": ["@typescript-eslint/typescript-estree"]
-		},
-		{
 			"name": "@vitejs/plugin-basic-ssl",
 			"severity": "moderate",
 			"range": "<=1.1.0",
@@ -292,28 +233,16 @@
 			"advisories": ["https://github.com/advisories/GHSA-2g4f-4pwh-qvx6"]
 		},
 		{
-			"name": "braces",
-			"severity": "high",
-			"range": "*",
-			"advisories": ["https://github.com/advisories/GHSA-vfj7-8cjw-p6xm"]
-		},
-		{
 			"name": "cacache",
 			"severity": "high",
 			"range": "14.0.0 - 18.0.4",
 			"advisories": ["tar"]
 		},
 		{
-			"name": "chokidar",
-			"severity": "high",
-			"range": "2.0.0 - 3.6.0",
-			"advisories": ["braces"]
-		},
-		{
 			"name": "copy-webpack-plugin",
-			"severity": "high",
-			"range": "6.0.0 - 13.0.1",
-			"advisories": ["fast-glob", "globby", "serialize-javascript"]
+			"severity": "moderate",
+			"range": "6.1.1 - 13.0.1",
+			"advisories": ["serialize-javascript"]
 		},
 		{
 			"name": "esbuild",
@@ -321,32 +250,14 @@
 			"range": "<=0.24.2",
 			"advisories": ["https://github.com/advisories/GHSA-67mh-4wv8-2f99"]
 		},
-		{
-			"name": "external-editor",
-			"severity": "low",
-			"range": ">=1.1.1",
-			"advisories": ["tmp"]
-		},
-		{
-			"name": "fast-glob",
-			"severity": "high",
-			"range": "*",
-			"advisories": ["micromatch"]
-		},
-		{
-			"name": "globby",
-			"severity": "high",
-			"range": ">=8.0.0",
-			"advisories": ["fast-glob"]
-		},
+		{ "name": "external-editor", "severity": "low", "range": ">=1.1.1", "advisories": ["tmp"] },
 		{
 			"name": "http-proxy-middleware",
-			"severity": "high",
-			"range": ">=0.3.0",
+			"severity": "moderate",
+			"range": "0.16.0 - 2.0.10-beta.0",
 			"advisories": [
 				"https://github.com/advisories/GHSA-64mm-vxmg-q3vj",
-				"https://github.com/advisories/GHSA-9gqv-wp59-fq42",
-				"micromatch"
+				"https://github.com/advisories/GHSA-9gqv-wp59-fq42"
 			]
 		},
 		{
@@ -356,40 +267,16 @@
 			"advisories": ["external-editor"]
 		},
 		{
-			"name": "karma",
-			"severity": "high",
-			"range": ">=2.0.3",
-			"advisories": ["braces", "chokidar"]
-		},
-		{
-			"name": "karma-jasmine",
-			"severity": "high",
-			"range": ">=5.0.0",
-			"advisories": ["karma"]
-		},
-		{
-			"name": "karma-jasmine-html-reporter",
-			"severity": "high",
-			"range": ">=2.0.0",
-			"advisories": ["karma", "karma-jasmine"]
-		},
-		{
 			"name": "make-fetch-happen",
 			"severity": "high",
 			"range": "7.1.1 - 14.0.0",
 			"advisories": ["cacache"]
 		},
 		{
-			"name": "micromatch",
-			"severity": "high",
-			"range": ">=0.2.0",
-			"advisories": ["braces"]
-		},
-		{
 			"name": "ng-packagr",
 			"severity": "high",
-			"range": "4.0.0-rc.0 - 20.0.0-rc.2",
-			"advisories": ["@angular/compiler-cli", "cacache", "chokidar", "esbuild", "fast-glob"]
+			"range": "12.0.0-next.0 - 20.0.0-rc.2",
+			"advisories": ["@angular/compiler-cli", "cacache", "esbuild"]
 		},
 		{
 			"name": "node-forge",
@@ -452,12 +339,6 @@
 			]
 		},
 		{
-			"name": "sass",
-			"severity": "high",
-			"range": "1.6.0 - 1.78.0",
-			"advisories": ["chokidar"]
-		},
-		{
 			"name": "selfsigned",
 			"severity": "high",
 			"range": "1.1.1 - 4.0.1",
@@ -484,12 +365,7 @@
 				"https://github.com/advisories/GHSA-52v5-jr5w-gjxr"
 			]
 		},
-		{
-			"name": "sockjs",
-			"severity": "moderate",
-			"range": ">=0.3.17",
-			"advisories": ["uuid"]
-		},
+		{ "name": "sockjs", "severity": "moderate", "range": ">=0.3.17", "advisories": ["uuid"] },
 		{
 			"name": "tar",
 			"severity": "critical",
@@ -566,7 +442,6 @@
 			"severity": "high",
 			"range": "<=5.2.7",
 			"advisories": [
-				"chokidar",
 				"https://github.com/advisories/GHSA-4v9v-hfq4-rm2v",
 				"https://github.com/advisories/GHSA-79cf-xcqc-c78w",
 				"https://github.com/advisories/GHSA-9jgg-88mc-972h",

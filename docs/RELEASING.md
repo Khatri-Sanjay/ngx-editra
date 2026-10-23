@@ -80,6 +80,15 @@ Playwright when using an installed Chromium browser, including Microsoft Edge.
 npm run validate
 ```
 
+The npm validation launcher reads `release.local.json` and selects the configured
+Node 20/npm 10 compiler and browser, even when the terminal uses Node 24. Explicit
+`EDITRA_NODE20`, `EDITRA_NPM_CLI`, and browser environment settings override the local
+paths. CI can use its existing Node 20/npm 10 and `CHROME_BIN` without a local file.
+Configure an installed Chrome/Edge executable as `browser`; the selected path is
+passed to both Karma and Playwright. Missing or incorrect toolchain versions fail
+before validation starts. Run the npm command instead of `node scripts/validate.mjs`
+when automatic local toolchain selection is needed.
+
 The command stops on the first failure. It checks generated documentation, formatting,
 lint, architectural boundaries, builds, types, all unit tests, packaged server rendering,
 archive contents, production playground/docs browser tests and performance observations.
