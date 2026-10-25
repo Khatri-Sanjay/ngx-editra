@@ -2,6 +2,9 @@
 	"name": "ngx-editra-workspace",
 	"version": "0.0.0",
 	"scripts": {
+		"dev": "node scripts/start-apps.mjs",
+		"check": "node scripts/run-validation.mjs",
+		"check:release": "node scripts/run-validation.mjs --compatibility",
 		"ng": "ng",
 		"validate": "node scripts/run-validation.mjs",
 		"release": "node scripts/release.mjs",

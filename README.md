@@ -32,6 +32,25 @@ explains repository development and deployment.
 
 ## Develop locally
 
+### Everyday commands
+
+Run commands from the workspace root. These cover the normal development workflow:
+
+| Command                   | Purpose                                                         |
+| ------------------------- | --------------------------------------------------------------- |
+| `npm run dev`             | Start playground and documentation together                     |
+| `npm run build`           | Build the npm library                                           |
+| `npm run format`          | Format source and documentation                                 |
+| `npm run check`           | Run the complete workspace validation                           |
+| `npm run check:release`   | Also test the packed library against supported Angular versions |
+| `npm run release`         | Prepare and validate a release without publishing               |
+| `npm run release:publish` | Verify and publish the prepared archive after confirmation      |
+
+Existing commands such as `start:all` and `validate` remain available. Use the
+[tooling guide](scripts/README.md) for individual commands and script ownership.
+
+### Setup
+
 The root library compiler uses Node 20.20.2/npm 10.8.2. The public websites use independent
 Angular 22/TypeScript 6 projects with Node 24/npm 11. Configure `node24` once in
 `release.local.json` (or `EDITRA_NODE24`); root scripts select the app runtime and
@@ -40,7 +59,7 @@ the deployed applications. Consumers use their own Angular runtime requirements.
 
 ```sh
 npm ci
-npm run start:all
+npm run dev
 ```
 
 Playground: http://localhost:4200. Documentation: http://localhost:4300.
