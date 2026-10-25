@@ -75,7 +75,7 @@
 		"ng-packagr": "^17.3.0",
 		"prettier": "3.3.3",
 		"typescript": "~5.4.2",
-		"markdown-it": "14.3.3",
+		"markdown-it": "15.0.3",
 		"@angular/common": "^17.3.0",
 		"@angular/compiler": "^17.3.0",
 		"@angular/core": "^17.3.0",
